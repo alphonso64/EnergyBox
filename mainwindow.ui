@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1024</width>
-    <height>600</height>
+    <height>601</height>
    </rect>
   </property>
   <property name="font">
@@ -103,16 +103,16 @@
     <widget class="QLabel" name="label_IPower_name_180">
      <property name="geometry">
       <rect>
-       <x>540</x>
-       <y>95</y>
-       <width>81</width>
+       <x>520</x>
+       <y>40</y>
+       <width>101</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -122,16 +122,16 @@
     <widget class="QLabel" name="label_IPower_name_179">
      <property name="geometry">
       <rect>
-       <x>190</x>
-       <y>95</y>
-       <width>101</width>
+       <x>170</x>
+       <y>40</y>
+       <width>121</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -141,16 +141,16 @@
     <widget class="QLabel" name="label_IPower_name_181">
      <property name="geometry">
       <rect>
-       <x>210</x>
-       <y>150</y>
-       <width>81</width>
+       <x>240</x>
+       <y>100</y>
+       <width>51</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -160,16 +160,16 @@
     <widget class="QLabel" name="label_IPower_name_182">
      <property name="geometry">
       <rect>
-       <x>210</x>
-       <y>210</y>
-       <width>81</width>
+       <x>190</x>
+       <y>160</y>
+       <width>101</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -179,16 +179,16 @@
     <widget class="QLabel" name="label_IPower_name_183">
      <property name="geometry">
       <rect>
-       <x>520</x>
-       <y>210</y>
-       <width>101</width>
+       <x>500</x>
+       <y>160</y>
+       <width>121</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -198,16 +198,16 @@
     <widget class="QLabel" name="label_IPower_name_189">
      <property name="geometry">
       <rect>
-       <x>170</x>
-       <y>270</y>
-       <width>121</width>
+       <x>140</x>
+       <y>220</y>
+       <width>151</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -217,16 +217,16 @@
     <widget class="QLabel" name="label_IPower_name_190">
      <property name="geometry">
       <rect>
-       <x>540</x>
-       <y>270</y>
-       <width>81</width>
+       <x>520</x>
+       <y>220</y>
+       <width>101</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -236,16 +236,16 @@
     <widget class="QLabel" name="label_IPower_name_191">
      <property name="geometry">
       <rect>
-       <x>210</x>
-       <y>330</y>
-       <width>81</width>
+       <x>190</x>
+       <y>280</y>
+       <width>101</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -255,16 +255,16 @@
     <widget class="QLabel" name="label_IPower_name_200">
      <property name="geometry">
       <rect>
-       <x>530</x>
-       <y>330</y>
-       <width>91</width>
+       <x>520</x>
+       <y>280</y>
+       <width>111</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -293,123 +293,248 @@
       <string>保存</string>
      </property>
     </widget>
-    <widget class="QTextEdit" name="textEdit">
+    <widget class="QLineEdit" name="lineEdit_radio">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>40</y>
+       <width>120</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>18</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="maxLength">
+      <number>10</number>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_charge">
      <property name="geometry">
       <rect>
        <x>300</x>
        <y>100</y>
-       <width>121</width>
-       <height>30</height>
+       <width>120</width>
+       <height>35</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>18</pointsize>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="maxLength">
+      <number>10</number>
+     </property>
     </widget>
-    <widget class="QTextEdit" name="textEdit_2">
+    <widget class="QLineEdit" name="lineEdit_power">
      <property name="geometry">
       <rect>
        <x>300</x>
-       <y>155</y>
-       <width>121</width>
-       <height>30</height>
+       <y>160</y>
+       <width>120</width>
+       <height>35</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>18</pointsize>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="maxLength">
+      <number>10</number>
+     </property>
     </widget>
-    <widget class="QTextEdit" name="textEdit_3">
+    <widget class="QLineEdit" name="lineEdit_current_idle_max">
      <property name="geometry">
       <rect>
        <x>300</x>
-       <y>215</y>
-       <width>121</width>
-       <height>30</height>
+       <y>220</y>
+       <width>120</width>
+       <height>35</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>18</pointsize>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="maxLength">
+      <number>10</number>
+     </property>
     </widget>
-    <widget class="QTextEdit" name="textEdit_4">
+    <widget class="QLineEdit" name="lineEdit_loading_pressure">
      <property name="geometry">
       <rect>
        <x>300</x>
-       <y>275</y>
-       <width>121</width>
-       <height>30</height>
+       <y>280</y>
+       <width>120</width>
+       <height>35</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>18</pointsize>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="maxLength">
+      <number>10</number>
+     </property>
     </widget>
-    <widget class="QTextEdit" name="textEdit_5">
+    <widget class="QLineEdit" name="lineEdit_gas">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>335</y>
-       <width>121</width>
-       <height>30</height>
+       <x>640</x>
+       <y>160</y>
+       <width>120</width>
+       <height>35</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>18</pointsize>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="maxLength">
+      <number>10</number>
+     </property>
     </widget>
-    <widget class="QTextEdit" name="textEdit_6">
+    <widget class="QLineEdit" name="lineEdit_current_down_max">
      <property name="geometry">
       <rect>
-       <x>630</x>
-       <y>100</y>
-       <width>121</width>
-       <height>30</height>
+       <x>640</x>
+       <y>220</y>
+       <width>120</width>
+       <height>35</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>18</pointsize>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="maxLength">
+      <number>10</number>
+     </property>
     </widget>
-    <widget class="QTextEdit" name="textEdit_7">
+    <widget class="QLineEdit" name="lineEdit_unloading_pressure">
      <property name="geometry">
       <rect>
-       <x>630</x>
-       <y>215</y>
-       <width>121</width>
-       <height>30</height>
+       <x>640</x>
+       <y>280</y>
+       <width>120</width>
+       <height>35</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>18</pointsize>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="maxLength">
+      <number>10</number>
+     </property>
     </widget>
-    <widget class="QTextEdit" name="textEdit_8">
+    <widget class="QComboBox" name="comboBox_store_type">
      <property name="geometry">
       <rect>
-       <x>630</x>
-       <y>275</y>
-       <width>121</width>
-       <height>30</height>
+       <x>640</x>
+       <y>40</y>
+       <width>111</width>
+       <height>40</height>
       </rect>
      </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="textEdit_9">
-     <property name="geometry">
-      <rect>
-       <x>630</x>
-       <y>335</y>
-       <width>121</width>
-       <height>30</height>
-      </rect>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>18</pointsize>
+      </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">background-color: rgb(255, 248, 249);</string>
+     </property>
+     <property name="maxCount">
+      <number>3</number>
      </property>
     </widget>
+    <zorder>label_IPower_name_180</zorder>
+    <zorder>label_IPower_name_179</zorder>
+    <zorder>label_IPower_name_181</zorder>
+    <zorder>label_IPower_name_182</zorder>
+    <zorder>label_IPower_name_183</zorder>
+    <zorder>label_IPower_name_189</zorder>
+    <zorder>label_IPower_name_190</zorder>
+    <zorder>label_IPower_name_191</zorder>
+    <zorder>label_IPower_name_200</zorder>
+    <zorder>pushButton_12</zorder>
+    <zorder>lineEdit_radio</zorder>
+    <zorder>lineEdit_charge</zorder>
+    <zorder>lineEdit_power</zorder>
+    <zorder>lineEdit_current_idle_max</zorder>
+    <zorder>lineEdit_loading_pressure</zorder>
+    <zorder>lineEdit_gas</zorder>
+    <zorder>lineEdit_current_down_max</zorder>
+    <zorder>lineEdit_unloading_pressure</zorder>
+    <zorder>comboBox_store_type</zorder>
+    <zorder>widget_7</zorder>
    </widget>
    <widget class="QWidget" name="widget_5" native="true">
     <property name="geometry">
@@ -1954,19 +2079,24 @@
       <height>510</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>18</pointsize>
+     </font>
+    </property>
     <widget class="QLabel" name="label_IPower_name">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>215</y>
-       <width>81</width>
+       <x>110</x>
+       <y>205</y>
+       <width>101</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -1977,7 +2107,7 @@
      <property name="geometry">
       <rect>
        <x>130</x>
-       <y>260</y>
+       <y>255</y>
        <width>81</width>
        <height>40</height>
       </rect>
@@ -1985,7 +2115,7 @@
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -1998,13 +2128,13 @@
        <x>180</x>
        <y>380</y>
        <width>90</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -2033,13 +2163,13 @@
        <x>180</x>
        <y>450</y>
        <width>90</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -2052,16 +2182,16 @@
     <widget class="QLabel" name="label_IPower_name_4">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>360</y>
-       <width>151</width>
+       <width>161</width>
        <height>71</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>12</pointsize>
+       <pointsize>14</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2075,13 +2205,13 @@
        <x>390</x>
        <y>380</y>
        <width>90</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -2108,15 +2238,15 @@
      <property name="geometry">
       <rect>
        <x>230</x>
-       <y>265</y>
+       <y>260</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -2130,7 +2260,7 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>360</y>
+       <y>350</y>
        <width>1061</width>
        <height>10</height>
       </rect>
@@ -2142,16 +2272,16 @@
     <widget class="QLabel" name="label_IPower_name_3">
      <property name="geometry">
       <rect>
-       <x>560</x>
-       <y>260</y>
-       <width>81</width>
+       <x>540</x>
+       <y>255</y>
+       <width>101</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2162,15 +2292,15 @@
      <property name="geometry">
       <rect>
        <x>230</x>
-       <y>220</y>
+       <y>210</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -2197,15 +2327,15 @@
      <property name="geometry">
       <rect>
        <x>660</x>
-       <y>265</y>
+       <y>260</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -2218,16 +2348,16 @@
     <widget class="QLabel" name="label_IPower_name_9">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>430</y>
-       <width>151</width>
+       <width>161</width>
        <height>71</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>12</pointsize>
+       <pointsize>14</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2241,13 +2371,13 @@
        <x>390</x>
        <y>450</y>
        <width>90</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -2260,16 +2390,16 @@
     <widget class="QLabel" name="label_IPower_name_2">
      <property name="geometry">
       <rect>
-       <x>560</x>
-       <y>215</y>
-       <width>81</width>
+       <x>540</x>
+       <y>205</y>
+       <width>101</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2280,15 +2410,15 @@
      <property name="geometry">
       <rect>
        <x>660</x>
-       <y>220</y>
+       <y>210</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -2310,7 +2440,7 @@
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2329,7 +2459,7 @@
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2354,14 +2484,14 @@
       <rect>
        <x>550</x>
        <y>375</y>
-       <width>81</width>
+       <width>101</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2373,14 +2503,14 @@
       <rect>
        <x>660</x>
        <y>380</y>
-       <width>201</width>
-       <height>30</height>
+       <width>231</width>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>16</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -2395,14 +2525,14 @@
       <rect>
        <x>550</x>
        <y>445</y>
-       <width>81</width>
+       <width>101</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2414,14 +2544,14 @@
       <rect>
        <x>660</x>
        <y>450</y>
-       <width>201</width>
-       <height>30</height>
+       <width>231</width>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>16</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -2487,7 +2617,7 @@
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2500,13 +2630,13 @@
        <x>660</x>
        <y>310</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -2528,7 +2658,7 @@
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2541,13 +2671,13 @@
        <x>230</x>
        <y>310</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -2610,7 +2740,7 @@
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2621,15 +2751,15 @@
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>75</y>
+       <y>70</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -2651,7 +2781,7 @@
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2662,15 +2792,15 @@
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>135</y>
+       <y>130</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -2692,7 +2822,7 @@
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2703,15 +2833,15 @@
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>195</y>
+       <y>190</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -2725,15 +2855,15 @@
      <property name="geometry">
       <rect>
        <x>590</x>
-       <y>200</y>
+       <y>190</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -2747,15 +2877,15 @@
      <property name="geometry">
       <rect>
        <x>590</x>
-       <y>140</y>
+       <y>130</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -2769,15 +2899,15 @@
      <property name="geometry">
       <rect>
        <x>590</x>
-       <y>75</y>
+       <y>70</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -2790,16 +2920,16 @@
     <widget class="QLabel" name="label_IPower_name_8">
      <property name="geometry">
       <rect>
-       <x>300</x>
+       <x>290</x>
        <y>25</y>
-       <width>41</width>
+       <width>51</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2811,14 +2941,14 @@
       <rect>
        <x>640</x>
        <y>25</y>
-       <width>41</width>
+       <width>51</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2837,7 +2967,7 @@
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2856,7 +2986,7 @@
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2875,7 +3005,7 @@
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2894,7 +3024,7 @@
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2905,7 +3035,7 @@
      <property name="geometry">
       <rect>
        <x>750</x>
-       <y>135</y>
+       <y>130</y>
        <width>41</width>
        <height>40</height>
       </rect>
@@ -2913,7 +3043,7 @@
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2924,7 +3054,7 @@
      <property name="geometry">
       <rect>
        <x>750</x>
-       <y>195</y>
+       <y>190</y>
        <width>41</width>
        <height>40</height>
       </rect>
@@ -2932,7 +3062,7 @@
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2942,16 +3072,16 @@
     <widget class="QLabel" name="label_IPower_name_21">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>170</x>
        <y>305</y>
-       <width>41</width>
+       <width>51</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -2962,15 +3092,15 @@
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>310</y>
+       <y>305</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -2983,16 +3113,16 @@
     <widget class="QLabel" name="label_IPower_name_23">
      <property name="geometry">
       <rect>
-       <x>490</x>
+       <x>470</x>
        <y>305</y>
-       <width>81</width>
+       <width>101</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -3003,15 +3133,15 @@
      <property name="geometry">
       <rect>
        <x>590</x>
-       <y>310</y>
+       <y>305</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -3024,16 +3154,16 @@
     <widget class="QLabel" name="label_IPower_name_25">
      <property name="geometry">
       <rect>
-       <x>140</x>
+       <x>120</x>
        <y>360</y>
-       <width>81</width>
+       <width>101</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -3044,15 +3174,15 @@
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>365</y>
+       <y>360</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -3074,7 +3204,7 @@
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -3084,16 +3214,16 @@
     <widget class="QLabel" name="label_IPower_name_27">
      <property name="geometry">
       <rect>
-       <x>490</x>
+       <x>470</x>
        <y>360</y>
-       <width>81</width>
+       <width>101</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -3104,15 +3234,15 @@
      <property name="geometry">
       <rect>
        <x>590</x>
-       <y>365</y>
+       <y>360</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -3134,7 +3264,7 @@
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -3146,14 +3276,14 @@
       <rect>
        <x>400</x>
        <y>415</y>
-       <width>41</width>
+       <width>51</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -3163,16 +3293,16 @@
     <widget class="QLabel" name="label_IPower_name_30">
      <property name="geometry">
       <rect>
-       <x>140</x>
+       <x>120</x>
        <y>415</y>
-       <width>81</width>
+       <width>101</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -3183,15 +3313,15 @@
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>420</y>
+       <y>415</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -3249,7 +3379,7 @@
     <widget class="QLabel" name="label_IPower_name_31">
      <property name="geometry">
       <rect>
-       <x>750</x>
+       <x>760</x>
        <y>60</y>
        <width>41</width>
        <height>40</height>
@@ -3258,7 +3388,7 @@
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -3269,15 +3399,15 @@
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>65</y>
+       <y>60</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -3290,16 +3420,16 @@
     <widget class="QLabel" name="label_IPower_name_32">
      <property name="geometry">
       <rect>
-       <x>490</x>
+       <x>480</x>
        <y>60</y>
-       <width>81</width>
+       <width>101</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -3309,16 +3439,16 @@
     <widget class="QLabel" name="label_env_humidity_content">
      <property name="geometry">
       <rect>
-       <x>590</x>
-       <y>65</y>
+       <x>600</x>
+       <y>60</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -3331,16 +3461,16 @@
     <widget class="QLabel" name="label_IPower_name_33">
      <property name="geometry">
       <rect>
-       <x>140</x>
+       <x>120</x>
        <y>60</y>
-       <width>81</width>
+       <width>101</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -3359,7 +3489,7 @@
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -3369,7 +3499,7 @@
     <widget class="QLabel" name="label_IPower_name_35">
      <property name="geometry">
       <rect>
-       <x>750</x>
+       <x>760</x>
        <y>120</y>
        <width>41</width>
        <height>40</height>
@@ -3378,7 +3508,7 @@
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -3389,15 +3519,15 @@
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>125</y>
+       <y>120</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -3410,16 +3540,16 @@
     <widget class="QLabel" name="label_IPower_name_36">
      <property name="geometry">
       <rect>
-       <x>490</x>
+       <x>480</x>
        <y>120</y>
-       <width>81</width>
+       <width>101</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -3429,16 +3559,16 @@
     <widget class="QLabel" name="label_air_pressure_content">
      <property name="geometry">
       <rect>
-       <x>590</x>
-       <y>125</y>
+       <x>600</x>
+       <y>120</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -3451,16 +3581,16 @@
     <widget class="QLabel" name="label_IPower_name_37">
      <property name="geometry">
       <rect>
-       <x>140</x>
+       <x>120</x>
        <y>120</y>
-       <width>81</width>
+       <width>101</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -3479,7 +3609,7 @@
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -3489,16 +3619,16 @@
     <widget class="QLabel" name="label_IPower_name_47">
      <property name="geometry">
       <rect>
-       <x>140</x>
+       <x>160</x>
        <y>180</y>
-       <width>81</width>
+       <width>61</width>
        <height>40</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="text">
@@ -3528,15 +3658,15 @@
      <property name="geometry">
       <rect>
        <x>240</x>
-       <y>185</y>
+       <y>180</y>
        <width>151</width>
-       <height>30</height>
+       <height>35</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -3588,6 +3718,19 @@
      <enum>QLCDNumber::Flat</enum>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_10">
+    <property name="geometry">
+     <rect>
+      <x>934</x>
+      <y>550</y>
+      <width>91</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>PushButton</string>
+    </property>
+   </widget>
    <zorder>line</zorder>
    <zorder>label</zorder>
    <zorder>label_2</zorder>
@@ -3596,12 +3739,13 @@
    <zorder>pushButton</zorder>
    <zorder>pushButton_2</zorder>
    <zorder>pushButton_3</zorder>
-   <zorder>widget_5</zorder>
    <zorder>lcdNumber_clock</zorder>
-   <zorder>widget_2</zorder>
+   <zorder>pushButton_10</zorder>
+   <zorder>widget_5</zorder>
+   <zorder>widget</zorder>
    <zorder>widget_7</zorder>
    <zorder>widget_6</zorder>
-   <zorder>widget</zorder>
+   <zorder>widget_2</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
