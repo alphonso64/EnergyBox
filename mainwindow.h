@@ -9,7 +9,9 @@
 #include <QDateTime>
 #include <QTextCodec>
 #include "sysparam.h"
+#include "recordworkthread.h"
 #include "dataworkerthread.h"
+#include "commondial.h"
 using namespace std;
 namespace Ui {
 class MainWindow;
@@ -58,8 +60,8 @@ private slots:
     void on_pushButton_10_clicked();
 
 private:
-    void setInfo();
-    void setInfo_detail();
+    void setInfo(EnergyParam param);
+    void setInfo_detail(EnergyParam param);
     QString itos(int val);
 
 
@@ -70,9 +72,12 @@ private:
     QTimer *timer;
     QApplication *app;
     SysParam sysparam;
-    DataWorkerThread *datath;
+    RecordWorkThread *recorder;
+    DataWorkerThread *dataWoker;
     QString record_start_time;
     QString record_end_time;
+    CommonDial *flowDial;
+    CommonDial *powerDial;
 };
 
 #endif // MAINWINDOW_H

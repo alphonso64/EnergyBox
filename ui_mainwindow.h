@@ -22,7 +22,6 @@
 #include <QtGui/QMainWindow>
 #include <QtGui/QPushButton>
 #include <QtGui/QWidget>
-#include "qwt_dial.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -136,11 +135,9 @@ public:
     QLabel *label_IPower_name;
     QLabel *label_Power_name;
     QLabel *label_power_save_a_content;
-    QwtDial *Dial;
     QLabel *label_power_save_b_content;
     QLabel *label_IPower_name_4;
     QLabel *label_power_saverate_a_content;
-    QwtDial *Dial_2;
     QLabel *label_power_content;
     QFrame *line_2;
     QLabel *label_IPower_name_3;
@@ -354,25 +351,6 @@ public:
         comboBox_store_type->setFont(font3);
         comboBox_store_type->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 248, 249);"));
         comboBox_store_type->setMaxCount(3);
-        label_IPower_name_180->raise();
-        label_IPower_name_179->raise();
-        label_IPower_name_181->raise();
-        label_IPower_name_182->raise();
-        label_IPower_name_183->raise();
-        label_IPower_name_189->raise();
-        label_IPower_name_190->raise();
-        label_IPower_name_191->raise();
-        label_IPower_name_200->raise();
-        pushButton_12->raise();
-        lineEdit_radio->raise();
-        lineEdit_charge->raise();
-        lineEdit_power->raise();
-        lineEdit_current_idle_max->raise();
-        lineEdit_loading_pressure->raise();
-        lineEdit_gas->raise();
-        lineEdit_current_down_max->raise();
-        lineEdit_unloading_pressure->raise();
-        comboBox_store_type->raise();
         widget_5 = new QWidget(centralWidget);
         widget_5->setObjectName(QString::fromUtf8("widget_5"));
         widget_5->setGeometry(QRect(0, 90, 900, 500));
@@ -729,10 +707,6 @@ public:
         label_power_save_a_content->setGeometry(QRect(180, 380, 90, 35));
         label_power_save_a_content->setFont(font3);
         label_power_save_a_content->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
-        Dial = new QwtDial(widget_2);
-        Dial->setObjectName(QString::fromUtf8("Dial"));
-        Dial->setGeometry(QRect(190, 20, 201, 151));
-        Dial->setProperty("lineWidth", QVariant(4));
         label_power_save_b_content = new QLabel(widget_2);
         label_power_save_b_content->setObjectName(QString::fromUtf8("label_power_save_b_content"));
         label_power_save_b_content->setGeometry(QRect(180, 450, 90, 35));
@@ -747,10 +721,6 @@ public:
         label_power_saverate_a_content->setGeometry(QRect(390, 380, 90, 35));
         label_power_saverate_a_content->setFont(font3);
         label_power_saverate_a_content->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
-        Dial_2 = new QwtDial(widget_2);
-        Dial_2->setObjectName(QString::fromUtf8("Dial_2"));
-        Dial_2->setGeometry(QRect(620, 20, 201, 151));
-        Dial_2->setProperty("lineWidth", QVariant(4));
         label_power_content = new QLabel(widget_2);
         label_power_content->setObjectName(QString::fromUtf8("label_power_content"));
         label_power_content->setGeometry(QRect(230, 260, 151, 35));
@@ -863,15 +833,12 @@ public:
         label_IPower_name->raise();
         label_Power_name->raise();
         label_power_save_a_content->raise();
-        Dial->raise();
         label_power_save_b_content->raise();
         label_IPower_name_4->raise();
         label_power_saverate_a_content->raise();
-        Dial_2->raise();
         label_power_content->raise();
         line_2->raise();
         label_IPower_name_3->raise();
-        label_IPower_content->raise();
         label_flow_content->raise();
         label_IPower_name_9->raise();
         label_power_saverate_b_content->raise();
@@ -891,6 +858,7 @@ public:
         label_loding_rate_content->raise();
         label_Power_name_3->raise();
         label_power_radio_content->raise();
+        label_IPower_content->raise();
         widget_6 = new QWidget(centralWidget);
         widget_6->setObjectName(QString::fromUtf8("widget_6"));
         widget_6->setGeometry(QRect(0, 90, 900, 510));
@@ -1130,8 +1098,8 @@ public:
         pushButton_10->raise();
         widget_5->raise();
         widget->raise();
-        widget_7->raise();
         widget_6->raise();
+        widget_7->raise();
         widget_2->raise();
 
         retranslateUi(MainWindow);

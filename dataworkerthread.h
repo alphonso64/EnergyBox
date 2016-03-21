@@ -6,11 +6,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <QDebug>
-#include <xlslib/xlslib.h>
-#include <pthread.h>
-using namespace xlslib_core;
+#include <wiringPi.h>
+#include <wiringSerial.h>
+#include <unistd.h>
+#include "energyparam.h"
+#include <QMutex>
 using namespace std;
-/*
+
 class DataWorkerThread : public QThread
 {
     Q_OBJECT
@@ -23,74 +25,80 @@ public:
 protected:
     void run()
     {
-        workbook wb;
-
-        xf_t* xf = wb.xformat();
-
-        worksheet* ws;
-
-        ws = wb.sheet("sheet1");
-
-        string label = "Hello, World!";
-
-        for(int i=0;i<200;i++)
+        int fd ;
+        if ((fd = serialOpen ("/dev/ttyAMA0", 115200)) < 0)
         {
-            for(int j=0;j<26;j++)
-                ws->label(i,j,label,xf);
+//          fprintf (stderr, "Unable to open serial device: %s\n", strerror (errno)) ;
+          return ;
         }
-        ws = wb.sheet("sheet2");
-        for(int i=0;i<20;i++)
+        char temp[100];
+        while(1)
         {
-            for(int j=0;j<26;j++)
-                ws->label(i,j,label,xf);
-        }
 
-        //wb.Dump("workbook.xls");
-
-        recorderFlag = false;
-        isFirstFlag = false;
-		int cnt=0;
-        while(true)
-        {
-			isFirstFlag = true;
-            if(recorderFlag)
+            int val = serialDataAvail (fd);
+            if(val == 100)
             {
-                if(!isFirstFlag)
+                for(int i=0;i<100;i++)
                 {
-                    qDebug() << "start: " ;
+                    temp[i] = serialGetchar(fd);
                 }
-                isFirstFlag = true;
-            }else
+                if(temp[0] == 0x55 && temp[1] == 0x5a)
+                {
+                    parseParam(temp+2);
+                }
+                printf("read size %d\n",val);
+            }else if(val > 100)
             {
-                if(isFirstFlag)
-                {
-                    qDebug() << "save file : " << title ;
-                    wb.Dump("workbook.xls");
-                }
-                isFirstFlag = false;
+                serialFlush(fd);
             }
+
         }
+
     }
 
-public:
-    bool recorderFlag;
-    bool isFirstFlag;
-    QString title;
-};*/
-
-class DataWorkerThread
-{
-public:
-    DataWorkerThread()
+    void parseParam(char *temp)
     {
+        mutex.lock();
+        float *data = (float *)temp;
+        energyparam.voltage_a = data[0];
+        energyparam.voltage_b = data[1];
+        energyparam.voltage_c = data[2];
+        energyparam.current_a = data[3];
+        energyparam.current_b = data[4];
+        energyparam.current_c = data[5];
 
+        energyparam.power_factor = data[6];
+        energyparam.frequency = data[7];
+        energyparam.active_power = data[8];
+        energyparam.reactive_power = data[9];
+        energyparam.apparent_power = data[10];
+
+        energyparam.env_temp = data[11];
+        energyparam.env_humidity = data[12];
+        energyparam.air_temp = data[13];
+        energyparam.air_pressure = data[14];
+        energyparam.flow_content = data[15];
+        energyparam.time = data[16];
+
+        printf("param: %f %f\n",energyparam.voltage_a,energyparam.flow_content);
+        mutex.unlock();
     }
-	
-	void run();
-	
 public:
+    EnergyParam getEnergyParam()
+    {
+        mutex.lock();
+        EnergyParam param;
+        param.cpy(energyparam);
+        mutex.unlock();
+        return param;
+    }
+
+private:
+    EnergyParam energyparam;
+    QMutex mutex;
+
+
 
 };
-
 
 #endif // DATAWORKERTHREAD_H

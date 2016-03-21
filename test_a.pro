@@ -13,7 +13,10 @@ HEADERS += digitalinputpanel.h \
            mainwindow.h \
            sysparam.h \
     util.h \
-    dataworkerthread.h
+    dataworkerthread.h \
+    recordworkthread.h \
+    energyparam.h \
+    commondial.h
 FORMS += digitalinputpanel.ui mainwindow.ui
 SOURCES += digitalinputpanel.cpp \
            digitalinputpanelcontext.cpp \
@@ -21,4 +24,7 @@ SOURCES += digitalinputpanel.cpp \
            mainwindow.cpp \
            sysparam.cpp \
     util.cpp \
-    dataworkerthread.cpp
+    dataworkerthread.cpp \
+    recordworkthread.cpp \
+    energyparam.cpp \
+    commondial.cpp

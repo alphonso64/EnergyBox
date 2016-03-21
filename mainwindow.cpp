@@ -1,11 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "digitalinputpanelcontext.h"
-
-extern bool recorderFlag;
-extern bool isFirstFlag;
-extern QString title;
-
+#include "energyparam.h"
+//extern bool recorderFlag;
+//extern bool isFirstFlag;
+//extern QString title;
+#include <qwt_dial_needle.h>
+#include <qwt_round_scale_draw.h>
 
 int cnt = 0;
 MainWindow::MainWindow(QWidget *parent) :
@@ -14,11 +15,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->label->setStyleSheet("color:#ffffff;");
-    ui->label_2->setPixmap(QPixmap("C:/Qt/qtcreator-2.5.0/test_a/logo_small.png"));
+    ui->label_2->setPixmap(QPixmap("./logo_small.png"));
    // QString *style = new QString("QPushButton{background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(214, 214, 214, 255), stop:0.5 rgba(236, 236, 236, 255));  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:pressed{background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(178, 223, 219, 255), stop:0.5 rgba(224, 242, 241, 255)); border-radius:5px;border: 1px solid #5F92B2;}");
    QString *style = new QString("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;} QPushButton:pressed{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;}");
    QString *style_a = new QString("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;} QPushButton:pressed{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;}");
-   this->setWindowFlags(Qt::CustomizeWindowHint) ;
+   //this->setWindowFlags(Qt::CustomizeWindowHint) ;
    ui->pushButton->setStyleSheet(*style);
    ui->pushButton_2->setStyleSheet(*style);
    ui->pushButton_3->setStyleSheet(*style_a);
@@ -84,6 +85,24 @@ MainWindow::MainWindow(QWidget *parent) :
    }
 
    startFlag = -1;
+
+   recorder = new RecordWorkThread(this);
+   dataWoker = new DataWorkerThread(this);
+   recorder->dataWoker = dataWoker;
+   dataWoker->start();
+
+   flowDial = new CommonDial( ui->widget_2 );
+   flowDial->setScaleStepSize( 60.0 );
+   flowDial->setScale( 0.0, 300.0 );
+   flowDial->scaleDraw()->setPenWidth( 2 );
+   flowDial->move(180,0);
+
+   powerDial = new CommonDial( ui->widget_2 );
+   powerDial->setScaleStepSize( 20.0 );
+   powerDial->setScale( 0.0, 120.0 );
+   powerDial->scaleDraw()->setPenWidth( 2 );
+   powerDial->move(620,0);
+
   }
 
 MainWindow::~MainWindow()
@@ -126,6 +145,9 @@ void MainWindow::on_pushButton_2_pressed()
         ui->pushButton->setEnabled(true);
         ui->pushButton_2->setEnabled(false);
         ui->pushButton_5->setEnabled(true);
+
+        ui->label_IPower_content->raise();
+
         pageIndex =2;
     }
 }
@@ -138,14 +160,11 @@ void MainWindow::on_pushButton_3_pressed()
         ui->pushButton_3->setEnabled(false);
 
         QDateTime  time =QDateTime::currentDateTime();
-        record_start_time = time.toString("yyyy-MM-dd hh-mm-ss");
+        record_start_time = time.toString("yy/MM/dd hh:mm:ss");
         ui->label_start_time_content->setText(record_start_time);
         ui->label_end_time_content->clear();
+        recorder->start();
 
-        datath = new DataWorkerThread();
-		datath->run();
-		
-        printf("set recorderFlag\n");
     }
 
 }
@@ -158,11 +177,13 @@ void MainWindow::on_pushButton_4_pressed()
         startFlag = -1;
         ui->pushButton_3->setEnabled(true);
         QDateTime  time =QDateTime::currentDateTime();
-        record_end_time = time.toString("yyyy-MM-dd hh-mm-ss");
+        record_end_time = time.toString("yy/MM/dd hh:mm:ss");
         ui->label_end_time_content->setText(record_end_time);
 
-        title = QString(record_start_time+"_______"+record_end_time+".xls");
-        recorderFlag = true;
+        recorder->title = QString(record_start_time+"_______"+record_end_time+".xls");
+		recorder->title.replace(":","-");
+        recorder->title.replace("/","-");
+        recorder->recorderFlag = true;
     }
 }
 
@@ -216,48 +237,51 @@ void MainWindow::show_time(){
     QString string_a = time.toString("hh:mm:ss");
     ui->lcdNumber_clock->display(string_a);
     cnt++;
+    EnergyParam param = dataWoker->getEnergyParam();
     if(startFlag == 0){
-        setInfo();
+        setInfo(param);
     }
-    setInfo_detail();
+    setInfo_detail(param);
+
+    flowDial->setValue( param.flow_content );
 
 }
 
-void MainWindow::setInfo(){
+void MainWindow::setInfo(EnergyParam param){
     int temp = cnt;
-    ui->label_IPower_content->setText(itos(temp++));
-    ui->label_IFlow_content->setText(itos(temp++));
-    ui->label_power_content->setText(itos(temp++));
-    ui->label_flow_content->setText(itos(temp++));
-    ui->label_loding_rate_content->setText(itos(temp++));
-    ui->label_power_radio_content->setText(itos(temp++));
-    ui->label_power_save_a_content->setText(itos(temp++));
-    ui->label_power_save_b_content->setText(itos(temp++));
-    ui->label_power_saverate_a_content->setText(itos(temp++));
-    ui->label_power_saverate_b_content->setText(itos(temp++));
+//    ui->label_IPower_content->setText(itos(temp++));
+    ui->label_IFlow_content->setText(QString("%1").arg(param.flow_content));
+//    ui->label_power_content->setText(itos(temp++));
+//    ui->label_flow_content->setText(itos(temp++));
+//    ui->label_loding_rate_content->setText(itos(temp++));
+//    ui->label_power_radio_content->setText(itos(temp++));
+//    ui->label_power_save_a_content->setText(itos(temp++));
+//    ui->label_power_save_b_content->setText(itos(temp++));
+//    ui->label_power_saverate_a_content->setText(itos(temp++));
+//    ui->label_power_saverate_b_content->setText(itos(temp++));
 }
 
-void MainWindow::setInfo_detail(){
+void MainWindow::setInfo_detail(EnergyParam param){
     int temp = cnt;
-    ui->label_env_humidity_content->setText(itos(temp++));
-    ui->label_env_temp_content->setText(itos(temp++));
-    ui->label_air_pressure_content->setText(itos(temp++));
-    ui->label_air_temp_content->setText(itos(temp++));
-    ui->label_flow_content_1->setText(itos(temp++));
+    ui->label_env_humidity_content->setText(QString("%1").arg(param.env_humidity));
+    ui->label_env_temp_content->setText(QString("%1").arg(param.env_temp));
+    ui->label_air_pressure_content->setText(QString("%1").arg(param.air_pressure));
+    ui->label_air_temp_content->setText(QString("%1").arg(param.air_temp));
+    ui->label_flow_content_1->setText(QString("%1").arg(param.flow_content));
 
-    ui->label_voltage_a_content->setText(itos(temp++));
-    ui->label_voltage_b_content->setText(itos(temp++));
-    ui->label_voltage_c_content->setText(itos(temp++));
+    ui->label_voltage_a_content->setText(QString("%1").arg(param.voltage_a));
+    ui->label_voltage_b_content->setText(QString("%1").arg(param.voltage_b));
+    ui->label_voltage_c_content->setText(QString("%1").arg(param.voltage_c));
 
-    ui->label_current_a_content->setText(itos(temp++));
-    ui->label_current_b_content->setText(itos(temp++));
-    ui->label_current_c_content->setText(itos(temp++));
+    ui->label_current_a_content->setText(QString("%1").arg(param.current_a));
+    ui->label_current_b_content->setText(QString("%1").arg(param.current_b));
+    ui->label_current_c_content->setText(QString("%1").arg(param.current_c));
 
-    ui->label_active_power_content->setText(itos(temp++));
-    ui->label_reactive_power_content->setText(itos(temp++));
-    ui->label_power_factor_content->setText(itos(temp++));
-    ui->label_frequency_content->setText(itos(temp++));
-    ui->label_apparent_power_content->setText(itos(temp++));
+    ui->label_active_power_content->setText(QString("%1").arg(param.active_power));
+    ui->label_reactive_power_content->setText(QString("%1").arg(param.reactive_power));
+    ui->label_power_factor_content->setText(QString("%1").arg(param.power_factor));
+    ui->label_frequency_content->setText(QString("%1").arg(param.frequency));
+    ui->label_apparent_power_content->setText(QString("%1").arg(param.apparent_power));
 }
 
 QString MainWindow::itos(int val){

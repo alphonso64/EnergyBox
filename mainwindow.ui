@@ -515,26 +515,6 @@
       <number>3</number>
      </property>
     </widget>
-    <zorder>label_IPower_name_180</zorder>
-    <zorder>label_IPower_name_179</zorder>
-    <zorder>label_IPower_name_181</zorder>
-    <zorder>label_IPower_name_182</zorder>
-    <zorder>label_IPower_name_183</zorder>
-    <zorder>label_IPower_name_189</zorder>
-    <zorder>label_IPower_name_190</zorder>
-    <zorder>label_IPower_name_191</zorder>
-    <zorder>label_IPower_name_200</zorder>
-    <zorder>pushButton_12</zorder>
-    <zorder>lineEdit_radio</zorder>
-    <zorder>lineEdit_charge</zorder>
-    <zorder>lineEdit_power</zorder>
-    <zorder>lineEdit_current_idle_max</zorder>
-    <zorder>lineEdit_loading_pressure</zorder>
-    <zorder>lineEdit_gas</zorder>
-    <zorder>lineEdit_current_down_max</zorder>
-    <zorder>lineEdit_unloading_pressure</zorder>
-    <zorder>comboBox_store_type</zorder>
-    <zorder>widget_7</zorder>
    </widget>
    <widget class="QWidget" name="widget_5" native="true">
     <property name="geometry">
@@ -2144,19 +2124,6 @@
       <string/>
      </property>
     </widget>
-    <widget class="QwtDial" name="Dial" native="true">
-     <property name="geometry">
-      <rect>
-       <x>190</x>
-       <y>20</y>
-       <width>201</width>
-       <height>151</height>
-      </rect>
-     </property>
-     <property name="lineWidth" stdset="0">
-      <number>4</number>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_power_save_b_content">
      <property name="geometry">
       <rect>
@@ -2219,19 +2186,6 @@
      </property>
      <property name="text">
       <string/>
-     </property>
-    </widget>
-    <widget class="QwtDial" name="Dial_2" native="true">
-     <property name="geometry">
-      <rect>
-       <x>620</x>
-       <y>20</y>
-       <width>201</width>
-       <height>151</height>
-      </rect>
-     </property>
-     <property name="lineWidth" stdset="0">
-      <number>4</number>
      </property>
     </widget>
     <widget class="QLabel" name="label_power_content">
@@ -2690,15 +2644,12 @@
     <zorder>label_IPower_name</zorder>
     <zorder>label_Power_name</zorder>
     <zorder>label_power_save_a_content</zorder>
-    <zorder>Dial</zorder>
     <zorder>label_power_save_b_content</zorder>
     <zorder>label_IPower_name_4</zorder>
     <zorder>label_power_saverate_a_content</zorder>
-    <zorder>Dial_2</zorder>
     <zorder>label_power_content</zorder>
     <zorder>line_2</zorder>
     <zorder>label_IPower_name_3</zorder>
-    <zorder>label_IPower_content</zorder>
     <zorder>label_flow_content</zorder>
     <zorder>label_IPower_name_9</zorder>
     <zorder>label_power_saverate_b_content</zorder>
@@ -2718,6 +2669,7 @@
     <zorder>label_loding_rate_content</zorder>
     <zorder>label_Power_name_3</zorder>
     <zorder>label_power_radio_content</zorder>
+    <zorder>label_IPower_content</zorder>
    </widget>
    <widget class="QWidget" name="widget_6" native="true">
     <property name="geometry">
@@ -3743,19 +3695,12 @@
    <zorder>pushButton_10</zorder>
    <zorder>widget_5</zorder>
    <zorder>widget</zorder>
-   <zorder>widget_7</zorder>
    <zorder>widget_6</zorder>
+   <zorder>widget_7</zorder>
    <zorder>widget_2</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <customwidgets>
-  <customwidget>
-   <class>QwtDial</class>
-   <extends>QWidget</extends>
-   <header>qwt_dial.h</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>
