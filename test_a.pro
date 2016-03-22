@@ -16,8 +16,12 @@ HEADERS += digitalinputpanel.h \
     dataworkerthread.h \
     recordworkthread.h \
     energyparam.h \
-    commondial.h
-FORMS += digitalinputpanel.ui mainwindow.ui
+    commondial.h \
+    custommessagebox.h \
+    filewidget.h
+FORMS += digitalinputpanel.ui mainwindow.ui \
+    custommessagebox.ui \
+    filewidget.ui
 SOURCES += digitalinputpanel.cpp \
            digitalinputpanelcontext.cpp \
            main.cpp \
@@ -27,4 +31,6 @@ SOURCES += digitalinputpanel.cpp \
     dataworkerthread.cpp \
     recordworkthread.cpp \
     energyparam.cpp \
-    commondial.cpp
+    commondial.cpp \
+    custommessagebox.cpp \
+    filewidget.cpp

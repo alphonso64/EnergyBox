@@ -23,7 +23,9 @@ public:
     float air_temp;
     float air_pressure;
     float flow_content;
-	long time;
+    long time;
+    float power;
+    float vsp;
     void cpy(EnergyParam param);
 
 };

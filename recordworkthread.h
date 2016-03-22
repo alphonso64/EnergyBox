@@ -34,7 +34,9 @@ protected:
         worksheet* ws;
         ws = wb.sheet("sheet1");
         setTitle(ws,xf);
-        int cnt = 0;
+		acc_power = 0;
+		acc_flow = 0;
+		int cnt = 0;
         while(!recorderFlag)
         {
             EnergyParam param = dataWoker->getEnergyParam();
@@ -61,13 +63,15 @@ protected:
                 ws->label(cnt,15,itos(param.air_pressure),xf);
                 ws->label(cnt,16,itos(param.flow_content),xf);
                 lastTime = param.time;
+				acc_power += param.power;
+				acc_flow += param.flow_content;
             }
             usleep(200000);
         }
-        qDebug() << "save file : " << title ;
-        string ss = title.toStdString();
-        printf("save file : %s",ss.c_str());
-        wb.Dump(ss);
+        string path_post = title.toStdString();
+        string path = path_pre + path_post;
+        printf("save file : %s\n",path.c_str());
+        wb.Dump(path);
     }
 private:
 	void setTitle(worksheet* ws,xf_t* xf)
@@ -110,6 +114,9 @@ public:
     bool recorderFlag;
     QString title;
 	long lastTime;
+	float acc_power;
+	float acc_flow;
+    string path_pre;
 };
 
 //class DataWorkerThread

@@ -12,6 +12,8 @@
 #include "recordworkthread.h"
 #include "dataworkerthread.h"
 #include "commondial.h"
+#include "custommessagebox.h"
+#include "filewidget.h"
 using namespace std;
 namespace Ui {
 class MainWindow;
@@ -59,6 +61,12 @@ private slots:
 
     void on_pushButton_10_clicked();
 
+    void on_pushButton_11_pressed();
+
+    void on_pushButton_13_pressed();
+
+    void on_pushButton_14_pressed();
+
 private:
     void setInfo(EnergyParam param);
     void setInfo_detail(EnergyParam param);
@@ -78,6 +86,9 @@ private:
     QString record_end_time;
     CommonDial *flowDial;
     CommonDial *powerDial;
+    CustomMessageBox *cusMsg;
+    QDateTime  startTime;
+    FileWidget *file;
 };
 
 #endif // MAINWINDOW_H

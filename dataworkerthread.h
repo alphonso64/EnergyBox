@@ -79,7 +79,14 @@ protected:
         energyparam.air_pressure = data[14];
         energyparam.flow_content = data[15];
         energyparam.time = data[16];
-
+        energyparam.power = (energyparam.voltage_a*energyparam.current_a + energyparam.voltage_b*energyparam.current_b + energyparam.voltage_c*energyparam.current_c)/1000;
+        if(energyparam.flow_content > -0.000001 && energyparam.flow_content <0.000001)
+        {
+            energyparam.vsp =0;
+        }else
+        {
+            energyparam.vsp =energyparam.power /  energyparam.flow_content;
+        }
         printf("param: %f %f\n",energyparam.voltage_a,energyparam.flow_content);
         mutex.unlock();
     }

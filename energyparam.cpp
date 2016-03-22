@@ -20,7 +20,9 @@ EnergyParam::EnergyParam()
     this->air_temp = 0;
     this->air_pressure = 0;
     this->flow_content = 0;
-	this->time = time;
+    this->time = 0;
+    this->power = 0;
+    this->vsp = 0;
 }
 
 void EnergyParam::cpy(EnergyParam param)
@@ -44,5 +46,7 @@ void EnergyParam::cpy(EnergyParam param)
     this->air_pressure = param.air_pressure;
     this->flow_content = param.flow_content;
 	this->time = param.time;
+    this->power  = param.power;
+    this->vsp = param.vsp;
 }
 
