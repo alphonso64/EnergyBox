@@ -14,6 +14,7 @@
 #include "commondial.h"
 #include "custommessagebox.h"
 #include "filewidget.h"
+#include "readerworkthread.h"
 using namespace std;
 namespace Ui {
 class MainWindow;
@@ -67,11 +68,17 @@ private slots:
 
     void on_pushButton_14_pressed();
 
+    void on_analysis(QString);
+
+    void on_result();
+
+
+
 private:
     void setInfo(EnergyParam param);
     void setInfo_detail(EnergyParam param);
     QString itos(int val);
-
+    void clearAnalyzeView();
 
 private:
     Ui::MainWindow *ui;
@@ -82,6 +89,7 @@ private:
     SysParam sysparam;
     RecordWorkThread *recorder;
     DataWorkerThread *dataWoker;
+    ReaderWorkThread *reader;
     QString record_start_time;
     QString record_end_time;
     CommonDial *flowDial;

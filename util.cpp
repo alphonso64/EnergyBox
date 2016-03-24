@@ -6,7 +6,10 @@
 #include <sys/types.h>
 #include <dirent.h>
 #include <unistd.h>
-#include <string>
+#include "const_define.h"
+#include <sys/stat.h>
+#include<map>
+typedef multimap<time_t, string> result_set_t;
 Util::Util()
 {
 }
@@ -62,7 +65,7 @@ QString Util::checkUDiskPath()
 {
     DIR    *dir;
     struct    dirent    *ptr;
-    dir = opendir("/media/pi"); ///open the dir
+    dir = opendir(UDISK_PATH_PREFIX); ///open the dir
     QString pattern("GSP1RMCULFR.*");
     QString pattern_a("\\.");
     QString pattern_b("\\.\\.");
@@ -102,19 +105,28 @@ QStringList Util::getUdiskFileList()
     {
         return list;
     }
-    QString abs_path = QString("/media/pi/"+path+"/");
+    QString abs_path = QString(UDISK_PATH_PREFIX+path+"/");
 
     dir = opendir(abs_path.toStdString().c_str()); ///open the dir
     QString pattern(".+\\.xls");
     QRegExp rx(pattern);
-
+    result_set_t res_set;
     while((ptr = readdir(dir)) != NULL) ///read the list of this dir
     {
         if(rx.exactMatch(ptr->d_name))
         {
-            list.push_back(ptr->d_name);
-            //printf("name %s\n",ptr->d_name);
+            string name(ptr->d_name);
+            string path ("./"+name);
+            struct stat buf;
+            stat(path.c_str(), &buf);
+            res_set.insert(result_set_t::value_type(buf.st_mtime,name));
         }
+    }
+    multimap<time_t, string>::reverse_iterator   i, iend;
+    iend = res_set.rend();
+    for (i=res_set.rbegin(); i!=iend; ++i)
+    {
+        list.push_back(((string)((*i).second)).c_str());
     }
     closedir(dir);
     return list;
@@ -125,17 +137,26 @@ QStringList Util::getLocalFileList()
     QStringList list;
     DIR    *dir;
     struct    dirent    *ptr;
-    dir = opendir("./"); ///open the dir
+    dir = opendir(LOCAL_PATH_PREFIX); ///open the dir
     QString pattern(".+\\.xls");
     QRegExp rx(pattern);
-
+    result_set_t res_set;
     while((ptr = readdir(dir)) != NULL) ///read the list of this dir
     {
         if(rx.exactMatch(ptr->d_name))
         {
-            list.push_back(ptr->d_name);
-            //printf("name %s\n",ptr->d_name);
+            string name(ptr->d_name);
+            string path ("./"+name);
+            struct stat buf;
+            stat(path.c_str(), &buf);
+            res_set.insert(result_set_t::value_type(buf.st_mtime,name));
         }
+    }
+    multimap<time_t, string>::reverse_iterator   i, iend;
+    iend = res_set.rend();
+    for (i=res_set.rbegin(); i!=iend; ++i)
+    {
+        list.push_back(((string)((*i).second)).c_str());
     }
     closedir(dir);
     return list;

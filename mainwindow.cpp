@@ -9,6 +9,7 @@
 #include <qwt_round_scale_draw.h>
 #include "util.h"
 #include <QFileDialog>
+#include "const_define.h"
 int cnt = 0;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -96,6 +97,7 @@ MainWindow::MainWindow(QWidget *parent) :
    recorder = new RecordWorkThread(this);
    dataWoker = new DataWorkerThread(this);
    recorder->dataWoker = dataWoker;
+   reader = new ReaderWorkThread(this);
    dataWoker->start();
 
    flowDial = new CommonDial( ui->widget_2 );
@@ -128,12 +130,35 @@ MainWindow::MainWindow(QWidget *parent) :
    file = new FileWidget();
    file->hide();
    file->move(62,50);
+
+   connect(file, SIGNAL(fileopen(QString)), SLOT(on_analysis(QString)));
+   connect(reader, SIGNAL(result()), SLOT(on_result()));
   }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_result()
+{
+    ui->label_acc_flow_2->setText(Util::ftos(reader->res.acc_flow));
+    ui->label_acc_power_2->setText(Util::ftos(reader->res.acc_power));
+}
+
+void MainWindow::on_analysis(QString path)
+{
+    printf("on_analysis %s\n",path.toStdString().c_str());
+    reader->path = path;
+    reader->start();
+}
+
+void MainWindow::clearAnalyzeView()
+{
+    ui->label_acc_flow_2->setText("");
+    ui->label_acc_power_2->setText("");
+}
+
 
 
 void MainWindow::on_pushButton_pressed()
@@ -191,11 +216,11 @@ void MainWindow::on_pushButton_3_pressed()
             cusMsg->show();
             return;
         }
-        path_pre = QString("/media/pi/"+path_pre+"/");
+        path_pre = QString(UDISK_PATH_PREFIX+path_pre+"/");
     }
     else
     {
-        path_pre = "./";
+        path_pre = LOCAL_PATH_PREFIX;
     }
     recorder->path_pre = path_pre.toStdString();
     if(startFlag != 0){
@@ -219,8 +244,8 @@ void MainWindow::on_pushButton_4_pressed()
         ui->pushButton_3->setEnabled(true);
         QDateTime  end_time =QDateTime::currentDateTime();
         record_end_time = end_time.toString("yy/MM/dd hh:mm:ss");
-        recorder->title = QString(record_start_time+"_______"+record_end_time+".xls");
-        recorder->title.replace(":","-");
+        recorder->title = QString(record_start_time+"----"+record_end_time+".xls");
+        recorder->title.replace(":","_");
         recorder->title.replace("/","-");
         recorder->recorderFlag = true;
     }
@@ -235,6 +260,7 @@ void MainWindow::on_pushButton_5_pressed()
     }
     if(pageIndex!=5)
     {
+        //clearAnalyzeView();
         ui->widget->hide();
         ui->widget_2->hide();
         ui->widget_5->show();

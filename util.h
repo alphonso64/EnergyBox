@@ -3,6 +3,8 @@
 #include <QString>
 #include "util.h"
 #include <QStringList>
+#include <string>
+using namespace std;
 class Util
 {
 public:

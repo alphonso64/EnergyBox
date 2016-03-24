@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <QModelIndexList>
 #include <QDebug>
+#include "const_define.h"
 FileWidget::FileWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::FileWidget)
@@ -31,11 +32,7 @@ FileWidget::~FileWidget()
 
 void FileWidget::on_pushButton_3_pressed()
 {
-    QModelIndexList list =ui->listView->selectionModel()->selectedIndexes();
-    if(list.size()>0)
-    {
-        qDebug() << list.at(0).data(Qt::DisplayRole ).toString();
-    }
+
 }
 
 void FileWidget::on_pushButton_pressed()
@@ -55,6 +52,7 @@ void FileWidget::setLocalView()
     model->setStringList( Util::getLocalFileList());
     ui->pushButton->setEnabled(false);
     ui->pushButton_2->setEnabled(true);
+    isLocal= true;
 }
 
 void FileWidget::setUDiskView()
@@ -64,9 +62,32 @@ void FileWidget::setUDiskView()
     model->setStringList( Util::getUdiskFileList());
     ui->pushButton_2->setEnabled(false);
     ui->pushButton->setEnabled(true);
+    isLocal= false;
 }
 
 void FileWidget::on_pushButton_4_pressed()
 {
     this->hide();
 }
+
+void FileWidget::on_pushButton_3_clicked()
+{
+    QModelIndexList list =ui->listView->selectionModel()->selectedIndexes();
+    if(list.size()>0)
+    {
+        qDebug() << list.at(0).data(Qt::DisplayRole ).toString();
+        if(isLocal)
+        {
+            QString path(LOCAL_PATH_PREFIX+list.at(0).data(Qt::DisplayRole ).toString());
+            emit fileopen(path);
+        }
+        else
+        {
+
+            QString path(UDISK_PATH_PREFIX+Util::checkUDiskPath()+"/"+list.at(0).data(Qt::DisplayRole ).toString());
+            emit fileopen(path);
+        }
+        this->hide();
+    }
+}
+

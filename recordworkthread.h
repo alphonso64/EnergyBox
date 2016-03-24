@@ -36,7 +36,7 @@ protected:
         setTitle(ws,xf);
 		acc_power = 0;
 		acc_flow = 0;
-		int cnt = 0;
+        int cnt = 0;
         while(!recorderFlag)
         {
             EnergyParam param = dataWoker->getEnergyParam();
@@ -61,13 +61,20 @@ protected:
                 ws->label(cnt,13,itos(param.env_humidity),xf);
                 ws->label(cnt,14,itos(param.air_temp),xf);
                 ws->label(cnt,15,itos(param.air_pressure),xf);
-                ws->label(cnt,16,itos(param.flow_content),xf);
+                ws->label(cnt,16,itos(param.flow_content),xf);/**/
+
                 lastTime = param.time;
 				acc_power += param.power;
 				acc_flow += param.flow_content;
             }
             usleep(200000);
         }
+        ws = wb.sheet("sheet2");
+        ws->label(0,0,"累计电量(kwh)",xf);
+        ws->label(1,0,itos(acc_power),xf);
+        ws->label(0,1,"累计流量(m3)",xf);
+        ws->label(1,1,itos(acc_flow),xf);
+
         string path_post = title.toStdString();
         string path = path_pre + path_post;
         printf("save file : %s\n",path.c_str());
@@ -76,25 +83,25 @@ protected:
 private:
 	void setTitle(worksheet* ws,xf_t* xf)
 	{
-		ws->label(0,0,"记录时间",xf);
-		ws->label(0,1,"A相电压",xf);
-		ws->label(0,2,"B相电压",xf);
-		ws->label(0,3,"C相电压",xf);
-		ws->label(0,4,"A相电流",xf);
-		ws->label(0,5,"B相电流",xf);
-		ws->label(0,6,"C相电流",xf);
+        ws->label(0,0,"记录时间",xf);
+        ws->label(0,1,"A相电压",xf);
+        ws->label(0,2,"B相电压",xf);
+        ws->label(0,3,"C相电压",xf);
+        ws->label(0,4,"A相电流",xf);
+        ws->label(0,5,"B相电流",xf);
+        ws->label(0,6,"C相电流",xf);
 		
-		ws->label(0,7,"频率",xf);
-		ws->label(0,8,"有功功率",xf);
-		ws->label(0,9,"无功功率",xf);
-		ws->label(0,10,"视在功率",xf);
-		ws->label(0,11,"功率因素",xf);
+        ws->label(0,7,"频率",xf);
+        ws->label(0,8,"有功功率",xf);
+        ws->label(0,9,"无功功率",xf);
+        ws->label(0,10,"视在功率",xf);
+        ws->label(0,11,"功率因素",xf);
 		
-		ws->label(0,12,"环境温度",xf);
-		ws->label(0,13,"环境湿度",xf);
-		ws->label(0,14,"排气温度",xf);
-		ws->label(0,15,"排气压力",xf);
-		ws->label(0,16,"流量",xf);
+        ws->label(0,12,"环境温度",xf);
+        ws->label(0,13,"环境湿度",xf);
+        ws->label(0,14,"排气温度",xf);
+        ws->label(0,15,"排气压力",xf);
+        ws->label(0,16,"流量",xf);
 	}
 	
 	string itos(float val){

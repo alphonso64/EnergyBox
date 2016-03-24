@@ -16,6 +16,9 @@ public:
     ~FileWidget();
     void setLocalView();
     void setUDiskView();
+
+signals:
+    void fileopen(QString path);
     
 private slots:
     void on_pushButton_3_pressed();
@@ -26,9 +29,13 @@ private slots:
 
     void on_pushButton_4_pressed();
 
+    void on_pushButton_3_clicked();
+
 private:
     Ui::FileWidget *ui;
     QString filePath;
+    bool isLocal;
+
 };
 
 #endif // FILEWIDGET_H

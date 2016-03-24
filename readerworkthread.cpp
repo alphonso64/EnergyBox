@@ -1,0 +1,2 @@
+#include "readerworkthread.h"
+

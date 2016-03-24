@@ -884,7 +884,7 @@
        <height>371</height>
       </rect>
      </property>
-     <widget class="QLabel" name="label_IPower_content_45">
+     <widget class="QLabel" name="label_standby_time">
       <property name="geometry">
        <rect>
         <x>570</x>
@@ -896,7 +896,7 @@
       <property name="font">
        <font>
         <family>微软雅黑</family>
-        <pointsize>14</pointsize>
+        <pointsize>20</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -906,7 +906,7 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_IPower_content_40">
+     <widget class="QLabel" name="label_work_time">
       <property name="geometry">
        <rect>
         <x>180</x>
@@ -918,7 +918,7 @@
       <property name="font">
        <font>
         <family>微软雅黑</family>
-        <pointsize>14</pointsize>
+        <pointsize>20</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -966,7 +966,7 @@
        <string>待机时间</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_IPower_content_37">
+     <widget class="QLabel" name="label_measure_range">
       <property name="geometry">
        <rect>
         <x>180</x>
@@ -978,7 +978,7 @@
       <property name="font">
        <font>
         <family>微软雅黑</family>
-        <pointsize>14</pointsize>
+        <pointsize>20</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -1064,7 +1064,7 @@
        <string>测量时间</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_IPower_content_51">
+     <widget class="QLabel" name="label_average_vsp">
       <property name="geometry">
        <rect>
         <x>570</x>
@@ -1076,7 +1076,7 @@
       <property name="font">
        <font>
         <family>微软雅黑</family>
-        <pointsize>14</pointsize>
+        <pointsize>20</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -1162,7 +1162,7 @@
        <string>电费总额</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_IPower_content_62">
+     <widget class="QLabel" name="label_acc_flow_2">
       <property name="geometry">
        <rect>
         <x>180</x>
@@ -1174,7 +1174,7 @@
       <property name="font">
        <font>
         <family>微软雅黑</family>
-        <pointsize>14</pointsize>
+        <pointsize>20</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -1241,7 +1241,7 @@
        <string>元/m3</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_IPower_content_70">
+     <widget class="QLabel" name="label_acc_power_charge">
       <property name="geometry">
        <rect>
         <x>180</x>
@@ -1253,7 +1253,7 @@
       <property name="font">
        <font>
         <family>微软雅黑</family>
-        <pointsize>14</pointsize>
+        <pointsize>20</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -1263,7 +1263,7 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_IPower_content_66">
+     <widget class="QLabel" name="label_acc_power_2">
       <property name="geometry">
        <rect>
         <x>570</x>
@@ -1275,7 +1275,7 @@
       <property name="font">
        <font>
         <family>微软雅黑</family>
-        <pointsize>14</pointsize>
+        <pointsize>20</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -1320,7 +1320,7 @@
        </font>
       </property>
       <property name="text">
-       <string>小时</string>
+       <string>Kwh</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_IPower_name_115">
@@ -1342,7 +1342,7 @@
        <string>元</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_IPower_content_73">
+     <widget class="QLabel" name="label_flow_cost">
       <property name="geometry">
        <rect>
         <x>570</x>
@@ -1354,7 +1354,7 @@
       <property name="font">
        <font>
         <family>微软雅黑</family>
-        <pointsize>14</pointsize>
+        <pointsize>20</pointsize>
        </font>
       </property>
       <property name="styleSheet">
@@ -1911,7 +1911,7 @@
        <string>满载时间</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_IPower_content_53">
+     <widget class="QLabel" name="label_unload_radio">
       <property name="geometry">
        <rect>
         <x>570</x>
@@ -1971,7 +1971,7 @@
        <string>满载率</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_IPower_content_49">
+     <widget class="QLabel" name="label_load_time">
       <property name="geometry">
        <rect>
         <x>180</x>
@@ -1993,7 +1993,7 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_IPower_content_50">
+     <widget class="QLabel" name="label_unloadtime">
       <property name="geometry">
        <rect>
         <x>570</x>
@@ -2034,7 +2034,7 @@
        <string>空载时间</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_IPower_content_52">
+     <widget class="QLabel" name="label_load_radio">
       <property name="geometry">
        <rect>
         <x>180</x>
@@ -2137,9 +2137,9 @@
     <zorder>label_IPower_name_172</zorder>
     <zorder>pushButton_11</zorder>
     <zorder>pushButton_13</zorder>
+    <zorder>pushButton_14</zorder>
     <zorder>widget_4</zorder>
     <zorder>widget_8</zorder>
-    <zorder>pushButton_14</zorder>
    </widget>
    <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">
@@ -3427,39 +3427,6 @@
       <string>返回</string>
      </property>
     </widget>
-    <zorder>label_IPower_name_5</zorder>
-    <zorder>label_voltage_a_content</zorder>
-    <zorder>label_IPower_name_6</zorder>
-    <zorder>label_voltage_b_content</zorder>
-    <zorder>label_IPower_name_7</zorder>
-    <zorder>label_voltage_c_content</zorder>
-    <zorder>label_current_c_content</zorder>
-    <zorder>label_current_b_content</zorder>
-    <zorder>label_current_a_content</zorder>
-    <zorder>label_IPower_name_8</zorder>
-    <zorder>label_IPower_name_12</zorder>
-    <zorder>label_IPower_name_15</zorder>
-    <zorder>label_IPower_name_16</zorder>
-    <zorder>label_IPower_name_17</zorder>
-    <zorder>label_IPower_name_18</zorder>
-    <zorder>label_IPower_name_19</zorder>
-    <zorder>label_IPower_name_20</zorder>
-    <zorder>label_IPower_name_21</zorder>
-    <zorder>label_frequency_content</zorder>
-    <zorder>label_IPower_name_23</zorder>
-    <zorder>label_power_factor_content</zorder>
-    <zorder>label_IPower_name_25</zorder>
-    <zorder>label_active_power_content</zorder>
-    <zorder>label_IPower_name_26</zorder>
-    <zorder>label_IPower_name_27</zorder>
-    <zorder>label_reactive_power_content</zorder>
-    <zorder>label_IPower_name_28</zorder>
-    <zorder>label_IPower_name_29</zorder>
-    <zorder>label_IPower_name_30</zorder>
-    <zorder>label_apparent_power_content</zorder>
-    <zorder>line_5</zorder>
-    <zorder>pushButton_8</zorder>
-    <zorder>widget_5</zorder>
    </widget>
    <widget class="QWidget" name="widget_7" native="true">
     <property name="geometry">
@@ -3834,10 +3801,10 @@
    <widget class="QPushButton" name="pushButton_10">
     <property name="geometry">
      <rect>
-      <x>934</x>
-      <y>550</y>
-      <width>91</width>
-      <height>51</height>
+      <x>924</x>
+      <y>520</y>
+      <width>101</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="text">
@@ -3854,8 +3821,8 @@
    <zorder>pushButton_10</zorder>
    <zorder>widget</zorder>
    <zorder>widget_7</zorder>
-   <zorder>widget_2</zorder>
    <zorder>widget_6</zorder>
+   <zorder>widget_2</zorder>
    <zorder>widget_5</zorder>
   </widget>
  </widget>
