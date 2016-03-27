@@ -7,6 +7,7 @@ int main(int argc, char *argv[])
     MainWindow w;
     DigitalInputPanelContext *dc = new DigitalInputPanelContext;
     app.setInputContext(dc);
+    app.setOverrideCursor(Qt::BlankCursor);
     w.show();
     return app.exec();
 }

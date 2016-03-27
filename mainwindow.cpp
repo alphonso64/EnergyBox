@@ -10,6 +10,8 @@
 #include "util.h"
 #include <QFileDialog>
 #include "const_define.h"
+#include <sys/stat.h>
+#include <sys/types.h>
 int cnt = 0;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -18,9 +20,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->label->setStyleSheet("color:#ffffff;");
     ui->label_2->setPixmap(QPixmap("./logo_small.png"));
+    ui->label_3->setPixmap(QPixmap("./udisk.png"));
    // QString *style = new QString("QPushButton{background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(214, 214, 214, 255), stop:0.5 rgba(236, 236, 236, 255));  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:pressed{background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(178, 223, 219, 255), stop:0.5 rgba(224, 242, 241, 255)); border-radius:5px;border: 1px solid #5F92B2;}");
    QString *style = new QString("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;} QPushButton:pressed{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;}");
    QString *style_a = new QString("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;} QPushButton:pressed{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;}");
+   QString *style_b = new QString("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(128, 128, 128, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 0px solid #101010;} QPushButton:pressed{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;}");
+
    this->setWindowFlags(Qt::CustomizeWindowHint) ;
    ui->pushButton->setStyleSheet(*style);
    ui->pushButton_2->setStyleSheet(*style);
@@ -35,6 +40,11 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->pushButton_11->setStyleSheet(*style_a);
    ui->pushButton_13->setStyleSheet(*style_a);
    ui->pushButton_14->setStyleSheet(*style_a);
+   ui->pushButton_15->setStyleSheet(*style_a);
+   ui->pushButton_16->setStyleSheet(*style_a);
+   ui->pushButton_17->setStyleSheet(*style_a);
+   ui->pushButton_18->setStyleSheet(*style_a);
+   ui->pushButton_19->setStyleSheet(*style_b);
 
    ui->pushButton->setFocusPolicy ( Qt::NoFocus );
    ui->pushButton_2->setFocusPolicy ( Qt::NoFocus );
@@ -49,6 +59,14 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->pushButton_11->setFocusPolicy ( Qt::NoFocus );
    ui->pushButton_13->setFocusPolicy ( Qt::NoFocus );
    ui->pushButton_14->setFocusPolicy ( Qt::NoFocus );
+   ui->pushButton_15->setFocusPolicy ( Qt::NoFocus );
+   ui->pushButton_16->setFocusPolicy ( Qt::NoFocus );
+   ui->pushButton_17->setFocusPolicy ( Qt::NoFocus );
+   ui->pushButton_18->setFocusPolicy ( Qt::NoFocus );
+   ui->pushButton_19->setFocusPolicy ( Qt::NoFocus );
+
+   ui->pushButton_19->setEnabled(false);
+
    ui->widget->hide();
    ui->widget_2->show();
    ui->widget_5->hide();
@@ -62,6 +80,10 @@ MainWindow::MainWindow(QWidget *parent) :
    timer = new QTimer( this );
    timer->start(500);
    connect ( timer , SIGNAL (timeout ()), this , SLOT (show_time()));
+
+   timer_check = new QTimer( this );
+   timer_check->start(1500);
+   connect ( timer , SIGNAL (timeout ()), this , SLOT (check_status()));
 
    QRegExp double_rx10000("10000|([0-9]{0,4}[\.][0-9]{1,3})");
    ui->lineEdit_radio->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_radio));
@@ -100,17 +122,22 @@ MainWindow::MainWindow(QWidget *parent) :
    reader = new ReaderWorkThread(this);
    dataWoker->start();
 
+   QFont font( "Times", 14);
    flowDial = new CommonDial( ui->widget_2 );
-   flowDial->setScaleStepSize( 60.0 );
-   flowDial->setScale( 0.0, 300.0 );
+   flowDial->setScaleStepSize( 20.0 );
+   flowDial->setScale( 0.0, 160.0 );
+   flowDial->setFont(font);
+   flowDial->setLabel("流量");
    flowDial->scaleDraw()->setPenWidth( 2 );
-   flowDial->move(180,0);
+   flowDial->move(620,0);
 
    powerDial = new CommonDial( ui->widget_2 );
    powerDial->setScaleStepSize( 20.0 );
-   powerDial->setScale( 0.0, 120.0 );
+   powerDial->setScale( 0.0, 160.0 );
+   powerDial->setFont(font);
+   powerDial->setLabel("功率");
    powerDial->scaleDraw()->setPenWidth( 2 );
-   powerDial->move(620,0);
+   powerDial->move(180,0);
 
    ui->label_flow_unit->setText("m<sup>3</sup>/min");
    ui->label_flow_2->setText("m<sup>3</sup>/min");
@@ -133,6 +160,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
    connect(file, SIGNAL(fileopen(QString)), SLOT(on_analysis(QString)));
    connect(reader, SIGNAL(result()), SLOT(on_result()));
+
+
+
   }
 
 MainWindow::~MainWindow()
@@ -142,9 +172,49 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_result()
 {
-    ui->label_acc_flow_2->setText(Util::ftos(reader->res.acc_flow));
-    ui->label_acc_power_2->setText(Util::ftos(reader->res.acc_power));
+    //ui->label_acc_flow_2->setText(Util::ftos(reader->res.acc_flow));
+    //ui->label_acc_power_2->setText(Util::ftos(reader->res.acc_power));
+    ui->label_analyze_file_name->setText(file->filename);
+    ui->label_analyze_rated_power->setText(Util::ftos(sysparam.power));
+    ui->label_analyze_rated_flow->setText(Util::ftos(sysparam.gas));
+    QDateTime date;
+    date.setTime_t(reader->res.start_measure_time);
+    ui->label_analyze_start_time->setText(date.toString("yy/MM/dd hh:mm:ss"));
+
+    float time = (float)(reader->res.end_measure_time-reader->res.start_measure_time)/3600.0;
+    ui->label_analyze_all_time->setText(Util::ftos(time));
+
+    time = (float)(reader->res.worktime)/3600.0;
+    ui->label_analyze_work_time->setText(Util::ftos(time));
+
+    time = (float)(reader->res.stanby_time)/3600.0;
+    ui->label_analyze_standby_time->setText(Util::ftos(time));
+
+    ui->label_analyze_acc_power->setText(Util::ftos(reader->res.acc_power));
+    ui->label_analyze_acc_flow->setText(Util::ftos(reader->res.acc_flow));
+    ui->label_analyze_ave_vsp->setText(Util::ftos(reader->res.ave_vsp));
+    ui->label_analyze_acc_charge->setText("电费");
+    ui->label_analyze_flow_cost->setText("成本");
+
+    time = (float)(reader->res.load_time)/3600.0;
+    ui->label_analyze_loadtime->setText(Util::ftos(time));
+
+    time = (float)(reader->res.unload_time)/3600.0;
+    ui->label_analyze_unloadtime->setText(Util::ftos(time));
+
+    ui->label_analyze_loadcnt->setText(QString::number(reader->res.load_cnt));
+    ui->label_analyze_unloadcnt->setText(QString::number(reader->res.unload_cnt));
+    ui->label_analyze_load_radio->setText(Util::ftos(reader->res.load_radio));
+    ui->label_analyze_unload_radio->setText(Util::ftos(reader->res.unload_radio));
+    ui->label_analyze_load_power->setText(Util::ftos(reader->res.load_power));
+    ui->label_analyze_unload_power->setText(Util::ftos(reader->res.unload_power));
+
+    ui->pushButton_19->setEnabled(true);
+
+//    ui->label_analyze_load_power->setText(Util::ftos(reader->res.load_power));
+//    ui->label_analyze_unload_power->setText(Util::ftos(reader->res.unload_power));
 }
+
 
 void MainWindow::on_analysis(QString path)
 {
@@ -155,8 +225,8 @@ void MainWindow::on_analysis(QString path)
 
 void MainWindow::clearAnalyzeView()
 {
-    ui->label_acc_flow_2->setText("");
-    ui->label_acc_power_2->setText("");
+//    ui->label_acc_flow_2->setText("");
+//    ui->label_acc_power_2->setText("");
 }
 
 
@@ -164,7 +234,22 @@ void MainWindow::clearAnalyzeView()
 void MainWindow::on_pushButton_pressed()
 {
     if(pageIndex!=1){
+
+        if(sysparam.initFlag)
+        {
+             ui->lineEdit_charge->setText(QString("%1").arg(sysparam.charge));
+             ui->lineEdit_current_down_max->setText(QString("%1").arg(sysparam.current_down_max));
+             ui->lineEdit_current_idle_max->setText(QString("%1").arg(sysparam.current_idle_max));
+             ui->lineEdit_gas->setText(QString("%1").arg(sysparam.gas));
+             ui->lineEdit_loading_pressure->setText(QString("%1").arg(sysparam.loading_pressure));
+             ui->lineEdit_unloading_pressure->setText(QString("%1").arg(sysparam.unloading_pressure));
+             ui->lineEdit_power->setText(QString("%1").arg(sysparam.power));
+             ui->lineEdit_radio->setText(QString("%1").arg(sysparam.radio));
+             ui->comboBox_store_type->setCurrentIndex(sysparam.save_type);
+        }
+
         ui->widget->show();
+		ui->widget_3->hide();
         ui->widget_2->hide();
         ui->widget_5->hide();
         ui->widget_6->hide();
@@ -172,6 +257,8 @@ void MainWindow::on_pushButton_pressed()
         ui->pushButton->setEnabled(false);
         ui->pushButton_2->setEnabled(true);
         ui->pushButton_5->setEnabled(true);
+        ui->pushButton_16->setEnabled(false);
+        ui->pushButton_17->setEnabled(true);
         pageIndex =1;
         DigitalInputPanelContext *dc = (DigitalInputPanelContext*)qApp->inputContext();
         dc->hideWidget(false);
@@ -205,6 +292,12 @@ void MainWindow::on_pushButton_2_pressed()
 void MainWindow::on_pushButton_3_pressed()
 {
 
+    if(!sysparam.loadParam())
+    {
+        cusMsg->setMessage(QString("请先设置参数!"));
+        cusMsg->show();
+        return;
+    }
     QString path_pre;
     if(sysparam.save_type == 1)
     {
@@ -308,13 +401,11 @@ void MainWindow::show_time(){
     ui->lcdNumber_clock->display(string_a);
     cnt++;
     EnergyParam param = dataWoker->getEnergyParam();
-    if(startFlag == 0){
-        setInfo(param);
-    }
+
     setInfo_detail(param);
 
     flowDial->setValue( param.flow_content );
-
+    powerDial->setValue( param.power );
 
     if(startFlag == 0 )
     {
@@ -325,14 +416,27 @@ void MainWindow::show_time(){
         QDateTime time_;
         time_.setTime_t(e);
         ui->label_end_time_content->setText(time_.toString("hh:mm:ss"));
+        setInfo(param);
+    }
+
+
+}
+
+void MainWindow::check_status(){
+    if(Util::checkUDiskPath() == NULL)
+    {
+        ui->label_3->setVisible(false);
+    }else
+    {
+        ui->label_3->setVisible(true);
     }
 
 
 }
 
 void MainWindow::setInfo(EnergyParam param){
-    ui->label_power_content->setText(Util::ftos(recorder->acc_power));
-    ui->label_flow_content->setText(Util::ftos(recorder->acc_flow));
+    ui->label_power_content->setText(Util::ftos(recorder->acc_power/3600));
+    ui->label_flow_content->setText(Util::ftos(recorder->acc_flow/60));
 //    ui->label_loding_rate_content->setText(itos(temp++));
 }
 
@@ -467,4 +571,72 @@ void MainWindow::on_pushButton_14_pressed()
 {
     file->show();
     file->setLocalView();
+}
+
+void MainWindow::on_pushButton_15_pressed()
+{
+
+}
+
+void MainWindow::on_pushButton_16_pressed()
+{
+    ui->widget_3->hide();
+    ui->pushButton_16->setEnabled(false);
+    ui->pushButton_17->setEnabled(true);
+}
+
+void MainWindow::on_pushButton_17_pressed()
+{
+    ui->widget_3->show();
+    ui->pushButton_16->setEnabled(true);
+    ui->pushButton_17->setEnabled(false);
+}
+
+void MainWindow::on_pushButton_18_pressed()
+{
+
+}
+
+void MainWindow::on_pushButton_18_clicked()
+{
+    QString path_pre = Util::checkUDiskPath();
+    if(path_pre == NULL)
+    {
+        cusMsg->setMessage(QString("U盘未插入"));
+        cusMsg->show();
+        return;
+    }
+    path_pre = QString(UDISK_PATH_PREFIX+path_pre+"/");
+    path_pre = QString("sudo cp -rf *.xls "+path_pre);
+
+    printf("path %s\n",path_pre.toStdString().c_str());
+    system(path_pre.toStdString().c_str());
+    cusMsg->setMessage(QString("导出成功！"));
+    cusMsg->show();
+    return;
+}
+
+void MainWindow::on_pushButton_15_clicked()
+{
+    system("sudo rm -rf *.xls");
+    cusMsg->setMessage(QString("删除成功！"));
+    cusMsg->show();
+
+}
+
+void MainWindow::on_pushButton_19_clicked()
+{
+    QString path_pre = Util::checkUDiskPath();
+    if(path_pre == NULL)
+    {
+        cusMsg->setMessage(QString("U盘未插入"));
+        cusMsg->show();
+        return;
+    }
+    QString path =  QString(UDISK_PATH_PREFIX+path_pre+"/res");
+    mkdir(path.toStdString().c_str(),0777);
+    path_pre = QString(path+"/res_"+file->filename);
+    Util::genAnalyzeResultXls(reader->res,path_pre);
+    cusMsg->setMessage(QString("导出结果成功"));
+    cusMsg->show();
 }

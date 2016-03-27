@@ -58,6 +58,8 @@ private slots:
 
     void show_time();
 
+    void check_status();
+
     void on_pushButton_12_clicked();
 
     void on_pushButton_10_clicked();
@@ -74,6 +76,20 @@ private slots:
 
 
 
+    void on_pushButton_15_pressed();
+
+    void on_pushButton_16_pressed();
+
+    void on_pushButton_17_pressed();
+
+    void on_pushButton_18_pressed();
+
+    void on_pushButton_18_clicked();
+
+    void on_pushButton_15_clicked();
+
+    void on_pushButton_19_clicked();
+
 private:
     void setInfo(EnergyParam param);
     void setInfo_detail(EnergyParam param);
@@ -85,6 +101,7 @@ private:
     int pageIndex;
     int startFlag;
     QTimer *timer;
+    QTimer *timer_check;
     QApplication *app;
     SysParam sysparam;
     RecordWorkThread *recorder;

@@ -79,12 +79,14 @@ void FileWidget::on_pushButton_3_clicked()
         if(isLocal)
         {
             QString path(LOCAL_PATH_PREFIX+list.at(0).data(Qt::DisplayRole ).toString());
+            filename = QString(list.at(0).data(Qt::DisplayRole ).toString());
             emit fileopen(path);
         }
         else
         {
 
             QString path(UDISK_PATH_PREFIX+Util::checkUDiskPath()+"/"+list.at(0).data(Qt::DisplayRole ).toString());
+            filename = QString(list.at(0).data(Qt::DisplayRole ).toString());
             emit fileopen(path);
         }
         this->hide();

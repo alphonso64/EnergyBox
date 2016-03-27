@@ -3,6 +3,7 @@
 char* FILE_PATH="/home/sysparam.ini";
 SysParam::SysParam()
 {
+    initFlag = false;
 }
 
 void SysParam::saveParam()
@@ -93,7 +94,8 @@ bool SysParam::loadParam()
     {
         save_type = val.toInt();
     }
-    printf("%f %f %f %f %f %f %f %f %d\n",radio,charge,power,gas,current_idle_max,current_down_max,unloading_pressure,loading_pressure,save_type);
+    //printf("%f %f %f %f %f %f %f %f %d\n",radio,charge,power,gas,current_idle_max,current_down_max,unloading_pressure,loading_pressure,save_type);
+    initFlag = true;
     return true;
 }
 
@@ -109,6 +111,8 @@ void SysParam::setParam(float radio, float charge, float power,
     this->unloading_pressure = unloading_pressure;
     this->loading_pressure = loading_pressure;
     this->save_type = save_type;
+    initFlag = true;
+
 }
 
 void SysParam::setParam(SysParam param)
@@ -122,6 +126,7 @@ void SysParam::setParam(SysParam param)
     this->unloading_pressure = param.unloading_pressure;
     this->loading_pressure = param.loading_pressure;
     this->save_type = param.save_type;
+    initFlag = true;
 }
 
 

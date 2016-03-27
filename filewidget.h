@@ -35,6 +35,8 @@ private:
     Ui::FileWidget *ui;
     QString filePath;
     bool isLocal;
+public:
+    QString filename;
 
 };
 

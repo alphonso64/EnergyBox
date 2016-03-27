@@ -15,6 +15,38 @@
 using namespace xls;
 using namespace std;
 
+struct CalTmp
+{
+    float cur_a;
+    float power;
+    float vsp;
+//    float cur_b;
+//    float cur_c;
+//    float vol_a;
+//    float vol_b;
+//    float vol_c;
+    long time;
+    long status;//1--load //0--unload //2-standby
+    float cur_a_ave;
+};
+
+struct CalRes
+{
+    long loadTime;
+    long unloadTime;
+    long loadCnt;
+    long unloadCnt;
+    float loadCharge;
+    float Charge;
+    float loadPower;
+    float unloadPower;
+};
+
+struct CalStatus
+{
+    long status;//1--load //0--unload //2-standby
+    float last_cur_a;
+};
 
 
 class ReaderWorkThread : public QThread
@@ -40,47 +72,12 @@ protected:
         return num;
     }
 
-    void run()
-    {
-        WorkBook foo(path.toStdString());
-        int row = 1;
-        int col = 0;
-        int sheetNum = foo.GetSheetCount();
-        printf("sheet count:%d\n",sheetNum);
-        cellContent c = foo.GetCell(sheetNum-1, (uint16_t)2, (uint16_t)1);
-        float acc_power = stringToNum<float>(c.str);
-        c = foo.GetCell(sheetNum-1, (uint16_t)2, (uint16_t)2);
-        float acc_flow = stringToNum<float>(c.str);
-        printf("%f %f\n",acc_flow,acc_power);
-        float acc_a = 0;
-        res.acc_flow = acc_flow;
-        res.acc_power = acc_power;
-//        for(int i=0;i<sheetNum-1;i++)
-//        {
-//            foo.InitIterator(i);
-//            while(true) {
-//                cellContent c = foo.GetNextCell();
-//                if(c.type == cellBlank) break;
-//                if(c.row>row)
-//                {
-//                    row = c.row;
-//                    col = 0;
-//                }
-//                col++ ;
-//                if(c.row>1)
-//                {
-//                    if(col == 17)
-//                    {
-//                        printf("%s\n",c.str.c_str());
-//                        float temp = stringToNum<float>(c.str);
-//                        acc_a += temp;
-//                    }
-//                }
-//            }
-//        }
-//        printf("cal %f\n",acc_a);
-        emit result();
-    }
+    void run();
+
+private:
+void clear(CalTmp *temp,int len);
+
+void computeEnergy(CalTmp *temp,int len,CalStatus *status,AnalyzeResult *res);
 
 public:
     QString path;

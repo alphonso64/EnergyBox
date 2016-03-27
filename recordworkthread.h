@@ -61,11 +61,17 @@ protected:
                 ws->label(cnt,13,itos(param.env_humidity),xf);
                 ws->label(cnt,14,itos(param.air_temp),xf);
                 ws->label(cnt,15,itos(param.air_pressure),xf);
-                ws->label(cnt,16,itos(param.flow_content),xf);/**/
+                ws->label(cnt,16,itos(param.flow_content),xf);
+                ws->label(cnt,17,itos(param.power),xf);
+                ws->label(cnt,18,itos(param.vsp),xf);
+				if(cnt>1)
+				{
+					acc_power += param.power*(param.time - lastTime);
+					acc_flow += param.flow_content*(param.time - lastTime);
+                    //printf("time %d %d\n",param.time);
+				}
+				lastTime = param.time;
 
-                lastTime = param.time;
-				acc_power += param.power;
-				acc_flow += param.flow_content;
             }
             usleep(200000);
         }
@@ -102,6 +108,8 @@ private:
         ws->label(0,14,"排气温度",xf);
         ws->label(0,15,"排气压力",xf);
         ws->label(0,16,"流量",xf);
+		ws->label(0,17,"功率",xf);
+		ws->label(0,18,"比功率",xf);
 	}
 	
 	string itos(float val){

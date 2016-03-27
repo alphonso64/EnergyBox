@@ -6,7 +6,7 @@
 
 CommonDial::CommonDial( QWidget *parent ):
     QwtDial( parent ),
-    d_label( "km/h" )
+    d_label( "" )
 {
     QwtRoundScaleDraw *scaleDraw = new QwtRoundScaleDraw();
     scaleDraw->setSpacing( 3 );
@@ -42,13 +42,30 @@ QString CommonDial::label() const
 void CommonDial::drawScaleContents( QPainter *painter,
     const QPointF &center, double radius ) const
 {
+    QRectF rect( 0.0, 0.0, 2.0 * radius, 2.0 * radius - 10.0 );
+    rect.moveCenter( center );
+
+    const QColor color(0x87,0x87,0x87,255); //= palette().color( QPalette::Text );
+    painter->setPen( color );
+
+    QFont font( "Times", 12);
+    painter->setFont(font);
+    const int flags = Qt::AlignBottom | Qt::AlignHCenter;
+    painter->drawText( rect, flags, d_label );
+
 //    QRectF rect( 0.0, 0.0, 2.0 * radius, 2.0 * radius - 10.0 );
 //    rect.moveCenter( center );
 
-//    const QColor color = palette().color( QPalette::Text );
+//    const QColor color(0x45,0x45,0x45,255); //= palette().color( QPalette::Text );
 //    painter->setPen( color );
 
+//    QFont font( "Times", 20);
+//    painter->setFont(font);
+//    painter->translate(100,180);
 //    const int flags = Qt::AlignBottom | Qt::AlignHCenter;
-//    painter->drawText( rect, flags, d_label );
+
+//    QTextDocument td;
+//    td.setHtml("K<sub>max</sub>=K<sub>2</sub> &middot; 3");
+//    td.drawContents(painter);
 }
 

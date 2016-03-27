@@ -25,6 +25,8 @@ public:
 
     const static int TYPE_LOCAL= 0;
     const static int TYPE_UDISK= 1;
+
+    bool initFlag;
 public:
     void saveParam();
     bool loadParam();

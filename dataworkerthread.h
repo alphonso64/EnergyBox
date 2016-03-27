@@ -46,7 +46,7 @@ protected:
                 {
                     parseParam(temp+2);
                 }
-                printf("read size %d\n",val);
+               // printf("read size %d\n",val);
             }else if(val > 100)
             {
                 serialFlush(fd);
@@ -87,7 +87,7 @@ protected:
         {
             energyparam.vsp =energyparam.power /  energyparam.flow_content;
         }
-        printf("param: %f %f\n",energyparam.voltage_a,energyparam.flow_content);
+        //printf("param: %f %f\n",energyparam.voltage_a,energyparam.flow_content);
         mutex.unlock();
     }
 public:
