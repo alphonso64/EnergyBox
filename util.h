@@ -4,7 +4,10 @@
 #include "util.h"
 #include <QStringList>
 #include <string>
+#include "analyzeresult.h"
+#include <xlslib/xlslib.h>
 using namespace std;
+using namespace xlslib_core;
 class Util
 {
 public:
@@ -15,6 +18,7 @@ public:
     static QString checkUDiskPath();
     static QStringList getLocalFileList();
     static QStringList getUdiskFileList();
+    static void genAnalyzeResultXls(AnalyzeResult res,QString savepath);
 
 };
 

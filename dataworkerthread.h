@@ -20,7 +20,7 @@ public:
     DataWorkerThread(QObject *parent = 0)
         : QThread(parent)
     {
-
+        time = -1;
     }
 protected:
     void run()
@@ -79,6 +79,7 @@ protected:
         energyparam.air_pressure = data[14];
         energyparam.flow_content = data[15];
         energyparam.time = data[16];
+        time = energyparam.time ;
         energyparam.power = (energyparam.voltage_a*energyparam.current_a + energyparam.voltage_b*energyparam.current_b + energyparam.voltage_c*energyparam.current_c)/1000;
         if(energyparam.flow_content > -0.000001 && energyparam.flow_content <0.000001)
         {
@@ -99,6 +100,8 @@ public:
         mutex.unlock();
         return param;
     }
+
+    long time;
 
 private:
     EnergyParam energyparam;

@@ -114,6 +114,7 @@ private:
     CustomMessageBox *cusMsg;
     QDateTime  startTime;
     FileWidget *file;
+    bool timeStampFlag;
 };
 
 #endif // MAINWINDOW_H

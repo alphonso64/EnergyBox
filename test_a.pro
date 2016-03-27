@@ -18,7 +18,11 @@ HEADERS += digitalinputpanel.h \
     energyparam.h \
     commondial.h \
     custommessagebox.h \
-    filewidget.h
+    filewidget.h \
+    readerworkthread.h \
+    const_define.h \
+    XlsReader.h \
+    analyzeresult.h
 FORMS += digitalinputpanel.ui mainwindow.ui \
     custommessagebox.ui \
     filewidget.ui
@@ -33,4 +37,7 @@ SOURCES += digitalinputpanel.cpp \
     energyparam.cpp \
     commondial.cpp \
     custommessagebox.cpp \
-    filewidget.cpp
+    filewidget.cpp \
+    readerworkthread.cpp \
+    XlsReader.cpp \
+    analyzeresult.cpp

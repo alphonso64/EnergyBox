@@ -21,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->label->setStyleSheet("color:#ffffff;");
     ui->label_2->setPixmap(QPixmap("./logo_small.png"));
     ui->label_3->setPixmap(QPixmap("./udisk.png"));
+    ui->label_3->setVisible(false);
    // QString *style = new QString("QPushButton{background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(214, 214, 214, 255), stop:0.5 rgba(236, 236, 236, 255));  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:pressed{background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(178, 223, 219, 255), stop:0.5 rgba(224, 242, 241, 255)); border-radius:5px;border: 1px solid #5F92B2;}");
    QString *style = new QString("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;} QPushButton:pressed{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;}");
    QString *style_a = new QString("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;} QPushButton:pressed{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;}");
@@ -76,6 +77,11 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->pushButton_2->setEnabled(false);
 
    pageIndex = 2;
+
+   ui->lcdNumber_clock->setVisible(false);
+   timeStampFlag = false;
+
+   system("sudo rm -rf /media/pi/*");
 
    timer = new QTimer( this );
    timer->start(500);
@@ -396,30 +402,39 @@ void MainWindow::on_pushButton_9_pressed()
 }
 
 void MainWindow::show_time(){
-    QDateTime  time =QDateTime::currentDateTime();
-    QString string_a = time.toString("yyyy/MM/dd hh:mm:ss");
-    ui->lcdNumber_clock->display(string_a);
-    cnt++;
-    EnergyParam param = dataWoker->getEnergyParam();
-
-    setInfo_detail(param);
-
-    flowDial->setValue( param.flow_content );
-    powerDial->setValue( param.power );
-
-    if(startFlag == 0 )
+    if(!timeStampFlag)
     {
-        uint c = 0, d =0,e =0 ;
-        c = (uint)time.toTime_t();
-        d = (uint)startTime.toTime_t();
-        e = c - d;
-        QDateTime time_;
-        time_.setTime_t(e);
-        ui->label_end_time_content->setText(time_.toString("hh:mm:ss"));
-        setInfo(param);
+        if(dataWoker->time >0)
+        {
+            time_t t;
+            t = dataWoker->time;
+            //stime(&t);
+            timeStampFlag = true;
+            ui->lcdNumber_clock->setVisible(true);
+            printf("get time %d\n",t);
+        }
+    }else
+    {
+        QDateTime  time =QDateTime::currentDateTime();
+        QString string_a = time.toString("yyyy-MM-dd hh:mm:ss");
+        ui->lcdNumber_clock->display(string_a);
+        EnergyParam param = dataWoker->getEnergyParam();
+        setInfo_detail(param);
+        flowDial->setValue( param.flow_content );
+        powerDial->setValue( param.power );
+
+        if(startFlag == 0 )
+        {
+            uint c = 0, d =0,e =0 ;
+            c = (uint)time.toTime_t();
+            d = (uint)startTime.toTime_t();
+            e = c - d;
+            QDateTime time_;
+            time_.setTime_t(e);
+            ui->label_end_time_content->setText(time_.toString("hh:mm:ss"));
+            setInfo(param);
+        }
     }
-
-
 }
 
 void MainWindow::check_status(){
@@ -429,6 +444,7 @@ void MainWindow::check_status(){
     }else
     {
         ui->label_3->setVisible(true);
+        //printf("u insert\n");
     }
 
 

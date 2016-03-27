@@ -68,10 +68,10 @@ QString Util::checkUDiskPath()
     struct    dirent    *ptr;
     dir = opendir(UDISK_PATH_PREFIX); ///open the dir
     //QString pattern("GSP1RMCULFR.*");
-	QString pattern("BC73-B58D");
+    //QString pattern("BC73-B58D");
     QString pattern_a("\\.");
     QString pattern_b("\\.\\.");
-    QRegExp rx(pattern);
+    //QRegExp rx(pattern);
     QRegExp rx_a(pattern_a);
     QRegExp rx_b(pattern_b);
 
@@ -79,13 +79,13 @@ QString Util::checkUDiskPath()
     {
         if(ptr->d_type == 4)
         {
-            if(!rx.exactMatch(ptr->d_name))
+            //if(!rx.exactMatch(ptr->d_name))
             {
                 if(!rx_a.exactMatch(ptr->d_name))
                 {
                     if(!rx_b.exactMatch(ptr->d_name))
                     {
-                        printf("d_type:%d d_name: %s\n", ptr->d_type,ptr->d_name);
+                        //printf("d_type:%d d_name: %s\n", ptr->d_type,ptr->d_name);
                         closedir(dir);
                         return QString(ptr->d_name);
                     }
