@@ -43,7 +43,7 @@ public:
     {
         if (DigitalInputPanel->objectName().isEmpty())
             DigitalInputPanel->setObjectName(QString::fromUtf8("DigitalInputPanel"));
-        DigitalInputPanel->resize(850, 92);
+        DigitalInputPanel->resize(831, 79);
         closeButton = new QPushButton(DigitalInputPanel);
         closeButton->setObjectName(QString::fromUtf8("closeButton"));
         closeButton->setGeometry(QRect(100, 220, 75, 23));
@@ -53,7 +53,7 @@ public:
         closeButton->setFocusPolicy(Qt::NoFocus);
         horizontalLayoutWidget = new QWidget(DigitalInputPanel);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(0, 10, 851, 71));
+        horizontalLayoutWidget->setGeometry(QRect(0, 10, 831, 61));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);

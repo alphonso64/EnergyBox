@@ -17,15 +17,15 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    Util::InitSysLog();
     ui->setupUi(this);
     ui->label->setStyleSheet("color:#ffffff;");
-    ui->label_2->setPixmap(QPixmap("./logo_small.png"));
-    ui->label_3->setPixmap(QPixmap("./udisk.png"));
+    ui->label_2->setPixmap(QPixmap(PRODUCE_LOGO_PATH));
+    ui->label_3->setPixmap(QPixmap(UDISK_LOGO_PATH));
     ui->label_3->setVisible(false);
-   // QString *style = new QString("QPushButton{background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(214, 214, 214, 255), stop:0.5 rgba(236, 236, 236, 255));  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:pressed{background-color: qconicalgradient(cx:0.5, cy:0.522909, angle:179.9, stop:0.494318 rgba(178, 223, 219, 255), stop:0.5 rgba(224, 242, 241, 255)); border-radius:5px;border: 1px solid #5F92B2;}");
-   QString *style = new QString("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;} QPushButton:pressed{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;}");
-   QString *style_a = new QString("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;} QPushButton:pressed{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;}");
-   QString *style_b = new QString("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(128, 128, 128, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 0px solid #101010;} QPushButton:pressed{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;}");
+    QString *style = new QString("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;} QPushButton:pressed{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;}");
+    QString *style_a = new QString("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;} QPushButton:pressed{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;}");
+    QString *style_b = new QString("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(128, 128, 128, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 0px solid #101010;} QPushButton:pressed{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;}");
 
    this->setWindowFlags(Qt::CustomizeWindowHint) ;
    ui->pushButton->setStyleSheet(*style);
@@ -46,6 +46,8 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->pushButton_17->setStyleSheet(*style_a);
    ui->pushButton_18->setStyleSheet(*style_a);
    ui->pushButton_19->setStyleSheet(*style_b);
+   ui->pushButton_20->setStyleSheet(*style_a);
+   ui->pushButton_21->setStyleSheet(*style_a);
 
    ui->pushButton->setFocusPolicy ( Qt::NoFocus );
    ui->pushButton_2->setFocusPolicy ( Qt::NoFocus );
@@ -65,8 +67,9 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->pushButton_17->setFocusPolicy ( Qt::NoFocus );
    ui->pushButton_18->setFocusPolicy ( Qt::NoFocus );
    ui->pushButton_19->setFocusPolicy ( Qt::NoFocus );
-
+   ui->pushButton_20->setFocusPolicy ( Qt::NoFocus );
    ui->pushButton_19->setEnabled(false);
+   ui->pushButton_21->setFocusPolicy ( Qt::NoFocus );
 
    ui->widget->hide();
    ui->widget_2->show();
@@ -81,7 +84,9 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->lcdNumber_clock->setVisible(false);
    timeStampFlag = false;
 
-   system("sudo rm -rf /media/pi/*");
+   //system("sudo rm -f /media/pi/*");
+
+   Util::deleteUnpluedUdiskPath();
 
    timer = new QTimer( this );
    timer->start(500);
@@ -326,7 +331,7 @@ void MainWindow::on_pushButton_3_pressed()
         startFlag = 0;
         ui->pushButton_3->setEnabled(false);
 
-        startTime =QDateTime::currentDateTime();
+        startTime.setTime_t(dataWoker->time);
         record_start_time = startTime.toString("yy/MM/dd hh:mm:ss");
         ui->label_start_time_content->setText(record_start_time);
         ui->label_end_time_content->clear();
@@ -341,7 +346,8 @@ void MainWindow::on_pushButton_4_pressed()
     {
         startFlag = -1;
         ui->pushButton_3->setEnabled(true);
-        QDateTime  end_time =QDateTime::currentDateTime();
+        QDateTime  end_time;
+        end_time.setTime_t(dataWoker->time);
         record_end_time = end_time.toString("yy/MM/dd hh:mm:ss");
         recorder->title = QString(record_start_time+"----"+record_end_time+".xls");
         recorder->title.replace(":","_");
@@ -404,36 +410,32 @@ void MainWindow::on_pushButton_9_pressed()
 void MainWindow::show_time(){
     if(!timeStampFlag)
     {
-        if(dataWoker->time >0)
+        if(dataWoker->time <=0)
         {
-            time_t t;
-            t = dataWoker->time;
-            //stime(&t);
-            timeStampFlag = true;
-            ui->lcdNumber_clock->setVisible(true);
-            printf("get time %d\n",t);
+            return;
         }
-    }else
-    {
-        QDateTime  time =QDateTime::currentDateTime();
-        QString string_a = time.toString("yyyy-MM-dd hh:mm:ss");
-        ui->lcdNumber_clock->display(string_a);
-        EnergyParam param = dataWoker->getEnergyParam();
-        setInfo_detail(param);
-        flowDial->setValue( param.flow_content );
-        powerDial->setValue( param.power );
+        timeStampFlag = true;
+        ui->lcdNumber_clock->setVisible(true);
+    }
+    QDateTime  time ;
+    time.setTime_t(dataWoker->time);
+    QString string_a = time.toString("yyyy-MM-dd hh:mm:ss");
+    ui->lcdNumber_clock->display(string_a);
+    EnergyParam param = dataWoker->getEnergyParam();
+    setInfo_detail(param);
+    flowDial->setValue( param.flow_content );
+    powerDial->setValue( param.power );
 
-        if(startFlag == 0 )
-        {
-            uint c = 0, d =0,e =0 ;
-            c = (uint)time.toTime_t();
-            d = (uint)startTime.toTime_t();
-            e = c - d;
-            QDateTime time_;
-            time_.setTime_t(e);
-            ui->label_end_time_content->setText(time_.toString("hh:mm:ss"));
-            setInfo(param);
-        }
+    if(startFlag == 0 )
+    {
+        uint c = 0, d =0,e =0 ;
+        c = (uint)time.toTime_t();
+        d = (uint)startTime.toTime_t();
+        e = c - d;
+        QDateTime time_;
+        time_.setTime_t(e);
+        ui->label_end_time_content->setText(time_.toString("hh:mm:ss"));
+        setInfo(param);
     }
 }
 
@@ -655,4 +657,51 @@ void MainWindow::on_pushButton_19_clicked()
     Util::genAnalyzeResultXls(reader->res,path_pre);
     cusMsg->setMessage(QString("导出结果成功"));
     cusMsg->show();
+}
+
+void MainWindow::on_pushButton_20_clicked()
+{
+    QString path_pre = Util::checkUDiskPath();
+    if(path_pre == NULL)
+    {
+        cusMsg->setMessage(QString("U盘未插入"));
+        cusMsg->show();
+        return;
+    }
+    QString path(UDISK_PATH_PREFIX + path_pre);
+
+    QString file_name = Util::checkUpdatePath(path);
+    if(file_name == NULL)
+    {
+        cusMsg->setMessage(QString("未检测到更新文件"));
+        cusMsg->show();
+        return;
+    }
+    file_name = QString(path+"/"+file_name);
+    //printf("update path %s\n",file_name.toStdString().c_str());
+    QString cmd("sudo cp "+file_name+" /home/program/temp/");
+    system(cmd.toStdString().c_str());
+    cusMsg->setMessage(QString("更新成功，请重启机器"));
+    cusMsg->show();
+    return;
+}
+
+void MainWindow::on_pushButton_21_clicked()
+{
+    QString path_pre = Util::checkUDiskPath();
+    if(path_pre == NULL)
+    {
+        cusMsg->setMessage(QString("U盘未插入"));
+        cusMsg->show();
+        return;
+    }
+    QString path(UDISK_PATH_PREFIX + path_pre);
+    QDateTime  time ;
+    time.setTime_t(dataWoker->time);
+    QString time_str = time.toString("yyyy-MM-dd_hh_mm_ss");
+    path = QString(path + "/"+time_str+".png");
+    path = QString("scrot "+path);
+    printf("save png %s\n",path.toStdString().c_str());
+    system(path.toStdString().c_str());
+
 }

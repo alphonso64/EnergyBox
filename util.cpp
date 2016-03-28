@@ -10,6 +10,14 @@
 #include <sys/stat.h>
 #include <map>
 #include <QDateTime>
+
+pthread_mutex_t gSysLogMutex = PTHREAD_MUTEX_INITIALIZER;
+int gServerLog_num = 0;
+FILE *gSysLogHandle;
+int gCurLogRows = 0;
+#define MAX_RTP_TCP_NUMBER 10000
+#define TCP_RTP_LOG_FILE "/home/log"
+
 typedef multimap<time_t, string> result_set_t;
 Util::Util()
 {
@@ -90,6 +98,70 @@ QString Util::checkUDiskPath()
                         return QString(ptr->d_name);
                     }
                 }
+            }
+        }
+    }
+    closedir(dir);
+    return NULL;
+}
+
+void Util::deleteUnpluedUdiskPath()
+{
+    DIR    *dir;
+    struct    dirent    *ptr;
+    dir = opendir(UDISK_PATH_PREFIX);
+    QString path_pre = QString(UDISK_PATH_PREFIX);
+    QString pattern_a("\\.");
+    QString pattern_b("\\.\\.");
+    QRegExp rx_a(pattern_a);
+    QRegExp rx_b(pattern_b);
+    while((ptr = readdir(dir)) != NULL) ///read the list of this dir
+    {
+        if(ptr->d_type == 4)
+        {
+
+            if(!rx_a.exactMatch(ptr->d_name))
+            {
+                if(!rx_b.exactMatch(ptr->d_name))
+                {
+                    QString path = QString(path_pre+ptr->d_name);
+                    struct stat buf;
+                    int res  = stat(path.toStdString().c_str(), &buf);
+                    if(res == 0)
+                    {
+                        if(buf.st_uid != 1000)
+                        {
+                            QString cmd("sudo rm -rf "+path);
+                            system(cmd.toStdString().c_str());
+                        }
+                    }
+
+
+                }
+            }
+        }
+    }
+
+    closedir(dir);
+}
+
+QString Util::checkUpdatePath(QString udiskPath)
+{
+    DIR    *dir;
+    struct    dirent    *ptr;
+    dir = opendir(udiskPath.toStdString().c_str()); ///open the dir
+    QString pattern("BoxUpdateFile");
+    QRegExp rx(pattern);
+
+    while((ptr = readdir(dir)) != NULL) ///read the list of this dir
+    {
+        //if(ptr->d_type == 4)
+        {
+            if(rx.exactMatch(ptr->d_name))
+            {
+                printf("file type %d\n",ptr->d_type);
+                closedir(dir);
+                return QString(ptr->d_name);
             }
         }
     }
@@ -233,6 +305,125 @@ void Util::genAnalyzeResultXls(AnalyzeResult res, QString savepath)
     ws->label(11,6,"22",xf);
 	
     wb.Dump(savepath.toStdString());
+}
+
+int Util::InitSysLog()
+{
+
+    char log[256];
+    snprintf(log, sizeof(log), "%s_%d.log",TCP_RTP_LOG_FILE,gServerLog_num);
+    printf("****INIT LOG SYS****\n");
+    printf("--------------------------------------------------------------\n");
+    printf("OPEN LOGFILE %s\n",log);
+    gSysLogHandle = fopen((char*)log, "at");
+    if (gSysLogHandle){
+       // printf("###%s(),creat log file %s sucessfull!\n",__FUNCTION__, log);
+
+    printf("--------------------------------------------------------------\n\n");
+        return 0;
+    }else{
+        //printf("###$s(), Fail openning event log file (errno=%s)\n", __FUNCTION__, strerror(errno));
+        return  - 1;
+    }
+
+}
+
+int Util::RebuildSysLogFiles()
+{
+    gServerLog_num ++;
+    if (gSysLogHandle)
+    {
+        char log[256];
+        fclose(gSysLogHandle);
+        snprintf(log, sizeof(log), "%s_%d.log",TCP_RTP_LOG_FILE,gServerLog_num);
+        gSysLogHandle = fopen((char*)log, "at");
+    }
+    return 0;
+}
+
+
+
+void Util::SysLogE(const char *p_fmt, ...)
+{
+    char date[256];
+    time_t now;
+    struct tm ptm;
+    va_list ap;
+
+
+    if (!gSysLogHandle){
+        return;
+    }
+
+    pthread_mutex_lock(&gSysLogMutex);
+
+    time(&now);                   // Gets the system time
+
+    if (localtime_r(&now, &ptm))
+    {
+        strftime(date, sizeof (date), "%F %T", &ptm);
+        fprintf(gSysLogHandle, "[ %s ] ", date);
+
+        fprintf(gSysLogHandle, "Error: ");
+
+        va_start(ap, p_fmt);
+        vfprintf(gSysLogHandle, p_fmt, ap);
+        va_end(ap);
+
+//        fprintf(gSysLogHandle, "\r\n");
+
+        fflush(gSysLogHandle);
+
+        gCurLogRows++;
+
+        if(gCurLogRows > MAX_RTP_TCP_NUMBER)
+        {
+            RebuildSysLogFiles();
+            gCurLogRows = 0;
+        }
+    }
+
+    pthread_mutex_unlock(&gSysLogMutex);
+}
+
+
+void Util::SysLogD(const char *p_fmt, ...)
+{
+    char date[256];
+    time_t now;
+    struct tm ptm;
+    va_list ap;
+
+
+    if (!gSysLogHandle){
+        return;
+    }
+
+    pthread_mutex_lock(&gSysLogMutex);
+
+    time(&now);                   // Gets the system time
+
+    if (localtime_r(&now, &ptm))
+    {
+        strftime(date, sizeof (date), "%F %T", &ptm);
+        fprintf(gSysLogHandle, "[ %s ] ", date);
+        fprintf(gSysLogHandle, "Debug: ");
+        va_start(ap, p_fmt);
+        vfprintf(gSysLogHandle, p_fmt, ap);
+        va_end(ap);
+
+        fflush(gSysLogHandle);
+
+        gCurLogRows++;
+
+        if(gCurLogRows > MAX_RTP_TCP_NUMBER)
+        {
+            RebuildSysLogFiles();
+            gCurLogRows = 0;
+        }
+    }
+
+    pthread_mutex_unlock(&gSysLogMutex);
 }
 
 

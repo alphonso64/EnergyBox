@@ -97,7 +97,7 @@ void DigitalInputPanelContext::hideWidget(bool flag)
         inputPanel->hide();
     }else{
         inputPanel->show();
-        inputPanel->move(20,480);
+        inputPanel->move(70,480);
     }
 
 }

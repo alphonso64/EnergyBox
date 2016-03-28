@@ -64,6 +64,7 @@ public:
     QWidget *widget_3;
     QPushButton *pushButton_15;
     QPushButton *pushButton_18;
+    QPushButton *pushButton_20;
     QWidget *widget_5;
     QLabel *label_IPower_name_81;
     QLabel *label_IPower_name_106;
@@ -149,7 +150,6 @@ public:
     QLabel *label_IPower_name;
     QLabel *label_Power_name;
     QLabel *label_power_content;
-    QFrame *line_2;
     QLabel *label_IPower_name_3;
     QLabel *label_IPower_content;
     QLabel *label_flow_content;
@@ -173,6 +173,7 @@ public:
     QLabel *label_flow_unit_3;
     QPushButton *pushButton_3;
     QPushButton *pushButton_4;
+    QPushButton *pushButton_21;
     QWidget *widget_6;
     QLabel *label_IPower_name_5;
     QLabel *label_voltage_a_content;
@@ -247,10 +248,10 @@ public:
         line->setFrameShadow(QFrame::Sunken);
         label = new QLabel(centralWidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(250, 20, 161, 30));
+        label->setGeometry(QRect(250, 20, 221, 41));
         QFont font1;
         font1.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
-        font1.setPointSize(22);
+        font1.setPointSize(24);
         font1.setBold(false);
         font1.setWeight(50);
         label->setFont(font1);
@@ -404,17 +405,22 @@ public:
         pushButton_17->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/btn.qss);"));
         widget_3 = new QWidget(widget);
         widget_3->setObjectName(QString::fromUtf8("widget_3"));
-        widget_3->setGeometry(QRect(110, 0, 821, 421));
+        widget_3->setGeometry(QRect(70, 0, 861, 511));
         pushButton_15 = new QPushButton(widget_3);
         pushButton_15->setObjectName(QString::fromUtf8("pushButton_15"));
-        pushButton_15->setGeometry(QRect(80, 170, 181, 81));
+        pushButton_15->setGeometry(QRect(490, 40, 181, 81));
         pushButton_15->setFont(font3);
         pushButton_15->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/btn.qss);"));
         pushButton_18 = new QPushButton(widget_3);
         pushButton_18->setObjectName(QString::fromUtf8("pushButton_18"));
-        pushButton_18->setGeometry(QRect(80, 40, 181, 81));
+        pushButton_18->setGeometry(QRect(150, 40, 181, 81));
         pushButton_18->setFont(font3);
         pushButton_18->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/btn.qss);"));
+        pushButton_20 = new QPushButton(widget_3);
+        pushButton_20->setObjectName(QString::fromUtf8("pushButton_20"));
+        pushButton_20->setGeometry(QRect(150, 190, 181, 81));
+        pushButton_20->setFont(font3);
+        pushButton_20->setStyleSheet(QString::fromUtf8("border-image: url(:/new/prefix1/btn.qss);"));
         widget_5 = new QWidget(centralWidget);
         widget_5->setObjectName(QString::fromUtf8("widget_5"));
         widget_5->setGeometry(QRect(0, 90, 931, 511));
@@ -811,11 +817,6 @@ public:
         label_power_content->setGeometry(QRect(230, 370, 151, 41));
         label_power_content->setFont(font7);
         label_power_content->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
-        line_2 = new QFrame(widget_2);
-        line_2->setObjectName(QString::fromUtf8("line_2"));
-        line_2->setGeometry(QRect(0, 435, 1061, 10));
-        line_2->setFrameShape(QFrame::HLine);
-        line_2->setFrameShadow(QFrame::Sunken);
         label_IPower_name_3 = new QLabel(widget_2);
         label_IPower_name_3->setObjectName(QString::fromUtf8("label_IPower_name_3"));
         label_IPower_name_3->setGeometry(QRect(540, 370, 121, 40));
@@ -841,20 +842,20 @@ public:
         label_IFlow_content->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
         label_IPower_name_13 = new QLabel(widget_2);
         label_IPower_name_13->setObjectName(QString::fromUtf8("label_IPower_name_13"));
-        label_IPower_name_13->setGeometry(QRect(100, 455, 121, 40));
+        label_IPower_name_13->setGeometry(QRect(100, 440, 121, 40));
         label_IPower_name_13->setFont(font2);
         label_start_time_content = new QLabel(widget_2);
         label_start_time_content->setObjectName(QString::fromUtf8("label_start_time_content"));
-        label_start_time_content->setGeometry(QRect(230, 455, 241, 41));
+        label_start_time_content->setGeometry(QRect(230, 440, 241, 41));
         label_start_time_content->setFont(font6);
         label_start_time_content->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
         label_IPower_name_14 = new QLabel(widget_2);
         label_IPower_name_14->setObjectName(QString::fromUtf8("label_IPower_name_14"));
-        label_IPower_name_14->setGeometry(QRect(540, 455, 121, 40));
+        label_IPower_name_14->setGeometry(QRect(540, 440, 121, 40));
         label_IPower_name_14->setFont(font2);
         label_end_time_content = new QLabel(widget_2);
         label_end_time_content->setObjectName(QString::fromUtf8("label_end_time_content"));
-        label_end_time_content->setGeometry(QRect(670, 455, 241, 41));
+        label_end_time_content->setGeometry(QRect(670, 440, 241, 41));
         label_end_time_content->setFont(font6);
         label_end_time_content->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
         pushButton_6 = new QPushButton(widget_2);
@@ -917,10 +918,13 @@ public:
         pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
         pushButton_4->setGeometry(QRect(0, 310, 81, 61));
         pushButton_4->setFont(font3);
+        pushButton_21 = new QPushButton(widget_2);
+        pushButton_21->setObjectName(QString::fromUtf8("pushButton_21"));
+        pushButton_21->setGeometry(QRect(0, 450, 81, 61));
+        pushButton_21->setFont(font3);
         label_IPower_name->raise();
         label_Power_name->raise();
         label_power_content->raise();
-        line_2->raise();
         label_IPower_name_3->raise();
         label_flow_content->raise();
         label_IPower_name_2->raise();
@@ -944,6 +948,7 @@ public:
         label_flow_unit_3->raise();
         pushButton_3->raise();
         pushButton_4->raise();
+        pushButton_21->raise();
         widget_6 = new QWidget(centralWidget);
         widget_6->setObjectName(QString::fromUtf8("widget_6"));
         widget_6->setGeometry(QRect(0, 90, 900, 510));
@@ -1174,7 +1179,7 @@ public:
         lcdNumber_clock->setSegmentStyle(QLCDNumber::Flat);
         pushButton_10 = new QPushButton(centralWidget);
         pushButton_10->setObjectName(QString::fromUtf8("pushButton_10"));
-        pushButton_10->setGeometry(QRect(924, 520, 101, 81));
+        pushButton_10->setGeometry(QRect(924, 530, 101, 71));
         label_3 = new QLabel(centralWidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setGeometry(QRect(720, 10, 30, 60));
@@ -1187,12 +1192,12 @@ public:
         pushButton_2->raise();
         lcdNumber_clock->raise();
         pushButton_10->raise();
-        widget_2->raise();
-        widget->raise();
         widget_6->raise();
         widget_7->raise();
         widget_5->raise();
         label_3->raise();
+        widget->raise();
+        widget_2->raise();
 
         retranslateUi(MainWindow);
 
@@ -1202,7 +1207,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("MainWindow", "\350\212\202\350\203\275\345\210\206\346\236\220\344\273\252", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("MainWindow", "\350\212\202\350\203\275\345\210\206\346\236\220\344\273\252\345\225\212", 0, QApplication::UnicodeUTF8));
         label_2->setText(QString());
         label_IPower_name_180->setText(QApplication::translate("MainWindow", "\345\255\230\345\202\250\346\226\271\345\274\217", 0, QApplication::UnicodeUTF8));
         label_IPower_name_179->setText(QApplication::translate("MainWindow", "\344\272\222\346\204\237\345\231\250\345\217\230\346\257\224", 0, QApplication::UnicodeUTF8));
@@ -1233,6 +1238,7 @@ public:
         pushButton_17->setText(QApplication::translate("MainWindow", "\351\241\2652", 0, QApplication::UnicodeUTF8));
         pushButton_15->setText(QApplication::translate("MainWindow", "\345\210\240\351\231\244\346\234\254\345\234\260\346\225\260\346\215\256", 0, QApplication::UnicodeUTF8));
         pushButton_18->setText(QApplication::translate("MainWindow", "\345\257\274\345\207\272\346\234\254\345\234\260\346\225\260\346\215\256", 0, QApplication::UnicodeUTF8));
+        pushButton_20->setText(QApplication::translate("MainWindow", "\346\233\264\346\226\260\347\250\213\345\272\217", 0, QApplication::UnicodeUTF8));
         label_IPower_name_81->setText(QApplication::translate("MainWindow", "\345\260\217\346\227\266", 0, QApplication::UnicodeUTF8));
         label_IPower_name_106->setText(QString());
         label_analyze_rated_flow->setText(QString());
@@ -1338,6 +1344,7 @@ public:
         label_flow_unit_3->setText(QApplication::translate("MainWindow", "%", 0, QApplication::UnicodeUTF8));
         pushButton_3->setText(QApplication::translate("MainWindow", "\345\274\200\345\247\213", 0, QApplication::UnicodeUTF8));
         pushButton_4->setText(QApplication::translate("MainWindow", "\347\273\223\346\235\237", 0, QApplication::UnicodeUTF8));
+        pushButton_21->setText(QApplication::translate("MainWindow", "\346\210\252\345\233\276", 0, QApplication::UnicodeUTF8));
         label_IPower_name_5->setText(QApplication::translate("MainWindow", "A\347\233\270", 0, QApplication::UnicodeUTF8));
         label_voltage_a_content->setText(QString());
         label_IPower_name_6->setText(QApplication::translate("MainWindow", "B\347\233\270", 0, QApplication::UnicodeUTF8));
