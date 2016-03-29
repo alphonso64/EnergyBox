@@ -3,7 +3,6 @@
 
 void DataWorkerThread::run()
 {
-    int fd ;
     if ((fd = serialOpen ("/dev/ttyAMA0", 115200)) < 0)
     {
 //          fprintf (stderr, "Unable to open serial device: %s\n", strerror (errno)) ;
@@ -27,12 +26,13 @@ void DataWorkerThread::run()
             {
                 parseParam(temp+4);
             }
-            Util::SysLogD("receive: %x \n",*head);
+            //Util::SysLogD("receive: %x \n",*head);
         }else if(val > len)
         {
             serialFlush(fd);
         }
 
+        //usleep(100000);
     }
 
 }
@@ -70,8 +70,26 @@ void DataWorkerThread::parseParam(char *temp)
     {
         energyparam.vsp =energyparam.power /  energyparam.flow_content;
     }
-    Util::SysLogD("param: %d %d\n",energyparam.time, energyparam.time);
+    //Util::SysLogD("param: %d %d\n",energyparam.time, energyparam.time);
     mutex.unlock();
 }
 
+void DataWorkerThread::sendMsg(int cmd_a, int val_a, int cmd_b, int val_b, int cmd_c, int val_c)
+{
+    int *buf = (int *)sendBuf;
+    buf[0] = 0x5a6c;
+    sendBuf[0]= 0x6c;
+    sendBuf[1] = 0x5a;
+    sendBuf[2] = 0;
+    sendBuf[3] = 3;
 
+
+    buf[1] = val_a;
+    buf[2] = val_b;
+    buf[3] = val_c;
+
+    for(int i=0;i<16;i++)
+    {
+        serialPutchar(fd,sendBuf[i]);
+    }
+}

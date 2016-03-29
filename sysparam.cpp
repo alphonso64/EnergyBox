@@ -41,6 +41,7 @@ void SysParam::saveParam()
     Util::writeInit(QString(FILE_PATH),QString("unloading_pressure"),QString("%1").arg(unloading_pressure));
     Util::writeInit(QString(FILE_PATH),QString("save_type"),QString::number(save_type));
     Util::writeInit(QString(FILE_PATH),QString("configure_type"),QString::number(1));
+    Util::writeInit(QString(FILE_PATH),QString("wiring_type"),QString::number(wiring_type));
 
     return;
 }
@@ -94,13 +95,17 @@ bool SysParam::loadParam()
     {
         save_type = val.toInt();
     }
-    //printf("%f %f %f %f %f %f %f %f %d\n",radio,charge,power,gas,current_idle_max,current_down_max,unloading_pressure,loading_pressure,save_type);
+    if(Util::readInit(QString(FILE_PATH), QString("wiring_type"), val))
+    {
+        wiring_type = val.toInt();
+    }
+    printf("%f %f %f %f %f %f %f %f %d\n",radio,charge,power,gas,current_idle_max,current_down_max,unloading_pressure,loading_pressure,wiring_type);
     initFlag = true;
     return true;
 }
 
 void SysParam::setParam(float radio, float charge, float power,
-                        float gas, float current_idle_max, float current_down_max, float unloading_pressure, float loading_pressure, int save_type)
+                        float gas, float current_idle_max, float current_down_max, float unloading_pressure, float loading_pressure, int save_type,int wiring_type)
 {
     this->charge = charge;
     this->radio = radio;
@@ -111,6 +116,7 @@ void SysParam::setParam(float radio, float charge, float power,
     this->unloading_pressure = unloading_pressure;
     this->loading_pressure = loading_pressure;
     this->save_type = save_type;
+    this->wiring_type = wiring_type;
     initFlag = true;
 
 }
@@ -126,6 +132,7 @@ void SysParam::setParam(SysParam param)
     this->unloading_pressure = param.unloading_pressure;
     this->loading_pressure = param.loading_pressure;
     this->save_type = param.save_type;
+    this->wiring_type = param.wiring_type;
     initFlag = true;
 }
 

@@ -22,6 +22,7 @@ public:
     float unloading_pressure;//卸载压力
     float loading_pressure;//加载压力
     int save_type;//存储方式
+    int wiring_type;//存储方式
 
     const static int TYPE_LOCAL= 0;
     const static int TYPE_UDISK= 1;
@@ -30,7 +31,7 @@ public:
 public:
     void saveParam();
     bool loadParam();
-    void setParam(float radio,float charge,float power,float gas,float current_idle_max,float current_down_max,float unloading_pressure,float loading_pressure,int save_type);
+    void setParam(float radio,float charge,float power,float gas,float current_idle_max,float current_down_max,float unloading_pressure,float loading_pressure,int save_type,int wiring_type);
     void setParam(SysParam param);
 };
 

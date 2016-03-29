@@ -22,7 +22,7 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      27,   14, // methods
+      28,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -41,22 +41,23 @@ static const uint qt_meta_data_MainWindow[] = {
      218,   35,   35,   35, 0x08,
      244,   35,   35,   35, 0x08,
      256,   35,   35,   35, 0x08,
-     271,   35,   35,   35, 0x08,
-     298,   35,   35,   35, 0x08,
-     325,   35,   35,   35, 0x08,
-     352,   35,   35,   35, 0x08,
-     379,   35,   35,   35, 0x08,
-     406,   35,   35,   35, 0x08,
+     271,  288,   35,   35, 0x08,
+     292,   35,   35,   35, 0x08,
+     319,   35,   35,   35, 0x08,
+     346,   35,   35,   35, 0x08,
+     373,   35,   35,   35, 0x08,
+     400,   35,   35,   35, 0x08,
      427,   35,   35,   35, 0x08,
-     439,   35,   35,   35, 0x08,
-     466,   35,   35,   35, 0x08,
-     493,   35,   35,   35, 0x08,
-     520,   35,   35,   35, 0x08,
-     547,   35,   35,   35, 0x08,
-     574,   35,   35,   35, 0x08,
-     601,   35,   35,   35, 0x08,
-     628,   35,   35,   35, 0x08,
-     655,   35,   35,   35, 0x08,
+     448,   35,   35,   35, 0x08,
+     460,   35,   35,   35, 0x08,
+     487,   35,   35,   35, 0x08,
+     514,   35,   35,   35, 0x08,
+     541,   35,   35,   35, 0x08,
+     568,   35,   35,   35, 0x08,
+     595,   35,   35,   35, 0x08,
+     622,   35,   35,   35, 0x08,
+     649,   35,   35,   35, 0x08,
+     676,   35,   35,   35, 0x08,
 
        0        // eod
 };
@@ -71,7 +72,8 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "on_pushButton_7_pressed()\0"
     "on_pushButton_8_pressed()\0"
     "on_pushButton_9_pressed()\0show_time()\0"
-    "check_status()\0on_pushButton_12_clicked()\0"
+    "check_status()\0on_overflow(int)\0cmd\0"
+    "on_pushButton_12_clicked()\0"
     "on_pushButton_10_clicked()\0"
     "on_pushButton_11_pressed()\0"
     "on_pushButton_13_pressed()\0"
@@ -105,22 +107,23 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 8: _t->on_pushButton_9_pressed(); break;
         case 9: _t->show_time(); break;
         case 10: _t->check_status(); break;
-        case 11: _t->on_pushButton_12_clicked(); break;
-        case 12: _t->on_pushButton_10_clicked(); break;
-        case 13: _t->on_pushButton_11_pressed(); break;
-        case 14: _t->on_pushButton_13_pressed(); break;
-        case 15: _t->on_pushButton_14_pressed(); break;
-        case 16: _t->on_analysis((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 17: _t->on_result(); break;
-        case 18: _t->on_pushButton_15_pressed(); break;
-        case 19: _t->on_pushButton_16_pressed(); break;
-        case 20: _t->on_pushButton_17_pressed(); break;
-        case 21: _t->on_pushButton_18_pressed(); break;
-        case 22: _t->on_pushButton_18_clicked(); break;
-        case 23: _t->on_pushButton_15_clicked(); break;
-        case 24: _t->on_pushButton_19_clicked(); break;
-        case 25: _t->on_pushButton_20_clicked(); break;
-        case 26: _t->on_pushButton_21_clicked(); break;
+        case 11: _t->on_overflow((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 12: _t->on_pushButton_12_clicked(); break;
+        case 13: _t->on_pushButton_10_clicked(); break;
+        case 14: _t->on_pushButton_11_pressed(); break;
+        case 15: _t->on_pushButton_13_pressed(); break;
+        case 16: _t->on_pushButton_14_pressed(); break;
+        case 17: _t->on_analysis((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 18: _t->on_result(); break;
+        case 19: _t->on_pushButton_15_pressed(); break;
+        case 20: _t->on_pushButton_16_pressed(); break;
+        case 21: _t->on_pushButton_17_pressed(); break;
+        case 22: _t->on_pushButton_18_pressed(); break;
+        case 23: _t->on_pushButton_18_clicked(); break;
+        case 24: _t->on_pushButton_15_clicked(); break;
+        case 25: _t->on_pushButton_19_clicked(); break;
+        case 26: _t->on_pushButton_20_clicked(); break;
+        case 27: _t->on_pushButton_21_clicked(); break;
         default: ;
         }
     }
@@ -158,9 +161,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 27)
+        if (_id < 28)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 27;
+        _id -= 28;
     }
     return _id;
 }

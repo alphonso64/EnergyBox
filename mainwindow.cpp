@@ -112,18 +112,12 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->comboBox_store_type->clear();
    ui->comboBox_store_type->addItems(strings);
 
-   if(sysparam.loadParam())
-   {
-        ui->lineEdit_charge->setText(QString("%1").arg(sysparam.charge));
-        ui->lineEdit_current_down_max->setText(QString("%1").arg(sysparam.current_down_max));
-        ui->lineEdit_current_idle_max->setText(QString("%1").arg(sysparam.current_idle_max));
-        ui->lineEdit_gas->setText(QString("%1").arg(sysparam.gas));
-        ui->lineEdit_loading_pressure->setText(QString("%1").arg(sysparam.loading_pressure));
-        ui->lineEdit_unloading_pressure->setText(QString("%1").arg(sysparam.unloading_pressure));
-        ui->lineEdit_power->setText(QString("%1").arg(sysparam.power));
-        ui->lineEdit_radio->setText(QString("%1").arg(sysparam.radio));
-        ui->comboBox_store_type->setCurrentIndex(sysparam.save_type);
-   }
+   QStringList strings_;
+   strings_ << "三相三线" << "三相四线" ;
+   ui->comboBox_store_type_2->clear();
+   ui->comboBox_store_type_2->addItems(strings_); 
+
+   sysparam.loadParam();
 
    startFlag = -1;
 
@@ -171,6 +165,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
    connect(file, SIGNAL(fileopen(QString)), SLOT(on_analysis(QString)));
    connect(reader, SIGNAL(result()), SLOT(on_result()));
+   connect(recorder, SIGNAL(recordoverflow(int)), SLOT(on_overflow(int)));
 
 
 
@@ -257,6 +252,7 @@ void MainWindow::on_pushButton_pressed()
              ui->lineEdit_power->setText(QString("%1").arg(sysparam.power));
              ui->lineEdit_radio->setText(QString("%1").arg(sysparam.radio));
              ui->comboBox_store_type->setCurrentIndex(sysparam.save_type);
+             ui->comboBox_store_type_2->setCurrentIndex(sysparam.wiring_type);
         }
 
         ui->widget->show();
@@ -353,7 +349,35 @@ void MainWindow::on_pushButton_4_pressed()
         recorder->title.replace(":","_");
         recorder->title.replace("/","-");
         recorder->recorderFlag = true;
+        cusMsg->setMessage(QString("结束测量，正在保存数据"));
+        cusMsg->show();
     }
+}
+//溢出 结束记录
+void MainWindow::on_overflow(int cmd)
+{
+    if(cmd == 1)
+    {
+        if(startFlag == 0)
+        {
+            startFlag = -1;
+            ui->pushButton_3->setEnabled(true);
+            QDateTime  end_time;
+            end_time.setTime_t(dataWoker->time);
+            record_end_time = end_time.toString("yy/MM/dd hh:mm:ss");
+            recorder->title = QString(record_start_time+"----"+record_end_time+".xls");
+            recorder->title.replace(":","_");
+            recorder->title.replace("/","-");
+            recorder->recorderFlag = true;
+            cusMsg->setMessage(QString("结束测量，正在保存数据"));
+            cusMsg->show();
+        }
+    }else if(cmd == 2)
+    {
+        cusMsg->setMessage(QString("数据保存成"));
+        cusMsg->show();
+    }
+
 }
 
 void MainWindow::on_pushButton_5_pressed()
@@ -523,6 +547,7 @@ void MainWindow::on_pushButton_12_clicked()
 
 
     param.save_type = ui->comboBox_store_type->currentIndex();
+    param.wiring_type = ui->comboBox_store_type_2->currentIndex();
 
     content = ui->lineEdit_gas->text();
     if(content.size() == 0){
@@ -552,6 +577,8 @@ void MainWindow::on_pushButton_12_clicked()
     sysparam.saveParam();
     cusMsg->setMessage(QString("保存成功"));
     cusMsg->show();
+
+    dataWoker->sendMsg(1,param.radio,1,param.wiring_type,0,0);
     return;
 
     EXIT_FAIL:

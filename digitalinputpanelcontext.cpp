@@ -61,17 +61,35 @@ void DigitalInputPanelContext::sendCharacter(QChar character)
 {
     QPointer<QWidget> w = focusWidget();
 
-    if (!w)
-        return;
+    printf("pressed %d \n",character);
 
-    QKeyEvent keyPress(QEvent::KeyPress, character.unicode(), Qt::NoModifier, QString(character));
-    QApplication::sendEvent(w, &keyPress);
 
-    if (!w)
-        return;
+    if(character == 35)
+    {
+        if (!w)
+            return;
 
-    QKeyEvent keyRelease(QEvent::KeyPress, character.unicode(), Qt::NoModifier, QString());
-    QApplication::sendEvent(w, &keyRelease);
+        QKeyEvent keyPress(QEvent::KeyPress, Qt::Key_Backspace, Qt::NoModifier);
+        QApplication::sendEvent(w, &keyPress);
+
+    }else
+    {
+        if (!w)
+            return;
+
+        QKeyEvent keyPress(QEvent::KeyPress, character.unicode(), Qt::NoModifier, QString(character));
+        QApplication::sendEvent(w, &keyPress);
+
+
+
+        if (!w)
+            return;
+
+        QKeyEvent keyRelease(QEvent::KeyPress, character.unicode(), Qt::NoModifier, QString());
+        QApplication::sendEvent(w, &keyRelease);
+    }
+
+
 }
 
 //! [2]

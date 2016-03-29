@@ -22,7 +22,7 @@ typedef multimap<time_t, string> result_set_t;
 Util::Util()
 {
 }
-
+ 
 bool Util::writeInit(QString path, QString user_key, QString user_value)
 {
     if(path.isEmpty() || user_key.isEmpty())
@@ -131,8 +131,10 @@ void Util::deleteUnpluedUdiskPath()
                     {
                         if(buf.st_uid != 1000)
                         {
-                            QString cmd("sudo rm -rf "+path);
+
+                            QString cmd("sudo rm -rf "+path_pre+"\""+ptr->d_name+"\"");
                             system(cmd.toStdString().c_str());
+                            printf("check path %s\n",cmd.toStdString().c_str());
                         }
                     }
 

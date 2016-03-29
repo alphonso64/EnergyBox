@@ -25,67 +25,10 @@ public:
 
     }
 protected:
-    void run()
-    {
-        recorderFlag = false;
+    void run();
+signals:
+    void recordoverflow(int cmd);
 
-        workbook wb;
-        xf_t* xf = wb.xformat();
-        worksheet* ws;
-        ws = wb.sheet("sheet1");
-        setTitle(ws,xf);
-		acc_power = 0;
-		acc_flow = 0;
-        int cnt = 0;
-        while(!recorderFlag)
-        {
-            EnergyParam param = dataWoker->getEnergyParam();
-            if(lastTime != param.time)
-            {
-                cnt++;
-                ws->label(cnt,0,itos(param.time),xf);
-                ws->label(cnt,1,itos(param.voltage_a),xf);
-                ws->label(cnt,2,itos(param.voltage_b),xf);
-                ws->label(cnt,3,itos(param.voltage_c),xf);
-                ws->label(cnt,4,itos(param.current_a),xf);
-                ws->label(cnt,5,itos(param.current_b),xf);
-                ws->label(cnt,6,itos(param.current_c),xf);
-
-                ws->label(cnt,7,itos(param.power_factor),xf);
-                ws->label(cnt,8,itos(param.frequency),xf);
-                ws->label(cnt,9,itos(param.active_power),xf);
-                ws->label(cnt,10,itos(param.reactive_power),xf);
-                ws->label(cnt,11,itos(param.apparent_power),xf);
-
-                ws->label(cnt,12,itos(param.env_temp),xf);
-                ws->label(cnt,13,itos(param.env_humidity),xf);
-                ws->label(cnt,14,itos(param.air_temp),xf);
-                ws->label(cnt,15,itos(param.air_pressure),xf);
-                ws->label(cnt,16,itos(param.flow_content),xf);
-                ws->label(cnt,17,itos(param.power),xf);
-                ws->label(cnt,18,itos(param.vsp),xf);
-				if(cnt>1)
-				{
-					acc_power += param.power*(param.time - lastTime);
-					acc_flow += param.flow_content*(param.time - lastTime);
-                    //printf("time %d %d\n",param.time);
-				}
-				lastTime = param.time;
-
-            }
-            usleep(200000);
-        }
-        ws = wb.sheet("sheet2");
-        ws->label(0,0,"累计电量(kwh)",xf);
-        ws->label(1,0,itos(acc_power),xf);
-        ws->label(0,1,"累计流量(m3)",xf);
-        ws->label(1,1,itos(acc_flow),xf);
-
-        string path_post = title.toStdString();
-        string path = path_pre + path_post;
-        printf("save file : %s\n",path.c_str());
-        wb.Dump(path);
-    }
 private:
 	void setTitle(worksheet* ws,xf_t* xf)
 	{
@@ -123,6 +66,8 @@ private:
 		ss<<val;
 		return ss.str();
 	}
+
+    bool overflow;
 
 public:
 	DataWorkerThread *dataWoker;

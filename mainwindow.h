@@ -60,6 +60,8 @@ private slots:
 
     void check_status();
 
+    void on_overflow(int cmd);
+
     void on_pushButton_12_clicked();
 
     void on_pushButton_10_clicked();

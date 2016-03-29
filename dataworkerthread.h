@@ -39,12 +39,13 @@ public:
 
     long time;
 
+    void sendMsg(int cmd_a,int val_a,int cmd_b,int val_b,int cmd_e,int val_c);
+
 private:
     EnergyParam energyparam;
     QMutex mutex;
-
-
-
+    unsigned char sendBuf[28];
+     int fd ;
 };
 
 #endif // DATAWORKERTHREAD_H
