@@ -250,7 +250,7 @@ public:
         line->setFrameShadow(QFrame::Sunken);
         label = new QLabel(centralWidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(250, 20, 221, 41));
+        label->setGeometry(QRect(250, 15, 241, 41));
         QFont font1;
         font1.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
         font1.setPointSize(24);
@@ -1239,8 +1239,8 @@ public:
         widget_7->raise();
         widget_5->raise();
         label_3->raise();
-        widget_2->raise();
         widget->raise();
+        widget_2->raise();
 
         retranslateUi(MainWindow);
 
@@ -1250,7 +1250,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("MainWindow", "\350\212\202\350\203\275\345\210\206\346\236\220\344\273\252\345\225\212", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("MainWindow", "\350\212\202\350\203\275\345\210\206\346\236\220\344\273\252", 0, QApplication::UnicodeUTF8));
         label_2->setText(QString());
         label_IPower_name_180->setText(QApplication::translate("MainWindow", "\346\216\245\347\272\277\346\226\271\345\274\217", 0, QApplication::UnicodeUTF8));
         label_IPower_name_179->setText(QApplication::translate("MainWindow", "\344\272\222\346\204\237\345\231\250\345\217\230\346\257\224", 0, QApplication::UnicodeUTF8));
@@ -1372,7 +1372,7 @@ public:
         label_IFlow_content->setText(QString());
         label_IPower_name_13->setText(QApplication::translate("MainWindow", "\345\274\200\345\247\213\346\227\266\351\227\264", 0, QApplication::UnicodeUTF8));
         label_start_time_content->setText(QString());
-        label_IPower_name_14->setText(QApplication::translate("MainWindow", "\347\273\223\346\235\237\346\227\266\351\227\264", 0, QApplication::UnicodeUTF8));
+        label_IPower_name_14->setText(QApplication::translate("MainWindow", "\346\214\201\347\273\255\346\227\266\351\227\264", 0, QApplication::UnicodeUTF8));
         label_end_time_content->setText(QString());
         pushButton_6->setText(QApplication::translate("MainWindow", "\347\224\265\350\241\250", 0, QApplication::UnicodeUTF8));
         pushButton_7->setText(QApplication::translate("MainWindow", "\344\274\240\346\204\237\345\231\250", 0, QApplication::UnicodeUTF8));

@@ -33,14 +33,14 @@ public:
         CustomMessageBox->resize(472, 235);
         label = new QLabel(CustomMessageBox);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(60, 40, 351, 81));
+        label->setGeometry(QRect(20, 40, 441, 81));
         QFont font;
         font.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
         font.setPointSize(26);
         label->setFont(font);
         pushButton = new QPushButton(CustomMessageBox);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(250, 160, 161, 61));
+        pushButton->setGeometry(QRect(300, 170, 161, 61));
         QFont font1;
         font1.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
         font1.setPointSize(18);

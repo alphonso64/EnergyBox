@@ -26,6 +26,7 @@ public:
     static int  RebuildSysLogFiles();
     static void SysLogE(const char *p_fmt, ...);
     static void SysLogD(const char *p_fmt, ...);
+    static void writeResult(worksheet *ws, xf_t *xf, AnalyzeResult res);
 private:
 };
 

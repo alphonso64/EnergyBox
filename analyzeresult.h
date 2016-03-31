@@ -7,11 +7,15 @@ public:
     AnalyzeResult();
     float acc_power;
     float acc_flow;
+    float acc_charge;
+    float ave_cost;
 
     long load_time;
     long unload_time;
     long load_cnt;
     long unload_cnt;
+    long max_load_time;
+    long max_unload_time;
     float load_power;
     float unload_power;
     float load_charge;
@@ -26,6 +30,7 @@ public:
     long worktime;
     long stanby_time;
     float ave_vsp;
+
 
     void clear();
 

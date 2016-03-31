@@ -62,6 +62,8 @@ private slots:
 
     void on_overflow(int cmd);
 
+    void on_setEcho(int res);
+
     void on_pushButton_12_clicked();
 
     void on_pushButton_10_clicked();
@@ -75,8 +77,6 @@ private slots:
     void on_analysis(QString);
 
     void on_result();
-
-
 
     void on_pushButton_15_pressed();
 

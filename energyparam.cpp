@@ -23,6 +23,7 @@ EnergyParam::EnergyParam()
     this->time = 0;
     this->power = 0;
     this->vsp = 0;
+    this->load_type = 0;
 }
 
 void EnergyParam::cpy(EnergyParam param)
@@ -48,5 +49,6 @@ void EnergyParam::cpy(EnergyParam param)
 	this->time = param.time;
     this->power  = param.power;
     this->vsp = param.vsp;
+    this->load_type = param.load_type;
 }
 

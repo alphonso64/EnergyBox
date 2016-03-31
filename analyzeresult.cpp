@@ -25,6 +25,10 @@ AnalyzeResult::AnalyzeResult()
     this->unload_cnt = 0;
     this->unload_radio = 0;
     this->unload_time = 0;
+    this->max_load_time = 0;
+    this->max_unload_time  = 0;
+    acc_charge  =0;
+    ave_cost = 0;
 }
 
 
@@ -53,6 +57,10 @@ void AnalyzeResult::clear()
     this->unload_cnt = 0;
     this->unload_radio = 0;
     this->unload_time = 0;
-}
 
+    this->max_load_time = 0;
+    this->max_unload_time  = 0;
+    acc_charge = 0;
+    ave_cost = 0;
+}
 

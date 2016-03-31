@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include "XlsReader.h"
 
-#include <string.h>
+#include <string>
 #include <ctype.h>
 #include <iostream>
 #include <sstream>
@@ -82,6 +82,8 @@ void computeEnergy(CalTmp *temp,int len,CalStatus *status,AnalyzeResult *res);
 public:
     QString path;
     AnalyzeResult res;
+    std::string start_time;
+    std::string meassure_time;
 };
 
 #endif // READERWORKTHREAD_H

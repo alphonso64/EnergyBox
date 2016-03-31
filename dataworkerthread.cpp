@@ -5,12 +5,12 @@ void DataWorkerThread::run()
 {
     if ((fd = serialOpen ("/dev/ttyAMA0", 115200)) < 0)
     {
-//          fprintf (stderr, "Unable to open serial device: %s\n", strerror (errno)) ;
       return ;
     }
     int len = 128;
     char temp[len];
     serialFlush(fd);
+	int errcnt = 0;
     while(1)
     {
 
@@ -26,13 +26,25 @@ void DataWorkerThread::run()
             {
                 parseParam(temp+4);
             }
-            //Util::SysLogD("receive: %x \n",*head);
+            if(*head == 0x5a6d)
+            {
+                parseResult(temp+4);
+            }else
+			{
+				errcnt++;
+			}
+			if(errcnt == 10)
+			{
+				  serialFlush(fd);
+				  errcnt =0;
+			}
+//			Util::SysLogD("receive: %x \n",*head);
         }else if(val > len)
         {
             serialFlush(fd);
         }
 
-        //usleep(100000);
+        usleep(100000);
     }
 
 }
@@ -74,10 +86,15 @@ void DataWorkerThread::parseParam(char *temp)
     mutex.unlock();
 }
 
+void DataWorkerThread::parseResult(char *temp)
+{
+    int *res = (int *)temp;
+    emit setEcho(res[0]);
+}
+
 void DataWorkerThread::sendMsg(int cmd_a, int val_a, int cmd_b, int val_b, int cmd_c, int val_c)
 {
     int *buf = (int *)sendBuf;
-    buf[0] = 0x5a6c;
     sendBuf[0]= 0x6c;
     sendBuf[1] = 0x5a;
     sendBuf[2] = 0;

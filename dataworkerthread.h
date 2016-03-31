@@ -27,6 +27,11 @@ protected:
 
     void parseParam(char *temp);
 
+    void parseResult(char *temp);
+
+signals:
+    void setEcho(int res);
+
 public:
     EnergyParam getEnergyParam()
     {

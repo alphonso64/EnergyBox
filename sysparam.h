@@ -26,13 +26,17 @@ public:
 
     const static int TYPE_LOCAL= 0;
     const static int TYPE_UDISK= 1;
-
     bool initFlag;
+
+    float radio_temp;
+    int wiring_type_temp;
 public:
     void saveParam();
     bool loadParam();
     void setParam(float radio,float charge,float power,float gas,float current_idle_max,float current_down_max,float unloading_pressure,float loading_pressure,int save_type,int wiring_type);
     void setParam(SysParam param);
+    void saveLocalParam();
+    void saveRemoveParam();
 };
 
 #endif // SYSPARAM_H

@@ -26,6 +26,7 @@ public:
     long time;
     float power;
     float vsp;
+    long load_type;
     void cpy(EnergyParam param);
 
 };

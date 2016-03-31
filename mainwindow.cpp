@@ -34,7 +34,7 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->pushButton_4->setStyleSheet(*style_a);
    ui->pushButton_5->setStyleSheet(*style);
    ui->pushButton_6->setStyleSheet(*style_a);
-   ui->pushButton_7->setStyleSheet(*style);
+   ui->pushButton_7->setStyleSheet(*style_a);
    ui->pushButton_8->setStyleSheet(*style_a);
    ui->pushButton_9->setStyleSheet(*style_a);
    ui->pushButton_12->setStyleSheet(*style_a);
@@ -78,6 +78,9 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->widget_7->hide();
 
    ui->pushButton_2->setEnabled(false);
+
+   //ui->pushButton_10->setVisible(false);
+   ui->pushButton_19->setVisible(false);
 
    pageIndex = 2;
 
@@ -166,10 +169,10 @@ MainWindow::MainWindow(QWidget *parent) :
    connect(file, SIGNAL(fileopen(QString)), SLOT(on_analysis(QString)));
    connect(reader, SIGNAL(result()), SLOT(on_result()));
    connect(recorder, SIGNAL(recordoverflow(int)), SLOT(on_overflow(int)));
+   connect(dataWoker, SIGNAL(setEcho(int)), SLOT(on_setEcho(int)));
 
 
-
-  }
+}
 
 MainWindow::~MainWindow()
 {
@@ -183,14 +186,16 @@ void MainWindow::on_result()
     ui->label_analyze_file_name->setText(file->filename);
     ui->label_analyze_rated_power->setText(Util::ftos(sysparam.power));
     ui->label_analyze_rated_flow->setText(Util::ftos(sysparam.gas));
-    QDateTime date;
-    date.setTime_t(reader->res.start_measure_time);
-    ui->label_analyze_start_time->setText(date.toString("yy/MM/dd hh:mm:ss"));
+//    QDateTime date;
+//    date.setTime_t(reader->res.start_measure_time);
+    if(reader->start_time.length()>0)
+        ui->label_analyze_start_time->setText(reader->start_time.c_str());
 
-    float time = (float)(reader->res.end_measure_time-reader->res.start_measure_time)/3600.0;
-    ui->label_analyze_all_time->setText(Util::ftos(time));
+//    float time = (float)(reader->res.end_measure_time-reader->res.start_measure_time)/3600.0;
+    if(reader->meassure_time.length()>0)
+        ui->label_analyze_all_time->setText(reader->meassure_time.c_str());
 
-    time = (float)(reader->res.worktime)/3600.0;
+    float time = (float)(reader->res.worktime)/3600.0;
     ui->label_analyze_work_time->setText(Util::ftos(time));
 
     time = (float)(reader->res.stanby_time)/3600.0;
@@ -199,8 +204,8 @@ void MainWindow::on_result()
     ui->label_analyze_acc_power->setText(Util::ftos(reader->res.acc_power));
     ui->label_analyze_acc_flow->setText(Util::ftos(reader->res.acc_flow));
     ui->label_analyze_ave_vsp->setText(Util::ftos(reader->res.ave_vsp));
-    ui->label_analyze_acc_charge->setText("电费");
-    ui->label_analyze_flow_cost->setText("成本");
+    ui->label_analyze_acc_charge->setText(Util::ftos(reader->res.acc_charge));
+    ui->label_analyze_flow_cost->setText(Util::ftos(reader->res.ave_cost));
 
     time = (float)(reader->res.load_time)/3600.0;
     ui->label_analyze_loadtime->setText(Util::ftos(time));
@@ -217,8 +222,14 @@ void MainWindow::on_result()
 
     ui->pushButton_19->setEnabled(true);
 
-//    ui->label_analyze_load_power->setText(Util::ftos(reader->res.load_power));
-//    ui->label_analyze_unload_power->setText(Util::ftos(reader->res.unload_power));
+    ui->label_analyze_load_power->setText(Util::ftos(reader->res.load_power));
+    ui->label_analyze_unload_power->setText(Util::ftos(reader->res.unload_power));
+
+    ui->label_analyze_load_charge->setText(Util::ftos(reader->res.load_charge));
+    ui->label_analyze_unload_charge->setText(Util::ftos(reader->res.unload_chargd));
+
+    ui->label_analyze_load_power_radio->setText(Util::ftos(reader->res.load_charge_radio));
+    ui->label_analyze_unload_power_radio->setText(Util::ftos(reader->res.unload_charge_radio));
 }
 
 
@@ -253,6 +264,7 @@ void MainWindow::on_pushButton_pressed()
              ui->lineEdit_radio->setText(QString("%1").arg(sysparam.radio));
              ui->comboBox_store_type->setCurrentIndex(sysparam.save_type);
              ui->comboBox_store_type_2->setCurrentIndex(sysparam.wiring_type);
+             //Util::SysLogD("Init View %d %f",sysparam.wiring_type,sysparam.radio);
         }
 
         ui->widget->show();
@@ -326,11 +338,13 @@ void MainWindow::on_pushButton_3_pressed()
     if(startFlag != 0){
         startFlag = 0;
         ui->pushButton_3->setEnabled(false);
-
         startTime.setTime_t(dataWoker->time);
         record_start_time = startTime.toString("yy/MM/dd hh:mm:ss");
         ui->label_start_time_content->setText(record_start_time);
         ui->label_end_time_content->clear();
+        recorder->max_cur_standby = sysparam.current_down_max;
+        recorder->max_cur_unload = sysparam.current_idle_max;
+        recorder->power_charge = sysparam.charge;
         recorder->start();
     }
 }
@@ -374,7 +388,7 @@ void MainWindow::on_overflow(int cmd)
         }
     }else if(cmd == 2)
     {
-        cusMsg->setMessage(QString("数据保存成"));
+        cusMsg->setMessage(QString("数据保存成功"));
         cusMsg->show();
     }
 
@@ -479,7 +493,7 @@ void MainWindow::check_status(){
 void MainWindow::setInfo(EnergyParam param){
     ui->label_power_content->setText(Util::ftos(recorder->acc_power/3600));
     ui->label_flow_content->setText(Util::ftos(recorder->acc_flow/60));
-//    ui->label_loding_rate_content->setText(itos(temp++));
+    ui->label_loding_rate_content->setText(Util::ftos(recorder->load_radio));
 }
 
 void MainWindow::setInfo_detail(EnergyParam param){
@@ -574,19 +588,32 @@ void MainWindow::on_pushButton_12_clicked()
     param.loading_pressure = content.toFloat();
 
     sysparam.setParam(param);
-    sysparam.saveParam();
-    cusMsg->setMessage(QString("保存成功"));
+    sysparam.saveLocalParam();
+    cusMsg->setMessage(QString("正在保存参数"));
     cusMsg->show();
 
     dataWoker->sendMsg(1,param.radio,1,param.wiring_type,0,0);
     return;
 
     EXIT_FAIL:
-        cusMsg->setMessage(QString("内容不能为空！"));
+        cusMsg->setMessage(QString("内容不能为空"));
         cusMsg->show();
-
-
 }
+
+void MainWindow::on_setEcho(int res)
+{
+    if(res != 0)
+    {
+        cusMsg->setMessage(QString("保存失败"));
+        cusMsg->show();
+    }else
+    {
+        sysparam.saveRemoveParam();
+        cusMsg->setMessage(QString("保存成功"));
+        cusMsg->show();
+    }
+}
+
 
 void MainWindow::on_pushButton_10_clicked()
 {
