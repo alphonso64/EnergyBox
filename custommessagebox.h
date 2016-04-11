@@ -15,6 +15,8 @@ public:
     explicit CustomMessageBox(QWidget *parent = 0);
     ~CustomMessageBox();
     void setMessage(QString msg);
+    void showWithoutButton();
+    void showWithButton();
     
 private slots:
     void on_pushButton_clicked();

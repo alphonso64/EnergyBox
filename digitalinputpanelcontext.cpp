@@ -61,9 +61,6 @@ void DigitalInputPanelContext::sendCharacter(QChar character)
 {
     QPointer<QWidget> w = focusWidget();
 
-    printf("pressed %d \n",character);
-
-
     if(character == 35)
     {
         if (!w)

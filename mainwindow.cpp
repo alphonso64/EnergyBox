@@ -79,15 +79,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
    ui->pushButton_2->setEnabled(false);
 
-   //ui->pushButton_10->setVisible(false);
+   ui->pushButton_10->setVisible(false);
    ui->pushButton_19->setVisible(false);
 
    pageIndex = 2;
 
    ui->lcdNumber_clock->setVisible(false);
    timeStampFlag = false;
-
-   //system("sudo rm -f /media/pi/*");
 
    Util::deleteUnpluedUdiskPath();
 
@@ -138,6 +136,7 @@ MainWindow::MainWindow(QWidget *parent) :
    flowDial->setLabel("流量");
    flowDial->scaleDraw()->setPenWidth( 2 );
    flowDial->move(620,0);
+   flowDial->setFocusPolicy ( Qt::NoFocus );
 
    powerDial = new CommonDial( ui->widget_2 );
    powerDial->setScaleStepSize( 20.0 );
@@ -146,6 +145,7 @@ MainWindow::MainWindow(QWidget *parent) :
    powerDial->setLabel("功率");
    powerDial->scaleDraw()->setPenWidth( 2 );
    powerDial->move(180,0);
+   powerDial->setFocusPolicy ( Qt::NoFocus );
 
    ui->label_flow_unit->setText("m<sup>3</sup>/min");
    ui->label_flow_2->setText("m<sup>3</sup>/min");
@@ -171,7 +171,7 @@ MainWindow::MainWindow(QWidget *parent) :
    connect(recorder, SIGNAL(recordoverflow(int)), SLOT(on_overflow(int)));
    connect(dataWoker, SIGNAL(setEcho(int)), SLOT(on_setEcho(int)));
 
-
+   saveState = false;
 }
 
 MainWindow::~MainWindow()
@@ -232,14 +232,12 @@ void MainWindow::on_result()
     ui->label_analyze_max_unloadtime->setText(Util::ftos(time));
 
     ui->pushButton_19->setEnabled(true);
-
-
 }
 
 
 void MainWindow::on_analysis(QString path)
 {
-    printf("on_analysis %s\n",path.toStdString().c_str());
+//    printf("on_analysis %s\n",path.toStdString().c_str());
     reader->path = path;
     reader->start();
 }
@@ -254,39 +252,41 @@ void MainWindow::clearAnalyzeView()
 
 void MainWindow::on_pushButton_pressed()
 {
-    if(pageIndex!=1){
+    if(!saveState )
+    {
+        if(pageIndex!=1){
 
-        if(sysparam.initFlag)
-        {
-             ui->lineEdit_charge->setText(QString("%1").arg(sysparam.charge));
-             ui->lineEdit_current_down_max->setText(QString("%1").arg(sysparam.current_down_max));
-             ui->lineEdit_current_idle_max->setText(QString("%1").arg(sysparam.current_idle_max));
-             ui->lineEdit_gas->setText(QString("%1").arg(sysparam.gas));
-             ui->lineEdit_loading_pressure->setText(QString("%1").arg(sysparam.loading_pressure));
-             ui->lineEdit_unloading_pressure->setText(QString("%1").arg(sysparam.unloading_pressure));
-             ui->lineEdit_power->setText(QString("%1").arg(sysparam.power));
-             ui->lineEdit_radio->setText(QString("%1").arg(sysparam.radio));
-             ui->comboBox_store_type->setCurrentIndex(sysparam.save_type);
-             ui->comboBox_store_type_2->setCurrentIndex(sysparam.wiring_type);
-             //Util::SysLogD("Init View %d %f",sysparam.wiring_type,sysparam.radio);
+            if(sysparam.initFlag)
+            {
+                 ui->lineEdit_charge->setText(QString("%1").arg(sysparam.charge));
+                 ui->lineEdit_current_down_max->setText(QString("%1").arg(sysparam.current_down_max));
+                 ui->lineEdit_current_idle_max->setText(QString("%1").arg(sysparam.current_idle_max));
+                 ui->lineEdit_gas->setText(QString("%1").arg(sysparam.gas));
+                 ui->lineEdit_loading_pressure->setText(QString("%1").arg(sysparam.loading_pressure));
+                 ui->lineEdit_unloading_pressure->setText(QString("%1").arg(sysparam.unloading_pressure));
+                 ui->lineEdit_power->setText(QString("%1").arg(sysparam.power));
+                 ui->lineEdit_radio->setText(QString("%1").arg(sysparam.radio));
+                 ui->comboBox_store_type->setCurrentIndex(sysparam.save_type);
+                 ui->comboBox_store_type_2->setCurrentIndex(sysparam.wiring_type);
+                 //Util::SysLogD("Init View %d %f",sysparam.wiring_type,sysparam.radio);
+            }
+
+            ui->widget->show();
+            ui->widget_3->hide();
+            ui->widget_2->hide();
+            ui->widget_5->hide();
+            ui->widget_6->hide();
+            ui->widget_7->hide();
+            ui->pushButton->setEnabled(false);
+            ui->pushButton_2->setEnabled(true);
+            ui->pushButton_5->setEnabled(true);
+            ui->pushButton_16->setEnabled(false);
+            ui->pushButton_17->setEnabled(true);
+            pageIndex =1;
+            DigitalInputPanelContext *dc = (DigitalInputPanelContext*)qApp->inputContext();
+            dc->hideWidget(false);
         }
-
-        ui->widget->show();
-		ui->widget_3->hide();
-        ui->widget_2->hide();
-        ui->widget_5->hide();
-        ui->widget_6->hide();
-        ui->widget_7->hide();
-        ui->pushButton->setEnabled(false);
-        ui->pushButton_2->setEnabled(true);
-        ui->pushButton_5->setEnabled(true);
-        ui->pushButton_16->setEnabled(false);
-        ui->pushButton_17->setEnabled(true);
-        pageIndex =1;
-        DigitalInputPanelContext *dc = (DigitalInputPanelContext*)qApp->inputContext();
-        dc->hideWidget(false);
     }
-
 }
 
 void MainWindow::on_pushButton_2_pressed()
@@ -314,61 +314,67 @@ void MainWindow::on_pushButton_2_pressed()
 //开始记录
 void MainWindow::on_pushButton_3_pressed()
 {
-
-    if(!sysparam.loadParam())
+    if(!saveState )
     {
-        cusMsg->setMessage(QString("请先设置参数!"));
-        cusMsg->show();
-        return;
-    }
-    QString path_pre;
-    if(sysparam.save_type == 1)
-    {
-
-        path_pre = Util::checkUDiskPath();
-        if(path_pre == NULL)
+        if(!sysparam.loadParam())
         {
-            cusMsg->setMessage(QString("U盘未插入"));
+            cusMsg->setMessage(QString("请先设置参数!"));
             cusMsg->show();
             return;
         }
-        path_pre = QString(UDISK_PATH_PREFIX+path_pre+"/");
-    }
-    else
-    {
-        path_pre = LOCAL_PATH_PREFIX;
-    }
-    recorder->path_pre = path_pre.toStdString();
-    if(startFlag != 0){
-        startFlag = 0;
-        ui->pushButton_3->setEnabled(false);
-        startTime.setTime_t(dataWoker->time);
-        record_start_time = startTime.toString("yy/MM/dd hh:mm:ss");
-        ui->label_start_time_content->setText(record_start_time);
-        ui->label_end_time_content->clear();
-        recorder->max_cur_standby = sysparam.current_down_max;
-        recorder->max_cur_unload = sysparam.current_idle_max;
-        recorder->power_charge = sysparam.charge;
-        recorder->start();
+        QString path_pre;
+        if(sysparam.save_type == 1)
+        {
+
+            path_pre = Util::checkUDiskPath();
+            if(path_pre == NULL)
+            {
+                cusMsg->setMessage(QString("U盘未插入"));
+                cusMsg->show();
+                return;
+            }
+            path_pre = QString(UDISK_PATH_PREFIX+path_pre+"/");
+        }
+        else
+        {
+            path_pre = LOCAL_PATH_PREFIX;
+        }
+        recorder->path_pre = path_pre.toStdString();
+        if(startFlag != 0){
+            startFlag = 0;
+            ui->pushButton_3->setEnabled(false);
+            startTime.setTime_t(dataWoker->time);
+            record_start_time = startTime.toString("yy/MM/dd hh:mm:ss");
+            ui->label_start_time_content->setText(record_start_time);
+            ui->label_end_time_content->clear();
+            recorder->max_cur_standby = sysparam.current_down_max;
+            recorder->max_cur_unload = sysparam.current_idle_max;
+            recorder->power_charge = sysparam.charge;
+            recorder->start();
+        }
     }
 }
 
 //结束记录
 void MainWindow::on_pushButton_4_pressed()
 {
-    if(startFlag == 0)
+    if(!saveState )
     {
-        startFlag = -1;
-        ui->pushButton_3->setEnabled(true);
-        QDateTime  end_time;
-        end_time.setTime_t(dataWoker->time);
-        record_end_time = end_time.toString("yy/MM/dd hh:mm:ss");
-        recorder->title = QString(record_start_time+"----"+record_end_time+".xls");
-        recorder->title.replace(":","_");
-        recorder->title.replace("/","-");
-        recorder->recorderFlag = true;
-        cusMsg->setMessage(QString("结束测量，正在保存数据"));
-        cusMsg->show();
+        if(startFlag == 0)
+        {
+            startFlag = -1;
+            ui->pushButton_3->setEnabled(true);
+            QDateTime  end_time;
+            end_time.setTime_t(dataWoker->time);
+            record_end_time = end_time.toString("yy/MM/dd hh:mm:ss");
+            recorder->title = QString(record_start_time+"----"+record_end_time+".xls");
+            recorder->title.replace(":","_");
+            recorder->title.replace("/","-");
+            recorder->recorderFlag = true;
+            cusMsg->setMessage(QString("结束测量，正在保存数据"));
+            cusMsg->showWithoutButton();
+            saveState = true;
+        }
     }
 }
 //溢出 结束记录
@@ -388,57 +394,68 @@ void MainWindow::on_overflow(int cmd)
             recorder->title.replace("/","-");
             recorder->recorderFlag = true;
             cusMsg->setMessage(QString("结束测量，正在保存数据"));
-            cusMsg->show();
+            cusMsg->showWithoutButton();
+            saveState = true;
         }
     }else if(cmd == 2)
     {
         cusMsg->setMessage(QString("数据保存成功"));
-        cusMsg->show();
+        cusMsg->showWithButton();
+        saveState = false;
     }
 
 }
 
 void MainWindow::on_pushButton_5_pressed()
 {
-    if(pageIndex == 1)
+    if(!saveState )
     {
-        DigitalInputPanelContext *dc = (DigitalInputPanelContext*)qApp->inputContext();
-        dc->hideWidget(true);
+        if(pageIndex == 1)
+        {
+            DigitalInputPanelContext *dc = (DigitalInputPanelContext*)qApp->inputContext();
+            dc->hideWidget(true);
+        }
+        if(pageIndex!=5)
+        {
+            //clearAnalyzeView();
+            ui->widget->hide();
+            ui->widget_2->hide();
+            ui->widget_5->show();
+            ui->widget_6->hide();
+            ui->widget_7->hide();
+            ui->pushButton->setEnabled(true);
+            ui->pushButton_2->setEnabled(true);
+            ui->pushButton_5->setEnabled(false);
+            ui->pushButton_11->setEnabled(false);
+            ui->pushButton_13->setEnabled(true);
+            ui->widget_4->show();
+            ui->widget_8->hide();
+            pageIndex =5;
+        }
     }
-    if(pageIndex!=5)
-    {
-        //clearAnalyzeView();
-        ui->widget->hide();
-        ui->widget_2->hide();
-        ui->widget_5->show();
-        ui->widget_6->hide();
-        ui->widget_7->hide();
-        ui->pushButton->setEnabled(true);
-        ui->pushButton_2->setEnabled(true);
-        ui->pushButton_5->setEnabled(false);
-        ui->pushButton_11->setEnabled(false);
-        ui->pushButton_13->setEnabled(true);
-        ui->widget_4->show();
-        ui->widget_8->hide();
-        pageIndex =5;
-    }
-
 }
 
 void MainWindow::on_pushButton_6_pressed()
 {
-    ui->widget_2->hide();
-    ui->widget_6->show();
+    if(!saveState )
+    {
+        ui->widget_2->hide();
+        ui->widget_6->show();
+    }
 }
 
 void MainWindow::on_pushButton_7_pressed()
 {
-    ui->widget_2->hide();
-    ui->widget_7->show();
+    if(!saveState )
+    {
+        ui->widget_2->hide();
+        ui->widget_7->show();
+    }
 }
 
 void MainWindow::on_pushButton_8_pressed()
 {
+
     ui->widget_6->hide();
     ui->widget_2->show();
 }
@@ -458,8 +475,10 @@ void MainWindow::show_time(){
         }
         timeStampFlag = true;
         ui->lcdNumber_clock->setVisible(true);
+        time_t tt = (time_t)dataWoker->time;
+        stime(&tt);
     }
-    QDateTime  time ;
+    QDateTime  time ;//= QDateTime::currentDateTime() ;
     time.setTime_t(dataWoker->time);
     QString string_a = time.toString("yyyy-MM-dd hh:mm:ss");
     ui->lcdNumber_clock->display(string_a);
@@ -476,7 +495,9 @@ void MainWindow::show_time(){
         e = c - d;
         QDateTime time_;
         time_.setTime_t(e);
-        ui->label_end_time_content->setText(time_.toString("hh:mm:ss"));
+        long hour = e/3600;
+        QString aa(itos(hour)+time_.toString(":mm:ss"));
+        ui->label_end_time_content->setText(aa);
         setInfo(param);
     }
 }
@@ -516,6 +537,14 @@ void MainWindow::setInfo_detail(EnergyParam param){
     ui->label_voltage_a_content->setText(Util::ftos(param.voltage_a));
     ui->label_voltage_b_content->setText(Util::ftos(param.voltage_b));
     ui->label_voltage_c_content->setText(Util::ftos(param.voltage_c));
+
+    if(sysparam.wiring_type == 0)
+    {
+        ui->label_linetype_content->setText("三相三线制");
+    }else
+    {
+        ui->label_linetype_content->setText("三相四线制");
+    }
 
     ui->label_current_a_content->setText(Util::ftos(param.current_a));
     ui->label_current_b_content->setText(Util::ftos(param.current_b));
@@ -683,9 +712,9 @@ void MainWindow::on_pushButton_18_clicked()
         return;
     }
     path_pre = QString(UDISK_PATH_PREFIX+path_pre+"/");
-    path_pre = QString("sudo cp -rf *.xls "+path_pre);
+    path_pre = QString("sudo cp -rf /home/program/*.xls "+path_pre);
 
-    printf("path %s\n",path_pre.toStdString().c_str());
+//    printf("path %s\n",path_pre.toStdString().c_str());
     system(path_pre.toStdString().c_str());
     cusMsg->setMessage(QString("导出成功！"));
     cusMsg->show();
@@ -694,7 +723,7 @@ void MainWindow::on_pushButton_18_clicked()
 
 void MainWindow::on_pushButton_15_clicked()
 {
-    system("sudo rm -rf *.xls");
+    system("sudo rm -rf /home/program/*.xls");
     cusMsg->setMessage(QString("删除成功！"));
     cusMsg->show();
 
@@ -746,20 +775,25 @@ void MainWindow::on_pushButton_20_clicked()
 
 void MainWindow::on_pushButton_21_clicked()
 {
-    QString path_pre = Util::checkUDiskPath();
-    if(path_pre == NULL)
+    if(!saveState )
     {
-        cusMsg->setMessage(QString("U盘未插入"));
+        QString path_pre = Util::checkUDiskPath();
+        if(path_pre == NULL)
+        {
+            cusMsg->setMessage(QString("U盘未插入"));
+            cusMsg->show();
+            return;
+        }
+        QString path(UDISK_PATH_PREFIX + path_pre);
+        QDateTime  time ;
+        time.setTime_t(dataWoker->time);
+        QString time_str = time.toString("yyyy-MM-dd_hh_mm_ss");
+        path = QString(path + "/"+time_str+".png");
+        path = QString("scrot "+path);
+    //    printf("save png %s\n",path.toStdString().c_str());
+        system(path.toStdString().c_str());
+        usleep(100000);
+        cusMsg->setMessage(QString("截图成功"));
         cusMsg->show();
-        return;
     }
-    QString path(UDISK_PATH_PREFIX + path_pre);
-    QDateTime  time ;
-    time.setTime_t(dataWoker->time);
-    QString time_str = time.toString("yyyy-MM-dd_hh_mm_ss");
-    path = QString(path + "/"+time_str+".png");
-    path = QString("scrot "+path);
-    printf("save png %s\n",path.toStdString().c_str());
-    system(path.toStdString().c_str());
-
 }

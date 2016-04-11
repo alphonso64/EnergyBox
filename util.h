@@ -27,6 +27,7 @@ public:
     static void SysLogE(const char *p_fmt, ...);
     static void SysLogD(const char *p_fmt, ...);
     static void writeResult(worksheet *ws, xf_t *xf, AnalyzeResult res);
+    static void fileSync(const char *file);
 private:
 };
 

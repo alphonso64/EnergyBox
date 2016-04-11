@@ -26,3 +26,17 @@ void CustomMessageBox::on_pushButton_clicked()
 {
     this->hide();
 }
+
+void CustomMessageBox::showWithoutButton()
+{
+    this->show();
+    ui->pushButton->setVisible(false);
+}
+
+
+void CustomMessageBox::showWithButton()
+{
+    this->show();
+    ui->pushButton->setVisible(true);
+}
+

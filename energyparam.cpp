@@ -24,7 +24,7 @@ EnergyParam::EnergyParam()
     this->power = 0;
     this->vsp = 0;
     this->load_type = 0;
-}
+} 
 
 void EnergyParam::cpy(EnergyParam param)
 {

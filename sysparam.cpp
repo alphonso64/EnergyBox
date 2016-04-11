@@ -102,7 +102,7 @@ bool SysParam::loadParam()
     {
         wiring_type = val.toInt();
     }
-    printf("%f %f %f %f %f %f %f %f %d\n",radio,charge,power,gas,current_idle_max,current_down_max,unloading_pressure,loading_pressure,wiring_type);
+//    printf("%f %f %f %f %f %f %f %f %d\n",radio,charge,power,gas,current_idle_max,current_down_max,unloading_pressure,loading_pressure,wiring_type);
     initFlag = true;
     return true;
 }

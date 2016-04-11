@@ -37,8 +37,7 @@ void DataWorkerThread::run()
 			{
 				  serialFlush(fd);
 				  errcnt =0;
-			}
-//			Util::SysLogD("receive: %x \n",*head);
+            }
         }else if(val > len)
         {
             serialFlush(fd);
@@ -54,9 +53,17 @@ void DataWorkerThread::parseParam(char *temp)
     mutex.lock();
     float *data = (float *)(temp);
     long *ltime = (long *)(temp);
-    energyparam.voltage_a = data[5];
-    energyparam.voltage_b = data[6];
-    energyparam.voltage_c = data[7];
+//	if(ltime[21] == 0)
+//	{
+        energyparam.voltage_a = data[8];
+        energyparam.voltage_b = data[9];
+        energyparam.voltage_c = data[10];
+//	}else if(ltime[21] ==1)
+//	{
+//		energyparam.voltage_a = data[5];
+//		energyparam.voltage_b = data[6];
+//		energyparam.voltage_c = data[7];
+//	}
     energyparam.current_a = data[11];
     energyparam.current_b = data[12];
     energyparam.current_c = data[13];
@@ -69,12 +76,13 @@ void DataWorkerThread::parseParam(char *temp)
 
     energyparam.env_temp = data[19];
     energyparam.env_humidity = data[20];
+	
     energyparam.air_temp = data[1];
     energyparam.air_pressure = data[2];
     energyparam.flow_content = data[3];
     energyparam.time = *ltime;
     time = energyparam.time ;
-    energyparam.power = (energyparam.voltage_a*energyparam.current_a + energyparam.voltage_b*energyparam.current_b + energyparam.voltage_c*energyparam.current_c)/1000;
+    energyparam.power = energyparam.active_power;//(energyparam.voltage_a*energyparam.current_a + energyparam.voltage_b*energyparam.current_b + energyparam.voltage_c*energyparam.current_c)/1000;
     if(energyparam.flow_content > -0.000001 && energyparam.flow_content <0.000001)
     {
         energyparam.vsp =0;
@@ -82,7 +90,10 @@ void DataWorkerThread::parseParam(char *temp)
     {
         energyparam.vsp =energyparam.power /  energyparam.flow_content;
     }
-    //Util::SysLogD("param: %d %d\n",energyparam.time, energyparam.time);
+
+//    Util::SysLogD("line type %d %f %f %f %f %f %f\n",ltime[21],data[5],data[6],data[7],data[8],data[9],data[10]);
+	
+	
     mutex.unlock();
 }
 

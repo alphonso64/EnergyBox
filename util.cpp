@@ -10,8 +10,8 @@
 #include <sys/stat.h>
 #include <map>
 #include <QDateTime>
+#include <fcntl.h>
 
-#define LOG_TEST
 
 pthread_mutex_t gSysLogMutex = PTHREAD_MUTEX_INITIALIZER;
 int gServerLog_num = 0;
@@ -138,7 +138,7 @@ void Util::deleteUnpluedUdiskPath()
 
                             QString cmd("sudo rm -rf "+path_pre+"\""+ptr->d_name+"\"");
                             system(cmd.toStdString().c_str());
-                            printf("check path %s\n",cmd.toStdString().c_str());
+//                            printf("check path %s\n",cmd.toStdString().c_str());
                         }
                     }
 
@@ -165,7 +165,7 @@ QString Util::checkUpdatePath(QString udiskPath)
         {
             if(rx.exactMatch(ptr->d_name))
             {
-                printf("file type %d\n",ptr->d_type);
+//                printf("file type %d\n",ptr->d_type);
                 closedir(dir);
                 return QString(ptr->d_name);
             }
@@ -196,7 +196,7 @@ QStringList Util::getUdiskFileList()
         if(rx.exactMatch(ptr->d_name))
         {
             string name(ptr->d_name);
-            string path ("./"+name);
+            string path (abs_path.toStdString()+name);
             struct stat buf;
             stat(path.c_str(), &buf);
             res_set.insert(result_set_t::value_type(buf.st_mtime,name));
@@ -210,6 +210,16 @@ QStringList Util::getUdiskFileList()
     }
     closedir(dir);
     return list;
+}
+
+void Util::fileSync(const char *file)
+{
+    int fd =  open( file, O_RDWR);
+    if(fd != -1)
+    {
+        syncfs(fd);
+        close(fd);
+    }
 }
 
 QStringList Util::getLocalFileList()
@@ -226,7 +236,7 @@ QStringList Util::getLocalFileList()
         if(rx.exactMatch(ptr->d_name))
         {
             string name(ptr->d_name);
-            string path ("./"+name);
+            string path (LOCAL_PATH_PREFIX+name);
             struct stat buf;
             stat(path.c_str(), &buf);
             res_set.insert(result_set_t::value_type(buf.st_mtime,name));

@@ -28,6 +28,7 @@ void RecordWorkThread::run()
         {
             usleep(200000);
         }
+        usleep(200000);
         EnergyParam param = dataWoker->getEnergyParam();
         if(first)
         {
@@ -35,15 +36,6 @@ void RecordWorkThread::run()
             first = false;
             initStatus(&cstatus,&param);
             writeParam(ws,xf,param,cnt);
-
-//            for(int i=0;i<100;i++)
-//            {
-//                cnt++;
-//                cntt++;
-//                param.time++;
-//                updateResult(&cstatus,&param);
-//                writeParam(ws,xf,param,cnt);
-//            }
 
         }
         if(cstatus.lastTime < param.time)
@@ -53,22 +45,20 @@ void RecordWorkThread::run()
             cntt++;
             updateResult(&cstatus,&param);
             writeParam(ws,xf,param,cnt);
-
-            for(int i=0;i<100;i++)
-            {
-                cnt++;
-                cntt++;
-                param.time++;
-                updateResult(&cstatus,&param);
-                writeParam(ws,xf,param,cnt);
-            }
+//            for(int i=0;i<100;i++)
+//            {
+//                cnt++;
+//                cntt++;
+//                param.time++;
+//                updateResult(&cstatus,&param);
+//                writeParam(ws,xf,param,cnt);
+//            }
         }
-
-        if(cntt >2000)
-        {
-           Util::SysLogD("recorder index : %d\n",cnt);
-           cntt = 0;
-        }
+//        if(cntt >2000)
+//        {
+//           Util::SysLogD("recorder index : %d\n",cnt);
+//           cntt = 0;
+//        }
 
         acc_flow = anares.acc_flow;
         acc_power = anares.acc_power;
@@ -80,6 +70,7 @@ void RecordWorkThread::run()
                 char temp[10];
                 sprintf(temp,"sheet%d",sheetNUM+1);
                 ws = wb->sheet(temp);
+                setTitle(ws,xf);
                 sheetNUM++;
             }else {
                 emit recordoverflow(1);
@@ -87,6 +78,7 @@ void RecordWorkThread::run()
             }
             cnt = 0;
         }
+
     }
 
     if(cstatus.state = STAGE_LOAD )
@@ -152,13 +144,19 @@ void RecordWorkThread::run()
     string path = path_pre + path_post; 
     wb->Dump(path);
     delete wb;
+    Util::fileSync(path.c_str());
     Util::SysLogD("save file : %s\n",path.c_str());
     emit recordoverflow(2);
 }
 
 void RecordWorkThread::writeParam(worksheet* ws,xf_t* xf,EnergyParam param,int cnt)
 {
-    ws->label(cnt,0,itos(param.time),xf);
+    QDateTime  time ;
+    time.setTime_t(param.time);
+    QString time_str = time.toString("yyyy-MM-dd hh:mm:ss");
+
+    ws->label(cnt,0,time_str.toStdString(),xf);
+
     ws->label(cnt,1,itos(param.voltage_a),xf);
     ws->label(cnt,2,itos(param.voltage_b),xf);
     ws->label(cnt,3,itos(param.voltage_c),xf);

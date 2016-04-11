@@ -121,6 +121,7 @@ private:
     QDateTime  startTime;
     FileWidget *file;
     bool timeStampFlag;
+    bool saveState;
 };
 
 #endif // MAINWINDOW_H
