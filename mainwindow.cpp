@@ -218,18 +218,22 @@ void MainWindow::on_result()
     ui->label_analyze_load_radio->setText(Util::ftos(reader->res.load_radio));
     ui->label_analyze_unload_radio->setText(Util::ftos(reader->res.unload_radio));
     ui->label_analyze_load_power->setText(Util::ftos(reader->res.load_power));
+    ui->label_analyze_unload_power->setText(Util::ftos(reader->res.unload_power));    
+    ui->label_analyze_load_power->setText(Util::ftos(reader->res.load_power));
     ui->label_analyze_unload_power->setText(Util::ftos(reader->res.unload_power));
+    ui->label_analyze_load_charge->setText(Util::ftos(reader->res.load_charge));
+    ui->label_analyze_unload_charge->setText(Util::ftos(reader->res.unload_chargd));
+    ui->label_analyze_load_power_radio->setText(Util::ftos(reader->res.load_charge_radio));
+    ui->label_analyze_unload_power_radio->setText(Util::ftos(reader->res.unload_charge_radio));
+
+    time = (float)(reader->res.max_load_time)/3600.0;
+    ui->label_analyze_max_loadtime->setText(Util::ftos(time));
+    time = (float)(reader->res.max_unload_time)/3600.0;
+    ui->label_analyze_max_unloadtime->setText(Util::ftos(time));
 
     ui->pushButton_19->setEnabled(true);
 
-    ui->label_analyze_load_power->setText(Util::ftos(reader->res.load_power));
-    ui->label_analyze_unload_power->setText(Util::ftos(reader->res.unload_power));
 
-    ui->label_analyze_load_charge->setText(Util::ftos(reader->res.load_charge));
-    ui->label_analyze_unload_charge->setText(Util::ftos(reader->res.unload_chargd));
-
-    ui->label_analyze_load_power_radio->setText(Util::ftos(reader->res.load_charge_radio));
-    ui->label_analyze_unload_power_radio->setText(Util::ftos(reader->res.unload_charge_radio));
 }
 
 

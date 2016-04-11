@@ -111,69 +111,81 @@ void ReaderWorkThread::run()
     c = foo.GetCell(sheetNum-1, (uint16_t)7, (uint16_t)3);
     if(c.str.length()!=0)
     {
-        res.load_time = stringToNum<float>(c.str)*3600;
+        res.max_load_time = stringToNum<float>(c.str)*3600;
     }
 
     c = foo.GetCell(sheetNum-1, (uint16_t)7, (uint16_t)7);
     if(c.str.length()!=0)
     {
-        res.unload_time = stringToNum<float>(c.str)*3600;
+        res.max_unload_time = stringToNum<float>(c.str)*3600;
     }
 
     c = foo.GetCell(sheetNum-1, (uint16_t)8, (uint16_t)3);
     if(c.str.length()!=0)
     {
-        res.load_radio = stringToNum<float>(c.str);
+        res.load_time = stringToNum<float>(c.str)*3600;
     }
 
     c = foo.GetCell(sheetNum-1, (uint16_t)8, (uint16_t)7);
     if(c.str.length()!=0)
     {
-        res.unload_radio = stringToNum<float>(c.str);
+        res.unload_time = stringToNum<float>(c.str)*3600;
     }
 
     c = foo.GetCell(sheetNum-1, (uint16_t)9, (uint16_t)3);
     if(c.str.length()!=0)
     {
-        res.load_cnt = stringToNum<float>(c.str);
+        res.load_radio = stringToNum<float>(c.str);
     }
 
     c = foo.GetCell(sheetNum-1, (uint16_t)9, (uint16_t)7);
     if(c.str.length()!=0)
     {
-        res.unload_cnt = stringToNum<float>(c.str);
+        res.unload_radio = stringToNum<float>(c.str);
     }
 
     c = foo.GetCell(sheetNum-1, (uint16_t)10, (uint16_t)3);
     if(c.str.length()!=0)
     {
-        res.load_power = stringToNum<float>(c.str);
+        res.load_cnt = stringToNum<float>(c.str);
     }
 
     c = foo.GetCell(sheetNum-1, (uint16_t)10, (uint16_t)7);
     if(c.str.length()!=0)
     {
-        res.unload_power = stringToNum<float>(c.str);
+        res.unload_cnt = stringToNum<float>(c.str);
     }
+
     c = foo.GetCell(sheetNum-1, (uint16_t)11, (uint16_t)3);
     if(c.str.length()!=0)
     {
-        res.load_charge = stringToNum<float>(c.str);
+        res.load_power = stringToNum<float>(c.str);
     }
 
     c = foo.GetCell(sheetNum-1, (uint16_t)11, (uint16_t)7);
     if(c.str.length()!=0)
     {
+        res.unload_power = stringToNum<float>(c.str);
+    }
+    c = foo.GetCell(sheetNum-1, (uint16_t)12, (uint16_t)3);
+    if(c.str.length()!=0)
+    {
+        res.load_charge = stringToNum<float>(c.str);
+    }
+
+    c = foo.GetCell(sheetNum-1, (uint16_t)12, (uint16_t)7);
+    if(c.str.length()!=0)
+    {
         res.unload_chargd = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)12, (uint16_t)3);
+    c = foo.GetCell(sheetNum-1, (uint16_t)13, (uint16_t)3);
     if(c.str.length()!=0)
     {
         res.load_charge_radio = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)12, (uint16_t)7);
+    c = foo.GetCell(sheetNum-1, (uint16_t)13, (uint16_t)7);
     if(c.str.length()!=0)
     {
         res.unload_charge_radio = stringToNum<float>(c.str);

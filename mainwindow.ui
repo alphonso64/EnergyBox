@@ -1578,6 +1578,128 @@
        <string/>
       </property>
      </widget>
+     <widget class="QLabel" name="label_analyze_max_unloadtime">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>310</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_122">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>300</y>
+        <width>131</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>最长加载
+时间</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_analyze_max_loadtime">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>310</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_123">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>300</y>
+        <width>131</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>最长卸载
+时间</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_124">
+      <property name="geometry">
+       <rect>
+        <x>341</x>
+        <y>310</y>
+        <width>61</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>小时</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_cost_2">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>310</y>
+        <width>61</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>小时</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="widget_8" native="true">
      <property name="geometry">
@@ -2375,9 +2497,9 @@
     <zorder>pushButton_11</zorder>
     <zorder>pushButton_13</zorder>
     <zorder>pushButton_14</zorder>
-    <zorder>widget_4</zorder>
-    <zorder>widget_8</zorder>
     <zorder>pushButton_19</zorder>
+    <zorder>widget_8</zorder>
+    <zorder>widget_4</zorder>
    </widget>
    <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">
@@ -3573,7 +3695,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Kavr</string>
+      <string>Kvar</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_IPower_name_29">
@@ -4079,12 +4201,12 @@
    <zorder>pushButton_2</zorder>
    <zorder>lcdNumber_clock</zorder>
    <zorder>pushButton_10</zorder>
-   <zorder>widget_6</zorder>
-   <zorder>widget_7</zorder>
-   <zorder>widget_5</zorder>
    <zorder>label_3</zorder>
    <zorder>widget</zorder>
    <zorder>widget_2</zorder>
+   <zorder>widget_7</zorder>
+   <zorder>widget_6</zorder>
+   <zorder>widget_5</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

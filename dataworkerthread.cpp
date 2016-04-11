@@ -63,9 +63,9 @@ void DataWorkerThread::parseParam(char *temp)
 
     energyparam.power_factor = data[17];
     energyparam.frequency = data[18];
-    energyparam.active_power = data[14];
-    energyparam.reactive_power = data[15];
-    energyparam.apparent_power = data[16];
+    energyparam.active_power = data[14]/1000.0;
+    energyparam.reactive_power = data[15]/1000.0;
+    energyparam.apparent_power = data[16]/1000.0;
 
     energyparam.env_temp = data[19];
     energyparam.env_humidity = data[20];

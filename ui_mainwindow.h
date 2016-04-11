@@ -106,6 +106,12 @@ public:
     QLabel *label_analyze_flow_cost;
     QLabel *label_IPower_name_51;
     QLabel *label_analyze_acc_charge;
+    QLabel *label_analyze_max_unloadtime;
+    QLabel *label_IPower_name_122;
+    QLabel *label_analyze_max_loadtime;
+    QLabel *label_IPower_name_123;
+    QLabel *label_IPower_name_124;
+    QLabel *label_cost_2;
     QWidget *widget_8;
     QLabel *label_IPower_name_108;
     QLabel *label_analyze_unload_power;
@@ -640,6 +646,32 @@ public:
         label_analyze_acc_charge->setGeometry(QRect(170, 190, 161, 41));
         label_analyze_acc_charge->setFont(font7);
         label_analyze_acc_charge->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
+        label_analyze_max_unloadtime = new QLabel(widget_4);
+        label_analyze_max_unloadtime->setObjectName(QString::fromUtf8("label_analyze_max_unloadtime"));
+        label_analyze_max_unloadtime->setGeometry(QRect(600, 310, 161, 41));
+        label_analyze_max_unloadtime->setFont(font7);
+        label_analyze_max_unloadtime->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
+        label_IPower_name_122 = new QLabel(widget_4);
+        label_IPower_name_122->setObjectName(QString::fromUtf8("label_IPower_name_122"));
+        label_IPower_name_122->setGeometry(QRect(10, 300, 131, 81));
+        label_IPower_name_122->setFont(font7);
+        label_analyze_max_loadtime = new QLabel(widget_4);
+        label_analyze_max_loadtime->setObjectName(QString::fromUtf8("label_analyze_max_loadtime"));
+        label_analyze_max_loadtime->setGeometry(QRect(170, 310, 161, 41));
+        label_analyze_max_loadtime->setFont(font7);
+        label_analyze_max_loadtime->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
+        label_IPower_name_123 = new QLabel(widget_4);
+        label_IPower_name_123->setObjectName(QString::fromUtf8("label_IPower_name_123"));
+        label_IPower_name_123->setGeometry(QRect(440, 300, 131, 71));
+        label_IPower_name_123->setFont(font7);
+        label_IPower_name_124 = new QLabel(widget_4);
+        label_IPower_name_124->setObjectName(QString::fromUtf8("label_IPower_name_124"));
+        label_IPower_name_124->setGeometry(QRect(341, 310, 61, 40));
+        label_IPower_name_124->setFont(font3);
+        label_cost_2 = new QLabel(widget_4);
+        label_cost_2->setObjectName(QString::fromUtf8("label_cost_2"));
+        label_cost_2->setGeometry(QRect(770, 310, 61, 40));
+        label_cost_2->setFont(font3);
         widget_8 = new QWidget(widget_5);
         widget_8->setObjectName(QString::fromUtf8("widget_8"));
         widget_8->setGeometry(QRect(80, 110, 841, 401));
@@ -825,9 +857,9 @@ public:
         pushButton_11->raise();
         pushButton_13->raise();
         pushButton_14->raise();
-        widget_4->raise();
-        widget_8->raise();
         pushButton_19->raise();
+        widget_8->raise();
+        widget_4->raise();
         pushButton_5 = new QPushButton(centralWidget);
         pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
         pushButton_5->setGeometry(QRect(930, 390, 100, 81));
@@ -1235,12 +1267,12 @@ public:
         pushButton_2->raise();
         lcdNumber_clock->raise();
         pushButton_10->raise();
-        widget_6->raise();
-        widget_7->raise();
-        widget_5->raise();
         label_3->raise();
         widget->raise();
         widget_2->raise();
+        widget_7->raise();
+        widget_6->raise();
+        widget_5->raise();
 
         retranslateUi(MainWindow);
 
@@ -1319,6 +1351,14 @@ public:
         label_analyze_flow_cost->setText(QString());
         label_IPower_name_51->setText(QApplication::translate("MainWindow", "\345\274\200\345\247\213\346\227\266\351\227\264", 0, QApplication::UnicodeUTF8));
         label_analyze_acc_charge->setText(QString());
+        label_analyze_max_unloadtime->setText(QString());
+        label_IPower_name_122->setText(QApplication::translate("MainWindow", "\346\234\200\351\225\277\345\212\240\350\275\275\n"
+"\346\227\266\351\227\264", 0, QApplication::UnicodeUTF8));
+        label_analyze_max_loadtime->setText(QString());
+        label_IPower_name_123->setText(QApplication::translate("MainWindow", "\346\234\200\351\225\277\345\215\270\350\275\275\n"
+"\346\227\266\351\227\264", 0, QApplication::UnicodeUTF8));
+        label_IPower_name_124->setText(QApplication::translate("MainWindow", "\345\260\217\346\227\266", 0, QApplication::UnicodeUTF8));
+        label_cost_2->setText(QApplication::translate("MainWindow", "\345\260\217\346\227\266", 0, QApplication::UnicodeUTF8));
         label_IPower_name_108->setText(QApplication::translate("MainWindow", "\345\215\270\350\275\275\346\254\241\346\225\260", 0, QApplication::UnicodeUTF8));
         label_analyze_unload_power->setText(QString());
         label_IPower_name_105->setText(QApplication::translate("MainWindow", "\347\251\272\350\275\275\350\200\227\347\224\265", 0, QApplication::UnicodeUTF8));
@@ -1415,7 +1455,7 @@ public:
         label_IPower_name_26->setText(QApplication::translate("MainWindow", "Kw", 0, QApplication::UnicodeUTF8));
         label_IPower_name_27->setText(QApplication::translate("MainWindow", "\346\227\240\345\212\237\345\212\237\347\216\207", 0, QApplication::UnicodeUTF8));
         label_reactive_power_content->setText(QString());
-        label_IPower_name_28->setText(QApplication::translate("MainWindow", "Kavr", 0, QApplication::UnicodeUTF8));
+        label_IPower_name_28->setText(QApplication::translate("MainWindow", "Kvar", 0, QApplication::UnicodeUTF8));
         label_IPower_name_29->setText(QApplication::translate("MainWindow", "KVA", 0, QApplication::UnicodeUTF8));
         label_IPower_name_30->setText(QApplication::translate("MainWindow", "\350\247\206\345\234\250\345\212\237\347\216\207", 0, QApplication::UnicodeUTF8));
         label_apparent_power_content->setText(QString());

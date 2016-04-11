@@ -11,10 +11,10 @@ void RecordWorkThread::run()
     anares.clear();
     CurrentStaus cstatus;
 
-    workbook wb;
-    xf_t* xf = wb.xformat();
+    workbook *wb = new workbook();
+    xf_t* xf = wb->xformat();
     worksheet* ws;
-    ws = wb.sheet("sheet1");
+    ws = wb->sheet("sheet1");
     setTitle(ws,xf);
     int cnt = 1;
     int cntt = 0;
@@ -54,21 +54,21 @@ void RecordWorkThread::run()
             updateResult(&cstatus,&param);
             writeParam(ws,xf,param,cnt);
 
-//            for(int i=0;i<100;i++)
-//            {
-//                cnt++;
-//                cntt++;
-//                param.time++;
-//                updateResult(&cstatus,&param);
-//                writeParam(ws,xf,param,cnt);
-//            }
+            for(int i=0;i<100;i++)
+            {
+                cnt++;
+                cntt++;
+                param.time++;
+                updateResult(&cstatus,&param);
+                writeParam(ws,xf,param,cnt);
+            }
         }
 
-//        if(cntt >2000)
-//        {
-//           Util::SysLogD("recorder index : %d\n",cnt);
-//           cntt = 0;
-//        }
+        if(cntt >2000)
+        {
+           Util::SysLogD("recorder index : %d\n",cnt);
+           cntt = 0;
+        }
 
         acc_flow = anares.acc_flow;
         acc_power = anares.acc_power;
@@ -79,7 +79,7 @@ void RecordWorkThread::run()
             {
                 char temp[10];
                 sprintf(temp,"sheet%d",sheetNUM+1);
-                ws = wb.sheet(temp);
+                ws = wb->sheet(temp);
                 sheetNUM++;
             }else {
                 emit recordoverflow(1);
@@ -111,7 +111,7 @@ void RecordWorkThread::run()
 
 
     if(cstatus.acc_vsp_cnt>0)
-        anares.ave_vsp = anares.ave_vsp/cstatus.acc_vsp_cnt;
+        anares.ave_vsp = anares.ave_vsp/(float)cstatus.acc_vsp_cnt;
     anares.end_measure_time = cstatus.lastTime;
 
     anares.worktime = anares.load_time + anares.unload_time;
@@ -121,6 +121,9 @@ void RecordWorkThread::run()
     Util::SysLogD("load and unload time  : %d %d\n",anares.load_time,anares.unload_time);
     Util::SysLogD("acc_flow : %f\n",anares.acc_flow);
     Util::SysLogD("cur : %d %d\n",max_cur_standby,max_cur_unload);
+    Util::SysLogD("max time : %d %d\n",anares.max_load_time,anares.max_unload_time);
+    Util::SysLogD("max time : %d %d\n",anares.max_load_time,anares.max_unload_time);
+    Util::SysLogD("vas : %f %d\n",anares.ave_vsp,cstatus.acc_vsp_cnt);
 
     if(anares.worktime != 0)
     {
@@ -142,12 +145,13 @@ void RecordWorkThread::run()
 
     char temp[10];
     sprintf(temp,"sheet%d",sheetNUM+1);
-    ws = wb.sheet(temp);
+    ws = wb->sheet(temp);
     Util::writeResult(ws,xf,anares);
 
     string path_post = title.toStdString();
     string path = path_pre + path_post; 
-    wb.Dump(path);
+    wb->Dump(path);
+    delete wb;
     Util::SysLogD("save file : %s\n",path.c_str());
     emit recordoverflow(2);
 }
@@ -248,7 +252,7 @@ void RecordWorkThread::updateResult(CurrentStaus *stas,EnergyParam *eparam)
     stas->lastTime = param.time;
     stas->lastPower = param.power;
     stas->lastFlow = param.flow_content;
-    if(eparam->vsp>0)
+    if(eparam->vsp>0.00001)
     {
         stas->acc_vsp_cnt++;
         anares.ave_vsp += eparam->vsp;
@@ -271,7 +275,7 @@ void RecordWorkThread::initStatus(CurrentStaus *stas,EnergyParam *eparam)
     stas->lastTime = eparam->time;
     stas->lastPower = eparam->power;
     stas->lastFlow = eparam->flow_content;
-    if(eparam->vsp>0)
+    if(eparam->vsp>0.00001)
     {
         stas->acc_vsp_cnt = 1;
         anares.ave_vsp += eparam->vsp;
