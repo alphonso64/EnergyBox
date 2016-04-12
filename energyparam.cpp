@@ -5,6 +5,9 @@ EnergyParam::EnergyParam()
     this->voltage_a =0;
     this->voltage_b = 0;
     this->voltage_c = 0;
+    this->voltage_ab =0;
+    this->voltage_bc = 0;
+    this->voltage_ca = 0;
     this->current_a = 0;
     this->current_b = 0;
     this->current_c = 0;
@@ -31,6 +34,9 @@ void EnergyParam::cpy(EnergyParam param)
     this->voltage_a = param.voltage_a;
     this->voltage_b = param.voltage_b;
     this->voltage_c = param.voltage_c;
+    this->voltage_ab = param.voltage_ab;
+    this->voltage_bc = param.voltage_bc;
+    this->voltage_ca = param.voltage_ca;
     this->current_a = param.current_a;
     this->current_b = param.current_b;
     this->current_c = param.current_c;

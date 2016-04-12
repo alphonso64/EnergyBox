@@ -41,9 +41,9 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>250</x>
+      <x>200</x>
       <y>20</y>
-      <width>331</width>
+      <width>491</width>
       <height>41</height>
      </rect>
     </property>
@@ -56,7 +56,7 @@
      </font>
     </property>
     <property name="text">
-     <string>空压系统能效测试仪</string>
+     <string>空压系统节能分析仪 GSA500-P</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -64,7 +64,7 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>200</width>
+      <width>171</width>
       <height>61</height>
      </rect>
     </property>

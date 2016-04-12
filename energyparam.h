@@ -8,6 +8,9 @@ public:
     float voltage_a;
     float voltage_b;
     float voltage_c;
+    float voltage_ab;
+    float voltage_bc;
+    float voltage_ca;
     float current_a;
     float current_b;
     float current_c;

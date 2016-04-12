@@ -26,9 +26,9 @@ void RecordWorkThread::run()
     {
         if(overflow)
         {
-            usleep(200000);
+            usleep(300000);
         }
-        usleep(200000);
+        usleep(300000);
         EnergyParam param = dataWoker->getEnergyParam();
         if(first)
         {

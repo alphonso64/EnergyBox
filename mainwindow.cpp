@@ -48,7 +48,7 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->pushButton_19->setStyleSheet(*style_b);
    ui->pushButton_20->setStyleSheet(*style_a);
    ui->pushButton_21->setStyleSheet(*style_a);
-
+   ui->pushButton_22->setStyleSheet(*style_a);
    ui->pushButton->setFocusPolicy ( Qt::NoFocus );
    ui->pushButton_2->setFocusPolicy ( Qt::NoFocus );
    ui->pushButton_3->setFocusPolicy ( Qt::NoFocus );
@@ -67,9 +67,9 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->pushButton_17->setFocusPolicy ( Qt::NoFocus );
    ui->pushButton_18->setFocusPolicy ( Qt::NoFocus );
    ui->pushButton_19->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_20->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_19->setEnabled(false);
+   ui->pushButton_20->setFocusPolicy ( Qt::NoFocus );   
    ui->pushButton_21->setFocusPolicy ( Qt::NoFocus );
+   ui->pushButton_22->setFocusPolicy ( Qt::NoFocus );
 
    ui->widget->hide();
    ui->widget_2->show();
@@ -78,7 +78,7 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->widget_7->hide();
 
    ui->pushButton_2->setEnabled(false);
-
+   ui->pushButton_19->setEnabled(false);
    ui->pushButton_10->setVisible(false);
    ui->pushButton_19->setVisible(false);
 
@@ -537,6 +537,9 @@ void MainWindow::setInfo_detail(EnergyParam param){
     ui->label_voltage_a_content->setText(Util::ftos(param.voltage_a));
     ui->label_voltage_b_content->setText(Util::ftos(param.voltage_b));
     ui->label_voltage_c_content->setText(Util::ftos(param.voltage_c));
+    ui->label_voltage_ab_content->setText(Util::ftos(param.voltage_ab));
+    ui->label_voltage_bc_content->setText(Util::ftos(param.voltage_bc));
+    ui->label_voltage_ca_content->setText(Util::ftos(param.voltage_ca));
 
     if(sysparam.wiring_type == 0)
     {
@@ -796,4 +799,10 @@ void MainWindow::on_pushButton_21_clicked()
         cusMsg->setMessage(QString("½ØÍ¼³É¹¦"));
         cusMsg->show();
     }
+}
+
+void MainWindow::on_pushButton_22_clicked()
+{
+    cusMsg->setMessage(QString(SOFT_VERSION));
+    cusMsg->show();
 }

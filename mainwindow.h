@@ -96,6 +96,8 @@ private slots:
 
     void on_pushButton_21_clicked();
 
+    void on_pushButton_22_clicked();
+
 private:
     void setInfo(EnergyParam param);
     void setInfo_detail(EnergyParam param);

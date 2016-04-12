@@ -43,7 +43,7 @@ void DataWorkerThread::run()
             serialFlush(fd);
         }
 
-        usleep(100000);
+        usleep(300000);
     }
 
 }
@@ -55,14 +55,14 @@ void DataWorkerThread::parseParam(char *temp)
     long *ltime = (long *)(temp);
 //	if(ltime[21] == 0)
 //	{
-        energyparam.voltage_a = data[8];
-        energyparam.voltage_b = data[9];
-        energyparam.voltage_c = data[10];
+        energyparam.voltage_ab = data[8];
+        energyparam.voltage_bc = data[9];
+        energyparam.voltage_ca = data[10];
 //	}else if(ltime[21] ==1)
 //	{
-//		energyparam.voltage_a = data[5];
-//		energyparam.voltage_b = data[6];
-//		energyparam.voltage_c = data[7];
+        energyparam.voltage_a = data[5];
+        energyparam.voltage_b = data[6];
+        energyparam.voltage_c = data[7];
 //	}
     energyparam.current_a = data[11];
     energyparam.current_b = data[12];

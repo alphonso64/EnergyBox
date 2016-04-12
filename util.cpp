@@ -25,8 +25,6 @@ Util::Util()
 {
 }
 
-
-  
 bool Util::writeInit(QString path, QString user_key, QString user_value)
 {
     if(path.isEmpty() || user_key.isEmpty())
