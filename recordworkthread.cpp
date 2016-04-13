@@ -81,7 +81,7 @@ void RecordWorkThread::run()
 
     }
 
-    if(cstatus.state = STAGE_LOAD )
+    if(cstatus.state == STAGE_LOAD )
     {
         anares.load_cnt++;
         anares.load_time += cstatus.duration;
@@ -90,7 +90,7 @@ void RecordWorkThread::run()
         {
             anares.max_load_time = cstatus.duration;
         }
-    }else if(cstatus.state = STAGE_UNLOAD )
+    }else if(cstatus.state == STAGE_UNLOAD )
     {
         anares.unload_cnt++;
         anares.unload_time += cstatus.duration;
@@ -250,11 +250,12 @@ void RecordWorkThread::updateResult(CurrentStaus *stas,EnergyParam *eparam)
     stas->lastTime = param.time;
     stas->lastPower = param.power;
     stas->lastFlow = param.flow_content;
-    if(eparam->vsp>0.00001)
+    if(eparam->vsp>0.00001 && cur_stage == STAGE_LOAD)
     {
         stas->acc_vsp_cnt++;
         anares.ave_vsp += eparam->vsp;
     }
+    return;
 }
 
 void RecordWorkThread::initStatus(CurrentStaus *stas,EnergyParam *eparam)
@@ -273,11 +274,12 @@ void RecordWorkThread::initStatus(CurrentStaus *stas,EnergyParam *eparam)
     stas->lastTime = eparam->time;
     stas->lastPower = eparam->power;
     stas->lastFlow = eparam->flow_content;
-    if(eparam->vsp>0.00001)
+    if(eparam->vsp>0.00001 &&  stas->state == STAGE_LOAD )
     {
         stas->acc_vsp_cnt = 1;
         anares.ave_vsp += eparam->vsp;
     }
+    return;
 }
 
 

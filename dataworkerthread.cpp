@@ -13,7 +13,7 @@ void DataWorkerThread::run()
 	int errcnt = 0;
     while(1)
     {
-
+		Util::SysLogD("dataWorkerThread::run()\n");
         int val = serialDataAvail (fd);
         if(val == len)
         {
@@ -42,8 +42,8 @@ void DataWorkerThread::run()
         {
             serialFlush(fd);
         }
-
-        usleep(300000);
+		
+        usleep(100000);
     }
 
 }

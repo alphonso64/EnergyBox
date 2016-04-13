@@ -182,7 +182,6 @@ public:
     QLabel *label_flow_unit_3;
     QPushButton *pushButton_3;
     QPushButton *pushButton_4;
-    QPushButton *pushButton_21;
     QWidget *widget_6;
     QLabel *label_IPower_name_5;
     QLabel *label_voltage_a_content;
@@ -239,6 +238,7 @@ public:
     QLCDNumber *lcdNumber_clock;
     QPushButton *pushButton_10;
     QLabel *label_3;
+    QPushButton *pushButton_21;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -259,7 +259,7 @@ public:
         line->setFrameShadow(QFrame::Sunken);
         label = new QLabel(centralWidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(200, 20, 491, 41));
+        label->setGeometry(QRect(220, 20, 461, 41));
         QFont font1;
         font1.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
         font1.setPointSize(24);
@@ -268,7 +268,7 @@ public:
         label->setFont(font1);
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(10, 10, 171, 61));
+        label_2->setGeometry(QRect(10, 10, 200, 61));
         widget = new QWidget(centralWidget);
         widget->setObjectName(QString::fromUtf8("widget"));
         widget->setGeometry(QRect(0, 90, 931, 510));
@@ -1001,10 +1001,6 @@ public:
         pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
         pushButton_4->setGeometry(QRect(0, 310, 81, 61));
         pushButton_4->setFont(font3);
-        pushButton_21 = new QPushButton(widget_2);
-        pushButton_21->setObjectName(QString::fromUtf8("pushButton_21"));
-        pushButton_21->setGeometry(QRect(0, 450, 81, 61));
-        pushButton_21->setFont(font3);
         label_IPower_name->raise();
         label_Power_name->raise();
         label_power_content->raise();
@@ -1031,7 +1027,6 @@ public:
         label_flow_unit_3->raise();
         pushButton_3->raise();
         pushButton_4->raise();
-        pushButton_21->raise();
         widget_6 = new QWidget(centralWidget);
         widget_6->setObjectName(QString::fromUtf8("widget_6"));
         widget_6->setGeometry(QRect(0, 90, 931, 510));
@@ -1307,10 +1302,14 @@ public:
         lcdNumber_clock->setSegmentStyle(QLCDNumber::Flat);
         pushButton_10 = new QPushButton(centralWidget);
         pushButton_10->setObjectName(QString::fromUtf8("pushButton_10"));
-        pushButton_10->setGeometry(QRect(924, 530, 101, 71));
+        pushButton_10->setGeometry(QRect(980, 90, 41, 21));
         label_3 = new QLabel(centralWidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setGeometry(QRect(720, 10, 30, 60));
+        pushButton_21 = new QPushButton(centralWidget);
+        pushButton_21->setObjectName(QString::fromUtf8("pushButton_21"));
+        pushButton_21->setGeometry(QRect(930, 540, 101, 61));
+        pushButton_21->setFont(font3);
         MainWindow->setCentralWidget(centralWidget);
         line->raise();
         label->raise();
@@ -1321,11 +1320,12 @@ public:
         lcdNumber_clock->raise();
         pushButton_10->raise();
         label_3->raise();
-        widget_2->raise();
         widget->raise();
         widget_5->raise();
         widget_7->raise();
         widget_6->raise();
+        widget_2->raise();
+        pushButton_21->raise();
 
         retranslateUi(MainWindow);
 
@@ -1335,7 +1335,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("MainWindow", "\347\251\272\345\216\213\347\263\273\347\273\237\350\212\202\350\203\275\345\210\206\346\236\220\344\273\252 GSA500-P", 0, QApplication::UnicodeUTF8));
+        label->setText(QString());
         label_2->setText(QString());
         label_IPower_name_180->setText(QApplication::translate("MainWindow", "\346\216\245\347\272\277\346\226\271\345\274\217", 0, QApplication::UnicodeUTF8));
         label_IPower_name_179->setText(QApplication::translate("MainWindow", "\344\272\222\346\204\237\345\231\250\345\217\230\346\257\224", 0, QApplication::UnicodeUTF8));
@@ -1482,7 +1482,6 @@ public:
         label_flow_unit_3->setText(QApplication::translate("MainWindow", "%", 0, QApplication::UnicodeUTF8));
         pushButton_3->setText(QApplication::translate("MainWindow", "\345\274\200\345\247\213", 0, QApplication::UnicodeUTF8));
         pushButton_4->setText(QApplication::translate("MainWindow", "\347\273\223\346\235\237", 0, QApplication::UnicodeUTF8));
-        pushButton_21->setText(QApplication::translate("MainWindow", "\346\210\252\345\233\276", 0, QApplication::UnicodeUTF8));
         label_IPower_name_5->setText(QApplication::translate("MainWindow", "A\347\233\270", 0, QApplication::UnicodeUTF8));
         label_voltage_a_content->setText(QString());
         label_IPower_name_6->setText(QApplication::translate("MainWindow", "B\347\233\270", 0, QApplication::UnicodeUTF8));
@@ -1492,7 +1491,7 @@ public:
         label_current_c_content->setText(QString());
         label_current_b_content->setText(QString());
         label_current_a_content->setText(QString());
-        label_IPower_name_8->setText(QApplication::translate("MainWindow", "\347\272\277\347\224\265\345\216\213(V)", 0, QApplication::UnicodeUTF8));
+        label_IPower_name_8->setText(QApplication::translate("MainWindow", "\347\233\270\347\224\265\345\216\213(V)", 0, QApplication::UnicodeUTF8));
         label_IPower_name_12->setText(QApplication::translate("MainWindow", "\347\224\265\346\265\201(A)", 0, QApplication::UnicodeUTF8));
         label_IPower_name_21->setText(QApplication::translate("MainWindow", "\351\242\221\347\216\207", 0, QApplication::UnicodeUTF8));
         label_frequency_content->setText(QString());
@@ -1536,6 +1535,7 @@ public:
         label_flow_2->setText(QApplication::translate("MainWindow", "m3/min", 0, QApplication::UnicodeUTF8));
         pushButton_10->setText(QApplication::translate("MainWindow", "PushButton", 0, QApplication::UnicodeUTF8));
         label_3->setText(QString());
+        pushButton_21->setText(QApplication::translate("MainWindow", "\346\210\252\345\233\276", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

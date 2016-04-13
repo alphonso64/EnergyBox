@@ -23,6 +23,7 @@ int gCurLogRows = 0;
 typedef multimap<time_t, string> result_set_t;
 Util::Util()
 {
+
 }
 
 bool Util::writeInit(QString path, QString user_key, QString user_value)
@@ -410,6 +411,8 @@ int Util::InitSysLog()
         //printf("###$s(), Fail openning event log file (errno=%s)\n", __FUNCTION__, strerror(errno));
         return  - 1;
     }
+#else
+    return 0;
 #endif
 }
 
@@ -424,6 +427,8 @@ int Util::RebuildSysLogFiles()
         snprintf(log, sizeof(log), "%s_%d.log",TCP_RTP_LOG_FILE,gServerLog_num);
         gSysLogHandle = fopen((char*)log, "at");
     }
+    return 0;
+#else
     return 0;
 #endif
 
@@ -474,7 +479,6 @@ void Util::SysLogE(const char *p_fmt, ...)
 
     pthread_mutex_unlock(&gSysLogMutex);
 #endif
-
 }
 
 

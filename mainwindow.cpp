@@ -81,7 +81,6 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->pushButton_19->setEnabled(false);
    ui->pushButton_10->setVisible(false);
    ui->pushButton_19->setVisible(false);
-
    pageIndex = 2;
 
    ui->lcdNumber_clock->setVisible(false);
@@ -108,6 +107,8 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->lineEdit_power->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
 
    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("GB2312"));
+   ui->label->setText(QString("空压系统节能分析仪 GSA500-P"));
+//   ui->label->setText(QString("空压系统能效测试仪"));
    QStringList strings;
    strings << "本地" << "U盘" ;
    ui->comboBox_store_type->clear();
@@ -793,9 +794,8 @@ void MainWindow::on_pushButton_21_clicked()
         QString time_str = time.toString("yyyy-MM-dd_hh_mm_ss");
         path = QString(path + "/"+time_str+".png");
         path = QString("scrot "+path);
-    //    printf("save png %s\n",path.toStdString().c_str());
         system(path.toStdString().c_str());
-        usleep(100000);
+        usleep(500000);
         cusMsg->setMessage(QString("截图成功"));
         cusMsg->show();
     }
