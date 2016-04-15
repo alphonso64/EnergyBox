@@ -42,7 +42,6 @@ void RecordWorkThread::run()
         {
 
             cnt++;
-            cntt++;
             updateResult(&cstatus,&param);
             writeParam(ws,xf,param,cnt);
 //            for(int i=0;i<100;i++)
@@ -54,6 +53,7 @@ void RecordWorkThread::run()
 //                writeParam(ws,xf,param,cnt);
 //            }
         }
+//        cntt++;
 //        if(cntt >2000)
 //        {
 //           Util::SysLogD("recorder index : %d\n",cnt);
@@ -155,29 +155,33 @@ void RecordWorkThread::writeParam(worksheet* ws,xf_t* xf,EnergyParam param,int c
     time.setTime_t(param.time);
     QString time_str = time.toString("yyyy-MM-dd hh:mm:ss");
 
-    ws->label(cnt,0,time_str.toStdString(),xf);
+    ws->label(cnt,INDEX_TIME,time_str.toStdString(),xf);
 
-    ws->label(cnt,1,itos(param.voltage_a),xf);
-    ws->label(cnt,2,itos(param.voltage_b),xf);
-    ws->label(cnt,3,itos(param.voltage_c),xf);
-    ws->label(cnt,4,itos(param.current_a),xf);
-    ws->label(cnt,5,itos(param.current_b),xf);
-    ws->label(cnt,6,itos(param.current_c),xf);
+    ws->label(cnt,INDEX_VOLTAGE_A,itos(param.voltage_a),xf);
+    ws->label(cnt,INDEX_VOLTAGE_B,itos(param.voltage_b),xf);
+    ws->label(cnt,INDEX_VOLTAGE_C,itos(param.voltage_c),xf);
 
-    ws->label(cnt,7,itos(param.power_factor),xf);
-    ws->label(cnt,8,itos(param.frequency),xf);
-    ws->label(cnt,9,itos(param.active_power),xf);
-    ws->label(cnt,10,itos(param.reactive_power),xf);
-    ws->label(cnt,11,itos(param.apparent_power),xf);
+    ws->label(cnt,INDEX_VOLTAGE_AB,itos(param.voltage_ab),xf);
+    ws->label(cnt,INDEX_VOLTAGE_BC,itos(param.voltage_bc),xf);
+    ws->label(cnt,INDEX_VOLTAGE_CA,itos(param.voltage_ca),xf);
 
-    ws->label(cnt,12,itos(param.env_temp),xf);
-    ws->label(cnt,13,itos(param.env_humidity),xf);
-    ws->label(cnt,14,itos(param.air_temp),xf);
-    ws->label(cnt,15,itos(param.air_pressure),xf);
-    ws->label(cnt,16,itos(param.flow_content),xf);
-    ws->label(cnt,17,itos(param.power),xf);
-    ws->label(cnt,18,itos(param.vsp),xf);
-    ws->label(cnt,19,itos(param.load_type),xf);
+    ws->label(cnt,INDEX_CURRENT_A,itos(param.current_a),xf);
+    ws->label(cnt,INDEX_CURRENT_B,itos(param.current_b),xf);
+    ws->label(cnt,INDEX_CURRENT_C,itos(param.current_c),xf);
+
+    ws->label(cnt,INDEX_FREQUENCY,itos(param.frequency),xf);
+    ws->label(cnt,INDEX_ACTIVEP,itos(param.active_power),xf);
+    ws->label(cnt,INDEX_REACTIVEP,itos(param.reactive_power),xf);
+    ws->label(cnt,INDEX_APPARENTP,itos(param.apparent_power),xf);
+    ws->label(cnt,INDEX_FACTOR,itos(param.power_factor),xf);
+	
+    ws->label(cnt,INDEX_ENV_TEMP,itos(param.env_temp),xf);
+    ws->label(cnt,INDEX_ENV_HUMIDITY,itos(param.env_humidity),xf);
+    ws->label(cnt,INDEX_AIR_TEMP,itos(param.air_temp),xf);
+    ws->label(cnt,INDEX_AIR_PRESSURE,itos(param.air_pressure),xf);
+    ws->label(cnt,INDEX_FLOW,itos(param.flow_content),xf);
+    ws->label(cnt,INDEX_VSP,itos(param.vsp),xf);
+    ws->label(cnt,INDEX_STATE,itos(param.load_type),xf);
 }
 
 void RecordWorkThread::updateResult(CurrentStaus *stas,EnergyParam *eparam)

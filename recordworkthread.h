@@ -13,6 +13,7 @@
 #include <iostream>
 #include <sstream>
 #include "analyzeresult.h"
+#include "const_define.h"
 using namespace xlslib_core;
 using namespace std;
 
@@ -47,28 +48,32 @@ signals:
 private:
     void setTitle(worksheet* ws,xf_t* xf)
     {
-        ws->label(0,0,"记录时间",xf);
-        ws->label(0,1,"A相电压",xf);
-        ws->label(0,2,"B相电压",xf);
-        ws->label(0,3,"C相电压",xf);
-        ws->label(0,4,"A相电流",xf);
-        ws->label(0,5,"B相电流",xf);
-        ws->label(0,6,"C相电流",xf);
+        ws->label(0,INDEX_TIME,"记录时间",xf);
+        ws->label(0,INDEX_VOLTAGE_A,"A相电压",xf);
+        ws->label(0,INDEX_VOLTAGE_B,"B相电压",xf);
+        ws->label(0,INDEX_VOLTAGE_C,"C相电压",xf);
+		
+		ws->label(0,INDEX_VOLTAGE_AB,"AB线电压",xf);
+        ws->label(0,INDEX_VOLTAGE_BC,"BC线电压",xf);
+        ws->label(0,INDEX_VOLTAGE_CA,"CA线电压",xf);
+		
+        ws->label(0,INDEX_CURRENT_A,"A相电流",xf);
+        ws->label(0,INDEX_CURRENT_B,"B相电流",xf);
+        ws->label(0,INDEX_CURRENT_C,"C相电流",xf);
 
-        ws->label(0,7,"频率",xf);
-        ws->label(0,8,"有功功率",xf);
-        ws->label(0,9,"无功功率",xf);
-        ws->label(0,10,"视在功率",xf);
-        ws->label(0,11,"功率因素",xf);
+        ws->label(0,INDEX_FREQUENCY,"频率",xf);
+        ws->label(0,INDEX_ACTIVEP,"有功功率",xf);
+        ws->label(0,INDEX_REACTIVEP,"无功功率",xf);
+        ws->label(0,INDEX_APPARENTP,"视在功率",xf);
+        ws->label(0,INDEX_FACTOR,"功率因素",xf);
 
-        ws->label(0,12,"环境温度",xf);
-        ws->label(0,13,"环境湿度",xf);
-        ws->label(0,14,"排气温度",xf);
-        ws->label(0,15,"排气压力",xf);
-        ws->label(0,16,"流量",xf);
-        ws->label(0,17,"功率",xf);
-        ws->label(0,18,"比功率",xf);
-		ws->label(0,19,"加卸载状态",xf);
+        ws->label(0,INDEX_ENV_TEMP,"环境温度",xf);
+        ws->label(0,INDEX_ENV_HUMIDITY,"环境湿度",xf);
+        ws->label(0,INDEX_AIR_TEMP,"排气温度",xf);
+        ws->label(0,INDEX_AIR_PRESSURE,"排气压力",xf);
+        ws->label(0,INDEX_FLOW,"流量",xf);
+        ws->label(0,INDEX_VSP,"比功率",xf);
+		ws->label(0,INDEX_STATE,"加卸载状态",xf);
     }
 
     void writeParam(worksheet* ws,xf_t* xf,EnergyParam param,int cnt);

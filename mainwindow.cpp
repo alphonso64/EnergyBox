@@ -107,8 +107,8 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->lineEdit_power->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
 
    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("GB2312"));
-   ui->label->setText(QString("空压系统节能分析仪 GSA500-P"));
-//   ui->label->setText(QString("空压系统能效测试仪"));
+//   ui->label->setText(QString("空压系统节能分析仪 GSA500-P"));
+   ui->label->setText(QString("空压系统能效测试仪"));
    QStringList strings;
    strings << "本地" << "U盘" ;
    ui->comboBox_store_type->clear();
