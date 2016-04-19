@@ -37,6 +37,7 @@ public:
     QPushButton *panelButton_9;
     QPushButton *panelButton_0;
     QPushButton *panelButton_star;
+    QPushButton *panelButton_minus;
     QPushButton *panelButton_hash;
 
     void setupUi(QWidget *DigitalInputPanel)
@@ -183,6 +184,17 @@ public:
 
         horizontalLayout->addWidget(panelButton_star);
 
+        panelButton_minus = new QPushButton(horizontalLayoutWidget);
+        panelButton_minus->setObjectName(QString::fromUtf8("panelButton_minus"));
+        sizePolicy.setHeightForWidth(panelButton_minus->sizePolicy().hasHeightForWidth());
+        panelButton_minus->setSizePolicy(sizePolicy);
+        panelButton_minus->setMinimumSize(QSize(45, 40));
+        panelButton_minus->setFont(font1);
+        panelButton_minus->setFocusPolicy(Qt::NoFocus);
+        panelButton_minus->setProperty("buttonValue", QVariant(QChar(45)));
+
+        horizontalLayout->addWidget(panelButton_minus);
+
         panelButton_hash = new QPushButton(horizontalLayoutWidget);
         panelButton_hash->setObjectName(QString::fromUtf8("panelButton_hash"));
         sizePolicy.setHeightForWidth(panelButton_hash->sizePolicy().hasHeightForWidth());
@@ -215,6 +227,7 @@ public:
         panelButton_9->setText(QApplication::translate("DigitalInputPanel", "9", 0, QApplication::UnicodeUTF8));
         panelButton_0->setText(QApplication::translate("DigitalInputPanel", "0", 0, QApplication::UnicodeUTF8));
         panelButton_star->setText(QApplication::translate("DigitalInputPanel", ".", 0, QApplication::UnicodeUTF8));
+        panelButton_minus->setText(QApplication::translate("DigitalInputPanel", "-", 0, QApplication::UnicodeUTF8));
         panelButton_hash->setText(QApplication::translate("DigitalInputPanel", "\351\200\200\346\240\274", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 

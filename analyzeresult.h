@@ -9,6 +9,11 @@ public:
     float acc_flow;
     float acc_charge;
     float ave_cost;
+    float acc_charge_peak;
+    float acc_charge_normal;
+    float acc_charge_valley;
+    float first_order_energy_efficiency;
+    float permanent_magnet_frequency_conversion;
 
     long load_time;
     long unload_time;

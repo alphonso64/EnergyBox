@@ -6,7 +6,9 @@
 #define UDISK_LOGO_PATH  "/home/program/pic/udisk.png"
 #define PRODUCE_LOGO_PATH "/home/program/pic/logo_small.png"
 #define SOFT_VERSION "³ÌÐò°æ±¾:V1.1.3"
-//#define LOG_TEST
+#define LOG_TEST
+
+#define PEROID_LENGTH 6
 
 enum RecoderIndex 
 { 

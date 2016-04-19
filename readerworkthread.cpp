@@ -191,6 +191,17 @@ void ReaderWorkThread::run()
         res.unload_charge_radio = stringToNum<float>(c.str);
     }
 
+    c = foo.GetCell(sheetNum-1, (uint16_t)14, (uint16_t)3);
+    if(c.str.length()!=0)
+    {
+        res.first_order_energy_efficiency = stringToNum<float>(c.str);
+    }
+
+    c = foo.GetCell(sheetNum-1, (uint16_t)14, (uint16_t)7);
+    if(c.str.length()!=0)
+    {
+        res.permanent_magnet_frequency_conversion = stringToNum<float>(c.str);
+    }
 
 
 //	time = (float)(res.load_time)/3600.0;

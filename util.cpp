@@ -391,6 +391,11 @@ void Util::writeResult(worksheet *ws, xf_t *xf, AnalyzeResult res)
     ws->label(12,2,Util::ftos(res.load_charge_radio).toStdString(),xf);
     ws->label(12,5,"空载耗电占比(%)",xf);
     ws->label(12,6,Util::ftos(res.unload_charge_radio).toStdString(),xf);
+
+    ws->label(13,1,"采用一级能效机组节省电量(kwh)",xf);
+    ws->label(13,2,Util::ftos(res.first_order_energy_efficiency).toStdString(),xf);
+    ws->label(13,5,"采用永磁变频机组节省电量(kwh）",xf);
+    ws->label(13,6,Util::ftos(res.permanent_magnet_frequency_conversion).toStdString(),xf);
 }
 
 int Util::InitSysLog()

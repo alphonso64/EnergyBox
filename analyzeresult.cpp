@@ -29,6 +29,11 @@ AnalyzeResult::AnalyzeResult()
     this->max_unload_time  = 0;
     acc_charge  =0;
     ave_cost = 0;
+    permanent_magnet_frequency_conversion = 0;
+    first_order_energy_efficiency = 0;
+    acc_charge_normal = 0;
+    acc_charge_peak = 0;
+    acc_charge_valley = 0;
 }
 
 
@@ -62,5 +67,10 @@ void AnalyzeResult::clear()
     this->max_unload_time  = 0;
     acc_charge = 0;
     ave_cost = 0;
+    permanent_magnet_frequency_conversion = 0;
+    first_order_energy_efficiency = 0;
+    acc_charge_normal = 0;
+    acc_charge_peak = 0;
+    acc_charge_valley = 0;
 }
 

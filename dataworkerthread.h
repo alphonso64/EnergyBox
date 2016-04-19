@@ -46,6 +46,12 @@ public:
 
     void sendMsg(int cmd_a,int val_a,int cmd_b,int val_b,int cmd_e,int val_c);
 
+    int env_temp_type;
+    float env_temp;
+    int env_hum_type;
+    float env_hum;
+    float flow_modify;
+
 private:
     EnergyParam energyparam;
     QMutex mutex;

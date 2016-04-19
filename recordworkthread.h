@@ -104,6 +104,15 @@ public:
     int max_cur_standby;
     int max_cur_unload;
     float power_charge;
+    float power_charge_valley;
+    float power_charge_peak;
+    float power_charge_normal;
+    int charge_type;
+    int normal_period[PEROID_LENGTH];
+    int peak_period[PEROID_LENGTH];
+    int valley_period[PEROID_LENGTH];
+
+
     string path_pre;
     float acc_power;
     float acc_flow;

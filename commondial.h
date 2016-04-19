@@ -2,7 +2,6 @@
 #define COMMONDIAL_H
 #include <qstring.h>
 #include <qwt_dial.h>
-
 class CommonDial: public QwtDial
 {
 public:

@@ -13,7 +13,7 @@ void DataWorkerThread::run()
 	int errcnt = 0;
     while(1)
     {
-		Util::SysLogD("dataWorkerThread::run()\n");
+//		Util::SysLogD("dataWorkerThread::run()\n");
         int val = serialDataAvail (fd);
         if(val == len)
         {
@@ -74,12 +74,25 @@ void DataWorkerThread::parseParam(char *temp)
     energyparam.reactive_power = data[15]/1000.0;
     energyparam.apparent_power = data[16]/1000.0;
 
-    energyparam.env_temp = data[19];
-    energyparam.env_humidity = data[20];
-	
+    if(env_temp_type == 0)
+    {
+        energyparam.env_temp = data[19];
+    }else if(env_temp_type == 1)
+    {
+         energyparam.env_temp  =  env_temp;
+    }
+
+    if(env_hum_type == 0)
+    {
+        energyparam.env_humidity = data[20];
+    }else if(env_hum_type == 1)
+    {
+         energyparam.env_humidity  =  env_hum;
+    }
+
     energyparam.air_temp = data[1];
     energyparam.air_pressure = data[2];
-    energyparam.flow_content = data[3];
+    energyparam.flow_content = data[3]*(1+flow_modify);
     energyparam.time = *ltime;
     time = energyparam.time ;
     energyparam.power = energyparam.active_power;//(energyparam.voltage_a*energyparam.current_a + energyparam.voltage_b*energyparam.current_b + energyparam.voltage_c*energyparam.current_c)/1000;

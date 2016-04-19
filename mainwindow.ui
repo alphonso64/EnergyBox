@@ -81,177 +81,6 @@
       <height>510</height>
      </rect>
     </property>
-    <widget class="QLabel" name="label_IPower_name_180">
-     <property name="geometry">
-      <rect>
-       <x>500</x>
-       <y>40</y>
-       <width>151</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>22</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>接线方式</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_IPower_name_179">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>40</y>
-       <width>151</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>22</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>互感器变比</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_IPower_name_181">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>105</y>
-       <width>151</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>22</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>电费</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_IPower_name_182">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>170</y>
-       <width>151</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>22</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>额定功率</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_IPower_name_183">
-     <property name="geometry">
-      <rect>
-       <x>500</x>
-       <y>170</y>
-       <width>151</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>22</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>额定产气量</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_IPower_name_189">
-     <property name="geometry">
-      <rect>
-       <x>110</x>
-       <y>235</y>
-       <width>181</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>22</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>空载最大电流</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_IPower_name_190">
-     <property name="geometry">
-      <rect>
-       <x>500</x>
-       <y>235</y>
-       <width>151</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>22</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>停机电流</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_IPower_name_191">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>300</y>
-       <width>151</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>22</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>加载压力</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_IPower_name_200">
-     <property name="geometry">
-      <rect>
-       <x>500</x>
-       <y>300</y>
-       <width>161</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>22</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>卸载压力</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="pushButton_12">
      <property name="geometry">
       <rect>
@@ -272,361 +101,6 @@
      </property>
      <property name="text">
       <string>保存</string>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_radio">
-     <property name="geometry">
-      <rect>
-       <x>300</x>
-       <y>40</y>
-       <width>120</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>22</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="maxLength">
-      <number>10</number>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_charge">
-     <property name="geometry">
-      <rect>
-       <x>300</x>
-       <y>105</y>
-       <width>120</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>22</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="maxLength">
-      <number>10</number>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_power">
-     <property name="geometry">
-      <rect>
-       <x>300</x>
-       <y>170</y>
-       <width>120</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>22</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="maxLength">
-      <number>10</number>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_current_idle_max">
-     <property name="geometry">
-      <rect>
-       <x>300</x>
-       <y>235</y>
-       <width>120</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>22</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="maxLength">
-      <number>10</number>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_loading_pressure">
-     <property name="geometry">
-      <rect>
-       <x>300</x>
-       <y>300</y>
-       <width>120</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>22</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="maxLength">
-      <number>10</number>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_gas">
-     <property name="geometry">
-      <rect>
-       <x>670</x>
-       <y>170</y>
-       <width>120</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>22</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="maxLength">
-      <number>10</number>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_current_down_max">
-     <property name="geometry">
-      <rect>
-       <x>670</x>
-       <y>235</y>
-       <width>120</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>22</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="maxLength">
-      <number>10</number>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_unloading_pressure">
-     <property name="geometry">
-      <rect>
-       <x>670</x>
-       <y>300</y>
-       <width>120</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>22</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="maxLength">
-      <number>10</number>
-     </property>
-    </widget>
-    <widget class="QComboBox" name="comboBox_store_type">
-     <property name="geometry">
-      <rect>
-       <x>670</x>
-       <y>100</y>
-       <width>121</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>22</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 248, 249);</string>
-     </property>
-     <property name="maxCount">
-      <number>3</number>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_IPower_name_184">
-     <property name="geometry">
-      <rect>
-       <x>430</x>
-       <y>105</y>
-       <width>51</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>16</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>元</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_IPower_name_185">
-     <property name="geometry">
-      <rect>
-       <x>430</x>
-       <y>170</y>
-       <width>51</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>16</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>Kw</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_IPower_name_186">
-     <property name="geometry">
-      <rect>
-       <x>430</x>
-       <y>235</y>
-       <width>51</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>16</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>A</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_IPower_name_187">
-     <property name="geometry">
-      <rect>
-       <x>430</x>
-       <y>300</y>
-       <width>51</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>16</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>bar</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_IPower_name_188">
-     <property name="geometry">
-      <rect>
-       <x>800</x>
-       <y>300</y>
-       <width>51</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>16</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>bar</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_IPower_name_192">
-     <property name="geometry">
-      <rect>
-       <x>800</x>
-       <y>235</y>
-       <width>51</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>16</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>A</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_gas_produce_rated">
-     <property name="geometry">
-      <rect>
-       <x>800</x>
-       <y>170</y>
-       <width>91</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>16</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>m3/min</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_16">
@@ -770,79 +244,1195 @@
        <string>关于</string>
       </property>
      </widget>
+     <zorder>pushButton_15</zorder>
+     <zorder>pushButton_18</zorder>
+     <zorder>pushButton_20</zorder>
+     <zorder>pushButton_22</zorder>
+     <zorder>widget_10</zorder>
     </widget>
-    <widget class="QLabel" name="label_IPower_name_193">
+    <widget class="QWidget" name="widget_9" native="true">
      <property name="geometry">
       <rect>
-       <x>500</x>
-       <y>105</y>
-       <width>151</width>
-       <height>40</height>
+       <x>80</x>
+       <y>0</y>
+       <width>851</width>
+       <height>511</height>
+      </rect>
+     </property>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>0</y>
+        <width>811</width>
+        <height>411</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="title">
+       <string>工作参数设置</string>
+      </property>
+      <widget class="QComboBox" name="comboBox_store_type">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>25</y>
+         <width>121</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 248, 249);</string>
+       </property>
+       <property name="maxCount">
+        <number>3</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_193">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>30</y>
+         <width>151</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>存储方式</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_current_down_max">
+       <property name="geometry">
+        <rect>
+         <x>570</x>
+         <y>160</y>
+         <width>120</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_182">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>100</y>
+         <width>161</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>额定功率</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_current_idle_max">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>160</y>
+         <width>120</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_191">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>220</y>
+         <width>161</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>加载压力</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_188">
+       <property name="geometry">
+        <rect>
+         <x>700</x>
+         <y>220</y>
+         <width>51</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>bar</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_loading_pressure">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>220</y>
+         <width>120</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_power">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>100</y>
+         <width>120</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_192">
+       <property name="geometry">
+        <rect>
+         <x>700</x>
+         <y>160</y>
+         <width>51</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>A</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_unloading_pressure">
+       <property name="geometry">
+        <rect>
+         <x>570</x>
+         <y>220</y>
+         <width>120</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_189">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>160</y>
+         <width>161</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>空载电流</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_200">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>220</y>
+         <width>161</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>卸载压力</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_186">
+       <property name="geometry">
+        <rect>
+         <x>330</x>
+         <y>160</y>
+         <width>51</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>A</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_190">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>160</y>
+         <width>151</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>停机电流</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_gas_produce_rated">
+       <property name="geometry">
+        <rect>
+         <x>700</x>
+         <y>100</y>
+         <width>91</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>m3/min</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_183">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>100</y>
+         <width>151</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>额定产气量</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_185">
+       <property name="geometry">
+        <rect>
+         <x>330</x>
+         <y>100</y>
+         <width>51</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Kw</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_gas">
+       <property name="geometry">
+        <rect>
+         <x>570</x>
+         <y>100</y>
+         <width>120</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_187">
+       <property name="geometry">
+        <rect>
+         <x>330</x>
+         <y>220</y>
+         <width>51</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>bar</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_env_temp">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>280</y>
+         <width>151</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 248, 249);</string>
+       </property>
+       <property name="maxCount">
+        <number>3</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_202">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>285</y>
+         <width>151</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>环境温度</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_env_hum">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>345</y>
+         <width>151</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 248, 249);</string>
+       </property>
+       <property name="maxCount">
+        <number>3</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_203">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>350</y>
+         <width>151</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>环境湿度</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_204">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>280</y>
+         <width>51</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>℃</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_env_temp">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>280</y>
+         <width>120</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_205">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>350</y>
+         <width>51</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>%rh</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_env_hum">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>350</y>
+         <width>120</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="widget_10" native="true">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>0</y>
+       <width>851</width>
+       <height>511</height>
+      </rect>
+     </property>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>0</y>
+        <width>811</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="title">
+       <string>电表设置</string>
+      </property>
+      <widget class="QLabel" name="label_IPower_name_180">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>30</y>
+         <width>151</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>接线方式</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_store_type_2">
+       <property name="geometry">
+        <rect>
+         <x>570</x>
+         <y>20</y>
+         <width>121</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>18</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 248, 249);</string>
+       </property>
+       <property name="maxCount">
+        <number>3</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_195">
+       <property name="geometry">
+        <rect>
+         <x>700</x>
+         <y>160</y>
+         <width>71</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>元</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_charge_peak">
+       <property name="geometry">
+        <rect>
+         <x>570</x>
+         <y>160</y>
+         <width>120</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_charge_valley">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>220</y>
+         <width>120</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_197">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>220</y>
+         <width>151</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>谷时电费</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_194">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>100</y>
+         <width>141</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>计费方式</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_196">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>160</y>
+         <width>151</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>峰时电费</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_179">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>30</y>
+         <width>151</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>互感器变比</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_199">
+       <property name="geometry">
+        <rect>
+         <x>700</x>
+         <y>220</y>
+         <width>71</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>元</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_charge_type">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>90</y>
+         <width>171</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>18</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 248, 249);</string>
+       </property>
+       <property name="maxCount">
+        <number>3</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_201">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>220</y>
+         <width>151</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>平时电费</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_charge_normal">
+       <property name="geometry">
+        <rect>
+         <x>570</x>
+         <y>220</y>
+         <width>120</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_radio">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>30</y>
+         <width>120</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_198">
+       <property name="geometry">
+        <rect>
+         <x>330</x>
+         <y>220</y>
+         <width>71</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>元</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_23">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>90</y>
+         <width>131</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>时段设置</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_184">
+       <property name="geometry">
+        <rect>
+         <x>330</x>
+         <y>160</y>
+         <width>71</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>元</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_181">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>160</y>
+         <width>151</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>不分时电费</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_charge">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>160</y>
+         <width>120</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+      </widget>
+      <zorder>label_IPower_name_180</zorder>
+      <zorder>comboBox_store_type_2</zorder>
+      <zorder>label_IPower_name_195</zorder>
+      <zorder>lineEdit_charge_peak</zorder>
+      <zorder>lineEdit_charge_valley</zorder>
+      <zorder>label_IPower_name_197</zorder>
+      <zorder>label_IPower_name_194</zorder>
+      <zorder>label_IPower_name_196</zorder>
+      <zorder>label_IPower_name_179</zorder>
+      <zorder>label_IPower_name_199</zorder>
+      <zorder>comboBox_charge_type</zorder>
+      <zorder>label_IPower_name_201</zorder>
+      <zorder>lineEdit_charge_normal</zorder>
+      <zorder>lineEdit_radio</zorder>
+      <zorder>label_IPower_name_198</zorder>
+      <zorder>pushButton_23</zorder>
+      <zorder>label_IPower_name_184</zorder>
+      <zorder>label_IPower_name_181</zorder>
+      <zorder>lineEdit_charge</zorder>
+      <zorder>widget_7</zorder>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>300</y>
+        <width>811</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="title">
+       <string>流量修正</string>
+      </property>
+      <widget class="QLabel" name="label_IPower_name_251">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>30</y>
+         <width>151</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>流量修正</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_flow_modify">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>30</y>
+         <width>120</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_IPower_name_250">
+       <property name="geometry">
+        <rect>
+         <x>330</x>
+         <y>30</y>
+         <width>71</width>
+         <height>40</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>%</string>
+       </property>
+      </widget>
+     </widget>
+     <zorder>groupBox</zorder>
+     <zorder>groupBox_3</zorder>
+     <zorder>groupBox_3</zorder>
+    </widget>
+    <widget class="QPushButton" name="pushButton_24">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>300</y>
+       <width>81</width>
+       <height>61</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>微软雅黑</family>
-       <pointsize>22</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>存储方式</string>
-     </property>
-    </widget>
-    <widget class="QComboBox" name="comboBox_store_type_2">
-     <property name="geometry">
-      <rect>
-       <x>670</x>
-       <y>30</y>
-       <width>121</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>18</pointsize>
+       <pointsize>14</pointsize>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 248, 249);</string>
+      <string notr="true">border-image: url(:/new/prefix1/btn.qss);</string>
      </property>
-     <property name="maxCount">
-      <number>3</number>
+     <property name="text">
+      <string>页3</string>
      </property>
     </widget>
-    <zorder>label_IPower_name_180</zorder>
-    <zorder>label_IPower_name_179</zorder>
-    <zorder>label_IPower_name_181</zorder>
-    <zorder>label_IPower_name_182</zorder>
-    <zorder>label_IPower_name_183</zorder>
-    <zorder>label_IPower_name_189</zorder>
-    <zorder>label_IPower_name_190</zorder>
-    <zorder>label_IPower_name_191</zorder>
-    <zorder>label_IPower_name_200</zorder>
     <zorder>pushButton_12</zorder>
-    <zorder>lineEdit_radio</zorder>
-    <zorder>lineEdit_charge</zorder>
-    <zorder>lineEdit_power</zorder>
-    <zorder>lineEdit_current_idle_max</zorder>
-    <zorder>lineEdit_loading_pressure</zorder>
-    <zorder>lineEdit_gas</zorder>
-    <zorder>lineEdit_current_down_max</zorder>
-    <zorder>lineEdit_unloading_pressure</zorder>
-    <zorder>comboBox_store_type</zorder>
-    <zorder>label_IPower_name_184</zorder>
-    <zorder>label_IPower_name_185</zorder>
-    <zorder>label_IPower_name_186</zorder>
-    <zorder>label_IPower_name_187</zorder>
-    <zorder>label_IPower_name_188</zorder>
-    <zorder>label_IPower_name_192</zorder>
-    <zorder>label_gas_produce_rated</zorder>
     <zorder>pushButton_16</zorder>
     <zorder>pushButton_17</zorder>
-    <zorder>label_IPower_name_193</zorder>
-    <zorder>comboBox_store_type_2</zorder>
+    <zorder>pushButton_24</zorder>
     <zorder>widget_3</zorder>
+    <zorder>widget_9</zorder>
+    <zorder>widget_10</zorder>
    </widget>
    <widget class="QWidget" name="widget_5" native="true">
     <property name="geometry">
@@ -858,44 +1448,6 @@
       <pointsize>22</pointsize>
      </font>
     </property>
-    <widget class="QLabel" name="label_IPower_name_81">
-     <property name="geometry">
-      <rect>
-       <x>860</x>
-       <y>210</y>
-       <width>81</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>小时</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_IPower_name_106">
-     <property name="geometry">
-      <rect>
-       <x>860</x>
-       <y>205</y>
-       <width>81</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
     <widget class="Line" name="line_11">
      <property name="geometry">
       <rect>
@@ -1075,92 +1627,10 @@
       <rect>
        <x>80</x>
        <y>110</y>
-       <width>841</width>
+       <width>851</width>
        <height>401</height>
       </rect>
      </property>
-     <widget class="QLabel" name="label_analyze_standby_time">
-      <property name="geometry">
-       <rect>
-        <x>600</x>
-        <y>70</y>
-        <width>161</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_analyze_work_time">
-      <property name="geometry">
-       <rect>
-        <x>170</x>
-        <y>70</y>
-        <width>161</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_IPower_name_65">
-      <property name="geometry">
-       <rect>
-        <x>770</x>
-        <y>70</y>
-        <width>71</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>小时</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_IPower_name_66">
-      <property name="geometry">
-       <rect>
-        <x>440</x>
-        <y>70</y>
-        <width>121</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>22</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>待机时间</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_analyze_all_time">
       <property name="geometry">
        <rect>
@@ -1183,25 +1653,6 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_IPower_name_55">
-      <property name="geometry">
-       <rect>
-        <x>340</x>
-        <y>70</y>
-        <width>41</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>小时</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_IPower_name_52">
       <property name="geometry">
        <rect>
@@ -1219,25 +1670,6 @@
       </property>
       <property name="text">
        <string>小时</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_IPower_name_56">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>70</y>
-        <width>121</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>22</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>工作时间</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_IPower_name_50">
@@ -1263,7 +1695,7 @@
       <property name="geometry">
        <rect>
         <x>170</x>
-        <y>250</y>
+        <y>190</y>
         <width>161</width>
         <height>41</height>
        </rect>
@@ -1285,7 +1717,7 @@
       <property name="geometry">
        <rect>
         <x>340</x>
-        <y>250</y>
+        <y>190</y>
         <width>141</width>
         <height>40</height>
        </rect>
@@ -1304,7 +1736,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>250</y>
+        <y>190</y>
         <width>151</width>
         <height>40</height>
        </rect>
@@ -1323,7 +1755,7 @@
       <property name="geometry">
        <rect>
         <x>340</x>
-        <y>130</y>
+        <y>70</y>
         <width>41</width>
         <height>40</height>
        </rect>
@@ -1342,7 +1774,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>190</y>
+        <y>130</y>
         <width>131</width>
         <height>40</height>
        </rect>
@@ -1383,7 +1815,7 @@
       <property name="geometry">
        <rect>
         <x>440</x>
-        <y>130</y>
+        <y>70</y>
         <width>121</width>
         <height>40</height>
        </rect>
@@ -1402,7 +1834,7 @@
       <property name="geometry">
        <rect>
         <x>440</x>
-        <y>190</y>
+        <y>130</y>
         <width>131</width>
         <height>40</height>
        </rect>
@@ -1421,7 +1853,7 @@
       <property name="geometry">
        <rect>
         <x>770</x>
-        <y>190</y>
+        <y>130</y>
         <width>61</width>
         <height>40</height>
        </rect>
@@ -1440,7 +1872,7 @@
       <property name="geometry">
        <rect>
         <x>170</x>
-        <y>130</y>
+        <y>70</y>
         <width>161</width>
         <height>41</height>
        </rect>
@@ -1462,7 +1894,7 @@
       <property name="geometry">
        <rect>
         <x>600</x>
-        <y>130</y>
+        <y>70</y>
         <width>161</width>
         <height>41</height>
        </rect>
@@ -1484,7 +1916,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>130</y>
+        <y>70</y>
         <width>131</width>
         <height>40</height>
        </rect>
@@ -1499,30 +1931,11 @@
        <string>总产气量</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_IPower_name_111">
-      <property name="geometry">
-       <rect>
-        <x>770</x>
-        <y>130</y>
-        <width>81</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Kwh</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_IPower_name_115">
       <property name="geometry">
        <rect>
         <x>341</x>
-        <y>190</y>
+        <y>130</y>
         <width>61</width>
         <height>40</height>
        </rect>
@@ -1541,7 +1954,7 @@
       <property name="geometry">
        <rect>
         <x>600</x>
-        <y>190</y>
+        <y>130</y>
         <width>161</width>
         <height>41</height>
        </rect>
@@ -1582,7 +1995,7 @@
       <property name="geometry">
        <rect>
         <x>170</x>
-        <y>190</y>
+        <y>130</y>
         <width>161</width>
         <height>41</height>
        </rect>
@@ -1600,53 +2013,69 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_analyze_max_unloadtime">
-      <property name="geometry">
-       <rect>
-        <x>600</x>
-        <y>310</y>
-        <width>161</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_IPower_name_122">
+     <widget class="QLabel" name="label_IPower_name_135">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>300</y>
-        <width>131</width>
+        <y>240</y>
+        <width>151</width>
         <height>81</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>微软雅黑</family>
-        <pointsize>20</pointsize>
+        <pointsize>18</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>最长加载
-时间</string>
+       <string>采用一级能效
+机组节省电量</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_analyze_max_loadtime">
+     <widget class="QLabel" name="label_cost_5">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>250</y>
+        <width>61</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Kwh</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_137">
+      <property name="geometry">
+       <rect>
+        <x>341</x>
+        <y>250</y>
+        <width>61</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Kwh</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_analyze_save_a">
       <property name="geometry">
        <rect>
         <x>170</x>
-        <y>310</y>
+        <y>250</y>
         <width>161</width>
         <height>41</height>
        </rect>
@@ -1664,13 +2093,13 @@
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_IPower_name_123">
+     <widget class="QLabel" name="label_analyze_save_b">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>300</y>
-        <width>131</width>
-        <height>71</height>
+        <x>600</x>
+        <y>250</y>
+        <width>161</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="font">
@@ -1679,49 +2108,60 @@
         <pointsize>20</pointsize>
        </font>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
       <property name="text">
-       <string>最长卸载
-时间</string>
+       <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_IPower_name_124">
+     <widget class="QLabel" name="label_IPower_name_136">
       <property name="geometry">
        <rect>
-        <x>341</x>
-        <y>310</y>
-        <width>61</width>
-        <height>40</height>
+        <x>440</x>
+        <y>240</y>
+        <width>151</width>
+        <height>81</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>微软雅黑</family>
-        <pointsize>14</pointsize>
+        <pointsize>18</pointsize>
        </font>
       </property>
       <property name="text">
-       <string>小时</string>
+       <string>采用永磁变频
+机组节省电量</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_cost_2">
-      <property name="geometry">
-       <rect>
-        <x>770</x>
-        <y>310</y>
-        <width>61</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>小时</string>
-      </property>
-     </widget>
+     <zorder>label_analyze_all_time</zorder>
+     <zorder>label_IPower_name_52</zorder>
+     <zorder>label_IPower_name_50</zorder>
+     <zorder>label_analyze_ave_vsp</zorder>
+     <zorder>label_VSP</zorder>
+     <zorder>label_IPower_name_77</zorder>
+     <zorder>label_acc_flow_1</zorder>
+     <zorder>label_IPower_name_116</zorder>
+     <zorder>label_analyze_start_time</zorder>
+     <zorder>label_IPower_name_113</zorder>
+     <zorder>label_IPower_name_117</zorder>
+     <zorder>label_cost</zorder>
+     <zorder>label_analyze_acc_flow</zorder>
+     <zorder>label_analyze_acc_power</zorder>
+     <zorder>label_IPower_name_112</zorder>
+     <zorder>label_IPower_name_115</zorder>
+     <zorder>label_analyze_flow_cost</zorder>
+     <zorder>label_IPower_name_51</zorder>
+     <zorder>label_analyze_acc_charge</zorder>
+     <zorder>label_IPower_name_135</zorder>
+     <zorder>label_cost_5</zorder>
+     <zorder>label_IPower_name_137</zorder>
+     <zorder>label_analyze_save_a</zorder>
+     <zorder>label_analyze_save_b</zorder>
+     <zorder>label_IPower_name_136</zorder>
+     <zorder>widget_7</zorder>
+     <zorder>widget_7</zorder>
     </widget>
     <widget class="QWidget" name="widget_8" native="true">
      <property name="geometry">
@@ -1736,7 +2176,7 @@
       <property name="geometry">
        <rect>
         <x>440</x>
-        <y>130</y>
+        <y>190</y>
         <width>121</width>
         <height>40</height>
        </rect>
@@ -1751,293 +2191,11 @@
        <string>卸载次数</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_analyze_unload_power">
-      <property name="geometry">
-       <rect>
-        <x>600</x>
-        <y>190</y>
-        <width>161</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_IPower_name_105">
-      <property name="geometry">
-       <rect>
-        <x>440</x>
-        <y>190</y>
-        <width>151</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>22</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>空载耗电</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_IPower_name_101">
-      <property name="geometry">
-       <rect>
-        <x>340</x>
-        <y>190</y>
-        <width>81</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Kwh</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_IPower_name_118">
-      <property name="geometry">
-       <rect>
-        <x>770</x>
-        <y>310</y>
-        <width>81</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>%</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_analyze_load_charge">
-      <property name="geometry">
-       <rect>
-        <x>170</x>
-        <y>250</y>
-        <width>161</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_analyze_loadcnt">
       <property name="geometry">
        <rect>
         <x>170</x>
-        <y>130</y>
-        <width>161</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_IPower_name_102">
-      <property name="geometry">
-       <rect>
-        <x>340</x>
-        <y>250</y>
-        <width>81</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>元</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_IPower_name_103">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>250</y>
-        <width>131</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>22</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>满载电费</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_IPower_name_109">
-      <property name="geometry">
-       <rect>
-        <x>770</x>
-        <y>250</y>
-        <width>81</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>元</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_IPower_name_121">
-      <property name="geometry">
-       <rect>
-        <x>440</x>
-        <y>300</y>
-        <width>221</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>空载耗电
-占比</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_IPower_name_99">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
         <y>190</y>
-        <width>131</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>22</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>满载耗电</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_IPower_name_107">
-      <property name="geometry">
-       <rect>
-        <x>440</x>
-        <y>250</y>
-        <width>131</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>22</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>空载电费</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_analyze_load_power_radio">
-      <property name="geometry">
-       <rect>
-        <x>170</x>
-        <y>310</y>
-        <width>161</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_analyze_load_power">
-      <property name="geometry">
-       <rect>
-        <x>170</x>
-        <y>190</y>
-        <width>161</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_analyze_unload_power_radio">
-      <property name="geometry">
-       <rect>
-        <x>600</x>
-        <y>310</y>
         <width>161</width>
         <height>41</height>
        </rect>
@@ -2059,7 +2217,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>130</y>
+        <y>190</y>
         <width>131</width>
         <height>40</height>
        </rect>
@@ -2074,72 +2232,11 @@
        <string>加载次数</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_IPower_name_110">
-      <property name="geometry">
-       <rect>
-        <x>770</x>
-        <y>190</y>
-        <width>81</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Kwh</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_IPower_name_120">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>300</y>
-        <width>151</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>满载耗电
-占比</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_analyze_unload_charge">
-      <property name="geometry">
-       <rect>
-        <x>600</x>
-        <y>250</y>
-        <width>161</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>20</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_analyze_unloadcnt">
       <property name="geometry">
        <rect>
         <x>600</x>
-        <y>130</y>
+        <y>190</y>
         <width>161</width>
         <height>41</height>
        </rect>
@@ -2155,32 +2252,13 @@
       </property>
       <property name="text">
        <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_IPower_name_119">
-      <property name="geometry">
-       <rect>
-        <x>340</x>
-        <y>310</y>
-        <width>41</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>%</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_IPower_name_173">
       <property name="geometry">
        <rect>
         <x>340</x>
-        <y>70</y>
+        <y>130</y>
         <width>81</width>
         <height>40</height>
        </rect>
@@ -2199,7 +2277,7 @@
       <property name="geometry">
        <rect>
         <x>440</x>
-        <y>70</y>
+        <y>130</y>
         <width>131</width>
         <height>40</height>
        </rect>
@@ -2218,7 +2296,7 @@
       <property name="geometry">
        <rect>
         <x>770</x>
-        <y>70</y>
+        <y>130</y>
         <width>81</width>
         <height>40</height>
        </rect>
@@ -2237,7 +2315,7 @@
       <property name="geometry">
        <rect>
         <x>340</x>
-        <y>10</y>
+        <y>70</y>
         <width>81</width>
         <height>40</height>
        </rect>
@@ -2256,7 +2334,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>10</y>
+        <y>70</y>
         <width>121</width>
         <height>40</height>
        </rect>
@@ -2275,7 +2353,7 @@
       <property name="geometry">
        <rect>
         <x>600</x>
-        <y>70</y>
+        <y>130</y>
         <width>161</width>
         <height>41</height>
        </rect>
@@ -2297,7 +2375,7 @@
       <property name="geometry">
        <rect>
         <x>770</x>
-        <y>10</y>
+        <y>70</y>
         <width>81</width>
         <height>40</height>
        </rect>
@@ -2316,7 +2394,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>70</y>
+        <y>130</y>
         <width>111</width>
         <height>40</height>
        </rect>
@@ -2335,7 +2413,7 @@
       <property name="geometry">
        <rect>
         <x>170</x>
-        <y>10</y>
+        <y>70</y>
         <width>161</width>
         <height>41</height>
        </rect>
@@ -2357,7 +2435,7 @@
       <property name="geometry">
        <rect>
         <x>600</x>
-        <y>10</y>
+        <y>70</y>
         <width>161</width>
         <height>41</height>
        </rect>
@@ -2379,7 +2457,7 @@
       <property name="geometry">
        <rect>
         <x>440</x>
-        <y>10</y>
+        <y>70</y>
         <width>121</width>
         <height>40</height>
        </rect>
@@ -2398,7 +2476,7 @@
       <property name="geometry">
        <rect>
         <x>170</x>
-        <y>70</y>
+        <y>130</y>
         <width>161</width>
         <height>41</height>
        </rect>
@@ -2414,6 +2492,248 @@
       </property>
       <property name="text">
        <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_55">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>10</y>
+        <width>41</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>小时</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_56">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>121</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>22</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>工作时间</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_analyze_work_time">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>10</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_analyze_standby_time">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>10</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_65">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>10</y>
+        <width>71</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>小时</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_66">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>10</y>
+        <width>121</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>22</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>待机时间</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_analyze_max_loadtime">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>250</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_analyze_max_unloadtime">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>250</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_124">
+      <property name="geometry">
+       <rect>
+        <x>341</x>
+        <y>250</y>
+        <width>61</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>小时</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_cost_2">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>250</y>
+        <width>61</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>小时</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_122">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>240</y>
+        <width>131</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>最长加载
+时间</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_123">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>240</y>
+        <width>131</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>最长卸载
+时间</string>
       </property>
      </widget>
     </widget>
@@ -2487,9 +2807,9 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>410</y>
-       <width>71</width>
-       <height>51</height>
+       <y>300</y>
+       <width>81</width>
+       <height>61</height>
       </rect>
      </property>
      <property name="font">
@@ -2502,11 +2822,400 @@
       <string notr="true">border-image: url(:/new/prefix1/btn.qss);</string>
      </property>
      <property name="text">
-      <string>导出</string>
+      <string>页3</string>
      </property>
     </widget>
-    <zorder>label_IPower_name_81</zorder>
-    <zorder>label_IPower_name_106</zorder>
+    <widget class="QWidget" name="widget_11" native="true">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>110</y>
+       <width>851</width>
+       <height>401</height>
+      </rect>
+     </property>
+     <widget class="QLabel" name="label_analyze_load_power_radio">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>130</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_analyze_load_power">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>10</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_103">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>131</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>22</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>满载电费</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_analyze_unload_power">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>10</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_analyze_unload_charge">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>70</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_121">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>120</y>
+        <width>221</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>空载耗电
+占比</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_110">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>10</y>
+        <width>81</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Kwh</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_analyze_unload_power_radio">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>130</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_119">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>130</y>
+        <width>41</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>%</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_105">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>10</y>
+        <width>151</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>22</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>空载耗电</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_120">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>120</y>
+        <width>151</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>满载耗电
+占比</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_118">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>130</y>
+        <width>81</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>%</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_102">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>70</y>
+        <width>81</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>元</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_99">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>131</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>22</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>满载耗电</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_107">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>70</y>
+        <width>131</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>22</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>空载电费</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_109">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>70</y>
+        <width>81</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>元</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_analyze_load_charge">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>70</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_101">
+      <property name="geometry">
+       <rect>
+        <x>340</x>
+        <y>10</y>
+        <width>81</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Kwh</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_138">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>190</y>
+        <width>151</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
     <zorder>line_11</zorder>
     <zorder>label_analyze_rated_flow</zorder>
     <zorder>label_gas_produce_rated_1</zorder>
@@ -2520,8 +3229,9 @@
     <zorder>pushButton_13</zorder>
     <zorder>pushButton_14</zorder>
     <zorder>pushButton_19</zorder>
-    <zorder>widget_4</zorder>
     <zorder>widget_8</zorder>
+    <zorder>widget_11</zorder>
+    <zorder>widget_4</zorder>
    </widget>
    <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">
@@ -3899,7 +4609,7 @@
      <property name="geometry">
       <rect>
        <x>810</x>
-       <y>60</y>
+       <y>20</y>
        <width>61</width>
        <height>40</height>
       </rect>
@@ -3914,33 +4624,11 @@
       <string>%rh</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_env_temp_content">
-     <property name="geometry">
-      <rect>
-       <x>260</x>
-       <y>60</y>
-       <width>151</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>22</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_IPower_name_32">
      <property name="geometry">
       <rect>
        <x>510</x>
-       <y>60</y>
+       <y>20</y>
        <width>121</width>
        <height>40</height>
       </rect>
@@ -3955,33 +4643,11 @@
       <string>环境湿度</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_env_humidity_content">
-     <property name="geometry">
-      <rect>
-       <x>650</x>
-       <y>60</y>
-       <width>151</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>22</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_IPower_name_33">
      <property name="geometry">
       <rect>
        <x>120</x>
-       <y>60</y>
+       <y>20</y>
        <width>121</width>
        <height>40</height>
       </rect>
@@ -4000,7 +4666,7 @@
      <property name="geometry">
       <rect>
        <x>420</x>
-       <y>60</y>
+       <y>20</y>
        <width>41</width>
        <height>40</height>
       </rect>
@@ -4019,7 +4685,7 @@
      <property name="geometry">
       <rect>
        <x>810</x>
-       <y>130</y>
+       <y>90</y>
        <width>41</width>
        <height>40</height>
       </rect>
@@ -4038,7 +4704,7 @@
      <property name="geometry">
       <rect>
        <x>260</x>
-       <y>130</y>
+       <y>90</y>
        <width>151</width>
        <height>41</height>
       </rect>
@@ -4060,7 +4726,7 @@
      <property name="geometry">
       <rect>
        <x>510</x>
-       <y>130</y>
+       <y>90</y>
        <width>121</width>
        <height>40</height>
       </rect>
@@ -4079,7 +4745,7 @@
      <property name="geometry">
       <rect>
        <x>650</x>
-       <y>130</y>
+       <y>90</y>
        <width>151</width>
        <height>41</height>
       </rect>
@@ -4101,7 +4767,7 @@
      <property name="geometry">
       <rect>
        <x>120</x>
-       <y>130</y>
+       <y>90</y>
        <width>121</width>
        <height>40</height>
       </rect>
@@ -4120,7 +4786,7 @@
      <property name="geometry">
       <rect>
        <x>420</x>
-       <y>130</y>
+       <y>90</y>
        <width>41</width>
        <height>40</height>
       </rect>
@@ -4139,7 +4805,7 @@
      <property name="geometry">
       <rect>
        <x>120</x>
-       <y>200</y>
+       <y>160</y>
        <width>121</width>
        <height>40</height>
       </rect>
@@ -4154,30 +4820,11 @@
       <string>流量</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_IPower_name_48">
-     <property name="geometry">
-      <rect>
-       <x>400</x>
-       <y>175</y>
-       <width>41</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>微软雅黑</family>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_flow_content_1">
      <property name="geometry">
       <rect>
        <x>260</x>
-       <y>200</y>
+       <y>160</y>
        <width>151</width>
        <height>41</height>
       </rect>
@@ -4221,7 +4868,7 @@
      <property name="geometry">
       <rect>
        <x>420</x>
-       <y>200</y>
+       <y>160</y>
        <width>91</width>
        <height>40</height>
       </rect>
@@ -4234,6 +4881,50 @@
      </property>
      <property name="text">
       <string>m3/min</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_env_temp_content">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>20</y>
+       <width>151</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>22</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_env_hum_content">
+     <property name="geometry">
+      <rect>
+       <x>650</x>
+       <y>20</y>
+       <width>151</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>微软雅黑</family>
+       <pointsize>22</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>
@@ -4249,9 +4940,6 @@
     <property name="frameShape">
      <enum>QFrame::NoFrame</enum>
     </property>
-    <property name="numDigits">
-     <number>19</number>
-    </property>
     <property name="digitCount">
      <number>19</number>
     </property>
@@ -4262,9 +4950,9 @@
    <widget class="QPushButton" name="pushButton_10">
     <property name="geometry">
      <rect>
-      <x>980</x>
+      <x>930</x>
       <y>90</y>
-      <width>41</width>
+      <width>91</width>
       <height>21</height>
      </rect>
     </property>
@@ -4307,18 +4995,18 @@
    <zorder>line</zorder>
    <zorder>label</zorder>
    <zorder>label_2</zorder>
-   <zorder>pushButton_5</zorder>
    <zorder>pushButton</zorder>
    <zorder>pushButton_2</zorder>
    <zorder>lcdNumber_clock</zorder>
    <zorder>pushButton_10</zorder>
    <zorder>label_3</zorder>
-   <zorder>widget</zorder>
-   <zorder>widget_5</zorder>
-   <zorder>widget_7</zorder>
-   <zorder>widget_6</zorder>
-   <zorder>widget_2</zorder>
    <zorder>pushButton_21</zorder>
+   <zorder>widget_6</zorder>
+   <zorder>pushButton_5</zorder>
+   <zorder>widget_2</zorder>
+   <zorder>widget_7</zorder>
+   <zorder>widget_5</zorder>
+   <zorder>widget</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

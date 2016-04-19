@@ -17,11 +17,14 @@ void RecordWorkThread::run()
     ws = wb->sheet("sheet1");
     setTitle(ws,xf);
     int cnt = 1;
-    int cntt = 0;
     int sheetNUM = 1;
     overflow = false;
     bool first = true;
 
+    Util::SysLogD("charge type : %d %f %f %f\n ",charge_type,power_charge_normal,power_charge_peak,power_charge_valley);
+    Util::SysLogD("normal : %d %d %d %d %d %d\n ",normal_period[0],normal_period[1],normal_period[2],normal_period[3],normal_period[4],normal_period[5]);
+    Util::SysLogD("peak : %d %d %d %d %d %d\n ",peak_period[0],peak_period[1],peak_period[2],peak_period[3],peak_period[4],peak_period[5]);
+    Util::SysLogD("valley : %d %d %d %d %d %d\n ",valley_period[0],valley_period[1],valley_period[2],valley_period[3],valley_period[4],valley_period[5]);
     while(!recorderFlag)
     {
         if(overflow)
@@ -44,21 +47,7 @@ void RecordWorkThread::run()
             cnt++;
             updateResult(&cstatus,&param);
             writeParam(ws,xf,param,cnt);
-//            for(int i=0;i<100;i++)
-//            {
-//                cnt++;
-//                cntt++;
-//                param.time++;
-//                updateResult(&cstatus,&param);
-//                writeParam(ws,xf,param,cnt);
-//            }
         }
-//        cntt++;
-//        if(cntt >2000)
-//        {
-//           Util::SysLogD("recorder index : %d\n",cnt);
-//           cntt = 0;
-//        }
 
         acc_flow = anares.acc_flow;
         acc_power = anares.acc_power;
@@ -128,9 +117,25 @@ void RecordWorkThread::run()
     anares.load_power /= 3600;
     anares.unload_power /= 3600;
 
-    anares.acc_charge = anares.acc_power*power_charge;
-    anares.load_charge = anares.load_power*power_charge;
-    anares.unload_chargd = anares.unload_power*power_charge;
+    if(charge_type == 1)
+    {
+        anares.acc_charge_normal =  anares.acc_charge_normal*power_charge_normal/3600;
+        anares.acc_charge_peak =  anares.acc_charge_peak*power_charge_peak/3600;
+        anares.acc_charge_valley =  anares.acc_charge_valley*power_charge_valley/3600;
+        anares.acc_charge = anares.acc_charge_normal+anares.acc_charge_peak+anares.acc_charge_valley;
+        anares.load_charge /= 3600;
+        anares.unload_chargd /= 3600;
+
+    }else if(charge_type == 0)
+    {
+        anares.acc_charge = anares.acc_power*power_charge;
+        anares.load_charge = anares.load_power*power_charge;
+        anares.unload_chargd = anares.unload_power*power_charge;
+    }
+
+    anares.permanent_magnet_frequency_conversion = anares.unload_power+anares.load_power*0.1;
+    anares.first_order_energy_efficiency = 7.2*anares.acc_flow/60 - anares.acc_power;
+
     anares.load_charge_radio = anares.load_charge/ anares.acc_charge *100.0;
     anares.unload_charge_radio = anares.unload_chargd/ anares.acc_charge *100.0;
     anares.ave_cost = anares.acc_charge / anares.acc_flow;
@@ -200,6 +205,11 @@ void RecordWorkThread::updateResult(CurrentStaus *stas,EnergyParam *eparam)
     eparam->load_type = cur_stage;
     long time_step = param.time - stas->lastTime;
 
+    anares.acc_flow += time_step*stas->lastFlow;
+    float power_temp = time_step*stas->lastPower;
+    anares.acc_power += power_temp;
+
+    int load_type;
     if(cur_stage != stas->state)
     {
         if(stas->state == STAGE_LOAD)
@@ -228,28 +238,109 @@ void RecordWorkThread::updateResult(CurrentStaus *stas,EnergyParam *eparam)
         if(cur_stage == STAGE_LOAD)
         {
             stas->duration = time_step;
-            anares.load_power += time_step*stas->lastPower;
+            anares.load_power += power_temp;
+            load_type = 2;
         }else if(cur_stage == STAGE_UNLOAD)
         {
             stas->duration = time_step;
-            anares.unload_power += time_step*stas->lastPower;
+            anares.unload_power +=  power_temp;
+            load_type =1;
         }
 
     }else
     {
         if(stas->state == STAGE_LOAD)
         {
-
             stas->duration += time_step;
-            anares.load_power += time_step*stas->lastPower;
+            anares.load_power +=  power_temp;
+             load_type = 2;
         }else if(stas->state == STAGE_UNLOAD)
         {
             stas->duration += time_step;
-            anares.unload_power += time_step*stas->lastPower;
+            anares.unload_power +=  power_temp;
+             load_type = 1;
         }
     }
-    anares.acc_flow += time_step*stas->lastFlow;
-    anares.acc_power += time_step*stas->lastPower;
+    float charge_temp;
+
+    if(charge_type == 1)
+    {
+       QDateTime qdte;
+       qdte.setTime_t(param.time);
+       int hour = qdte.time().hour();
+
+       for(int i=0;i<6;i+=2)
+       {
+            if(normal_period[i]!=-1)
+            {
+                if(normal_period[i]<normal_period[i+1])
+                {
+                    if(hour<normal_period[i+1] && hour>=normal_period[i])
+                    {
+                        anares.acc_charge_normal += power_temp;
+                        charge_temp = power_temp*power_charge_normal;
+                        break;
+                    }
+                }else if(normal_period[i]>normal_period[i+1])
+                {
+                    if(hour<normal_period[i+1] || hour>=normal_period[i])
+                    {
+                        anares.acc_charge_normal += power_temp;
+                        charge_temp = power_temp*power_charge_normal;
+                        break;
+                    }
+                }
+            }
+            if(peak_period[i]!=-1)
+            {
+                if(peak_period[i]<peak_period[i+1])
+                {
+                    if(hour<peak_period[i+1] && hour>=peak_period[i])
+                    {
+                        anares.acc_charge_peak += power_temp;
+                        charge_temp = power_temp*power_charge_peak;
+                        break;
+                    }
+                }else if(peak_period[i]>peak_period[i+1])
+                {
+                    if(hour<peak_period[i+1] || hour>=peak_period[i])
+                    {
+                        anares.acc_charge_peak += power_temp;
+                        charge_temp = power_temp*power_charge_peak;
+                        break;
+                    }
+                }
+            }
+            if(valley_period[i]!=-1)
+            {
+                if(valley_period[i]<valley_period[i+1])
+                {
+                    if(hour<valley_period[i+1] && hour>=valley_period[i])
+                    {
+                        anares.acc_charge_valley += power_temp;
+                        charge_temp = power_temp*power_charge_valley;
+                        break;
+                    }
+                }else if(valley_period[i]>valley_period[i+1])
+                {
+                    if(hour<valley_period[i+1] || hour>=valley_period[i])
+                    {
+                        anares.acc_charge_valley += power_temp;
+                        charge_temp = power_temp*power_charge_valley;
+                        break;
+                    }
+                }
+            }
+       }
+    }
+
+    if(load_type == 2)
+    {
+        anares.load_charge += charge_temp;
+    }else if(load_type == 1)
+    {
+        anares.unload_chargd += charge_temp;
+    }
 
     stas->lastTime = param.time;
     stas->lastPower = param.power;

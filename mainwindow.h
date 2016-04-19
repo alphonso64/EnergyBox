@@ -15,6 +15,8 @@
 #include "custommessagebox.h"
 #include "filewidget.h"
 #include "readerworkthread.h"
+#include "chargeform.h"
+#include <QPalette>
 using namespace std;
 namespace Ui {
 class MainWindow;
@@ -78,6 +80,8 @@ private slots:
 
     void on_result();
 
+    void on_setPeriod(int);
+
     void on_pushButton_15_pressed();
 
     void on_pushButton_16_pressed();
@@ -98,11 +102,16 @@ private slots:
 
     void on_pushButton_22_clicked();
 
+    void on_pushButton_24_clicked();
+
+    void on_pushButton_23_clicked();
+
 private:
     void setInfo(EnergyParam param);
     void setInfo_detail(EnergyParam param);
     QString itos(int val);
     void clearAnalyzeView();
+    QPalette colorTheme( const QColor & ) const;
 
 private:
     Ui::MainWindow *ui;
@@ -122,6 +131,7 @@ private:
     CustomMessageBox *cusMsg;
     QDateTime  startTime;
     FileWidget *file;
+    ChargeForm *chargeform;
     bool timeStampFlag;
     bool saveState;
 };

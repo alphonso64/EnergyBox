@@ -23,32 +23,37 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->label_2->setPixmap(QPixmap(PRODUCE_LOGO_PATH));
     ui->label_3->setPixmap(QPixmap(UDISK_LOGO_PATH));
     ui->label_3->setVisible(false);
-    QString *style = new QString("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;} QPushButton:pressed{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;}");
-    QString *style_a = new QString("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;} QPushButton:pressed{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;}");
-    QString *style_b = new QString("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(128, 128, 128, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 0px solid #101010;} QPushButton:pressed{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;}");
+    QString style("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;} QPushButton:pressed{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;}");
+    QString style_a("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;} QPushButton:pressed{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;}");
+//    QString *style_b = new QString("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(128, 128, 128, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 0px solid #101010;} QPushButton:pressed{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;}");
 
+    QString checkbos_style("QCheckBox::indicator {width: 60px;height: 60px;}");
+
+//   ui->checkBox_temp->ind
    this->setWindowFlags(Qt::CustomizeWindowHint) ;
-   ui->pushButton->setStyleSheet(*style);
-   ui->pushButton_2->setStyleSheet(*style);
-   ui->pushButton_3->setStyleSheet(*style_a);
-   ui->pushButton_4->setStyleSheet(*style_a);
-   ui->pushButton_5->setStyleSheet(*style);
-   ui->pushButton_6->setStyleSheet(*style_a);
-   ui->pushButton_7->setStyleSheet(*style_a);
-   ui->pushButton_8->setStyleSheet(*style_a);
-   ui->pushButton_9->setStyleSheet(*style_a);
-   ui->pushButton_12->setStyleSheet(*style_a);
-   ui->pushButton_11->setStyleSheet(*style_a);
-   ui->pushButton_13->setStyleSheet(*style_a);
-   ui->pushButton_14->setStyleSheet(*style_a);
-   ui->pushButton_15->setStyleSheet(*style_a);
-   ui->pushButton_16->setStyleSheet(*style_a);
-   ui->pushButton_17->setStyleSheet(*style_a);
-   ui->pushButton_18->setStyleSheet(*style_a);
-   ui->pushButton_19->setStyleSheet(*style_b);
-   ui->pushButton_20->setStyleSheet(*style_a);
-   ui->pushButton_21->setStyleSheet(*style_a);
-   ui->pushButton_22->setStyleSheet(*style_a);
+   ui->pushButton->setStyleSheet(style);
+   ui->pushButton_2->setStyleSheet(style);
+   ui->pushButton_3->setStyleSheet(style_a);
+   ui->pushButton_4->setStyleSheet(style_a);
+   ui->pushButton_5->setStyleSheet(style);
+   ui->pushButton_6->setStyleSheet(style_a);
+   ui->pushButton_7->setStyleSheet(style_a);
+   ui->pushButton_8->setStyleSheet(style_a);
+   ui->pushButton_9->setStyleSheet(style_a);
+   ui->pushButton_12->setStyleSheet(style_a);
+   ui->pushButton_11->setStyleSheet(style_a);
+   ui->pushButton_13->setStyleSheet(style_a);
+   ui->pushButton_14->setStyleSheet(style_a);
+   ui->pushButton_15->setStyleSheet(style_a);
+   ui->pushButton_16->setStyleSheet(style_a);
+   ui->pushButton_17->setStyleSheet(style_a);
+   ui->pushButton_24->setStyleSheet(style_a);
+   ui->pushButton_18->setStyleSheet(style_a);
+   ui->pushButton_19->setStyleSheet(style_a);
+   ui->pushButton_20->setStyleSheet(style_a);
+   ui->pushButton_21->setStyleSheet(style_a);
+   ui->pushButton_22->setStyleSheet(style_a);
+   ui->pushButton_23->setStyleSheet(style_a);
    ui->pushButton->setFocusPolicy ( Qt::NoFocus );
    ui->pushButton_2->setFocusPolicy ( Qt::NoFocus );
    ui->pushButton_3->setFocusPolicy ( Qt::NoFocus );
@@ -65,11 +70,13 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->pushButton_15->setFocusPolicy ( Qt::NoFocus );
    ui->pushButton_16->setFocusPolicy ( Qt::NoFocus );
    ui->pushButton_17->setFocusPolicy ( Qt::NoFocus );
+   ui->pushButton_24->setFocusPolicy ( Qt::NoFocus );
    ui->pushButton_18->setFocusPolicy ( Qt::NoFocus );
    ui->pushButton_19->setFocusPolicy ( Qt::NoFocus );
    ui->pushButton_20->setFocusPolicy ( Qt::NoFocus );   
    ui->pushButton_21->setFocusPolicy ( Qt::NoFocus );
    ui->pushButton_22->setFocusPolicy ( Qt::NoFocus );
+   ui->pushButton_23->setFocusPolicy ( Qt::NoFocus );
 
    ui->widget->hide();
    ui->widget_2->show();
@@ -79,8 +86,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
    ui->pushButton_2->setEnabled(false);
    ui->pushButton_19->setEnabled(false);
-   ui->pushButton_10->setVisible(false);
-   ui->pushButton_19->setVisible(false);
+//   ui->pushButton_10->setVisible(false);
    pageIndex = 2;
 
    ui->lcdNumber_clock->setVisible(false);
@@ -96,7 +102,7 @@ MainWindow::MainWindow(QWidget *parent) :
    timer_check->start(1500);
    connect ( timer , SIGNAL (timeout ()), this , SLOT (check_status()));
 
-   QRegExp double_rx10000("10000|([0-9]{0,4}[\.][0-9]{1,3})");
+   QRegExp double_rx10000("10000|([-]{0,1}[0-9]{0,4}[\.][0-9]{1,3})");
    ui->lineEdit_radio->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_radio));
    ui->lineEdit_current_idle_max->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_current_idle_max));
    ui->lineEdit_current_down_max->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_current_down_max));
@@ -105,6 +111,11 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->lineEdit_unloading_pressure->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_unloading_pressure));
    ui->lineEdit_gas->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_gas));
    ui->lineEdit_power->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
+   ui->lineEdit_power->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
+   ui->lineEdit_power->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
+
+   ui->lineEdit_env_hum->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
+   ui->lineEdit_env_temp->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
 
    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("GB2312"));
 //   ui->label->setText(QString("空压系统节能分析仪 GSA500-P"));
@@ -119,6 +130,20 @@ MainWindow::MainWindow(QWidget *parent) :
    ui->comboBox_store_type_2->clear();
    ui->comboBox_store_type_2->addItems(strings_); 
 
+   QStringList strings__;
+   strings__ << "不分时计费" << "分时计费" ;
+   ui->comboBox_charge_type->clear();
+   ui->comboBox_charge_type->addItems(strings__);
+
+
+   QStringList strings_a;
+   strings_a << "自动获取" << "手动输入" ;
+   ui->comboBox_env_temp->clear();
+   ui->comboBox_env_temp->addItems(strings_a);
+
+   ui->comboBox_env_hum->clear();
+   ui->comboBox_env_hum->addItems(strings_a);
+
    sysparam.loadParam();
 
    startFlag = -1;
@@ -131,15 +156,19 @@ MainWindow::MainWindow(QWidget *parent) :
 
    QFont font( "Times", 14);
    flowDial = new CommonDial( ui->widget_2 );
-   flowDial->setScaleStepSize( 20.0 );
-   flowDial->setScale( 0.0, 160.0 );
+   flowDial->setPalette( colorTheme( QColor( Qt::lightGray ).dark( 150 ) ) );
+   flowDial->setScaleStepSize( 10.0 );
+   flowDial->setScale( 0.0, 100.0 );
    flowDial->setFont(font);
    flowDial->setLabel("流量");
    flowDial->scaleDraw()->setPenWidth( 2 );
    flowDial->move(620,0);
    flowDial->setFocusPolicy ( Qt::NoFocus );
+   //flowDial->setLineWidth( 2 );
+   //flowDial->setFrameShadow( QwtDial::Sunken );
 
    powerDial = new CommonDial( ui->widget_2 );
+   powerDial->setPalette( colorTheme( QColor( Qt::lightGray ).dark( 150 ) ) );
    powerDial->setScaleStepSize( 20.0 );
    powerDial->setScale( 0.0, 160.0 );
    powerDial->setFont(font);
@@ -147,6 +176,8 @@ MainWindow::MainWindow(QWidget *parent) :
    powerDial->scaleDraw()->setPenWidth( 2 );
    powerDial->move(180,0);
    powerDial->setFocusPolicy ( Qt::NoFocus );
+   //powerDial->setLineWidth( 2 );
+   //powerDial->setFrameShadow( QwtDial::Sunken );
 
    ui->label_flow_unit->setText("m<sup>3</sup>/min");
    ui->label_flow_2->setText("m<sup>3</sup>/min");
@@ -163,6 +194,10 @@ MainWindow::MainWindow(QWidget *parent) :
    cusMsg->hide();
    cusMsg->move(270,180);
 
+   chargeform = new ChargeForm();
+   chargeform->hide();
+   chargeform->move(100 ,95);
+
    file = new FileWidget();
    file->hide();
    file->move(62,50);
@@ -171,7 +206,7 @@ MainWindow::MainWindow(QWidget *parent) :
    connect(reader, SIGNAL(result()), SLOT(on_result()));
    connect(recorder, SIGNAL(recordoverflow(int)), SLOT(on_overflow(int)));
    connect(dataWoker, SIGNAL(setEcho(int)), SLOT(on_setEcho(int)));
-
+   connect(chargeform, SIGNAL(periodset(int)), SLOT(on_setPeriod(int)));
    saveState = false;
 }
 
@@ -180,6 +215,14 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::on_setPeriod(int flag)
+{
+    if(flag == -1)
+    {
+        cusMsg->setMessage("时间段错误");
+        cusMsg->show();
+    }
+}
 void MainWindow::on_result()
 {
     //ui->label_acc_flow_2->setText(Util::ftos(reader->res.acc_flow));
@@ -226,6 +269,8 @@ void MainWindow::on_result()
     ui->label_analyze_unload_charge->setText(Util::ftos(reader->res.unload_chargd));
     ui->label_analyze_load_power_radio->setText(Util::ftos(reader->res.load_charge_radio));
     ui->label_analyze_unload_power_radio->setText(Util::ftos(reader->res.unload_charge_radio));
+    ui->label_analyze_save_a->setText(Util::ftos(reader->res.first_order_energy_efficiency));
+    ui->label_analyze_save_b->setText(Util::ftos(reader->res.permanent_magnet_frequency_conversion));
 
     time = (float)(reader->res.max_load_time)/3600.0;
     ui->label_analyze_max_loadtime->setText(Util::ftos(time));
@@ -269,11 +314,23 @@ void MainWindow::on_pushButton_pressed()
                  ui->lineEdit_radio->setText(QString("%1").arg(sysparam.radio));
                  ui->comboBox_store_type->setCurrentIndex(sysparam.save_type);
                  ui->comboBox_store_type_2->setCurrentIndex(sysparam.wiring_type);
+                 ui->comboBox_charge_type->setCurrentIndex(sysparam.charge_type);
+                 ui->comboBox_env_hum->setCurrentIndex(sysparam.env_hum_type);
+                 ui->comboBox_env_temp->setCurrentIndex(sysparam.env_temp_type);
+                 ui->lineEdit_env_hum->setText(QString("%1").arg(sysparam.env_hum));
+                 ui->lineEdit_env_temp->setText(QString("%1").arg(sysparam.env_temp));
+                 ui->lineEdit_charge_peak->setText(QString("%1").arg(sysparam.charge_peak));
+                 ui->lineEdit_charge_valley->setText(QString("%1").arg(sysparam.charge_valley));
+                 ui->lineEdit_charge_normal->setText(QString("%1").arg(sysparam.charge_normal));
+                 chargeform->setParam(sysparam.normal_period,sysparam.peak_period,sysparam.valley_period);
+                 ui->lineEdit_flow_modify->setText(QString("%1").arg(sysparam.flow_modify));
                  //Util::SysLogD("Init View %d %f",sysparam.wiring_type,sysparam.radio);
             }
 
             ui->widget->show();
             ui->widget_3->hide();
+            ui->widget_9->show();
+            ui->widget_10->hide();
             ui->widget_2->hide();
             ui->widget_5->hide();
             ui->widget_6->hide();
@@ -283,6 +340,7 @@ void MainWindow::on_pushButton_pressed()
             ui->pushButton_5->setEnabled(true);
             ui->pushButton_16->setEnabled(false);
             ui->pushButton_17->setEnabled(true);
+            ui->pushButton_24->setEnabled(true);
             pageIndex =1;
             DigitalInputPanelContext *dc = (DigitalInputPanelContext*)qApp->inputContext();
             dc->hideWidget(false);
@@ -351,6 +409,17 @@ void MainWindow::on_pushButton_3_pressed()
             recorder->max_cur_standby = sysparam.current_down_max;
             recorder->max_cur_unload = sysparam.current_idle_max;
             recorder->power_charge = sysparam.charge;
+            recorder->charge_type = sysparam.charge_type;
+            recorder->power_charge_normal = sysparam.charge_normal;
+            recorder->power_charge_peak = sysparam.charge_peak;
+            recorder->power_charge_valley = sysparam.charge_valley;
+            for(int i=0;i<PEROID_LENGTH;i++)
+            {
+                recorder->normal_period[i] = sysparam.normal_period[i];
+                recorder->peak_period[i] = sysparam.peak_period[i];
+                recorder->valley_period[i] = sysparam.valley_period[i];
+            }
+
             recorder->start();
         }
     }
@@ -429,8 +498,10 @@ void MainWindow::on_pushButton_5_pressed()
             ui->pushButton_5->setEnabled(false);
             ui->pushButton_11->setEnabled(false);
             ui->pushButton_13->setEnabled(true);
+            ui->pushButton_19->setEnabled(true);
             ui->widget_4->show();
             ui->widget_8->hide();
+            ui->widget_11->hide();
             pageIndex =5;
         }
     }
@@ -451,6 +522,7 @@ void MainWindow::on_pushButton_7_pressed()
     {
         ui->widget_2->hide();
         ui->widget_7->show();
+
     }
 }
 
@@ -529,7 +601,7 @@ void MainWindow::setInfo_detail(EnergyParam param){
     ui->label_IFlow_content->setText(Util::ftos(param.flow_content));
     ui->label_power_radio_content->setText(Util::ftos(param.vsp));
 
-    ui->label_env_humidity_content->setText(Util::ftos(param.env_humidity));
+    ui->label_env_hum_content->setText(Util::ftos(param.env_humidity));
     ui->label_env_temp_content->setText(Util::ftos(param.env_temp));
     ui->label_air_pressure_content->setText(Util::ftos(param.air_pressure));
     ui->label_air_temp_content->setText(Util::ftos(param.air_temp));
@@ -559,6 +631,7 @@ void MainWindow::setInfo_detail(EnergyParam param){
     ui->label_power_factor_content->setText(Util::ftos(param.power_factor));
     ui->label_frequency_content->setText(Util::ftos(param.frequency));
     ui->label_apparent_power_content->setText(Util::ftos(param.apparent_power));
+
 }
 
 QString MainWindow::itos(int val){
@@ -577,6 +650,24 @@ void MainWindow::on_pushButton_12_clicked()
         goto EXIT_FAIL;
     }
     param.charge = content.toFloat();
+
+    content = ui->lineEdit_charge_peak->text();
+    if(content.size() == 0){
+        goto EXIT_FAIL;
+    }
+    param.charge_peak = content.toFloat();
+
+    content = ui->lineEdit_charge_valley->text();
+    if(content.size() == 0){
+        goto EXIT_FAIL;
+    }
+    param.charge_valley = content.toFloat();
+
+    content = ui->lineEdit_charge_normal->text();
+    if(content.size() == 0){
+        goto EXIT_FAIL;
+    }
+    param.charge_normal = content.toFloat();
 
     content = ui->lineEdit_radio->text();
     if(content.size() == 0){
@@ -599,6 +690,22 @@ void MainWindow::on_pushButton_12_clicked()
 
     param.save_type = ui->comboBox_store_type->currentIndex();
     param.wiring_type = ui->comboBox_store_type_2->currentIndex();
+    param.charge_type = ui->comboBox_charge_type->currentIndex();
+    param.env_hum_type = ui->comboBox_env_hum->currentIndex();
+    param.env_temp_type = ui->comboBox_env_temp->currentIndex();
+
+    content = ui->lineEdit_env_temp->text();
+    if(content.size() == 0){
+        goto EXIT_FAIL;
+    }
+    param.env_temp = content.toFloat();
+
+    content = ui->lineEdit_env_hum->text();
+    if(content.size() == 0){
+        goto EXIT_FAIL;
+    }
+    param.env_hum = content.toFloat();
+
 
     content = ui->lineEdit_gas->text();
     if(content.size() == 0){
@@ -624,8 +731,47 @@ void MainWindow::on_pushButton_12_clicked()
     }
     param.loading_pressure = content.toFloat();
 
+    content = ui->lineEdit_flow_modify->text();
+    if(content.size() == 0){
+        goto EXIT_FAIL;
+    }
+    param.flow_modify = content.toFloat();
+
+    chargeform->getParam();
+
+    for(int i=0;i<PEROID_LENGTH;i++)
+    {
+        if(i<chargeform->normal_len)
+        {
+            param.normal_period[i] = chargeform->normal_peroid[i];
+        }else{
+             param.normal_period[i] = -1;
+        }
+
+        if(i<chargeform->peak_len)
+        {
+            param.peak_period[i] = chargeform->peak_peroid[i];
+        }else{
+             param.peak_period[i] = -1;
+        }
+
+        if(i<chargeform->valley_len)
+        {
+            param.valley_period[i] = chargeform->valley_peroid[i];
+        }else{
+             param.valley_period[i] = -1;
+        }
+    }
+
     sysparam.setParam(param);
     sysparam.saveLocalParam();
+    dataWoker->env_hum_type = sysparam.env_hum_type;
+    dataWoker->env_temp_type = sysparam.env_temp_type;
+    dataWoker->env_hum = sysparam.env_hum;
+    dataWoker->env_temp = sysparam.env_temp;
+    dataWoker->flow_modify = sysparam.flow_modify/100;
+    Util::SysLogD("dataWoker->flow_modify %f\n",dataWoker->flow_modify);
+
     cusMsg->setMessage(QString("正在保存参数"));
     cusMsg->show();
 
@@ -660,20 +806,32 @@ void MainWindow::on_pushButton_10_clicked()
 void MainWindow::on_pushButton_11_pressed()
 {
     ui->pushButton_13->setEnabled(true);
+    ui->pushButton_19->setEnabled(true);
     ui->pushButton_11->setEnabled(false);
     ui->widget_4->show();
     ui->widget_8->hide();
+    ui->widget_11->hide();
 }
 
 void MainWindow::on_pushButton_13_pressed()
 {
     ui->pushButton_11->setEnabled(true);
+    ui->pushButton_19->setEnabled(true);
     ui->pushButton_13->setEnabled(false);
     ui->widget_8->show();
     ui->widget_4->hide();
+    ui->widget_11->hide();
 }
 
-
+void MainWindow::on_pushButton_19_clicked()
+{
+    ui->pushButton_11->setEnabled(true);
+    ui->pushButton_19->setEnabled(false);
+    ui->pushButton_13->setEnabled(true);
+    ui->widget_8->hide();
+    ui->widget_4->hide();
+    ui->widget_11->show();
+}
 
 
 void MainWindow::on_pushButton_14_pressed()
@@ -689,16 +847,32 @@ void MainWindow::on_pushButton_15_pressed()
 
 void MainWindow::on_pushButton_16_pressed()
 {
+    ui->widget_9->show();
     ui->widget_3->hide();
+    ui->widget_10->hide();
     ui->pushButton_16->setEnabled(false);
     ui->pushButton_17->setEnabled(true);
+    ui->pushButton_24->setEnabled(true);
 }
 
 void MainWindow::on_pushButton_17_pressed()
 {
-    ui->widget_3->show();
+    ui->widget_9->hide();
+    ui->widget_3->hide();
+    ui->widget_10->show();
     ui->pushButton_16->setEnabled(true);
     ui->pushButton_17->setEnabled(false);
+    ui->pushButton_24->setEnabled(true);
+}
+
+void MainWindow::on_pushButton_24_clicked()
+{
+    ui->widget_9->hide();
+    ui->widget_3->show();
+    ui->widget_10->hide();
+    ui->pushButton_16->setEnabled(true);
+    ui->pushButton_17->setEnabled(true);
+    ui->pushButton_24->setEnabled(false);
 }
 
 void MainWindow::on_pushButton_18_pressed()
@@ -733,22 +907,6 @@ void MainWindow::on_pushButton_15_clicked()
 
 }
 
-void MainWindow::on_pushButton_19_clicked()
-{
-    QString path_pre = Util::checkUDiskPath();
-    if(path_pre == NULL)
-    {
-        cusMsg->setMessage(QString("U盘未插入"));
-        cusMsg->show();
-        return;
-    }
-    QString path =  QString(UDISK_PATH_PREFIX+path_pre+"/res");
-    mkdir(path.toStdString().c_str(),0777);
-    path_pre = QString(path+"/res_"+file->filename);
-    Util::genAnalyzeResultXls(reader->res,path_pre);
-    cusMsg->setMessage(QString("导出结果成功"));
-    cusMsg->show();
-}
 
 void MainWindow::on_pushButton_20_clicked()
 {
@@ -805,4 +963,26 @@ void MainWindow::on_pushButton_22_clicked()
 {
     cusMsg->setMessage(QString(SOFT_VERSION));
     cusMsg->show();
+}
+
+
+
+void MainWindow::on_pushButton_23_clicked()
+{
+    chargeform->show();
+}
+
+
+QPalette MainWindow::colorTheme( const QColor &base ) const
+{
+    QPalette palette;
+    palette.setColor( QPalette::Base, base );
+    palette.setColor( QPalette::Window, base.dark( 150 ) );
+    palette.setColor( QPalette::Mid, base.dark( 110 ) );
+    palette.setColor( QPalette::Light, base.light( 170 ) );
+    palette.setColor( QPalette::Dark, base.dark( 170 ) );
+    palette.setColor( QPalette::Text, base.dark( 200 ).light( 800 ) );
+    palette.setColor( QPalette::WindowText, base.dark( 200 ) );
+
+    return palette;
 }

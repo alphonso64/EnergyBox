@@ -40,7 +40,7 @@
    <property name="font">
     <font>
      <family>微软雅黑</family>
-     <pointsize>24</pointsize>
+     <pointsize>18</pointsize>
     </font>
    </property>
    <property name="text">
@@ -59,7 +59,7 @@
    <property name="font">
     <font>
      <family>微软雅黑</family>
-     <pointsize>24</pointsize>
+     <pointsize>18</pointsize>
     </font>
    </property>
    <property name="text">
@@ -97,7 +97,7 @@
    <property name="font">
     <font>
      <family>微软雅黑</family>
-     <pointsize>24</pointsize>
+     <pointsize>18</pointsize>
     </font>
    </property>
    <property name="text">
@@ -116,7 +116,7 @@
    <property name="font">
     <font>
      <family>微软雅黑</family>
-     <pointsize>24</pointsize>
+     <pointsize>18</pointsize>
     </font>
    </property>
    <property name="text">

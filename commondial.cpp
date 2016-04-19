@@ -8,6 +8,8 @@ CommonDial::CommonDial( QWidget *parent ):
     QwtDial( parent ),
     d_label( "" )
 {
+
+
     QwtRoundScaleDraw *scaleDraw = new QwtRoundScaleDraw();
     scaleDraw->setSpacing( 3 );
     scaleDraw->enableComponent( QwtAbstractScaleDraw::Backbone, false );
@@ -26,6 +28,7 @@ CommonDial::CommonDial( QWidget *parent ):
         QwtDialSimpleNeedle::Arrow, true, Qt::red,
         QColor( Qt::gray ).light( 130 ) );
     setNeedle( needle );
+
 }
 
 void CommonDial::setLabel( const QString &label )
@@ -68,4 +71,5 @@ void CommonDial::drawScaleContents( QPainter *painter,
 //    td.setHtml("K<sub>max</sub>=K<sub>2</sub> &middot; 3");
 //    td.drawContents(painter);
 }
+
 

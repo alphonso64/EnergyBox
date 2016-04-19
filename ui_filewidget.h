@@ -47,7 +47,7 @@ public:
         pushButton->setGeometry(QRect(770, 80, 131, 71));
         QFont font1;
         font1.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
-        font1.setPointSize(24);
+        font1.setPointSize(18);
         pushButton->setFont(font1);
         pushButton_2 = new QPushButton(FileWidget);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
@@ -56,7 +56,10 @@ public:
         label = new QLabel(FileWidget);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(10, 0, 271, 61));
-        label->setFont(font1);
+        QFont font2;
+        font2.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
+        font2.setPointSize(24);
+        label->setFont(font2);
         pushButton_3 = new QPushButton(FileWidget);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
         pushButton_3->setGeometry(QRect(770, 340, 131, 71));
