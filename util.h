@@ -28,6 +28,9 @@ public:
     static void SysLogD(const char *p_fmt, ...);
     static void writeResult(worksheet *ws, xf_t *xf, AnalyzeResult res);
     static void fileSync(const char *file);
+    static int get_file_size(FILE *file);
+    static void cpyFile(const char *src,const char *dst);
+    static void cpyLocal2Udisk();
 private:
 };
 

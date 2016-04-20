@@ -1,5 +1,6 @@
 #include "digitalinputpanelcontext.h"
 #include <QtCore>
+#include "util.h"
 
 //! [0]
 
@@ -61,6 +62,8 @@ void DigitalInputPanelContext::sendCharacter(QChar character)
 {
     QPointer<QWidget> w = focusWidget();
 
+    Util::SysLogD("press %d\n",character);
+
     if(character == 35)
     {
         if (!w)
@@ -112,7 +115,7 @@ void DigitalInputPanelContext::hideWidget(bool flag)
         inputPanel->hide();
     }else{
         inputPanel->show();
-        inputPanel->move(80,515);
+        inputPanel->move(30,505);
     }
 
 }

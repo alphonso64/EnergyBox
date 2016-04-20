@@ -21,6 +21,7 @@ DigitalInputPanel::DigitalInputPanel()
     signalMapper.setMapping(form.panelButton_star, form.panelButton_star);
     signalMapper.setMapping(form.panelButton_0, form.panelButton_0);
     signalMapper.setMapping(form.panelButton_hash, form.panelButton_hash);
+    signalMapper.setMapping(form.panelButton_minus, form.panelButton_minus);
 
     connect(form.panelButton_1, SIGNAL(clicked()),
             &signalMapper, SLOT(map()));
@@ -45,6 +46,8 @@ DigitalInputPanel::DigitalInputPanel()
     connect(form.panelButton_0, SIGNAL(clicked()),
             &signalMapper, SLOT(map()));
     connect(form.panelButton_hash, SIGNAL(clicked()),
+            &signalMapper, SLOT(map()));
+    connect(form.panelButton_minus, SIGNAL(clicked()),
             &signalMapper, SLOT(map()));
 
     connect(&signalMapper, SIGNAL(mapped(QWidget*)),

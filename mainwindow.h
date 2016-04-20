@@ -17,6 +17,7 @@
 #include "readerworkthread.h"
 #include "chargeform.h"
 #include <QPalette>
+#include "filecopyer.h"
 using namespace std;
 namespace Ui {
 class MainWindow;
@@ -82,6 +83,8 @@ private slots:
 
     void on_setPeriod(int);
 
+    void on_copyDone();
+
     void on_pushButton_15_pressed();
 
     void on_pushButton_16_pressed();
@@ -124,6 +127,7 @@ private:
     RecordWorkThread *recorder;
     DataWorkerThread *dataWoker;
     ReaderWorkThread *reader;
+    FileCopyer *copyer;
     QString record_start_time;
     QString record_end_time;
     CommonDial *flowDial;

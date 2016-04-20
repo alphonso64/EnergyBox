@@ -150,13 +150,14 @@ MainWindow::MainWindow(QWidget *parent) :
 
    recorder = new RecordWorkThread(this);
    dataWoker = new DataWorkerThread(this);
+   copyer = new FileCopyer(this);
    recorder->dataWoker = dataWoker;
    reader = new ReaderWorkThread(this);
    dataWoker->start();
 
    QFont font( "Times", 14);
    flowDial = new CommonDial( ui->widget_2 );
-   flowDial->setPalette( colorTheme( QColor( Qt::lightGray ).dark( 150 ) ) );
+   flowDial->setPalette( colorTheme( QColor( Qt::lightGray ).dark( 80 ) ) );
    flowDial->setScaleStepSize( 10.0 );
    flowDial->setScale( 0.0, 100.0 );
    flowDial->setFont(font);
@@ -168,7 +169,7 @@ MainWindow::MainWindow(QWidget *parent) :
    //flowDial->setFrameShadow( QwtDial::Sunken );
 
    powerDial = new CommonDial( ui->widget_2 );
-   powerDial->setPalette( colorTheme( QColor( Qt::lightGray ).dark( 150 ) ) );
+   powerDial->setPalette( colorTheme( QColor( Qt::lightGray ).dark( 80 ) ) );
    powerDial->setScaleStepSize( 20.0 );
    powerDial->setScale( 0.0, 160.0 );
    powerDial->setFont(font);
@@ -207,6 +208,7 @@ MainWindow::MainWindow(QWidget *parent) :
    connect(recorder, SIGNAL(recordoverflow(int)), SLOT(on_overflow(int)));
    connect(dataWoker, SIGNAL(setEcho(int)), SLOT(on_setEcho(int)));
    connect(chargeform, SIGNAL(periodset(int)), SLOT(on_setPeriod(int)));
+   connect(copyer, SIGNAL(copyDone()), SLOT(on_copyDone()));
    saveState = false;
 }
 
@@ -223,6 +225,13 @@ void MainWindow::on_setPeriod(int flag)
         cusMsg->show();
     }
 }
+
+void MainWindow::on_copyDone()
+{
+    cusMsg->setMessage("导出数据成功");
+    cusMsg->showWithButton();
+}
+
 void MainWindow::on_result()
 {
     //ui->label_acc_flow_2->setText(Util::ftos(reader->res.acc_flow));
@@ -889,13 +898,20 @@ void MainWindow::on_pushButton_18_clicked()
         cusMsg->show();
         return;
     }
-    path_pre = QString(UDISK_PATH_PREFIX+path_pre+"/");
-    path_pre = QString("sudo cp -rf /home/program/*.xls "+path_pre);
 
-//    printf("path %s\n",path_pre.toStdString().c_str());
-    system(path_pre.toStdString().c_str());
-    cusMsg->setMessage(QString("导出成功！"));
-    cusMsg->show();
+    cusMsg->setMessage("正在复制数据");
+    cusMsg->showWithoutButton();
+    copyer->start();
+
+
+//    cusMsg->setMessage("导出数据成功");
+//    cusMsg->showWithButton();
+
+//    path_pre = QString(UDISK_PATH_PREFIX+path_pre+"/");
+//    path_pre = QString("sudo cp -rf /home/program/*.xls "+path_pre);
+//    system(path_pre.toStdString().c_str());
+//    cusMsg->setMessage(QString("导出成功！"));
+//    cusMsg->show();
     return;
 }
 

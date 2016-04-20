@@ -209,14 +209,13 @@ void RecordWorkThread::updateResult(CurrentStaus *stas,EnergyParam *eparam)
     float power_temp = time_step*stas->lastPower;
     anares.acc_power += power_temp;
 
-    int load_type;
+    int load_type = -1;
     if(cur_stage != stas->state)
     {
         if(stas->state == STAGE_LOAD)
         {
             anares.load_cnt++;
             anares.load_time += stas->duration;
-//            Util::SysLogD("load duration£º%d\n",stas->duration);
             if(anares.max_load_time < stas->duration)
             {
                 anares.max_load_time = stas->duration;
@@ -225,7 +224,6 @@ void RecordWorkThread::updateResult(CurrentStaus *stas,EnergyParam *eparam)
         {
             anares.unload_cnt++;
             anares.unload_time += stas->duration;
-//            Util::SysLogD("unload duration£º%d\n",stas->duration);
             if(anares.max_unload_time < stas->duration)
             {
                 anares.max_unload_time = stas->duration;
@@ -268,7 +266,7 @@ void RecordWorkThread::updateResult(CurrentStaus *stas,EnergyParam *eparam)
        QDateTime qdte;
        qdte.setTime_t(param.time);
        int hour = qdte.time().hour();
-
+       Util::SysLogD("update hour %d\n",hour);
        for(int i=0;i<6;i+=2)
        {
             if(normal_period[i]!=-1)
@@ -279,6 +277,7 @@ void RecordWorkThread::updateResult(CurrentStaus *stas,EnergyParam *eparam)
                     {
                         anares.acc_charge_normal += power_temp;
                         charge_temp = power_temp*power_charge_normal;
+                        Util::SysLogD("Normal period %f\n",power_charge_normal);
                         break;
                     }
                 }else if(normal_period[i]>normal_period[i+1])
@@ -287,6 +286,7 @@ void RecordWorkThread::updateResult(CurrentStaus *stas,EnergyParam *eparam)
                     {
                         anares.acc_charge_normal += power_temp;
                         charge_temp = power_temp*power_charge_normal;
+                        Util::SysLogD("Normal period %f\n",power_charge_normal);
                         break;
                     }
                 }
@@ -299,6 +299,7 @@ void RecordWorkThread::updateResult(CurrentStaus *stas,EnergyParam *eparam)
                     {
                         anares.acc_charge_peak += power_temp;
                         charge_temp = power_temp*power_charge_peak;
+                        Util::SysLogD("peak period %f\n",power_charge_peak);
                         break;
                     }
                 }else if(peak_period[i]>peak_period[i+1])
@@ -307,6 +308,7 @@ void RecordWorkThread::updateResult(CurrentStaus *stas,EnergyParam *eparam)
                     {
                         anares.acc_charge_peak += power_temp;
                         charge_temp = power_temp*power_charge_peak;
+                        Util::SysLogD("peak period %f\n",power_charge_peak);
                         break;
                     }
                 }
@@ -319,6 +321,7 @@ void RecordWorkThread::updateResult(CurrentStaus *stas,EnergyParam *eparam)
                     {
                         anares.acc_charge_valley += power_temp;
                         charge_temp = power_temp*power_charge_valley;
+                        Util::SysLogD("valley period %f\n",power_charge_valley);
                         break;
                     }
                 }else if(valley_period[i]>valley_period[i+1])
@@ -327,6 +330,7 @@ void RecordWorkThread::updateResult(CurrentStaus *stas,EnergyParam *eparam)
                     {
                         anares.acc_charge_valley += power_temp;
                         charge_temp = power_temp*power_charge_valley;
+                        Util::SysLogD("valley period %f\n",power_charge_valley);
                         break;
                     }
                 }

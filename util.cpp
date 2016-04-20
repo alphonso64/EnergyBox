@@ -198,7 +198,10 @@ QStringList Util::getUdiskFileList()
             string path (abs_path.toStdString()+name);
             struct stat buf;
             stat(path.c_str(), &buf);
-            res_set.insert(result_set_t::value_type(buf.st_mtime,name));
+            if(buf.st_size>0)
+            {
+                res_set.insert(result_set_t::value_type(buf.st_mtime,name));
+            }
         }
     }
     multimap<time_t, string>::reverse_iterator   i, iend;
@@ -221,6 +224,38 @@ void Util::fileSync(const char *file)
     }
 }
 
+int Util::get_file_size(FILE *file)
+{
+    int size = 0;
+    fseek(file, 0L, SEEK_END);
+    size = ftell(file);
+    fseek(file, 0L, SEEK_SET);
+    return size;
+}
+
+void Util::cpyFile(const char *src, const char *dst)
+{
+    FILE *fp = fopen(src, "rb+");
+    if(NULL == fp)
+    {
+        return ;
+    }
+    int val = get_file_size(fp) ;
+    if(val == 0)
+    {
+            return ;
+    }
+    char *buff = (char *)malloc(val);
+    fread (buff,1,val,fp) ;
+    fclose(fp);
+
+    fp = fopen(dst, "wb+");
+    fwrite(buff,1,val,fp) ;
+    fclose(fp);
+    free(buff);
+    chmod(dst,S_IRUSR|S_IWUSR|S_IXUSR|S_IRGRP|S_IWGRP|S_IROTH|S_IWOTH|S_IXOTH);
+}
+
 QStringList Util::getLocalFileList()
 {
     QStringList list;
@@ -238,7 +273,11 @@ QStringList Util::getLocalFileList()
             string path (LOCAL_PATH_PREFIX+name);
             struct stat buf;
             stat(path.c_str(), &buf);
-            res_set.insert(result_set_t::value_type(buf.st_mtime,name));
+            if(buf.st_size>0)
+            {
+                res_set.insert(result_set_t::value_type(buf.st_mtime,name));
+            }
+
         }
     }
     multimap<time_t, string>::reverse_iterator   i, iend;
@@ -249,6 +288,41 @@ QStringList Util::getLocalFileList()
     }
     closedir(dir);
     return list;
+}
+
+void Util::cpyLocal2Udisk()
+{
+    QStringList list;
+    DIR    *dir;
+    struct    dirent    *ptr;
+    dir = opendir(LOCAL_PATH_PREFIX); ///open the dir
+    QString pattern(".+\\.xls");
+    QRegExp rx(pattern);
+
+    QString path_udisk = checkUDiskPath();
+    if(path_udisk == NULL)
+    {
+        return ;
+    }
+    QString abs_path = QString(UDISK_PATH_PREFIX+path_udisk+"/");
+
+    while((ptr = readdir(dir)) != NULL) ///read the list of this dir
+    {
+        if(rx.exactMatch(ptr->d_name))
+        {
+            string name(ptr->d_name);
+            string path (LOCAL_PATH_PREFIX+name);
+            string path_dst (abs_path.toStdString()+name);
+            struct stat buf;
+            stat(path.c_str(), &buf);
+            if(buf.st_size>0)
+            {
+                cpyFile(path.c_str(),path_dst.c_str());
+                fileSync(path_dst.c_str());
+            }
+
+        }
+    }
 }
 
 void Util::genAnalyzeResultXls(AnalyzeResult res, QString savepath)
