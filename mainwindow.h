@@ -83,7 +83,7 @@ private slots:
 
     void on_setPeriod(int);
 
-    void on_copyDone();
+    void on_copyDone(int);
 
     void on_pushButton_15_pressed();
 
@@ -108,6 +108,10 @@ private slots:
     void on_pushButton_24_clicked();
 
     void on_pushButton_23_clicked();
+
+    void on_pushButton_24_pressed();
+
+    void on_pushButton_19_pressed();
 
 private:
     void setInfo(EnergyParam param);

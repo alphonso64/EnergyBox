@@ -259,7 +259,7 @@ void RecordWorkThread::updateResult(CurrentStaus *stas,EnergyParam *eparam)
              load_type = 1;
         }
     }
-    float charge_temp;
+    float charge_temp = 0;
 
     if(charge_type == 1)
     {

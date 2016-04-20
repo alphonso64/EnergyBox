@@ -30,13 +30,13 @@ static const uint qt_meta_data_FileCopyer[] = {
        1,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
-      11,   22,   22,   22, 0x05,
+      11,   25,   25,   25, 0x05,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_FileCopyer[] = {
-    "FileCopyer\0copyDone()\0\0"
+    "FileCopyer\0copyDone(int)\0\0"
 };
 
 void FileCopyer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -45,11 +45,10 @@ void FileCopyer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         Q_ASSERT(staticMetaObject.cast(_o));
         FileCopyer *_t = static_cast<FileCopyer *>(_o);
         switch (_id) {
-        case 0: _t->copyDone(); break;
+        case 0: _t->copyDone((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObjectExtraData FileCopyer::staticMetaObjectExtraData = {
@@ -92,8 +91,9 @@ int FileCopyer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void FileCopyer::copyDone()
+void FileCopyer::copyDone(int _t1)
 {
-    QMetaObject::activate(this, &staticMetaObject, 0, 0);
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_END_MOC_NAMESPACE

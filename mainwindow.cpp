@@ -25,191 +25,177 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->label_3->setVisible(false);
     QString style("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;} QPushButton:pressed{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;}");
     QString style_a("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;} QPushButton:pressed{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;}");
-//    QString *style_b = new QString("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(128, 128, 128, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 0px solid #101010;} QPushButton:pressed{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;}");
 
-    QString checkbos_style("QCheckBox::indicator {width: 60px;height: 60px;}");
+    this->setWindowFlags(Qt::CustomizeWindowHint) ;
+    ui->pushButton->setStyleSheet(style);
+    ui->pushButton_2->setStyleSheet(style);
+    ui->pushButton_3->setStyleSheet(style_a);
+    ui->pushButton_4->setStyleSheet(style_a);
+    ui->pushButton_5->setStyleSheet(style);
+    ui->pushButton_6->setStyleSheet(style_a);
+    ui->pushButton_7->setStyleSheet(style_a);
+    ui->pushButton_8->setStyleSheet(style_a);
+    ui->pushButton_9->setStyleSheet(style_a);
+    ui->pushButton_12->setStyleSheet(style_a);
+    ui->pushButton_11->setStyleSheet(style_a);
+    ui->pushButton_13->setStyleSheet(style_a);
+    ui->pushButton_14->setStyleSheet(style_a);
+    ui->pushButton_15->setStyleSheet(style_a);
+    ui->pushButton_16->setStyleSheet(style_a);
+    ui->pushButton_17->setStyleSheet(style_a);
+    ui->pushButton_24->setStyleSheet(style_a);
+    ui->pushButton_18->setStyleSheet(style_a);
+    ui->pushButton_19->setStyleSheet(style_a);
+    ui->pushButton_20->setStyleSheet(style_a);
+    ui->pushButton_21->setStyleSheet(style_a);
+    ui->pushButton_22->setStyleSheet(style_a);
+    ui->pushButton_23->setStyleSheet(style_a);
+    ui->pushButton->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_2->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_3->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_4->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_5->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_6->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_7->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_8->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_9->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_12->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_11->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_13->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_14->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_15->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_16->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_17->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_24->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_18->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_19->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_20->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_21->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_22->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_23->setFocusPolicy ( Qt::NoFocus );
 
-//   ui->checkBox_temp->ind
-   this->setWindowFlags(Qt::CustomizeWindowHint) ;
-   ui->pushButton->setStyleSheet(style);
-   ui->pushButton_2->setStyleSheet(style);
-   ui->pushButton_3->setStyleSheet(style_a);
-   ui->pushButton_4->setStyleSheet(style_a);
-   ui->pushButton_5->setStyleSheet(style);
-   ui->pushButton_6->setStyleSheet(style_a);
-   ui->pushButton_7->setStyleSheet(style_a);
-   ui->pushButton_8->setStyleSheet(style_a);
-   ui->pushButton_9->setStyleSheet(style_a);
-   ui->pushButton_12->setStyleSheet(style_a);
-   ui->pushButton_11->setStyleSheet(style_a);
-   ui->pushButton_13->setStyleSheet(style_a);
-   ui->pushButton_14->setStyleSheet(style_a);
-   ui->pushButton_15->setStyleSheet(style_a);
-   ui->pushButton_16->setStyleSheet(style_a);
-   ui->pushButton_17->setStyleSheet(style_a);
-   ui->pushButton_24->setStyleSheet(style_a);
-   ui->pushButton_18->setStyleSheet(style_a);
-   ui->pushButton_19->setStyleSheet(style_a);
-   ui->pushButton_20->setStyleSheet(style_a);
-   ui->pushButton_21->setStyleSheet(style_a);
-   ui->pushButton_22->setStyleSheet(style_a);
-   ui->pushButton_23->setStyleSheet(style_a);
-   ui->pushButton->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_2->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_3->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_4->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_5->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_6->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_7->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_8->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_9->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_12->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_11->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_13->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_14->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_15->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_16->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_17->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_24->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_18->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_19->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_20->setFocusPolicy ( Qt::NoFocus );   
-   ui->pushButton_21->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_22->setFocusPolicy ( Qt::NoFocus );
-   ui->pushButton_23->setFocusPolicy ( Qt::NoFocus );
+    ui->widget->hide();
+    ui->widget_2->show();
+    ui->widget_5->hide();
+    ui->widget_6->hide();
+    ui->widget_7->hide();
 
-   ui->widget->hide();
-   ui->widget_2->show();
-   ui->widget_5->hide();
-   ui->widget_6->hide();
-   ui->widget_7->hide();
+    ui->pushButton_2->setEnabled(false);
+    ui->pushButton_19->setEnabled(false);
+    ui->lcdNumber_clock->setVisible(false);
 
-   ui->pushButton_2->setEnabled(false);
-   ui->pushButton_19->setEnabled(false);
-//   ui->pushButton_10->setVisible(false);
-   pageIndex = 2;
+    pageIndex = 2;
+    timeStampFlag = false;
+    Util::deleteUnpluedUdiskPath();
+    sysparam.loadParam();
+    startFlag = -1;
+    saveState = false;
 
-   ui->lcdNumber_clock->setVisible(false);
-   timeStampFlag = false;
+    timer = new QTimer( this );
+    timer->start(500);
+    connect ( timer , SIGNAL (timeout ()), this , SLOT (show_time()));
+    timer_check = new QTimer( this );
+    timer_check->start(1500);
+    connect ( timer , SIGNAL (timeout ()), this , SLOT (check_status()));
 
-   Util::deleteUnpluedUdiskPath();
+    QRegExp double_rx10000("10000|([-]{0,1}[0-9]{0,4}[\.][0-9]{1,3})");
+    ui->lineEdit_radio->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_radio));
+    ui->lineEdit_current_idle_max->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_current_idle_max));
+    ui->lineEdit_current_down_max->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_current_down_max));
+    ui->lineEdit_charge->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_charge));
+    ui->lineEdit_loading_pressure->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_loading_pressure));
+    ui->lineEdit_unloading_pressure->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_unloading_pressure));
+    ui->lineEdit_gas->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_gas));
+    ui->lineEdit_power->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
+    ui->lineEdit_power->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
+    ui->lineEdit_power->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
+    ui->lineEdit_env_hum->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
+    ui->lineEdit_env_temp->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
 
-   timer = new QTimer( this );
-   timer->start(500);
-   connect ( timer , SIGNAL (timeout ()), this , SLOT (show_time()));
+    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("GB2312"));
+    //   ui->label->setText(QString("空压系统节能分析仪 GSA500-P"));
+    ui->label->setText(QString("空压系统能效测试仪"));
+    QStringList strings;
+    strings << "本地" << "U盘" ;
+    ui->comboBox_store_type->clear();
+    ui->comboBox_store_type->addItems(strings);
+    QStringList strings_;
+    strings_ << "三相三线" << "三相四线" ;
+    ui->comboBox_store_type_2->clear();
+    ui->comboBox_store_type_2->addItems(strings_);
+    QStringList strings__;
+    strings__ << "不分时计费" << "分时计费" ;
+    ui->comboBox_charge_type->clear();
+    ui->comboBox_charge_type->addItems(strings__);
+    QStringList strings_a;
+    strings_a << "自动获取" << "手动输入" ;
+    ui->comboBox_env_temp->clear();
+    ui->comboBox_env_temp->addItems(strings_a);
 
-   timer_check = new QTimer( this );
-   timer_check->start(1500);
-   connect ( timer , SIGNAL (timeout ()), this , SLOT (check_status()));
+    ui->comboBox_env_hum->clear();
+    ui->comboBox_env_hum->addItems(strings_a);
 
-   QRegExp double_rx10000("10000|([-]{0,1}[0-9]{0,4}[\.][0-9]{1,3})");
-   ui->lineEdit_radio->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_radio));
-   ui->lineEdit_current_idle_max->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_current_idle_max));
-   ui->lineEdit_current_down_max->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_current_down_max));
-   ui->lineEdit_charge->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_charge));
-   ui->lineEdit_loading_pressure->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_loading_pressure));
-   ui->lineEdit_unloading_pressure->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_unloading_pressure));
-   ui->lineEdit_gas->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_gas));
-   ui->lineEdit_power->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
-   ui->lineEdit_power->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
-   ui->lineEdit_power->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
+    recorder = new RecordWorkThread(this);
+    dataWoker = new DataWorkerThread(this);
+    copyer = new FileCopyer(this);
+    recorder->dataWoker = dataWoker;
+    reader = new ReaderWorkThread(this);
+    dataWoker->start();
 
-   ui->lineEdit_env_hum->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
-   ui->lineEdit_env_temp->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
+    QFont font( "Times", 14);
+    flowDial = new CommonDial( ui->widget_2 );
+    flowDial->setPalette( colorTheme( QColor( Qt::lightGray ).dark( 80 ) ) );
+    flowDial->setScaleStepSize( 10.0 );
+    flowDial->setScale( 0.0, 100.0 );
+    flowDial->setFont(font);
+    flowDial->setLabel("流量");
+    flowDial->scaleDraw()->setPenWidth( 2 );
+    flowDial->move(620,0);
+    flowDial->setFocusPolicy ( Qt::NoFocus );
+    //flowDial->setLineWidth( 2 );
+    //flowDial->setFrameShadow( QwtDial::Sunken );
 
-   QTextCodec::setCodecForCStrings(QTextCodec::codecForName("GB2312"));
-//   ui->label->setText(QString("空压系统节能分析仪 GSA500-P"));
-   ui->label->setText(QString("空压系统能效测试仪"));
-   QStringList strings;
-   strings << "本地" << "U盘" ;
-   ui->comboBox_store_type->clear();
-   ui->comboBox_store_type->addItems(strings);
+    powerDial = new CommonDial( ui->widget_2 );
+    powerDial->setPalette( colorTheme( QColor( Qt::lightGray ).dark( 80 ) ) );
+    powerDial->setScaleStepSize( 20.0 );
+    powerDial->setScale( 0.0, 160.0 );
+    powerDial->setFont(font);
+    powerDial->setLabel("功率");
+    powerDial->scaleDraw()->setPenWidth( 2 );
+    powerDial->move(180,0);
+    powerDial->setFocusPolicy ( Qt::NoFocus );
+    //powerDial->setLineWidth( 2 );
+    //powerDial->setFrameShadow( QwtDial::Sunken );
 
-   QStringList strings_;
-   strings_ << "三相三线" << "三相四线" ;
-   ui->comboBox_store_type_2->clear();
-   ui->comboBox_store_type_2->addItems(strings_); 
+    ui->label_flow_unit->setText("m<sup>3</sup>/min");
+    ui->label_flow_2->setText("m<sup>3</sup>/min");
+    ui->label_acc_flow_unit->setText("m<sup>3</sup>");
+    ui->label_acc_flow_1->setText("m<sup>3</sup>");
 
-   QStringList strings__;
-   strings__ << "不分时计费" << "分时计费" ;
-   ui->comboBox_charge_type->clear();
-   ui->comboBox_charge_type->addItems(strings__);
+    ui->label_gas_produce_rated->setText("m<sup>3</sup>/min");
+    ui->label_gas_produce_rated_1->setText("m<sup>3</sup>/min");
+    ui->label_VSP->setText("Kw/(m<sup>3</sup>/min)");
+    ui->label_VSP_1->setText("Kw/(m<sup>3</sup>/min)");
+    ui->label_cost->setText("元/m<sup>3");
 
+    cusMsg = new CustomMessageBox();
+    cusMsg->hide();
+    cusMsg->move(270,180);
 
-   QStringList strings_a;
-   strings_a << "自动获取" << "手动输入" ;
-   ui->comboBox_env_temp->clear();
-   ui->comboBox_env_temp->addItems(strings_a);
+    chargeform = new ChargeForm();
+    chargeform->hide();
+    chargeform->move(100 ,95);
 
-   ui->comboBox_env_hum->clear();
-   ui->comboBox_env_hum->addItems(strings_a);
+    file = new FileWidget();
+    file->hide();
+    file->move(62,50);
 
-   sysparam.loadParam();
-
-   startFlag = -1;
-
-   recorder = new RecordWorkThread(this);
-   dataWoker = new DataWorkerThread(this);
-   copyer = new FileCopyer(this);
-   recorder->dataWoker = dataWoker;
-   reader = new ReaderWorkThread(this);
-   dataWoker->start();
-
-   QFont font( "Times", 14);
-   flowDial = new CommonDial( ui->widget_2 );
-   flowDial->setPalette( colorTheme( QColor( Qt::lightGray ).dark( 80 ) ) );
-   flowDial->setScaleStepSize( 10.0 );
-   flowDial->setScale( 0.0, 100.0 );
-   flowDial->setFont(font);
-   flowDial->setLabel("流量");
-   flowDial->scaleDraw()->setPenWidth( 2 );
-   flowDial->move(620,0);
-   flowDial->setFocusPolicy ( Qt::NoFocus );
-   //flowDial->setLineWidth( 2 );
-   //flowDial->setFrameShadow( QwtDial::Sunken );
-
-   powerDial = new CommonDial( ui->widget_2 );
-   powerDial->setPalette( colorTheme( QColor( Qt::lightGray ).dark( 80 ) ) );
-   powerDial->setScaleStepSize( 20.0 );
-   powerDial->setScale( 0.0, 160.0 );
-   powerDial->setFont(font);
-   powerDial->setLabel("功率");
-   powerDial->scaleDraw()->setPenWidth( 2 );
-   powerDial->move(180,0);
-   powerDial->setFocusPolicy ( Qt::NoFocus );
-   //powerDial->setLineWidth( 2 );
-   //powerDial->setFrameShadow( QwtDial::Sunken );
-
-   ui->label_flow_unit->setText("m<sup>3</sup>/min");
-   ui->label_flow_2->setText("m<sup>3</sup>/min");
-   ui->label_acc_flow_unit->setText("m<sup>3</sup>");
-   ui->label_acc_flow_1->setText("m<sup>3</sup>");
-
-   ui->label_gas_produce_rated->setText("m<sup>3</sup>/min");
-   ui->label_gas_produce_rated_1->setText("m<sup>3</sup>/min");
-   ui->label_VSP->setText("Kw/(m<sup>3</sup>/min)");
-   ui->label_VSP_1->setText("Kw/(m<sup>3</sup>/min)");
-   ui->label_cost->setText("元/m<sup>3");
-
-   cusMsg = new CustomMessageBox();
-   cusMsg->hide();
-   cusMsg->move(270,180);
-
-   chargeform = new ChargeForm();
-   chargeform->hide();
-   chargeform->move(100 ,95);
-
-   file = new FileWidget();
-   file->hide();
-   file->move(62,50);
-
-   connect(file, SIGNAL(fileopen(QString)), SLOT(on_analysis(QString)));
-   connect(reader, SIGNAL(result()), SLOT(on_result()));
-   connect(recorder, SIGNAL(recordoverflow(int)), SLOT(on_overflow(int)));
-   connect(dataWoker, SIGNAL(setEcho(int)), SLOT(on_setEcho(int)));
-   connect(chargeform, SIGNAL(periodset(int)), SLOT(on_setPeriod(int)));
-   connect(copyer, SIGNAL(copyDone()), SLOT(on_copyDone()));
-   saveState = false;
+    connect(file, SIGNAL(fileopen(QString)), SLOT(on_analysis(QString)));
+    connect(reader, SIGNAL(result()), SLOT(on_result()));
+    connect(recorder, SIGNAL(recordoverflow(int)), SLOT(on_overflow(int)));
+    connect(dataWoker, SIGNAL(setEcho(int)), SLOT(on_setEcho(int)));
+    connect(chargeform, SIGNAL(periodset(int)), SLOT(on_setPeriod(int)));
+    connect(copyer, SIGNAL(copyDone(int)), SLOT(on_copyDone(int)));
 }
 
 MainWindow::~MainWindow()
@@ -226,10 +212,23 @@ void MainWindow::on_setPeriod(int flag)
     }
 }
 
-void MainWindow::on_copyDone()
+void MainWindow::on_copyDone(int flag)
 {
-    cusMsg->setMessage("导出数据成功");
-    cusMsg->showWithButton();
+    if(flag == MODE_COPY)
+    {
+        cusMsg->setMessage("导出数据成功");
+        cusMsg->showWithButton();
+    }
+    else if(flag == MODE_SCREENSHOT)
+    {
+        cusMsg->setMessage(QString("截图成功"));
+        cusMsg->showWithButton();
+    }
+    else if(flag == MODE_UPDATE)
+    {
+        cusMsg->setMessage(QString("更新成功，请重启机器"));
+        cusMsg->showWithButton();
+    }
 }
 
 void MainWindow::on_result()
@@ -262,7 +261,6 @@ void MainWindow::on_result()
 
     time = (float)(reader->res.load_time)/3600.0;
     ui->label_analyze_loadtime->setText(Util::ftos(time));
-
     time = (float)(reader->res.unload_time)/3600.0;
     ui->label_analyze_unloadtime->setText(Util::ftos(time));
 
@@ -285,14 +283,11 @@ void MainWindow::on_result()
     ui->label_analyze_max_loadtime->setText(Util::ftos(time));
     time = (float)(reader->res.max_unload_time)/3600.0;
     ui->label_analyze_max_unloadtime->setText(Util::ftos(time));
-
-    ui->pushButton_19->setEnabled(true);
 }
 
 
 void MainWindow::on_analysis(QString path)
 {
-//    printf("on_analysis %s\n",path.toStdString().c_str());
     reader->path = path;
     reader->start();
 }
@@ -373,9 +368,6 @@ void MainWindow::on_pushButton_2_pressed()
         ui->pushButton->setEnabled(true);
         ui->pushButton_2->setEnabled(false);
         ui->pushButton_5->setEnabled(true);
-
-        ui->label_IPower_content->raise();
-
         pageIndex =2;
     }
 }
@@ -591,7 +583,6 @@ void MainWindow::check_status(){
     }else
     {
         ui->label_3->setVisible(true);
-        //printf("u insert\n");
     }
 
 
@@ -604,8 +595,6 @@ void MainWindow::setInfo(EnergyParam param){
 }
 
 void MainWindow::setInfo_detail(EnergyParam param){
-    //int temp = cnt;
-
     ui->label_IPower_content->setText(Util::ftos(param.power));
     ui->label_IFlow_content->setText(Util::ftos(param.flow_content));
     ui->label_power_radio_content->setText(Util::ftos(param.vsp));
@@ -832,7 +821,7 @@ void MainWindow::on_pushButton_13_pressed()
     ui->widget_11->hide();
 }
 
-void MainWindow::on_pushButton_19_clicked()
+void MainWindow::on_pushButton_19_pressed()
 {
     ui->pushButton_11->setEnabled(true);
     ui->pushButton_19->setEnabled(false);
@@ -840,6 +829,11 @@ void MainWindow::on_pushButton_19_clicked()
     ui->widget_8->hide();
     ui->widget_4->hide();
     ui->widget_11->show();
+}
+
+void MainWindow::on_pushButton_19_clicked()
+{
+
 }
 
 
@@ -874,7 +868,7 @@ void MainWindow::on_pushButton_17_pressed()
     ui->pushButton_24->setEnabled(true);
 }
 
-void MainWindow::on_pushButton_24_clicked()
+void MainWindow::on_pushButton_24_pressed()
 {
     ui->widget_9->hide();
     ui->widget_3->show();
@@ -882,6 +876,11 @@ void MainWindow::on_pushButton_24_clicked()
     ui->pushButton_16->setEnabled(true);
     ui->pushButton_17->setEnabled(true);
     ui->pushButton_24->setEnabled(false);
+}
+
+void MainWindow::on_pushButton_24_clicked()
+{
+
 }
 
 void MainWindow::on_pushButton_18_pressed()
@@ -901,17 +900,8 @@ void MainWindow::on_pushButton_18_clicked()
 
     cusMsg->setMessage("正在复制数据");
     cusMsg->showWithoutButton();
+    copyer->mode = MODE_COPY;
     copyer->start();
-
-
-//    cusMsg->setMessage("导出数据成功");
-//    cusMsg->showWithButton();
-
-//    path_pre = QString(UDISK_PATH_PREFIX+path_pre+"/");
-//    path_pre = QString("sudo cp -rf /home/program/*.xls "+path_pre);
-//    system(path_pre.toStdString().c_str());
-//    cusMsg->setMessage(QString("导出成功！"));
-//    cusMsg->show();
     return;
 }
 
@@ -942,12 +932,14 @@ void MainWindow::on_pushButton_20_clicked()
         cusMsg->show();
         return;
     }
+
+    cusMsg->setMessage(QString("正在更新程序"));
+    cusMsg->showWithoutButton();
+
     file_name = QString(path+"/"+file_name);
-    //printf("update path %s\n",file_name.toStdString().c_str());
-    QString cmd("sudo cp "+file_name+" /home/program/temp/");
-    system(cmd.toStdString().c_str());
-    cusMsg->setMessage(QString("更新成功，请重启机器"));
-    cusMsg->show();
+    copyer->filename = file_name;
+    copyer->mode = MODE_UPDATE;
+    copyer->start();
     return;
 }
 
@@ -968,10 +960,9 @@ void MainWindow::on_pushButton_21_clicked()
         QString time_str = time.toString("yyyy-MM-dd_hh_mm_ss");
         path = QString(path + "/"+time_str+".png");
         path = QString("scrot "+path);
-        system(path.toStdString().c_str());
-        usleep(500000);
-        cusMsg->setMessage(QString("截图成功"));
-        cusMsg->show();
+        copyer->cmd = path;
+        copyer->mode = MODE_SCREENSHOT;
+        copyer->start();
     }
 }
 
@@ -1002,3 +993,7 @@ QPalette MainWindow::colorTheme( const QColor &base ) const
 
     return palette;
 }
+
+
+
+

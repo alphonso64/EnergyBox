@@ -22,7 +22,7 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      34,   14, // methods
+      36,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -52,18 +52,20 @@ static const uint qt_meta_data_MainWindow[] = {
      468,   35,   35,   35, 0x08,
      480,   35,   35,   35, 0x08,
      498,   35,   35,   35, 0x08,
-     512,   35,   35,   35, 0x08,
-     539,   35,   35,   35, 0x08,
-     566,   35,   35,   35, 0x08,
-     593,   35,   35,   35, 0x08,
-     620,   35,   35,   35, 0x08,
-     647,   35,   35,   35, 0x08,
-     674,   35,   35,   35, 0x08,
-     701,   35,   35,   35, 0x08,
-     728,   35,   35,   35, 0x08,
-     755,   35,   35,   35, 0x08,
-     782,   35,   35,   35, 0x08,
-     809,   35,   35,   35, 0x08,
+     515,   35,   35,   35, 0x08,
+     542,   35,   35,   35, 0x08,
+     569,   35,   35,   35, 0x08,
+     596,   35,   35,   35, 0x08,
+     623,   35,   35,   35, 0x08,
+     650,   35,   35,   35, 0x08,
+     677,   35,   35,   35, 0x08,
+     704,   35,   35,   35, 0x08,
+     731,   35,   35,   35, 0x08,
+     758,   35,   35,   35, 0x08,
+     785,   35,   35,   35, 0x08,
+     812,   35,   35,   35, 0x08,
+     839,   35,   35,   35, 0x08,
+     866,   35,   35,   35, 0x08,
 
        0        // eod
 };
@@ -85,7 +87,7 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "on_pushButton_13_pressed()\0"
     "on_pushButton_14_pressed()\0"
     "on_analysis(QString)\0on_result()\0"
-    "on_setPeriod(int)\0on_copyDone()\0"
+    "on_setPeriod(int)\0on_copyDone(int)\0"
     "on_pushButton_15_pressed()\0"
     "on_pushButton_16_pressed()\0"
     "on_pushButton_17_pressed()\0"
@@ -98,6 +100,8 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "on_pushButton_22_clicked()\0"
     "on_pushButton_24_clicked()\0"
     "on_pushButton_23_clicked()\0"
+    "on_pushButton_24_pressed()\0"
+    "on_pushButton_19_pressed()\0"
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -127,7 +131,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 18: _t->on_analysis((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 19: _t->on_result(); break;
         case 20: _t->on_setPeriod((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 21: _t->on_copyDone(); break;
+        case 21: _t->on_copyDone((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 22: _t->on_pushButton_15_pressed(); break;
         case 23: _t->on_pushButton_16_pressed(); break;
         case 24: _t->on_pushButton_17_pressed(); break;
@@ -140,6 +144,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 31: _t->on_pushButton_22_clicked(); break;
         case 32: _t->on_pushButton_24_clicked(); break;
         case 33: _t->on_pushButton_23_clicked(); break;
+        case 34: _t->on_pushButton_24_pressed(); break;
+        case 35: _t->on_pushButton_19_pressed(); break;
         default: ;
         }
     }
@@ -177,9 +183,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 34)
+        if (_id < 36)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 34;
+        _id -= 36;
     }
     return _id;
 }
