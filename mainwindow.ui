@@ -41,9 +41,9 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>342</x>
       <y>20</y>
-      <width>461</width>
+      <width>340</width>
       <height>41</height>
      </rect>
     </property>
@@ -1403,8 +1403,8 @@
     <zorder>pushButton_17</zorder>
     <zorder>pushButton_24</zorder>
     <zorder>widget_3</zorder>
-    <zorder>widget_10</zorder>
     <zorder>widget_9</zorder>
+    <zorder>widget_10</zorder>
    </widget>
    <widget class="QWidget" name="widget_5" native="true">
     <property name="geometry">
@@ -4877,9 +4877,9 @@
     <property name="geometry">
      <rect>
       <x>760</x>
-      <y>30</y>
+      <y>20</y>
       <width>261</width>
-      <height>31</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="frameShape">

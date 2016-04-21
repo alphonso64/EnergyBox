@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     Util::InitSysLog();
     ui->setupUi(this);
     ui->label->setStyleSheet("color:#ffffff;");
+    ui->label->setAlignment(Qt::AlignCenter);
     ui->label_2->setPixmap(QPixmap(PRODUCE_LOGO_PATH));
     ui->label_3->setPixmap(QPixmap(UDISK_LOGO_PATH));
     ui->label_3->setVisible(false);
@@ -81,7 +82,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->widget_7->hide();
 
     ui->pushButton_2->setEnabled(false);
-    ui->pushButton_19->setEnabled(false);
+    ui->pushButton_10->setVisible(false);
     ui->lcdNumber_clock->setVisible(false);
 
     pageIndex = 2;
@@ -99,6 +100,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect ( timer , SIGNAL (timeout ()), this , SLOT (check_status()));
 
     QRegExp double_rx10000("10000|([-]{0,1}[0-9]{0,4}[\.][0-9]{1,3})");
+
     ui->lineEdit_radio->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_radio));
     ui->lineEdit_current_idle_max->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_current_idle_max));
     ui->lineEdit_current_down_max->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_current_down_max));
@@ -107,10 +109,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineEdit_unloading_pressure->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_unloading_pressure));
     ui->lineEdit_gas->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_gas));
     ui->lineEdit_power->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
-    ui->lineEdit_power->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
-    ui->lineEdit_power->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
-    ui->lineEdit_env_hum->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
-    ui->lineEdit_env_temp->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
+    ui->lineEdit_env_hum->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_env_hum));
+    ui->lineEdit_env_temp->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_env_temp));
+    ui->lineEdit_flow_modify->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_flow_modify));
+    ui->lineEdit_charge_normal->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_charge_normal));
+    ui->lineEdit_charge_peak->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_charge_peak));
+    ui->lineEdit_charge_valley->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_charge_valley));
 
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("GB2312"));
     //   ui->label->setText(QString("空压系统节能分析仪 GSA500-P"));
@@ -141,6 +145,12 @@ MainWindow::MainWindow(QWidget *parent) :
     recorder->dataWoker = dataWoker;
     reader = new ReaderWorkThread(this);
     dataWoker->start();
+
+    dataWoker->env_hum_type = sysparam.env_hum_type;
+    dataWoker->env_temp_type = sysparam.env_temp_type;
+    dataWoker->env_hum = sysparam.env_hum;
+    dataWoker->env_temp = sysparam.env_temp;
+    dataWoker->flow_modify = sysparam.flow_modify/100;
 
     QFont font( "Times", 14);
     flowDial = new CommonDial( ui->widget_2 );

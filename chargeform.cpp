@@ -156,84 +156,112 @@ void ChargeForm::getParam()
     QString content_b = ui->lineEdit_normal_2->text();
     int period_start,period_end;
     normal_len = 0;
-    if(content_a.size() != 0 || content_b.size() != 0){
+    if(content_a.size() != 0 && content_b.size() != 0){
         period_start = content_a.toInt();
         period_end = content_b.toInt();
         normal_peroid[normal_len++] = period_start;
         normal_peroid[normal_len++] = period_end;
+    }else{
+        ui->lineEdit_normal_1->clear();
+        ui->lineEdit_normal_2->clear();
     }
     content_a = ui->lineEdit_normal_3->text();
     content_b = ui->lineEdit_normal_4->text();
-    if(content_a.size() != 0 || content_b.size() != 0){
+    if(content_a.size() != 0 && content_b.size() != 0){
         period_start = content_a.toInt();
         period_end = content_b.toInt();
         normal_peroid[normal_len++] = period_start;
         normal_peroid[normal_len++] = period_end;
+    }else{
+        ui->lineEdit_normal_3->clear();
+        ui->lineEdit_normal_4->clear();
     }
     content_a = ui->lineEdit_normal_5->text();
     content_b = ui->lineEdit_normal_6->text();
-    if(content_a.size() != 0 || content_b.size() != 0){
+    if(content_a.size() != 0 && content_b.size() != 0){
         period_start = content_a.toInt();
         period_end = content_b.toInt();
         normal_peroid[normal_len++] = period_start;
         normal_peroid[normal_len++] = period_end;
+    }else{
+            ui->lineEdit_normal_5->clear();
+            ui->lineEdit_normal_6->clear();
     }
 
     peak_len = 0;
     content_a = ui->lineEdit_peak_1->text();
     content_b = ui->lineEdit_peak_2->text();
-    if(content_a.size() != 0 || content_b.size() != 0){
+    if(content_a.size() != 0 && content_b.size() != 0){
         period_start = content_a.toInt();
         period_end = content_b.toInt();
         peak_peroid[peak_len++] = period_start;
         peak_peroid[peak_len++] = period_end;
+    }else{
+        ui->lineEdit_peak_1->clear();
+        ui->lineEdit_peak_2->clear();
     }
-
     content_a = ui->lineEdit_peak_3->text();
     content_b = ui->lineEdit_peak_4->text();
-    if(content_a.size() != 0 || content_b.size() != 0){
+    if(content_a.size() != 0 && content_b.size() != 0){
         period_start = content_a.toInt();
         period_end = content_b.toInt();
         peak_peroid[peak_len++] = period_start;
         peak_peroid[peak_len++] = period_end;
+    }else{
+        ui->lineEdit_peak_3->clear();
+        ui->lineEdit_peak_4->clear();
     }
 
     content_a = ui->lineEdit_peak_5->text();
     content_b = ui->lineEdit_peak_6->text();
-    if(content_a.size() != 0 || content_b.size() != 0){
+    if(content_a.size() != 0 && content_b.size() != 0){
         period_start = content_a.toInt();
         period_end = content_b.toInt();
         peak_peroid[peak_len++] = period_start;
         peak_peroid[peak_len++] = period_end;
+    }else{
+        ui->lineEdit_peak_5->clear();
+        ui->lineEdit_peak_6->clear();
     }
 
     valley_len = 0;
     content_a = ui->lineEdit_valley_1->text();
     content_b = ui->lineEdit_valley_2->text();
-    if(content_a.size() != 0 || content_b.size() != 0){
+    if(content_a.size() != 0 && content_b.size() != 0){
         period_start = content_a.toInt();
         period_end = content_b.toInt();
         valley_peroid[valley_len++] = period_start;
         valley_peroid[valley_len++] = period_end;
+    }else{
+        ui->lineEdit_valley_1->clear();
+        ui->lineEdit_valley_2->clear();
     }
 
     content_a = ui->lineEdit_valley_3->text();
     content_b = ui->lineEdit_valley_4->text();
-    if(content_a.size() != 0 || content_b.size() != 0){
+    if(content_a.size() != 0 && content_b.size() != 0){
         period_start = content_a.toInt();
         period_end = content_b.toInt();
         valley_peroid[valley_len++] = period_start;
         valley_peroid[valley_len++] = period_end;
+    }else{
+        ui->lineEdit_valley_3->clear();
+        ui->lineEdit_valley_4->clear();
     }
+
 
     content_a = ui->lineEdit_valley_5->text();
     content_b = ui->lineEdit_valley_6->text();
-    if(content_a.size() != 0 || content_b.size() != 0){
+    if(content_a.size() != 0 && content_b.size() != 0){
         period_start = content_a.toInt();
         period_end = content_b.toInt();
         valley_peroid[valley_len++] = period_start;
         valley_peroid[valley_len++] = period_end;
+    }else{
+        ui->lineEdit_valley_5->clear();
+        ui->lineEdit_valley_6->clear();
     }
+
 }
 
 void ChargeForm::on_pushButton_2_clicked()

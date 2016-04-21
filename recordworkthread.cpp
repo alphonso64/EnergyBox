@@ -11,6 +11,7 @@ void RecordWorkThread::run()
     anares.clear();
     CurrentStaus cstatus;
 
+
     workbook *wb = new workbook();
     xf_t* xf = wb->xformat();
     worksheet* ws;
@@ -74,7 +75,6 @@ void RecordWorkThread::run()
     {
         anares.load_cnt++;
         anares.load_time += cstatus.duration;
-        //Util::SysLogD("last load duration£º%d\n",cstatus.duration);
         if(anares.max_load_time < cstatus.duration)
         {
             anares.max_load_time = cstatus.duration;
@@ -83,14 +83,11 @@ void RecordWorkThread::run()
     {
         anares.unload_cnt++;
         anares.unload_time += cstatus.duration;
-        //Util::SysLogD("unload duration£º%d\n",cstatus.duration);
         if(anares.max_unload_time < cstatus.duration)
         {
             anares.max_unload_time = cstatus.duration;
         }
     }
-
-
     if(cstatus.acc_vsp_cnt>0)
         anares.ave_vsp = anares.ave_vsp/(float)cstatus.acc_vsp_cnt;
     anares.end_measure_time = cstatus.lastTime;
@@ -135,6 +132,10 @@ void RecordWorkThread::run()
 
     anares.permanent_magnet_frequency_conversion = anares.unload_power+anares.load_power*0.1;
     anares.first_order_energy_efficiency = 7.2*anares.acc_flow/60 - anares.acc_power;
+    if(anares.first_order_energy_efficiency <0.00001)
+    {
+        anares.first_order_energy_efficiency = 0;
+    }
 
     anares.load_charge_radio = anares.load_charge/ anares.acc_charge *100.0;
     anares.unload_charge_radio = anares.unload_chargd/ anares.acc_charge *100.0;
@@ -377,6 +378,9 @@ void RecordWorkThread::initStatus(CurrentStaus *stas,EnergyParam *eparam)
     {
         stas->acc_vsp_cnt = 1;
         anares.ave_vsp += eparam->vsp;
+    }else
+    {
+        stas->acc_vsp_cnt = 0;
     }
     return;
 }

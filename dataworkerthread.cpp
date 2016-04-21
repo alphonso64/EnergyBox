@@ -13,7 +13,6 @@ void DataWorkerThread::run()
 	int errcnt = 0;
     while(1)
     {
-//		Util::SysLogD("dataWorkerThread::run()\n");
         int val = serialDataAvail (fd);
         if(val == len)
         {
@@ -53,21 +52,15 @@ void DataWorkerThread::parseParam(char *temp)
     mutex.lock();
     float *data = (float *)(temp);
     long *ltime = (long *)(temp);
-//	if(ltime[21] == 0)
-//	{
-        energyparam.voltage_ab = data[8];
-        energyparam.voltage_bc = data[9];
-        energyparam.voltage_ca = data[10];
-//	}else if(ltime[21] ==1)
-//	{
-        energyparam.voltage_a = data[5];
-        energyparam.voltage_b = data[6];
-        energyparam.voltage_c = data[7];
-//	}
+    energyparam.voltage_ab = data[8];
+    energyparam.voltage_bc = data[9];
+    energyparam.voltage_ca = data[10];
+    energyparam.voltage_a = data[5];
+    energyparam.voltage_b = data[6];
+    energyparam.voltage_c = data[7];
     energyparam.current_a = data[11];
     energyparam.current_b = data[12];
     energyparam.current_c = data[13];
-
     energyparam.power_factor = data[17];
     energyparam.frequency = data[18];
     energyparam.active_power = data[14]/1000.0;
@@ -79,15 +72,14 @@ void DataWorkerThread::parseParam(char *temp)
         energyparam.env_temp = data[19];
     }else if(env_temp_type == 1)
     {
-         energyparam.env_temp  =  env_temp;
+        energyparam.env_temp  =  env_temp;
     }
-
     if(env_hum_type == 0)
     {
         energyparam.env_humidity = data[20];
     }else if(env_hum_type == 1)
     {
-         energyparam.env_humidity  =  env_hum;
+        energyparam.env_humidity  =  env_hum;
     }
 
     energyparam.air_temp = data[1];
@@ -103,10 +95,6 @@ void DataWorkerThread::parseParam(char *temp)
     {
         energyparam.vsp =energyparam.power /  energyparam.flow_content;
     }
-
-//    Util::SysLogD("line type %d %f %f %f %f %f %f\n",ltime[21],data[5],data[6],data[7],data[8],data[9],data[10]);
-	
-	
     mutex.unlock();
 }
 
@@ -123,12 +111,9 @@ void DataWorkerThread::sendMsg(int cmd_a, int val_a, int cmd_b, int val_b, int c
     sendBuf[1] = 0x5a;
     sendBuf[2] = 0;
     sendBuf[3] = 3;
-
-
     buf[1] = val_a;
     buf[2] = val_b;
     buf[3] = val_c;
-
     for(int i=0;i<16;i++)
     {
         serialPutchar(fd,sendBuf[i]);

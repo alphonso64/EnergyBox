@@ -293,7 +293,7 @@ public:
         line->setFrameShadow(QFrame::Sunken);
         label = new QLabel(centralWidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(220, 20, 461, 41));
+        label->setGeometry(QRect(342, 20, 340, 41));
         QFont font1;
         font1.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
         font1.setPointSize(24);
@@ -631,8 +631,8 @@ public:
         pushButton_17->raise();
         pushButton_24->raise();
         widget_3->raise();
-        widget_10->raise();
         widget_9->raise();
+        widget_10->raise();
         widget_5 = new QWidget(centralWidget);
         widget_5->setObjectName(QString::fromUtf8("widget_5"));
         widget_5->setGeometry(QRect(0, 90, 931, 511));
@@ -1463,7 +1463,7 @@ public:
         label_env_hum_content->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
         lcdNumber_clock = new QLCDNumber(centralWidget);
         lcdNumber_clock->setObjectName(QString::fromUtf8("lcdNumber_clock"));
-        lcdNumber_clock->setGeometry(QRect(760, 30, 261, 31));
+        lcdNumber_clock->setGeometry(QRect(760, 20, 261, 41));
         lcdNumber_clock->setFrameShape(QFrame::NoFrame);
         lcdNumber_clock->setDigitCount(19);
         lcdNumber_clock->setSegmentStyle(QLCDNumber::Flat);

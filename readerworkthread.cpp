@@ -203,45 +203,6 @@ void ReaderWorkThread::run()
         res.permanent_magnet_frequency_conversion = stringToNum<float>(c.str);
     }
 
-
-//	time = (float)(res.load_time)/3600.0;
-//	ws->label(6,1,"满载时间(h)",xf);
-//    ws->label(6,2,Util::ftos(time).toStdString(),xf);
-//	time = (float)(res.unload_time)/3600.0;
-//	ws->label(6,5,"空载时间(h)",xf);
-//    ws->label(6,6,Util::ftos(time).toStdString(),xf);
-
-//	ws->label(7,1,"满载率(%)",xf);
-//    ws->label(7,2,Util::ftos(res.load_radio).toStdString(),xf);
-//	ws->label(7,5,"空载率(%)",xf);
-//    ws->label(7,6,Util::ftos(res.unload_radio).toStdString(),xf);
-
-//	ws->label(8,1,"加载次数",xf);
-//    ws->label(8,2,QString::number(res.load_cnt).toStdString(),xf);
-//	ws->label(8,5,"卸载次数",xf);
-//    ws->label(8,6,QString::number(res.unload_cnt).toStdString(),xf);
-
-
-//	ws->label(9,1,"满载耗电(kwh)",xf);
-//    ws->label(9,2,Util::ftos(res.load_power).toStdString(),xf);
-//	ws->label(9,5,"空载耗电(kwh)",xf);
-//    ws->label(9,6,Util::ftos(res.unload_power).toStdString(),xf);
-
-//	ws->label(10,1,"满载电费(元)",xf);
-//    ws->label(10,2,"22",xf);
-//	ws->label(10,5,"空载电费(元)",xf);
-//    ws->label(10,6,"33",xf);
-
-//	ws->label(11,1,"满载耗电占比(%)",xf);
-//    ws->label(11,2,"111",xf);
-//	ws->label(11,5,"空载耗电占比(%)",xf);
-//    ws->label(11,6,"22",xf);
-
-//    res.clear();
-
-//    }
-
-
     emit result();
 }
 

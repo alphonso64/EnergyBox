@@ -14,6 +14,7 @@ class Util
 public:
     Util();
     static bool writeInit(QString path, QString user_key, QString user_value);
+    static bool writeGroup(QString path, QStringList user_key, QStringList user_value);
     static bool readInit(QString path, QString user_key, QString &user_value);
     static QString ftos(float val);
     static QString checkUDiskPath();

@@ -26,6 +26,29 @@ Util::Util()
 
 }
 
+bool Util::writeGroup(QString path, QStringList user_key, QStringList user_value)
+{
+    if(path.isEmpty() || user_key.isEmpty())
+    {
+        return false;
+    }
+    else
+    {
+        //创建配置文件操作对象
+        QSettings *config = new QSettings(path, QSettings::IniFormat);
+
+        //将信息写入配置文件
+        config->beginGroup("config");
+        QStringList::iterator it_key = user_key.begin();
+        QStringList::iterator it_value = user_value.begin();
+        for(;it_key!=user_key.end()&& it_value !=user_value.end() ;++it_key,++it_value){
+            config->setValue(*it_key, *it_value);
+        }
+        config->endGroup();
+        return true;
+    }
+}
+
 bool Util::writeInit(QString path, QString user_key, QString user_value)
 {
     if(path.isEmpty() || user_key.isEmpty())
@@ -78,11 +101,8 @@ QString Util::checkUDiskPath()
     DIR    *dir;
     struct    dirent    *ptr;
     dir = opendir(UDISK_PATH_PREFIX); ///open the dir
-    //QString pattern("GSP1RMCULFR.*");
-    //QString pattern("BC73-B58D");
     QString pattern_a("\\.");
     QString pattern_b("\\.\\.");
-    //QRegExp rx(pattern);
     QRegExp rx_a(pattern_a);
     QRegExp rx_b(pattern_b);
 
@@ -90,13 +110,11 @@ QString Util::checkUDiskPath()
     {
         if(ptr->d_type == 4)
         {
-            //if(!rx.exactMatch(ptr->d_name))
             {
                 if(!rx_a.exactMatch(ptr->d_name))
                 {
                     if(!rx_b.exactMatch(ptr->d_name))
                     {
-                        //printf("d_type:%d d_name: %s\n", ptr->d_type,ptr->d_name);
                         closedir(dir);
                         return QString(ptr->d_name);
                     }
@@ -134,10 +152,8 @@ void Util::deleteUnpluedUdiskPath()
                     {
                         if(buf.st_uid != 1000)
                         {
-
                             QString cmd("sudo rm -rf "+path_pre+"\""+ptr->d_name+"\"");
                             system(cmd.toStdString().c_str());
-//                            printf("check path %s\n",cmd.toStdString().c_str());
                         }
                     }
 
