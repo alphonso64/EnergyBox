@@ -36,8 +36,11 @@ public:
     long stanby_time;
     float ave_vsp;
 
+    long vsp_cnt;
 
     void clear();
+
+    void cpy(AnalyzeResult anares);
 
 };
 

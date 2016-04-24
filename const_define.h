@@ -5,8 +5,8 @@
 #define UDISK_PATH_PREFIX "/media/pi/"
 #define UDISK_LOGO_PATH  "/home/program/pic/udisk.png"
 #define PRODUCE_LOGO_PATH "/home/program/pic/logo_small.png"
-#define SOFT_VERSION "程序版本:V1.2.5"
-//#define LOG_TEST
+#define SOFT_VERSION "程序版本:V1.2.6"
+#define LOG_TEST
 
 #define PEROID_LENGTH 6
 

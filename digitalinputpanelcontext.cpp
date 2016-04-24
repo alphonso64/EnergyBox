@@ -7,7 +7,13 @@
 DigitalInputPanelContext::DigitalInputPanelContext()
 {
     inputPanel = new DigitalInputPanel;
+    fullPanel = new FullInputPanel;
     connect(inputPanel, SIGNAL(characterGenerated(QChar)), SLOT(sendCharacter(QChar)));
+    connect(fullPanel, SIGNAL(fullcharacterGenerated(QChar)), SLOT(sendCharacter(QChar)));
+    inputPanel->hide();
+    fullPanel->hide();
+    fullPanel->move(110,280);
+    inputPanel->move(90,500);
 }
 
 //! [0]
@@ -92,9 +98,22 @@ void DigitalInputPanelContext::sendCharacter(QChar character)
 
 }
 
-//! [2]
-
-//! [3]
+void DigitalInputPanelContext::panelChange(int flag)
+{
+    if(flag == 1)
+    {
+        inputPanel->show();
+        fullPanel->hide();
+    }else if(flag == 2)
+    {
+        fullPanel->show();
+        inputPanel->hide();
+    }else if(flag == 3)
+    {
+        fullPanel->hide();
+        inputPanel->hide();
+    }
+}
 
 void DigitalInputPanelContext::updatePosition()
 {
@@ -112,12 +131,12 @@ void DigitalInputPanelContext::updatePosition()
 void DigitalInputPanelContext::hideWidget(bool flag)
 {
     if(flag){
+        fullPanel->hide();
         inputPanel->hide();
     }else{
         inputPanel->show();
-        inputPanel->move(30,495);
+        fullPanel->hide();
     }
-
 }
 
 //! [3]

@@ -26,12 +26,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->label_3->setVisible(false);
     QString style("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;} QPushButton:pressed{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;}");
     QString style_a("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;} QPushButton:pressed{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;}");
+    QString style_b ("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(128, 128, 128, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 0px solid #101010;} QPushButton:pressed{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;}");
 
     this->setWindowFlags(Qt::CustomizeWindowHint) ;
     ui->pushButton->setStyleSheet(style);
     ui->pushButton_2->setStyleSheet(style);
     ui->pushButton_3->setStyleSheet(style_a);
     ui->pushButton_4->setStyleSheet(style_a);
+    ui->pushButton_26->setStyleSheet(style_b);
     ui->pushButton_5->setStyleSheet(style);
     ui->pushButton_6->setStyleSheet(style_a);
     ui->pushButton_7->setStyleSheet(style_a);
@@ -51,6 +53,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButton_21->setStyleSheet(style_a);
     ui->pushButton_22->setStyleSheet(style_a);
     ui->pushButton_23->setStyleSheet(style_a);
+    ui->pushButton_25->setStyleSheet(style_a);
+    ui->pushButton_27->setStyleSheet(style_a);
+    ui->pushButton_28->setStyleSheet(style_a);
+    ui->pushButton_29->setStyleSheet(style_a);
+
     ui->pushButton->setFocusPolicy ( Qt::NoFocus );
     ui->pushButton_2->setFocusPolicy ( Qt::NoFocus );
     ui->pushButton_3->setFocusPolicy ( Qt::NoFocus );
@@ -74,16 +81,22 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButton_21->setFocusPolicy ( Qt::NoFocus );
     ui->pushButton_22->setFocusPolicy ( Qt::NoFocus );
     ui->pushButton_23->setFocusPolicy ( Qt::NoFocus );
-
+    ui->pushButton_25->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_26->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_27->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_28->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_29->setFocusPolicy ( Qt::NoFocus );
     ui->widget->hide();
     ui->widget_2->show();
     ui->widget_5->hide();
     ui->widget_6->hide();
     ui->widget_7->hide();
+    ui->widget_13->hide();
 
     ui->pushButton_2->setEnabled(false);
-    ui->pushButton_10->setVisible(false);
+//    ui->pushButton_10->setVisible(false);
     ui->lcdNumber_clock->setVisible(false);
+    ui->pushButton_26->setEnabled(false);
 
     pageIndex = 2;
     timeStampFlag = false;
@@ -111,7 +124,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineEdit_power->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_power));
     ui->lineEdit_env_hum->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_env_hum));
     ui->lineEdit_env_temp->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_env_temp));
-    ui->lineEdit_flow_modify->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_flow_modify));
+   // ui->lineEdit_flow_modify->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_flow_modify));
     ui->lineEdit_charge_normal->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_charge_normal));
     ui->lineEdit_charge_peak->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_charge_peak));
     ui->lineEdit_charge_valley->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_charge_valley));
@@ -196,6 +209,10 @@ MainWindow::MainWindow(QWidget *parent) :
     chargeform->hide();
     chargeform->move(100 ,95);
 
+    aboutwidget = new AboutWidget();
+    aboutwidget->hide();
+    aboutwidget->move(220 ,130);
+
     file = new FileWidget();
     file->hide();
     file->move(62,50);
@@ -279,8 +296,6 @@ void MainWindow::on_result()
     ui->label_analyze_load_radio->setText(Util::ftos(reader->res.load_radio));
     ui->label_analyze_unload_radio->setText(Util::ftos(reader->res.unload_radio));
     ui->label_analyze_load_power->setText(Util::ftos(reader->res.load_power));
-    ui->label_analyze_unload_power->setText(Util::ftos(reader->res.unload_power));    
-    ui->label_analyze_load_power->setText(Util::ftos(reader->res.load_power));
     ui->label_analyze_unload_power->setText(Util::ftos(reader->res.unload_power));
     ui->label_analyze_load_charge->setText(Util::ftos(reader->res.load_charge));
     ui->label_analyze_unload_charge->setText(Util::ftos(reader->res.unload_chargd));
@@ -314,6 +329,10 @@ void MainWindow::on_pushButton_pressed()
 {
     if(!saveState )
     {
+        if(pageIndex == 5)
+        {
+            file->hide();
+        }
         if(pageIndex!=1){
 
             if(sysparam.initFlag)
@@ -336,8 +355,10 @@ void MainWindow::on_pushButton_pressed()
                  ui->lineEdit_charge_peak->setText(QString("%1").arg(sysparam.charge_peak));
                  ui->lineEdit_charge_valley->setText(QString("%1").arg(sysparam.charge_valley));
                  ui->lineEdit_charge_normal->setText(QString("%1").arg(sysparam.charge_normal));
+                 ui->lineEdit_fileprefix->setText(sysparam.prefix);
                  chargeform->setParam(sysparam.normal_period,sysparam.peak_period,sysparam.valley_period);
-                 ui->lineEdit_flow_modify->setText(QString("%1").arg(sysparam.flow_modify));
+                 //ui->lineEdit_flow_modify->setText(QString("%1").arg(sysparam.flow_modify));
+                 aboutwidget->setParam(QString("%1").arg(sysparam.flow_modify));
                  //Util::SysLogD("Init View %d %f",sysparam.wiring_type,sysparam.radio);
             }
 
@@ -345,6 +366,7 @@ void MainWindow::on_pushButton_pressed()
             ui->widget_3->hide();
             ui->widget_9->show();
             ui->widget_10->hide();
+            ui->widget_12->hide();
             ui->widget_2->hide();
             ui->widget_5->hide();
             ui->widget_6->hide();
@@ -355,6 +377,7 @@ void MainWindow::on_pushButton_pressed()
             ui->pushButton_16->setEnabled(false);
             ui->pushButton_17->setEnabled(true);
             ui->pushButton_24->setEnabled(true);
+            ui->pushButton_24->setEnabled(true);
             pageIndex =1;
             DigitalInputPanelContext *dc = (DigitalInputPanelContext*)qApp->inputContext();
             dc->hideWidget(false);
@@ -364,11 +387,16 @@ void MainWindow::on_pushButton_pressed()
 
 void MainWindow::on_pushButton_2_pressed()
 {
+
     if(pageIndex!=2){
         if(pageIndex == 1)
         {
             DigitalInputPanelContext *dc = (DigitalInputPanelContext*)qApp->inputContext();
             dc->hideWidget(true);
+            chargeform->hide();
+        }else if(pageIndex == 5)
+        {
+            file->hide();
         }
         ui->widget->hide();
         ui->widget_2->show();
@@ -432,6 +460,7 @@ void MainWindow::on_pushButton_3_pressed()
             }
 
             recorder->start();
+            ui->pushButton_26->setEnabled(true);
         }
     }
 }
@@ -445,16 +474,24 @@ void MainWindow::on_pushButton_4_pressed()
         {
             startFlag = -1;
             ui->pushButton_3->setEnabled(true);
-            QDateTime  end_time;
-            end_time.setTime_t(dataWoker->time);
-            record_end_time = end_time.toString("yy/MM/dd hh:mm:ss");
-            recorder->title = QString(record_start_time+"----"+record_end_time+".xls");
+//            QDateTime  end_time;
+//            end_time.setTime_t(dataWoker->time);
+//            record_end_time = end_time.toString("yy/MM/dd hh:mm:ss");
+//            recorder->title = QString(record_start_time+"----"+record_end_time+".xls");
+            if(sysparam.prefix.length()!=0)
+            {
+                recorder->title = QString(sysparam.prefix+"__"+record_start_time+".xls");
+            }else
+            {
+                recorder->title = QString(record_start_time+".xls");
+            }
             recorder->title.replace(":","_");
             recorder->title.replace("/","-");
             recorder->recorderFlag = true;
             cusMsg->setMessage(QString("结束测量，正在保存数据"));
             cusMsg->showWithoutButton();
             saveState = true;
+            ui->pushButton_26->setEnabled(false);
         }
     }
 }
@@ -483,6 +520,7 @@ void MainWindow::on_overflow(int cmd)
         cusMsg->setMessage(QString("数据保存成功"));
         cusMsg->showWithButton();
         saveState = false;
+        ui->pushButton_26->setEnabled(false);
     }
 
 }
@@ -495,6 +533,7 @@ void MainWindow::on_pushButton_5_pressed()
         {
             DigitalInputPanelContext *dc = (DigitalInputPanelContext*)qApp->inputContext();
             dc->hideWidget(true);
+            chargeform->hide();
         }
         if(pageIndex!=5)
         {
@@ -527,6 +566,19 @@ void MainWindow::on_pushButton_6_pressed()
     }
 }
 
+void MainWindow::on_pushButton_26_pressed()
+{
+    if(!saveState )
+    {
+        ui->widget_2->hide();
+        ui->widget_13->show();
+        ui->widget_14->show();
+        ui->widget_15->hide();
+        ui->pushButton_28->setEnabled(false);
+        ui->pushButton_29->setEnabled(true);
+    }
+}
+
 void MainWindow::on_pushButton_7_pressed()
 {
     if(!saveState )
@@ -542,6 +594,28 @@ void MainWindow::on_pushButton_8_pressed()
 
     ui->widget_6->hide();
     ui->widget_2->show();
+}
+
+void MainWindow::on_pushButton_27_pressed()
+{
+    ui->widget_13->hide();
+    ui->widget_2->show();
+}
+
+void MainWindow::on_pushButton_28_pressed()
+{
+    ui->widget_14->show();
+    ui->widget_15->hide();
+    ui->pushButton_28->setEnabled(false);
+    ui->pushButton_29->setEnabled(true);
+}
+
+void MainWindow::on_pushButton_29_pressed()
+{
+    ui->widget_15->show();
+    ui->widget_14->hide();
+    ui->pushButton_29->setEnabled(false);
+    ui->pushButton_28->setEnabled(true);
 }
 
 void MainWindow::on_pushButton_9_pressed()
@@ -595,6 +669,90 @@ void MainWindow::check_status(){
         ui->label_3->setVisible(true);
     }
 
+    if(startFlag == 0)
+    {
+        AnalyzeResult anares = recorder->getAnares();
+
+        if(anares.vsp_cnt>0)
+            anares.ave_vsp = anares.ave_vsp/(float)anares.vsp_cnt;
+
+        anares.worktime = anares.load_time + anares.unload_time;
+        anares.stanby_time = anares.end_measure_time - anares.start_measure_time - anares.worktime;
+
+        if(anares.worktime != 0)
+        {
+            anares.load_radio = ((float)anares.load_time)/(float)anares.worktime*100.0;
+            anares.unload_radio = ((float)anares.unload_time)/(float)anares.worktime*100.0;
+        }
+
+        anares.acc_flow = anares.acc_flow/60;//m3/min
+        anares.acc_power = anares.acc_power/3600;//kwh
+        anares.load_power /= 3600;
+        anares.unload_power /= 3600;
+
+        if(recorder->charge_type == 1)
+        {
+            anares.acc_charge_normal =  anares.acc_charge_normal*recorder->power_charge_normal/3600;
+            anares.acc_charge_peak =  anares.acc_charge_peak*recorder->power_charge_peak/3600;
+            anares.acc_charge_valley =  anares.acc_charge_valley*recorder->power_charge_valley/3600;
+            anares.acc_charge = anares.acc_charge_normal+anares.acc_charge_peak+anares.acc_charge_valley;
+            anares.load_charge /= 3600;
+            anares.unload_chargd /= 3600;
+
+        }else if(recorder->charge_type == 0)
+        {
+            anares.acc_charge = anares.acc_power*recorder->power_charge;
+            anares.load_charge = anares.load_power*recorder->power_charge;
+            anares.unload_chargd = anares.unload_power*recorder->power_charge;
+        }
+
+        anares.permanent_magnet_frequency_conversion = anares.unload_power+anares.load_power*0.1;
+        anares.first_order_energy_efficiency = -7.2*anares.acc_flow/60 + anares.acc_power;
+        if(anares.first_order_energy_efficiency <0.00001)
+        {
+            anares.first_order_energy_efficiency = 0;
+        }
+        anares.load_charge_radio = anares.load_charge/ anares.acc_charge *100.0;
+        anares.unload_charge_radio = anares.unload_chargd/ anares.acc_charge *100.0;
+        anares.ave_cost = anares.acc_charge / anares.acc_flow;
+
+        float time = (float)(anares.worktime)/3600.0;
+        ui->label_analyze_work_time_2->setText(Util::ftos(time));
+
+        time = (float)(anares.stanby_time)/3600.0;
+        ui->label_analyze_standby_time_2->setText(Util::ftos(time));
+
+        anares.acc_power = cnt++;
+        ui->label_analyze_acc_power_2->setText(Util::ftos(anares.acc_power));
+        ui->label_analyze_acc_flow_2->setText(Util::ftos(anares.acc_flow));
+        ui->label_analyze_ave_vsp_2->setText(Util::ftos(anares.ave_vsp));
+        ui->label_analyze_acc_charge_2->setText(Util::ftos(anares.acc_charge));
+        ui->label_analyze_flow_cost_2->setText(Util::ftos(anares.ave_cost));
+
+        time = (float)(anares.load_time)/3600.0;
+        ui->label_analyze_loadtime_2->setText(Util::ftos(time));
+        time = (float)(anares.unload_time)/3600.0;
+        ui->label_analyze_unloadtime_2->setText(Util::ftos(time));
+
+        ui->label_analyze_loadcnt_2->setText(QString::number(anares.load_cnt));
+        ui->label_analyze_unloadcnt_2->setText(QString::number(anares.unload_cnt));
+        ui->label_analyze_load_radio_2->setText(Util::ftos(anares.load_radio));
+        ui->label_analyze_unload_radio_2->setText(Util::ftos(anares.unload_radio));
+        ui->label_analyze_load_power_2->setText(Util::ftos(anares.load_power));
+        ui->label_analyze_unload_power_2->setText(Util::ftos(anares.unload_power));
+        ui->label_analyze_load_charge_2->setText(Util::ftos(anares.load_charge));
+        ui->label_analyze_unload_charge_2->setText(Util::ftos(anares.unload_chargd));
+        ui->label_analyze_load_power_radio_2->setText(Util::ftos(anares.load_charge_radio));
+        ui->label_analyze_unload_power_radio_2->setText(Util::ftos(anares.unload_charge_radio));
+        ui->label_analyze_save_a_2->setText(Util::ftos(anares.first_order_energy_efficiency));
+        ui->label_analyze_save_b_2->setText(Util::ftos(anares.permanent_magnet_frequency_conversion));
+
+        time = (float)(anares.max_load_time)/3600.0;
+        ui->label_analyze_max_loadtime_2->setText(Util::ftos(time));
+        time = (float)(anares.max_unload_time)/3600.0;
+        ui->label_analyze_max_unloadtime_2->setText(Util::ftos(time));
+
+    }
 
 }
 
@@ -739,11 +897,17 @@ void MainWindow::on_pushButton_12_clicked()
     }
     param.loading_pressure = content.toFloat();
 
-    content = ui->lineEdit_flow_modify->text();
+//    content = ui->lineEdit_flow_modify->text();
+//    if(content.size() == 0){
+//        goto EXIT_FAIL;
+//    }
+    content = aboutwidget->getParam();
     if(content.size() == 0){
-        goto EXIT_FAIL;
+        param.flow_modify = 0;
     }
     param.flow_modify = content.toFloat();
+
+    param.prefix = ui->lineEdit_fileprefix->text();
 
     chargeform->getParam();
 
@@ -777,7 +941,7 @@ void MainWindow::on_pushButton_12_clicked()
     dataWoker->env_temp_type = sysparam.env_temp_type;
     dataWoker->env_hum = sysparam.env_hum;
     dataWoker->env_temp = sysparam.env_temp;
-    dataWoker->flow_modify = sysparam.flow_modify/100;
+    dataWoker->flow_modify = sysparam.flow_modify;
     Util::SysLogD("dataWoker->flow_modify %f\n",dataWoker->flow_modify);
 
     cusMsg->setMessage(QString("正在保存参数"));
@@ -863,9 +1027,13 @@ void MainWindow::on_pushButton_16_pressed()
     ui->widget_9->show();
     ui->widget_3->hide();
     ui->widget_10->hide();
+    ui->widget_12->hide();
     ui->pushButton_16->setEnabled(false);
     ui->pushButton_17->setEnabled(true);
     ui->pushButton_24->setEnabled(true);
+    ui->pushButton_25->setEnabled(true);
+    DigitalInputPanelContext *dc = (DigitalInputPanelContext*)qApp->inputContext();
+    dc->panelChange(1);
 }
 
 void MainWindow::on_pushButton_17_pressed()
@@ -873,22 +1041,49 @@ void MainWindow::on_pushButton_17_pressed()
     ui->widget_9->hide();
     ui->widget_3->hide();
     ui->widget_10->show();
+    ui->widget_12->hide();
     ui->pushButton_16->setEnabled(true);
     ui->pushButton_17->setEnabled(false);
     ui->pushButton_24->setEnabled(true);
+    ui->pushButton_25->setEnabled(true);
+    DigitalInputPanelContext *dc = (DigitalInputPanelContext*)qApp->inputContext();
+    dc->panelChange(1);
 }
 
 void MainWindow::on_pushButton_24_pressed()
 {
     ui->widget_9->hide();
-    ui->widget_3->show();
+    ui->widget_3->hide();
     ui->widget_10->hide();
+    ui->widget_12->show();
     ui->pushButton_16->setEnabled(true);
     ui->pushButton_17->setEnabled(true);
     ui->pushButton_24->setEnabled(false);
+    ui->pushButton_25->setEnabled(true);
+    DigitalInputPanelContext *dc = (DigitalInputPanelContext*)qApp->inputContext();
+    dc->panelChange(2);
+}
+
+void MainWindow::on_pushButton_25_pressed()
+{
+    ui->widget_9->hide();
+    ui->widget_3->show();
+    ui->widget_10->hide();
+    ui->widget_12->hide();
+    ui->pushButton_16->setEnabled(true);
+    ui->pushButton_17->setEnabled(true);
+    ui->pushButton_24->setEnabled(true);
+    ui->pushButton_25->setEnabled(false);
+    DigitalInputPanelContext *dc = (DigitalInputPanelContext*)qApp->inputContext();
+    dc->panelChange(3);
 }
 
 void MainWindow::on_pushButton_24_clicked()
+{
+
+}
+
+void MainWindow::on_pushButton_25_clicked()
 {
 
 }
@@ -978,8 +1173,9 @@ void MainWindow::on_pushButton_21_clicked()
 
 void MainWindow::on_pushButton_22_clicked()
 {
-    cusMsg->setMessage(QString(SOFT_VERSION));
-    cusMsg->show();
+//    cusMsg->setMessage(QString(SOFT_VERSION));
+//    cusMsg->show();
+    aboutwidget->customShow();
 }
 
 
@@ -1003,6 +1199,8 @@ QPalette MainWindow::colorTheme( const QColor &base ) const
 
     return palette;
 }
+
+
 
 
 

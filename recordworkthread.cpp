@@ -38,7 +38,10 @@ void RecordWorkThread::run()
         {
             anares.start_measure_time = param.time;
             first = false;
+            mutex.lock();
             initStatus(&cstatus,&param);
+            anares.vsp_cnt = cstatus.acc_vsp_cnt;
+            mutex.unlock();
             writeParam(ws,xf,param,cnt);
 
         }
@@ -46,7 +49,10 @@ void RecordWorkThread::run()
         {
 
             cnt++;
+            mutex.lock();
             updateResult(&cstatus,&param);
+            anares.vsp_cnt = cstatus.acc_vsp_cnt;
+            mutex.unlock();
             writeParam(ws,xf,param,cnt);
         }
 
@@ -73,16 +79,16 @@ void RecordWorkThread::run()
 
     if(cstatus.state == STAGE_LOAD )
     {
-        anares.load_cnt++;
-        anares.load_time += cstatus.duration;
+//        anares.load_cnt++;
+//        anares.load_time += cstatus.duration;
         if(anares.max_load_time < cstatus.duration)
         {
             anares.max_load_time = cstatus.duration;
         }
     }else if(cstatus.state == STAGE_UNLOAD )
     {
-        anares.unload_cnt++;
-        anares.unload_time += cstatus.duration;
+//        anares.unload_cnt++;
+//        anares.unload_time += cstatus.duration;
         if(anares.max_unload_time < cstatus.duration)
         {
             anares.max_unload_time = cstatus.duration;
@@ -131,7 +137,7 @@ void RecordWorkThread::run()
     }
 
     anares.permanent_magnet_frequency_conversion = anares.unload_power+anares.load_power*0.1;
-    anares.first_order_energy_efficiency = 7.2*anares.acc_flow/60 - anares.acc_power;
+    anares.first_order_energy_efficiency = -7.2*anares.acc_flow/60 + anares.acc_power;
     if(anares.first_order_energy_efficiency <0.00001)
     {
         anares.first_order_energy_efficiency = 0;
@@ -215,16 +221,16 @@ void RecordWorkThread::updateResult(CurrentStaus *stas,EnergyParam *eparam)
     {
         if(stas->state == STAGE_LOAD)
         {
-            anares.load_cnt++;
-            anares.load_time += stas->duration;
+//            anares.load_cnt++;
+//            anares.load_time += stas->duration;
             if(anares.max_load_time < stas->duration)
             {
                 anares.max_load_time = stas->duration;
             }
         }else if(stas->state == STAGE_UNLOAD)
         {
-            anares.unload_cnt++;
-            anares.unload_time += stas->duration;
+//            anares.unload_cnt++;
+//            anares.unload_time += stas->duration;
             if(anares.max_unload_time < stas->duration)
             {
                 anares.max_unload_time = stas->duration;
@@ -236,11 +242,13 @@ void RecordWorkThread::updateResult(CurrentStaus *stas,EnergyParam *eparam)
         stas->duration = 0;
         if(cur_stage == STAGE_LOAD)
         {
+            anares.load_cnt++;
             stas->duration = time_step;
             anares.load_power += power_temp;
             load_type = 2;
         }else if(cur_stage == STAGE_UNLOAD)
         {
+            anares.unload_cnt++;
             stas->duration = time_step;
             anares.unload_power +=  power_temp;
             load_type =1;
@@ -251,13 +259,15 @@ void RecordWorkThread::updateResult(CurrentStaus *stas,EnergyParam *eparam)
         if(stas->state == STAGE_LOAD)
         {
             stas->duration += time_step;
+            anares.load_time += time_step;
             anares.load_power +=  power_temp;
-             load_type = 2;
+            load_type = 2;
         }else if(stas->state == STAGE_UNLOAD)
         {
             stas->duration += time_step;
+            anares.unload_time += time_step;
             anares.unload_power +=  power_temp;
-             load_type = 1;
+            load_type = 1;
         }
     }
     float charge_temp = 0;
@@ -366,8 +376,10 @@ void RecordWorkThread::initStatus(CurrentStaus *stas,EnergyParam *eparam)
     }else if(eparam->current_a <= max_cur_unload)
     {
         stas->state = STAGE_UNLOAD;
+        anares.unload_cnt++;
     }else{
         stas->state = STAGE_LOAD;
+        anares.load_cnt++;
     }
     eparam->load_type = stas->state;
     stas->duration = 0;
@@ -384,5 +396,15 @@ void RecordWorkThread::initStatus(CurrentStaus *stas,EnergyParam *eparam)
     }
     return;
 }
+
+AnalyzeResult RecordWorkThread::getAnares()
+{
+    mutex.lock();
+    AnalyzeResult ana;
+    ana.cpy(anares);
+    mutex.unlock();
+    return ana;
+}
+
 
 

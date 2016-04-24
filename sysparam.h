@@ -8,6 +8,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <string>
+#include <QString>
 #include "const_define.h"
 
 class SysParam
@@ -45,6 +46,7 @@ public:
     bool initFlag;
     float radio_temp;
     int wiring_type_temp;
+    QString prefix;
 public:
     void saveParam();
     bool loadParam();

@@ -133,6 +133,8 @@ void SysParam::saveLocalParam()
     config->setValue(QString("valley_period_5"),QString::number(valley_period[4]));
     config->setValue(QString("valley_period_6"),QString::number(valley_period[5]));
 
+    config->setValue(QString("prefix"),prefix);
+
     config->endGroup();
     Util::fileSync(FILE_PATH);
     return;
@@ -247,6 +249,8 @@ bool SysParam::loadParam()
     val = config->value(QString("config/") + "env_hum_type").toString();
     env_hum_type = val.toInt();
 
+    prefix = config->value(QString("config/") + "prefix").toString();
+
     initFlag = true;
     return true;
 }
@@ -295,6 +299,7 @@ void SysParam::setParam(SysParam param)
     env_temp = param.env_temp;
     env_hum_type = param.env_hum_type;
     env_temp_type = param.env_temp_type;
+    prefix = param.prefix;
     initFlag = true;
 }
 

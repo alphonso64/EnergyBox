@@ -3,6 +3,8 @@
 
 #include <QtGui/QInputContext>
 #include "digitalinputpanel.h"
+#include "fullinputpanel.h"
+
 class DigitalInputPanelContext: public QInputContext
 {
     Q_OBJECT
@@ -22,6 +24,8 @@ public:
 
     void hideWidget(bool flag);
 
+    void panelChange(int);
+
 private slots:
     void sendCharacter(QChar character);
 
@@ -30,6 +34,7 @@ private:
 
 private:
     DigitalInputPanel *inputPanel;
+    FullInputPanel *fullPanel;
 };
 
 #endif // DIGITALINPUTPANELCONTEXT_H

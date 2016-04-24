@@ -18,6 +18,7 @@
 #include "chargeform.h"
 #include <QPalette>
 #include "filecopyer.h"
+#include "aboutwidget.h"
 using namespace std;
 namespace Ui {
 class MainWindow;
@@ -113,6 +114,18 @@ private slots:
 
     void on_pushButton_19_pressed();
 
+    void on_pushButton_25_clicked();
+
+    void on_pushButton_25_pressed();
+
+    void on_pushButton_26_pressed();
+
+    void on_pushButton_27_pressed();
+
+    void on_pushButton_28_pressed();
+
+    void on_pushButton_29_pressed();
+
 private:
     void setInfo(EnergyParam param);
     void setInfo_detail(EnergyParam param);
@@ -140,6 +153,7 @@ private:
     QDateTime  startTime;
     FileWidget *file;
     ChargeForm *chargeform;
+    AboutWidget *aboutwidget;
     bool timeStampFlag;
     bool saveState;
 };

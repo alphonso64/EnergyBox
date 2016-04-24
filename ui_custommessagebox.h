@@ -25,6 +25,7 @@ class Ui_CustomMessageBox
 public:
     QLabel *label;
     QPushButton *pushButton;
+    QLabel *label_2;
 
     void setupUi(QWidget *CustomMessageBox)
     {
@@ -40,11 +41,15 @@ public:
         label->setFont(font);
         pushButton = new QPushButton(CustomMessageBox);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(300, 170, 161, 61));
+        pushButton->setGeometry(QRect(319, 170, 141, 61));
         QFont font1;
         font1.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
         font1.setPointSize(18);
         pushButton->setFont(font1);
+        label_2 = new QLabel(CustomMessageBox);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(40, 40, 441, 81));
+        label_2->setFont(font);
 
         retranslateUi(CustomMessageBox);
 
@@ -56,6 +61,7 @@ public:
         CustomMessageBox->setWindowTitle(QApplication::translate("CustomMessageBox", "Form", 0, QApplication::UnicodeUTF8));
         label->setText(QString());
         pushButton->setText(QApplication::translate("CustomMessageBox", "\347\241\256\345\256\232", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QString());
     } // retranslateUi
 
 };

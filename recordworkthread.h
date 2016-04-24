@@ -14,6 +14,7 @@
 #include <sstream>
 #include "analyzeresult.h"
 #include "const_define.h"
+#include <QMutex>
 using namespace xlslib_core;
 using namespace std;
 
@@ -40,6 +41,7 @@ public:
     {
 
     }
+     AnalyzeResult getAnares();
 protected:
     void run();
 signals:
@@ -81,7 +83,7 @@ private:
     void updateResult(CurrentStaus *stas,EnergyParam* param);
 
     void initStatus(CurrentStaus *stas,EnergyParam *param);
-	
+
 	string itos(float val){
 		stringstream ss;
 		ss<<val;
@@ -94,13 +96,15 @@ private:
 		return ss.str();
 	}
 
-    bool overflow;
+    bool overflow;   
+    QMutex mutex;
 
-public:
+public:    
 	DataWorkerThread *dataWoker;
     bool recorderFlag;
     QString title;
     AnalyzeResult anares;
+    AnalyzeResult anares_cpy;
     int max_cur_standby;
     int max_cur_unload;
     float power_charge;
