@@ -20,7 +20,7 @@ public:
     DataWorkerThread(QObject *parent = 0)
         : QThread(parent)
     {
-        time = -1;
+        time = 0;
     }
 protected:
     void run();

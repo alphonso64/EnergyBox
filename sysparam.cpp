@@ -243,7 +243,13 @@ bool SysParam::loadParam()
     val = config->value(QString("config/") + "env_temp").toString();
     env_temp = val.toFloat();
     val = config->value(QString("config/") + "flow_modify").toString();
-    flow_modify = val.toFloat();
+    if(val.size() == 0)
+    {
+        flow_modify = 1;
+    }else
+    {
+        flow_modify = val.toFloat();
+    }
     val = config->value(QString("config/") + "env_temp_type").toString();
     env_temp_type  = val.toInt();
     val = config->value(QString("config/") + "env_hum_type").toString();

@@ -32,6 +32,7 @@ public:
     static int get_file_size(FILE *file);
     static void cpyFile(const char *src,const char *dst);
     static void cpyLocal2Udisk();
+    static void setFileUpdateTime(const char *file,long time);
 private:
 };
 

@@ -48,7 +48,7 @@ void CommonDial::drawScaleContents( QPainter *painter,
     QRectF rect( 0.0, 0.0, 2.0 * radius, 2.0 * radius - 10.0 );
     rect.moveCenter( center );
 
-    const QColor color(0x87,0x87,0x87,255); //= palette().color( QPalette::Text );
+    const QColor color(0xff,0xff,0xff,200); //= palette().color( QPalette::Text );
     painter->setPen( color );
 
     QFont font( "Times", 12);

@@ -95,6 +95,12 @@ void DataWorkerThread::parseParam(char *temp)
     {
         energyparam.vsp =energyparam.power /  energyparam.flow_content;
     }
+//    {
+//         energyparam.vsp = 1.2;
+//         energyparam.power = 100;
+//         energyparam.flow_content = 5;
+//         energyparam.flow_content *= flow_modify;
+//    }
     mutex.unlock();
 }
 

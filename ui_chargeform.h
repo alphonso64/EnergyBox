@@ -49,6 +49,7 @@ public:
     QLabel *label_5;
     QLabel *label_6;
     QPushButton *pushButton_2;
+    QLabel *label_7;
 
     void setupUi(QWidget *ChargeForm)
     {
@@ -161,6 +162,13 @@ public:
         font1.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
         font1.setPointSize(18);
         pushButton_2->setFont(font1);
+        label_7 = new QLabel(ChargeForm);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setGeometry(QRect(30, 330, 451, 31));
+        QFont font2;
+        font2.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
+        font2.setPointSize(14);
+        label_7->setFont(font2);
 
         retranslateUi(ChargeForm);
 
@@ -195,6 +203,7 @@ public:
         label_5->setText(QApplication::translate("ChargeForm", "\357\274\210\344\272\214\357\274\211", 0, QApplication::UnicodeUTF8));
         label_6->setText(QApplication::translate("ChargeForm", "\357\274\210\344\270\211\357\274\211", 0, QApplication::UnicodeUTF8));
         pushButton_2->setText(QApplication::translate("ChargeForm", "\347\241\256\345\256\232", 0, QApplication::UnicodeUTF8));
+        label_7->setText(QApplication::translate("ChargeForm", "\346\227\266\346\256\265\350\256\276\347\275\256\344\270\27224\345\260\217\346\227\266\345\210\266", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

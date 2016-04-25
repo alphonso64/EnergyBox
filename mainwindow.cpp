@@ -12,7 +12,6 @@
 #include "const_define.h"
 #include <sys/stat.h>
 #include <sys/types.h>
-int cnt = 0;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -94,7 +93,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->widget_13->hide();
 
     ui->pushButton_2->setEnabled(false);
-//    ui->pushButton_10->setVisible(false);
+    ui->pushButton_10->setVisible(false);
     ui->lcdNumber_clock->setVisible(false);
     ui->pushButton_26->setEnabled(false);
 
@@ -163,7 +162,7 @@ MainWindow::MainWindow(QWidget *parent) :
     dataWoker->env_temp_type = sysparam.env_temp_type;
     dataWoker->env_hum = sysparam.env_hum;
     dataWoker->env_temp = sysparam.env_temp;
-    dataWoker->flow_modify = sysparam.flow_modify/100;
+    dataWoker->flow_modify = sysparam.flow_modify;
 
     QFont font( "Times", 14);
     flowDial = new CommonDial( ui->widget_2 );
@@ -194,12 +193,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->label_flow_2->setText("m<sup>3</sup>/min");
     ui->label_acc_flow_unit->setText("m<sup>3</sup>");
     ui->label_acc_flow_1->setText("m<sup>3</sup>");
-
+    ui->label_acc_flow_2->setText("m<sup>3</sup>");
     ui->label_gas_produce_rated->setText("m<sup>3</sup>/min");
     ui->label_gas_produce_rated_1->setText("m<sup>3</sup>/min");
     ui->label_VSP->setText("Kw/(m<sup>3</sup>/min)");
     ui->label_VSP_1->setText("Kw/(m<sup>3</sup>/min)");
+    ui->label_VSP_2->setText("Kw/(m<sup>3</sup>/min)");
     ui->label_cost->setText("元/m<sup>3");
+    ui->label_cost_3->setText("元/m<sup>3");
 
     cusMsg = new CustomMessageBox();
     cusMsg->hide();
@@ -371,13 +372,14 @@ void MainWindow::on_pushButton_pressed()
             ui->widget_5->hide();
             ui->widget_6->hide();
             ui->widget_7->hide();
+            ui->widget_13->hide();
             ui->pushButton->setEnabled(false);
             ui->pushButton_2->setEnabled(true);
             ui->pushButton_5->setEnabled(true);
             ui->pushButton_16->setEnabled(false);
             ui->pushButton_17->setEnabled(true);
             ui->pushButton_24->setEnabled(true);
-            ui->pushButton_24->setEnabled(true);
+            ui->pushButton_25->setEnabled(true);
             pageIndex =1;
             DigitalInputPanelContext *dc = (DigitalInputPanelContext*)qApp->inputContext();
             dc->hideWidget(false);
@@ -403,6 +405,7 @@ void MainWindow::on_pushButton_2_pressed()
         ui->widget_5->hide();
         ui->widget_6->hide();
         ui->widget_7->hide();
+        ui->widget_13->hide();
         ui->pushButton->setEnabled(true);
         ui->pushButton_2->setEnabled(false);
         ui->pushButton_5->setEnabled(true);
@@ -543,6 +546,7 @@ void MainWindow::on_pushButton_5_pressed()
             ui->widget_5->show();
             ui->widget_6->hide();
             ui->widget_7->hide();
+            ui->widget_13->hide();
             ui->pushButton->setEnabled(true);
             ui->pushButton_2->setEnabled(true);
             ui->pushButton_5->setEnabled(false);
@@ -627,7 +631,7 @@ void MainWindow::on_pushButton_9_pressed()
 void MainWindow::show_time(){
     if(!timeStampFlag)
     {
-        if(dataWoker->time <=0)
+        if(dataWoker->time ==0)
         {
             return;
         }
@@ -677,7 +681,6 @@ void MainWindow::check_status(){
             anares.ave_vsp = anares.ave_vsp/(float)anares.vsp_cnt;
 
         anares.worktime = anares.load_time + anares.unload_time;
-        anares.stanby_time = anares.end_measure_time - anares.start_measure_time - anares.worktime;
 
         if(anares.worktime != 0)
         {
@@ -716,20 +719,14 @@ void MainWindow::check_status(){
         anares.unload_charge_radio = anares.unload_chargd/ anares.acc_charge *100.0;
         anares.ave_cost = anares.acc_charge / anares.acc_flow;
 
-        float time = (float)(anares.worktime)/3600.0;
-        ui->label_analyze_work_time_2->setText(Util::ftos(time));
-
-        time = (float)(anares.stanby_time)/3600.0;
-        ui->label_analyze_standby_time_2->setText(Util::ftos(time));
-
-        anares.acc_power = cnt++;
+        //anares.acc_power = cnt++;
         ui->label_analyze_acc_power_2->setText(Util::ftos(anares.acc_power));
         ui->label_analyze_acc_flow_2->setText(Util::ftos(anares.acc_flow));
         ui->label_analyze_ave_vsp_2->setText(Util::ftos(anares.ave_vsp));
         ui->label_analyze_acc_charge_2->setText(Util::ftos(anares.acc_charge));
         ui->label_analyze_flow_cost_2->setText(Util::ftos(anares.ave_cost));
 
-        time = (float)(anares.load_time)/3600.0;
+        float time = (float)(anares.load_time)/3600.0;
         ui->label_analyze_loadtime_2->setText(Util::ftos(time));
         time = (float)(anares.unload_time)/3600.0;
         ui->label_analyze_unloadtime_2->setText(Util::ftos(time));
@@ -936,16 +933,15 @@ void MainWindow::on_pushButton_12_clicked()
     }
 
     sysparam.setParam(param);
-    sysparam.saveLocalParam();
+    sysparam.saveLocalParam();    
+    cusMsg->setMessage(QString("正在保存参数"));
+    cusMsg->show();
     dataWoker->env_hum_type = sysparam.env_hum_type;
     dataWoker->env_temp_type = sysparam.env_temp_type;
     dataWoker->env_hum = sysparam.env_hum;
     dataWoker->env_temp = sysparam.env_temp;
     dataWoker->flow_modify = sysparam.flow_modify;
     Util::SysLogD("dataWoker->flow_modify %f\n",dataWoker->flow_modify);
-
-    cusMsg->setMessage(QString("正在保存参数"));
-    cusMsg->show();
 
     dataWoker->sendMsg(1,param.radio,1,param.wiring_type,0,0);
     return;
@@ -1075,7 +1071,7 @@ void MainWindow::on_pushButton_25_pressed()
     ui->pushButton_24->setEnabled(true);
     ui->pushButton_25->setEnabled(false);
     DigitalInputPanelContext *dc = (DigitalInputPanelContext*)qApp->inputContext();
-    dc->panelChange(3);
+    dc->panelChange(1);
 }
 
 void MainWindow::on_pushButton_24_clicked()
@@ -1194,7 +1190,7 @@ QPalette MainWindow::colorTheme( const QColor &base ) const
     palette.setColor( QPalette::Mid, base.dark( 110 ) );
     palette.setColor( QPalette::Light, base.light( 170 ) );
     palette.setColor( QPalette::Dark, base.dark( 170 ) );
-    palette.setColor( QPalette::Text, base.dark( 200 ).light( 800 ) );
+    palette.setColor( QPalette::Text, base.dark( 200 ).light( 300 ) );
     palette.setColor( QPalette::WindowText, base.dark( 200 ) );
 
     return palette;

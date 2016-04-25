@@ -230,6 +230,16 @@ QStringList Util::getUdiskFileList()
     return list;
 }
 
+static void setFileUpdateTime(const char *file,long time)
+{
+//    struct stat buf;
+//    stat(path.c_str(), &buf);
+//    SysLogD("now time %d\n",buf.st_mtime);
+//    buf.st_mtime = time;
+
+
+}
+
 void Util::fileSync(const char *file)
 {
     int fd =  open( file, O_RDWR);
