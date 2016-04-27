@@ -1,7 +1,7 @@
 #include "sysparam.h"
 #include "util.h"
 #include <QSettings>
-char* FILE_PATH="/home/sysparam.ini";
+
 SysParam::SysParam()
 {
     initFlag = false;
@@ -136,7 +136,6 @@ void SysParam::saveLocalParam()
     config->setValue(QString("prefix"),prefix);
 
     config->endGroup();
-    Util::fileSync(FILE_PATH);
     return;
 }
 
@@ -149,7 +148,6 @@ void SysParam::saveRemoveParam()
     config->setValue(QString("radio"),QString("%1").arg(radio_temp));
     config->setValue(QString("wiring_type"),QString::number(wiring_type_temp));
     config->endGroup();
-    Util::fileSync(FILE_PATH);
     return;
 }
 

@@ -1414,10 +1414,10 @@
     <zorder>pushButton_17</zorder>
     <zorder>pushButton_24</zorder>
     <zorder>pushButton_25</zorder>
-    <zorder>widget_3</zorder>
     <zorder>widget_10</zorder>
-    <zorder>widget_12</zorder>
     <zorder>widget_9</zorder>
+    <zorder>widget_12</zorder>
+    <zorder>widget_3</zorder>
    </widget>
    <widget class="QWidget" name="widget_5" native="true">
     <property name="geometry">
@@ -2711,6 +2711,34 @@
        <string>最长加载时间</string>
       </property>
      </widget>
+     <zorder>label_IPower_name_108</zorder>
+     <zorder>label_analyze_loadcnt</zorder>
+     <zorder>label_IPower_name_114</zorder>
+     <zorder>label_analyze_unloadcnt</zorder>
+     <zorder>label_IPower_name_173</zorder>
+     <zorder>label_IPower_name_80</zorder>
+     <zorder>label_IPower_name_174</zorder>
+     <zorder>label_IPower_name_73</zorder>
+     <zorder>label_IPower_name_78</zorder>
+     <zorder>label_analyze_unload_radio</zorder>
+     <zorder>label_IPower_name_75</zorder>
+     <zorder>label_IPower_name_84</zorder>
+     <zorder>label_analyze_loadtime</zorder>
+     <zorder>label_analyze_unloadtime</zorder>
+     <zorder>label_IPower_name_74</zorder>
+     <zorder>label_analyze_load_radio</zorder>
+     <zorder>label_IPower_name_55</zorder>
+     <zorder>label_IPower_name_56</zorder>
+     <zorder>label_analyze_work_time</zorder>
+     <zorder>label_analyze_standby_time</zorder>
+     <zorder>label_IPower_name_65</zorder>
+     <zorder>label_IPower_name_66</zorder>
+     <zorder>label_analyze_max_loadtime</zorder>
+     <zorder>label_analyze_max_unloadtime</zorder>
+     <zorder>label_IPower_name_124</zorder>
+     <zorder>label_IPower_name_122</zorder>
+     <zorder>label_IPower_name_123</zorder>
+     <zorder>label_cost_2</zorder>
     </widget>
     <widget class="QPushButton" name="pushButton_11">
      <property name="geometry">
@@ -6352,10 +6380,10 @@
    <zorder>label_3</zorder>
    <zorder>pushButton_21</zorder>
    <zorder>pushButton_5</zorder>
-   <zorder>widget_2</zorder>
    <zorder>widget_7</zorder>
-   <zorder>widget_6</zorder>
    <zorder>widget_5</zorder>
+   <zorder>widget_6</zorder>
+   <zorder>widget_2</zorder>
    <zorder>widget_13</zorder>
    <zorder>widget</zorder>
   </widget>

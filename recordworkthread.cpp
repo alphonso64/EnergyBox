@@ -47,7 +47,6 @@ void RecordWorkThread::run()
         }
         if(cstatus.lastTime < param.time)
         {
-
             cnt++;
             mutex.lock();
             updateResult(&cstatus,&param);

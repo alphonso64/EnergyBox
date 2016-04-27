@@ -6,6 +6,7 @@
 #define MODE_COPY 1
 #define MODE_UPDATE 2
 #define MODE_SCREENSHOT 3
+#define MODE_SYNC 4
 
 class FileCopyer : public QThread
 {

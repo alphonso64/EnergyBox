@@ -275,23 +275,11 @@ void MainWindow::on_result()
     if(reader->meassure_time.length()>0)
         ui->label_analyze_all_time->setText(reader->meassure_time.c_str());
 
-    float time = (float)(reader->res.worktime)/3600.0;
-    ui->label_analyze_work_time->setText(Util::ftos(time));
-
-    time = (float)(reader->res.stanby_time)/3600.0;
-    ui->label_analyze_standby_time->setText(Util::ftos(time));
-
     ui->label_analyze_acc_power->setText(Util::ftos(reader->res.acc_power));
     ui->label_analyze_acc_flow->setText(Util::ftos(reader->res.acc_flow));
     ui->label_analyze_ave_vsp->setText(Util::ftos(reader->res.ave_vsp));
     ui->label_analyze_acc_charge->setText(Util::ftos(reader->res.acc_charge));
-    ui->label_analyze_flow_cost->setText(Util::ftos(reader->res.ave_cost));
-
-    time = (float)(reader->res.load_time)/3600.0;
-    ui->label_analyze_loadtime->setText(Util::ftos(time));
-    time = (float)(reader->res.unload_time)/3600.0;
-    ui->label_analyze_unloadtime->setText(Util::ftos(time));
-
+    ui->label_analyze_flow_cost->setText(Util::ftos(reader->res.ave_cost));   
     ui->label_analyze_loadcnt->setText(QString::number(reader->res.load_cnt));
     ui->label_analyze_unloadcnt->setText(QString::number(reader->res.unload_cnt));
     ui->label_analyze_load_radio->setText(Util::ftos(reader->res.load_radio));
@@ -305,6 +293,14 @@ void MainWindow::on_result()
     ui->label_analyze_save_a->setText(Util::ftos(reader->res.first_order_energy_efficiency));
     ui->label_analyze_save_b->setText(Util::ftos(reader->res.permanent_magnet_frequency_conversion));
 
+    float time = (float)(reader->res.worktime)/3600.0;
+    ui->label_analyze_work_time->setText(Util::ftos(time));
+    time = (float)(reader->res.stanby_time)/3600.0;
+    ui->label_analyze_standby_time->setText(Util::ftos(time));
+    time = (float)(reader->res.load_time)/3600.0;
+    ui->label_analyze_loadtime->setText(Util::ftos(time));
+    time = (float)(reader->res.unload_time)/3600.0;
+    ui->label_analyze_unloadtime->setText(Util::ftos(time));
     time = (float)(reader->res.max_load_time)/3600.0;
     ui->label_analyze_max_loadtime->setText(Util::ftos(time));
     time = (float)(reader->res.max_unload_time)/3600.0;
@@ -362,7 +358,6 @@ void MainWindow::on_pushButton_pressed()
                  aboutwidget->setParam(QString("%1").arg(sysparam.flow_modify));
                  //Util::SysLogD("Init View %d %f",sysparam.wiring_type,sysparam.radio);
             }
-
             ui->widget->show();
             ui->widget_3->hide();
             ui->widget_9->show();
@@ -396,6 +391,7 @@ void MainWindow::on_pushButton_2_pressed()
             DigitalInputPanelContext *dc = (DigitalInputPanelContext*)qApp->inputContext();
             dc->hideWidget(true);
             chargeform->hide();
+            aboutwidget->hide();
         }else if(pageIndex == 5)
         {
             file->hide();
@@ -476,6 +472,37 @@ void MainWindow::on_pushButton_4_pressed()
         if(startFlag == 0)
         {
             startFlag = -1;
+            saveState = true;
+            ui->pushButton_3->setEnabled(true);
+//            QDateTime  end_time;
+//            end_time.setTime_t(dataWoker->time);
+//            record_end_time = end_time.toString("yy/MM/dd hh:mm:ss");
+//            recorder->title = QString(record_start_time+"----"+record_end_time+".xls");
+            if(sysparam.prefix.length()!=0)
+            {
+                recorder->title = QString(sysparam.prefix+"__"+record_start_time+".xls");
+            }else
+            {
+                recorder->title = QString(record_start_time+".xls");
+            }
+            recorder->title.replace(":","_");
+            recorder->title.replace("/","-");
+            recorder->recorderFlag = true;
+            cusMsg->setMessage(QString("结束测量，正在保存数据"));
+            cusMsg->showWithoutButton();      
+            ui->pushButton_26->setEnabled(false);
+        }
+    }
+}
+//溢出 结束记录
+void MainWindow::on_overflow(int cmd)
+{
+    if(cmd == 1)
+    {
+        if(startFlag == 0)
+        {
+            startFlag = -1;
+            saveState = true;
             ui->pushButton_3->setEnabled(true);
 //            QDateTime  end_time;
 //            end_time.setTime_t(dataWoker->time);
@@ -493,30 +520,7 @@ void MainWindow::on_pushButton_4_pressed()
             recorder->recorderFlag = true;
             cusMsg->setMessage(QString("结束测量，正在保存数据"));
             cusMsg->showWithoutButton();
-            saveState = true;
-            ui->pushButton_26->setEnabled(false);
-        }
-    }
-}
-//溢出 结束记录
-void MainWindow::on_overflow(int cmd)
-{
-    if(cmd == 1)
-    {
-        if(startFlag == 0)
-        {
-            startFlag = -1;
-            ui->pushButton_3->setEnabled(true);
-            QDateTime  end_time;
-            end_time.setTime_t(dataWoker->time);
-            record_end_time = end_time.toString("yy/MM/dd hh:mm:ss");
-            recorder->title = QString(record_start_time+"----"+record_end_time+".xls");
-            recorder->title.replace(":","_");
-            recorder->title.replace("/","-");
-            recorder->recorderFlag = true;
-            cusMsg->setMessage(QString("结束测量，正在保存数据"));
-            cusMsg->showWithoutButton();
-            saveState = true;
+
         }
     }else if(cmd == 2)
     {
@@ -537,6 +541,7 @@ void MainWindow::on_pushButton_5_pressed()
             DigitalInputPanelContext *dc = (DigitalInputPanelContext*)qApp->inputContext();
             dc->hideWidget(true);
             chargeform->hide();
+            aboutwidget->hide();
         }
         if(pageIndex!=5)
         {
@@ -555,7 +560,7 @@ void MainWindow::on_pushButton_5_pressed()
             ui->pushButton_19->setEnabled(true);
             ui->widget_4->show();
             ui->widget_8->hide();
-            ui->widget_11->hide();
+            ui->widget_11->hide();           
             pageIndex =5;
         }
     }
@@ -933,15 +938,15 @@ void MainWindow::on_pushButton_12_clicked()
     }
 
     sysparam.setParam(param);
-    sysparam.saveLocalParam();    
-    cusMsg->setMessage(QString("正在保存参数"));
-    cusMsg->show();
+    sysparam.saveLocalParam();
     dataWoker->env_hum_type = sysparam.env_hum_type;
     dataWoker->env_temp_type = sysparam.env_temp_type;
     dataWoker->env_hum = sysparam.env_hum;
     dataWoker->env_temp = sysparam.env_temp;
     dataWoker->flow_modify = sysparam.flow_modify;
     Util::SysLogD("dataWoker->flow_modify %f\n",dataWoker->flow_modify);
+    cusMsg->setMessage(QString("正在保存参数"));
+    cusMsg->show();
 
     dataWoker->sendMsg(1,param.radio,1,param.wiring_type,0,0);
     return;
@@ -963,6 +968,8 @@ void MainWindow::on_setEcho(int res)
         cusMsg->setMessage(QString("保存成功"));
         cusMsg->show();
     }
+    copyer->mode = MODE_SYNC;
+    copyer->start();
 }
 
 
