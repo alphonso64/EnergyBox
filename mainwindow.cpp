@@ -392,6 +392,7 @@ void MainWindow::on_pushButton_2_pressed()
             dc->hideWidget(true);
             chargeform->hide();
             aboutwidget->hide();
+            cusMsg->hide();
         }else if(pageIndex == 5)
         {
             file->hide();
@@ -442,6 +443,18 @@ void MainWindow::on_pushButton_3_pressed()
             ui->pushButton_3->setEnabled(false);
             startTime.setTime_t(dataWoker->time);
             record_start_time = startTime.toString("yy/MM/dd hh:mm:ss");
+
+            if(sysparam.prefix.length()!=0)
+            {
+                recorder->title = QString(sysparam.prefix+"__"+record_start_time+".xls");
+            }else
+            {
+                recorder->title = QString(record_start_time+".xls");
+            }
+            recorder->title.replace(":","_");
+            recorder->title.replace("/","-");
+
+
             ui->label_start_time_content->setText(record_start_time);
             ui->label_end_time_content->clear();
             recorder->max_cur_standby = sysparam.current_down_max;
@@ -478,15 +491,6 @@ void MainWindow::on_pushButton_4_pressed()
 //            end_time.setTime_t(dataWoker->time);
 //            record_end_time = end_time.toString("yy/MM/dd hh:mm:ss");
 //            recorder->title = QString(record_start_time+"----"+record_end_time+".xls");
-            if(sysparam.prefix.length()!=0)
-            {
-                recorder->title = QString(sysparam.prefix+"__"+record_start_time+".xls");
-            }else
-            {
-                recorder->title = QString(record_start_time+".xls");
-            }
-            recorder->title.replace(":","_");
-            recorder->title.replace("/","-");
             recorder->recorderFlag = true;
             cusMsg->setMessage(QString("结束测量，正在保存数据"));
             cusMsg->showWithoutButton();      
@@ -508,15 +512,8 @@ void MainWindow::on_overflow(int cmd)
 //            end_time.setTime_t(dataWoker->time);
 //            record_end_time = end_time.toString("yy/MM/dd hh:mm:ss");
 //            recorder->title = QString(record_start_time+"----"+record_end_time+".xls");
-            if(sysparam.prefix.length()!=0)
-            {
-                recorder->title = QString(sysparam.prefix+"__"+record_start_time+".xls");
-            }else
-            {
-                recorder->title = QString(record_start_time+".xls");
-            }
-            recorder->title.replace(":","_");
-            recorder->title.replace("/","-");
+//            recorder->title.replace(":","_");
+//            recorder->title.replace("/","-");
             recorder->recorderFlag = true;
             cusMsg->setMessage(QString("结束测量，正在保存数据"));
             cusMsg->showWithoutButton();
@@ -542,6 +539,7 @@ void MainWindow::on_pushButton_5_pressed()
             dc->hideWidget(true);
             chargeform->hide();
             aboutwidget->hide();
+            cusMsg->hide();
         }
         if(pageIndex!=5)
         {
@@ -1176,9 +1174,9 @@ void MainWindow::on_pushButton_21_clicked()
 
 void MainWindow::on_pushButton_22_clicked()
 {
-//    cusMsg->setMessage(QString(SOFT_VERSION));
-//    cusMsg->show();
-    aboutwidget->customShow();
+    cusMsg->setMessage(QString(SOFT_VERSION));
+    cusMsg->show();
+//    aboutwidget->customShow();
 }
 
 

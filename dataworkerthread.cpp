@@ -84,7 +84,8 @@ void DataWorkerThread::parseParam(char *temp)
 
     energyparam.air_temp = data[1];
     energyparam.air_pressure = data[2];
-    energyparam.flow_content = data[3]*flow_modify;
+    //energyparam.flow_content = data[3]*flow_modify;
+    energyparam.flow_content = data[3];
     energyparam.time = *ltime;
     time = energyparam.time ;
     energyparam.power = energyparam.active_power;//(energyparam.voltage_a*energyparam.current_a + energyparam.voltage_b*energyparam.current_b + energyparam.voltage_c*energyparam.current_c)/1000;

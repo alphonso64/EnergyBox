@@ -6,7 +6,7 @@
 #define UDISK_LOGO_PATH  "/home/program/pic/udisk.png"
 #define PRODUCE_LOGO_PATH "/home/program/pic/logo_small.png"
 #define FILE_PATH "/home/sysparam.ini"
-#define SOFT_VERSION "程序版本:V1.2.7"
+#define SOFT_VERSION "程序版本:V1.2.9"
 //#define LOG_TEST
 
 #define PEROID_LENGTH 6
