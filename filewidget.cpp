@@ -22,7 +22,7 @@ FileWidget::FileWidget(QWidget *parent) :
     ui->pushButton->setFocusPolicy ( Qt::NoFocus );
     ui->pushButton_2->setFocusPolicy ( Qt::NoFocus );
     ui->pushButton_3->setFocusPolicy ( Qt::NoFocus );
-
+    ui->pushButton_4->setFocusPolicy ( Qt::NoFocus );
 }
 
 FileWidget::~FileWidget()
@@ -67,7 +67,7 @@ void FileWidget::setUDiskView()
 
 void FileWidget::on_pushButton_4_pressed()
 {
-    this->hide();
+
 }
 
 void FileWidget::on_pushButton_3_clicked()
@@ -93,3 +93,8 @@ void FileWidget::on_pushButton_3_clicked()
     }
 }
 
+
+void FileWidget::on_pushButton_4_clicked()
+{
+    this->hide();
+}

@@ -1204,7 +1204,7 @@ public:
         label_IPower_name_13->setFont(font4);
         label_start_time_content = new QLabel(widget_2);
         label_start_time_content->setObjectName(QString::fromUtf8("label_start_time_content"));
-        label_start_time_content->setGeometry(QRect(230, 440, 241, 41));
+        label_start_time_content->setGeometry(QRect(230, 440, 231, 41));
         label_start_time_content->setFont(font6);
         label_start_time_content->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
         label_IPower_name_14 = new QLabel(widget_2);
@@ -1213,7 +1213,7 @@ public:
         label_IPower_name_14->setFont(font4);
         label_end_time_content = new QLabel(widget_2);
         label_end_time_content->setObjectName(QString::fromUtf8("label_end_time_content"));
-        label_end_time_content->setGeometry(QRect(670, 440, 241, 41));
+        label_end_time_content->setGeometry(QRect(670, 440, 151, 41));
         label_end_time_content->setFont(font6);
         label_end_time_content->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
         pushButton_6 = new QPushButton(widget_2);
@@ -1923,9 +1923,9 @@ public:
         widget_7->raise();
         widget_5->raise();
         widget_6->raise();
-        widget_2->raise();
-        widget_13->raise();
         widget->raise();
+        widget_13->raise();
+        widget_2->raise();
 
         retranslateUi(MainWindow);
 

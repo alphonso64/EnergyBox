@@ -102,6 +102,7 @@ void DataWorkerThread::parseParam(char *temp)
 //         energyparam.flow_content = 5;
 //         energyparam.flow_content *= flow_modify;
 //    }
+//	Util::SysLogD("param %f %f\n",data[19],data[20]);
     mutex.unlock();
 }
 
