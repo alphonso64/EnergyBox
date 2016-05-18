@@ -1923,9 +1923,9 @@ public:
         widget_7->raise();
         widget_5->raise();
         widget_6->raise();
-        widget->raise();
         widget_13->raise();
         widget_2->raise();
+        widget->raise();
 
         retranslateUi(MainWindow);
 

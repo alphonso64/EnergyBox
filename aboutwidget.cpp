@@ -13,6 +13,8 @@ AboutWidget::AboutWidget(QWidget *parent) :
 
     QRegExp double_rx("([0-9]{0,1}[\.][0-9]{1,3})");
     ui->lineEdit->setValidator(new QRegExpValidator(double_rx,ui->lineEdit));
+
+    ui->lineEdit_2->setValidator(new QRegExpValidator(double_rx,ui->lineEdit));
 }
 
 
@@ -25,8 +27,9 @@ void AboutWidget::customShow()
 {
     ui->label->setVisible(false);
     ui->label_2->setVisible(false);
+    ui->label_3->setVisible(false);
     ui->lineEdit->setVisible(false);
-    ui->pushButton_3->setVisible(false);
+    ui->lineEdit_2->setVisible(false);
     ui->pushButton->setVisible(true);
     ui->pushButton_2->setVisible(true);
     this->show();
@@ -37,9 +40,18 @@ QString AboutWidget::getParam()
     return ui->lineEdit->text();
 }
 
+QString AboutWidget::getParam_2()
+{
+    return ui->lineEdit_2->text();
+}
+
 void AboutWidget::setParam(QString str)
 {
      ui->lineEdit->setText(str);
+}
+void AboutWidget::setParam_2(QString str)
+{
+     ui->lineEdit_2->setText(str);
 }
 
 void AboutWidget::on_pushButton_3_clicked()
@@ -51,7 +63,9 @@ void AboutWidget::on_pushButton_clicked()
 {
     ui->label->setVisible(false);
     ui->label_2->setVisible(true);
+    ui->label_3->setVisible(false);
     ui->lineEdit->setVisible(false);
+    ui->lineEdit_2->setVisible(false);
     ui->pushButton_3->setVisible(true);
     ui->pushButton->setVisible(false);
     ui->pushButton_2->setVisible(false);
@@ -61,8 +75,9 @@ void AboutWidget::on_pushButton_2_clicked()
 {
     ui->label->setVisible(true);
     ui->label_2->setVisible(false);
+    ui->label_3->setVisible(true);
     ui->lineEdit->setVisible(true);
-    ui->pushButton_3->setVisible(true);
+    ui->lineEdit_2->setVisible(true);
     ui->pushButton->setVisible(false);
     ui->pushButton_2->setVisible(false);
 }

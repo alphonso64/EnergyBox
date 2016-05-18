@@ -51,6 +51,7 @@ public:
     int env_hum_type;
     float env_hum;
     float flow_modify;
+    float power_modify;
 
 private:
     EnergyParam energyparam;

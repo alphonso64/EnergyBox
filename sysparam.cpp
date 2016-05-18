@@ -111,6 +111,7 @@ void SysParam::saveLocalParam()
     config->setValue(QString("env_temp"),QString("%1").arg(env_temp));
     config->setValue(QString("env_hum"),QString("%1").arg(env_hum));
     config->setValue(QString("flow_modify"),QString("%1").arg(flow_modify));
+    config->setValue(QString("power_modify"),QString("%1").arg(power_modify));
 
     config->setValue(QString("normal_period_1"),QString::number(normal_period[0]));
     config->setValue(QString("normal_period_2"),QString::number(normal_period[1]));
@@ -248,6 +249,14 @@ bool SysParam::loadParam()
     {
         flow_modify = val.toFloat();
     }
+    val = config->value(QString("config/") + "power_modify").toString();
+    if(val.size() == 0)
+    {
+        power_modify = 1;
+    }else
+    {
+        power_modify = val.toFloat();
+    }
     val = config->value(QString("config/") + "env_temp_type").toString();
     env_temp_type  = val.toInt();
     val = config->value(QString("config/") + "env_hum_type").toString();
@@ -299,6 +308,7 @@ void SysParam::setParam(SysParam param)
         valley_period[i] = param.valley_period[i];
     }
     flow_modify = param.flow_modify;
+    power_modify = param.power_modify;
     env_hum = param.env_hum;
     env_temp = param.env_temp;
     env_hum_type = param.env_hum_type;

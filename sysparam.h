@@ -34,6 +34,7 @@ public:
     float env_temp;
     float env_hum;
     float flow_modify;
+    float power_modify;
 
     int normal_period[PEROID_LENGTH];
 

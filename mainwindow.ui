@@ -6383,9 +6383,9 @@
    <zorder>widget_7</zorder>
    <zorder>widget_5</zorder>
    <zorder>widget_6</zorder>
-   <zorder>widget</zorder>
    <zorder>widget_13</zorder>
    <zorder>widget_2</zorder>
+   <zorder>widget</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

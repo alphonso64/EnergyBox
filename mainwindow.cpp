@@ -129,7 +129,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineEdit_charge_valley->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_charge_valley));
 
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("GB2312"));
-    //   ui->label->setText(QString("空压系统节能分析仪 GSA500-P"));
+    //ui->label->setText(QString("空压系统节能分析仪 GSA500-P"));
     ui->label->setText(QString("空压系统能效测试仪"));
     QStringList strings;
     strings << "本地" << "U盘" ;
@@ -163,6 +163,7 @@ MainWindow::MainWindow(QWidget *parent) :
     dataWoker->env_hum = sysparam.env_hum;
     dataWoker->env_temp = sysparam.env_temp;
     dataWoker->flow_modify = sysparam.flow_modify;
+    dataWoker->power_modify = sysparam.power_modify;
 
     QFont font( "Times", 14);
     flowDial = new CommonDial( ui->widget_2 );
@@ -356,6 +357,7 @@ void MainWindow::on_pushButton_pressed()
                  chargeform->setParam(sysparam.normal_period,sysparam.peak_period,sysparam.valley_period);
                  //ui->lineEdit_flow_modify->setText(QString("%1").arg(sysparam.flow_modify));
                  aboutwidget->setParam(QString("%1").arg(sysparam.flow_modify));
+                 aboutwidget->setParam_2(QString("%1").arg(sysparam.power_modify));
                  //Util::SysLogD("Init View %d %f",sysparam.wiring_type,sysparam.radio);
             }
             ui->widget->show();
@@ -907,6 +909,12 @@ void MainWindow::on_pushButton_12_clicked()
     }
     param.flow_modify = content.toFloat();
 
+    content = aboutwidget->getParam_2();
+    if(content.size() == 0){
+        param.power_modify = 0;
+    }
+    param.power_modify = content.toFloat();
+
     param.prefix = ui->lineEdit_fileprefix->text();
 
     chargeform->getParam();
@@ -942,6 +950,7 @@ void MainWindow::on_pushButton_12_clicked()
     dataWoker->env_hum = sysparam.env_hum;
     dataWoker->env_temp = sysparam.env_temp;
     dataWoker->flow_modify = sysparam.flow_modify;
+    dataWoker->power_modify = sysparam.power_modify;
     Util::SysLogD("dataWoker->flow_modify %f\n",dataWoker->flow_modify);
     cusMsg->setMessage(QString("正在保存参数"));
     cusMsg->show();
@@ -1035,6 +1044,7 @@ void MainWindow::on_pushButton_16_pressed()
     ui->pushButton_25->setEnabled(true);
     DigitalInputPanelContext *dc = (DigitalInputPanelContext*)qApp->inputContext();
     dc->panelChange(1);
+    chargeform->hide();
 }
 
 void MainWindow::on_pushButton_17_pressed()
@@ -1063,6 +1073,7 @@ void MainWindow::on_pushButton_24_pressed()
     ui->pushButton_25->setEnabled(true);
     DigitalInputPanelContext *dc = (DigitalInputPanelContext*)qApp->inputContext();
     dc->panelChange(2);
+    chargeform->hide();
 }
 
 void MainWindow::on_pushButton_25_pressed()
@@ -1077,6 +1088,7 @@ void MainWindow::on_pushButton_25_pressed()
     ui->pushButton_25->setEnabled(false);
     DigitalInputPanelContext *dc = (DigitalInputPanelContext*)qApp->inputContext();
     dc->panelChange(1);
+    chargeform->hide();
 }
 
 void MainWindow::on_pushButton_24_clicked()
@@ -1174,9 +1186,9 @@ void MainWindow::on_pushButton_21_clicked()
 
 void MainWindow::on_pushButton_22_clicked()
 {
-    cusMsg->setMessage(QString(SOFT_VERSION));
-    cusMsg->show();
-//    aboutwidget->customShow();
+//    cusMsg->setMessage(QString(SOFT_VERSION));
+//    cusMsg->show();
+    aboutwidget->customShow();
 }
 
 

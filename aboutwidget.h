@@ -16,7 +16,9 @@ public:
     ~AboutWidget();
     void customShow();
     QString getParam();
+    QString getParam_2();
     void setParam(QString str);
+    void setParam_2(QString str);
 private slots:
     void on_pushButton_3_clicked();
 
