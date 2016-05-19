@@ -1186,9 +1186,12 @@ void MainWindow::on_pushButton_21_clicked()
 
 void MainWindow::on_pushButton_22_clicked()
 {
-//    cusMsg->setMessage(QString(SOFT_VERSION));
-//    cusMsg->show();
+#ifdef    PARAM_MODIFY
     aboutwidget->customShow();
+#else
+    cusMsg->setMessage(QString(SOFT_VERSION));
+    cusMsg->show();
+#endif
 }
 
 
@@ -1213,8 +1216,28 @@ QPalette MainWindow::colorTheme( const QColor &base ) const
     return palette;
 }
 
+void MainWindow::on_comboBox_env_temp_currentIndexChanged(int index)
+{
+    if(index == 0)
+    {
+        ui->lineEdit_env_temp->setVisible(false);
+        ui->label_IPower_name_204->setVisible(false);
+    }else if(index ==1){
+        ui->lineEdit_env_temp->setVisible(true);
+        ui->label_IPower_name_204->setVisible(true);
+    }
+}
 
 
 
-
-
+void MainWindow::on_comboBox_env_hum_currentIndexChanged(int index)
+{
+    if(index == 0)
+    {
+        ui->lineEdit_env_hum->setVisible(false);
+        ui->label_IPower_name_205->setVisible(false);
+    }else if(index ==1){
+        ui->lineEdit_env_hum->setVisible(true);
+        ui->label_IPower_name_205->setVisible(true);
+    }
+}

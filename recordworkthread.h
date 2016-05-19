@@ -67,7 +67,7 @@ private:
         ws->label(0,INDEX_ACTIVEP,"有功功率",xf);
         ws->label(0,INDEX_REACTIVEP,"无功功率",xf);
         ws->label(0,INDEX_APPARENTP,"视在功率",xf);
-        ws->label(0,INDEX_FACTOR,"功率因素",xf);
+        ws->label(0,INDEX_FACTOR,"功率因数",xf);
 
         ws->label(0,INDEX_ENV_TEMP,"环境温度",xf);
         ws->label(0,INDEX_ENV_HUMIDITY,"环境湿度",xf);

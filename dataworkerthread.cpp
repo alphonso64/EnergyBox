@@ -1,6 +1,6 @@
 #include "dataworkerthread.h"
 #include "util.h"
-
+#include "const_define.h"
 void DataWorkerThread::run()
 {
     if ((fd = serialOpen ("/dev/ttyAMA0", 115200)) < 0)
@@ -86,8 +86,10 @@ void DataWorkerThread::parseParam(char *temp)
     energyparam.air_pressure = data[2];
     energyparam.flow_content = data[3];
 
+#ifdef    PARAM_MODIFY
     energyparam.flow_content *= flow_modify;
     energyparam.active_power *= power_modify;
+#endif
     //
     energyparam.time = *ltime;
     time = energyparam.time ;
@@ -99,13 +101,6 @@ void DataWorkerThread::parseParam(char *temp)
     {
         energyparam.vsp =energyparam.power /  energyparam.flow_content;
     }
-//    {
-//         energyparam.vsp = 1.2;
-//         energyparam.power = 100;
-//         energyparam.flow_content = 5;
-//         energyparam.flow_content *= flow_modify;
-//    }
-//	Util::SysLogD("param %f %f\n",data[19],data[20]);
     mutex.unlock();
 }
 

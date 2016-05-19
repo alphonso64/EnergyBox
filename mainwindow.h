@@ -126,6 +126,10 @@ private slots:
 
     void on_pushButton_29_pressed();
 
+    void on_comboBox_env_temp_currentIndexChanged(int index);
+
+    void on_comboBox_env_hum_currentIndexChanged(int index);
+
 private:
     void setInfo(EnergyParam param);
     void setInfo_detail(EnergyParam param);

@@ -156,93 +156,112 @@
        <height>511</height>
       </rect>
      </property>
-     <widget class="QPushButton" name="pushButton_15">
+     <widget class="QGroupBox" name="groupBox_4">
       <property name="geometry">
        <rect>
-        <x>490</x>
-        <y>40</y>
-        <width>181</width>
-        <height>81</height>
+        <x>20</x>
+        <y>0</y>
+        <width>811</width>
+        <height>321</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>微软雅黑</family>
-        <pointsize>14</pointsize>
+        <pointsize>12</pointsize>
        </font>
       </property>
-      <property name="styleSheet">
-       <string notr="true">border-image: url(:/new/prefix1/btn.qss);</string>
+      <property name="title">
+       <string>其他</string>
       </property>
-      <property name="text">
-       <string>删除本地数据</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_18">
-      <property name="geometry">
-       <rect>
-        <x>150</x>
-        <y>40</y>
-        <width>181</width>
-        <height>81</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border-image: url(:/new/prefix1/btn.qss);</string>
-      </property>
-      <property name="text">
-       <string>导出本地数据</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_20">
-      <property name="geometry">
-       <rect>
-        <x>150</x>
-        <y>190</y>
-        <width>181</width>
-        <height>81</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border-image: url(:/new/prefix1/btn.qss);</string>
-      </property>
-      <property name="text">
-       <string>更新程序</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_22">
-      <property name="geometry">
-       <rect>
-        <x>490</x>
-        <y>190</y>
-        <width>181</width>
-        <height>81</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>微软雅黑</family>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border-image: url(:/new/prefix1/btn.qss);</string>
-      </property>
-      <property name="text">
-       <string>关于</string>
-      </property>
+      <widget class="QPushButton" name="pushButton_18">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>50</y>
+         <width>181</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/new/prefix1/btn.qss);</string>
+       </property>
+       <property name="text">
+        <string>导出本地数据</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_20">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>200</y>
+         <width>181</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/new/prefix1/btn.qss);</string>
+       </property>
+       <property name="text">
+        <string>更新程序</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_22">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>200</y>
+         <width>181</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/new/prefix1/btn.qss);</string>
+       </property>
+       <property name="text">
+        <string>关于</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_15">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>50</y>
+         <width>181</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/new/prefix1/btn.qss);</string>
+       </property>
+       <property name="text">
+        <string>删除本地数据</string>
+       </property>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="widget_9" native="true">
@@ -1407,6 +1426,25 @@
         <number>15</number>
        </property>
       </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>470</x>
+         <y>105</y>
+         <width>331</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>微软雅黑</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>文件名:&quot;前缀名&quot;+&quot;__&quot;+&quot;测量开始时间&quot;+&quot;.xls&quot;</string>
+       </property>
+      </widget>
      </widget>
     </widget>
     <zorder>pushButton_12</zorder>
@@ -1414,10 +1452,10 @@
     <zorder>pushButton_17</zorder>
     <zorder>pushButton_24</zorder>
     <zorder>pushButton_25</zorder>
-    <zorder>widget_10</zorder>
-    <zorder>widget_9</zorder>
     <zorder>widget_12</zorder>
     <zorder>widget_3</zorder>
+    <zorder>widget_10</zorder>
+    <zorder>widget_9</zorder>
    </widget>
    <widget class="QWidget" name="widget_5" native="true">
     <property name="geometry">
@@ -4175,7 +4213,7 @@
       </font>
      </property>
      <property name="text">
-      <string>功率因素</string>
+      <string>功率因数</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_power_factor_content">
@@ -6380,12 +6418,12 @@
    <zorder>label_3</zorder>
    <zorder>pushButton_21</zorder>
    <zorder>pushButton_5</zorder>
-   <zorder>widget_7</zorder>
-   <zorder>widget_5</zorder>
-   <zorder>widget_6</zorder>
+   <zorder>widget</zorder>
    <zorder>widget_13</zorder>
    <zorder>widget_2</zorder>
-   <zorder>widget</zorder>
+   <zorder>widget_5</zorder>
+   <zorder>widget_7</zorder>
+   <zorder>widget_6</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
