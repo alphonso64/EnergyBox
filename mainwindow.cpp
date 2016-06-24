@@ -93,7 +93,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->widget_13->hide();
 
     ui->pushButton_2->setEnabled(false);
- //   ui->pushButton_10->setVisible(false);
+    ui->pushButton_10->setVisible(false);
     ui->lcdNumber_clock->setVisible(false);
     ui->pushButton_26->setEnabled(false);
 
@@ -438,14 +438,6 @@ void MainWindow::on_pushButton_3_pressed()
         else
         {
             path_pre = LOCAL_PATH_PREFIX;
-        }
-        //ÄÚ´æÈÝÁ¿¼ì²â
-        if(Util::getFreeDiskSpaceByMB()<LOW_MEMORY_SIZE)
-        {
-
-            cusMsg->setMessage(QString("Ó²ÅÌ¿Õ¼ä²»×ã"+itos(LOW_MEMORY_SIZE)+"MB,"));
-            cusMsg->show();
-            return;
         }
         recorder->path_pre = path_pre.toStdString();
         if(startFlag != 0){

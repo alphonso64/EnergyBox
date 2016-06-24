@@ -48,7 +48,7 @@ public:
         pushButton->setFont(font1);
         label_2 = new QLabel(CustomMessageBox);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(10, 40, 471, 81));
+        label_2->setGeometry(QRect(40, 40, 441, 81));
         label_2->setFont(font);
 
         retranslateUi(CustomMessageBox);
