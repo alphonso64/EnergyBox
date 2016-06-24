@@ -7,6 +7,7 @@
 #include "analyzeresult.h"
 #include <xlslib/xlslib.h>
 #include <pthread.h>
+#include <sys/vfs.h>
 using namespace std;
 using namespace xlslib_core;
 class Util
@@ -33,7 +34,12 @@ public:
     static void cpyFile(const char *src,const char *dst);
     static void cpyLocal2Udisk();
     static void setFileUpdateTime(const char *file,long time);
+    static bool isDevicelegal();
+    static int get_cpu_serial (char *serail);
+    static int get_local_serial (char *serail);
+    static int getFreeDiskSpaceByMB();
 private:
+
 };
 
 #endif // UTIL_H

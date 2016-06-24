@@ -626,7 +626,81 @@ void Util::SysLogD(const char *p_fmt, ...)
 
     pthread_mutex_unlock(&gSysLogMutex);
 #endif
-
 }
+
+bool Util::isDevicelegal()
+{
+    char *serial_a = (char *)malloc(16);
+    char *serial_b = (char *)malloc(16);
+    if(get_cpu_serial(serial_a)!=0)
+    {
+         goto EXIT_FAIL;
+    }
+    if(get_local_serial(serial_b)!=0)
+    {
+         goto EXIT_FAIL;
+    }
+    if(strcmp(serial_a,serial_b) == 0)
+    {
+         free(serial_a);
+         free(serial_b);
+         return true;
+    }
+ EXIT_FAIL:
+    free(serial_a);
+    free(serial_b);
+    return false;
+}
+
+int Util::get_cpu_serial(char *serail)
+{
+    char* match;
+    FILE *cpuinfo = fopen("/proc/cpuinfo", "rb");
+    char *arg = 0;
+    size_t size = 0;
+    char serial_str[16];
+    while(getdelim(&arg, &size, 0, cpuinfo) != -1)
+    {
+         match = strstr (arg, "Serial");
+         if (match == NULL)
+             return -1;
+         sscanf (match, "Serial		: %s", serial_str);
+         strcpy(serail,serial_str);
+         return 0;
+    }
+    free(arg);
+    fclose(cpuinfo);
+    return -1;
+}
+
+int Util::get_local_serial(char *serail)
+{
+    char* match;
+    FILE *cpuinfo = fopen("/home/pi/cpuserial", "rb");
+    char *arg = 0;
+    size_t size = 0;
+    char serial_str[16];
+    while(getdelim(&arg, &size, 0, cpuinfo) != -1)
+    {
+         match = strstr (arg, "Serial");
+         if (match == NULL)
+             return -1;
+         sscanf (match, "Serial		: %s", serial_str);
+         strcpy(serail,serial_str);
+         return 0;
+    }
+    free(arg);
+    fclose(cpuinfo);
+    return -1;
+}
+
+int Util::getFreeDiskSpaceByMB()
+{
+    struct statfs sfs;
+    statfs("/", &sfs);
+    int size =  sfs.f_bfree/1024*sfs.f_bsize/1024;
+    return size;
+}
+
 
 
