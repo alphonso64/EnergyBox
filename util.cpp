@@ -498,6 +498,304 @@ void Util::writeResult(worksheet *ws, xf_t *xf, AnalyzeResult res)
     ws->label(13,6,Util::ftos(res.permanent_magnet_frequency_conversion).toStdString(),xf);
 }
 
+void Util::setCellFormat(cell_t *cell)
+{
+    cell->borderstyle(BORDER_BOTTOM, BORDER_THIN);
+    cell->borderstyle(BORDER_TOP, BORDER_THIN);
+    cell->borderstyle(BORDER_LEFT, BORDER_THIN);
+    cell->borderstyle(BORDER_RIGHT, BORDER_THIN);
+    cell->valign(VALIGN_CENTER);
+}
+
+void Util::writeResultWithFormat(worksheet *ws, xf_t *xf, AnalyzeResult res)
+{
+    cell_t *cell;
+    range *ra;
+    int index = 0;
+    int start,end;
+    int colA = 0;
+    int colB = 1;
+    int colC = 2;
+    unsigned int labelHeiht = 256*1.4;
+    QDateTime date;
+    float time;
+    ws->defaultColwidth(8);
+    ws->rowheight(0, 256 * 2.5);
+    ws->colwidth(0, 256 * 24);
+    ws->colwidth(1, 256 * 24);
+    ws->colwidth(2, 256 * 16);
+    ws->merge(0,0,0,2);
+    cell = ws->label(index++, 0, "节能分析结果", xf);
+    cell->halign(HALIGN_CENTER);
+    cell->valign(VALIGN_CENTER);
+    cell->fontcolor(CLR_WHITE);
+    cell->fontheight(300);
+    ra = ws->rangegroup(0,0,0,2);
+    ra->cellcolor(CLR_BLUE_GRAY);
+/*------------时间统计-----------*/
+    ws->merge(index,colA,index,colC);
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"时间统计",xf);
+    cell->valign(VALIGN_CENTER);
+    ra = ws->rangegroup(index,colA,index,colC);
+    ra->cellcolor(CLR_PALE_BLUE);
+    index++;
+
+    start = index;
+    date.setTime_t(res.start_measure_time);
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"开始时间",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,date.toString("yy/MM/dd hh:mm:ss").toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"",xf);
+    setCellFormat(cell);
+
+    time = (float)(res.end_measure_time-res.start_measure_time)/3600.0;
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"测量时间",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(time).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"小时",xf);
+    setCellFormat(cell);
+
+    time = (float)(res.worktime)/3600.0;
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"工作时间",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(time).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"小时",xf);
+    setCellFormat(cell);
+
+    end = index;
+    time = (float)(res.stanby_time)/3600.0;
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"待机时间",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(time).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"小时",xf);
+    setCellFormat(cell);
+
+    ra = ws->rangegroup(start,colA,end,colA);
+    ra->cellcolor(CLR_GRAY25);
+
+/*------------累计数据统计-----------*/
+    ws->merge(index,colA,index,colC);
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"累计数据及比功率",xf);
+    cell->valign(VALIGN_CENTER);
+    ra = ws->rangegroup(index,colA,index,colC);
+    ra->cellcolor(CLR_PALE_BLUE);
+    index++;
+
+    start  = index;
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"总产气量",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(res.acc_flow).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"m3",xf);
+    setCellFormat(cell);
+
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"总耗电量",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(res.acc_power).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"kwh",xf);
+    setCellFormat(cell);
+
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"电费总额",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(res.acc_charge).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"元",xf);
+    setCellFormat(cell);
+
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"气体成本",xf);
+    setCellFormat(cell);
+    cell =  ws->label(index,colB,Util::ftos(res.ave_cost).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"元/m3",xf);
+    setCellFormat(cell);
+
+    end =index;
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"平均比功率",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(res.ave_vsp).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"kw/(m3/min)",xf);
+    setCellFormat(cell);
+
+    ra = ws->rangegroup(start,colA,end,colA);
+    ra->cellcolor(CLR_GRAY25);
+
+/*------------加卸载数据统计-----------*/
+    ws->merge(index,colA,index,colC);
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"加卸载分析",xf);
+    cell->valign(VALIGN_CENTER);
+    ra = ws->rangegroup(index,colA,index,colC);
+    ra->cellcolor(CLR_PALE_BLUE);
+    index++;
+
+    start  = index;
+    time = (float)(res.max_load_time)/3600.0;
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"最长加载时间",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(time).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"小时",xf);
+    setCellFormat(cell);
+
+    time = (float)(res.max_unload_time)/3600.0;
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"最长卸载时间",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(time).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"小时",xf);
+    setCellFormat(cell);
+
+    time = (float)(res.load_time)/3600.0;
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"满载时间",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(time).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"小时",xf);
+    setCellFormat(cell);
+
+    time = (float)(res.unload_time)/3600.0;
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"空载时间",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(time).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"小时",xf);
+    setCellFormat(cell);
+
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"满载率",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(res.load_radio).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"%",xf);
+    setCellFormat(cell);
+
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"空载率",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(res.unload_radio).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"%",xf);
+    setCellFormat(cell);
+
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"加载次数",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,QString::number(res.load_cnt).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"",xf);
+    setCellFormat(cell);
+
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"卸载次数",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,QString::number(res.unload_cnt).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"",xf);
+    setCellFormat(cell);
+
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"满载耗电",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(res.load_power).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"kwh",xf);
+    setCellFormat(cell);
+
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"空载耗电",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(res.unload_power).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"kwh",xf);
+    setCellFormat(cell);
+
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"满载电费",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(res.load_charge).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"元",xf);
+    setCellFormat(cell);
+
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"空载电费",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(res.unload_chargd).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"元",xf);
+    setCellFormat(cell);
+
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"满载耗电占比",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(res.load_charge_radio).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"%",xf);
+    setCellFormat(cell);
+
+    end  = index;;
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"空载耗电占比",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(res.unload_charge_radio).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"%",xf);
+    setCellFormat(cell);
+
+    ra = ws->rangegroup(start,colA,end,colA);
+    ra->cellcolor(CLR_GRAY25);
+
+/*------------预计节能分析-----------*/
+    ws->merge(index,colA,index,colC);
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"预计节能分析",xf);
+    cell->valign(VALIGN_CENTER);
+    ra = ws->rangegroup(index,colA,index,colC);
+    ra->cellcolor(CLR_PALE_BLUE);
+    index++;
+
+    start  = index;
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"采用一级能效机组节省电量",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(res.first_order_energy_efficiency).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"kwh",xf);
+    setCellFormat(cell);
+
+    end = index;
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"采用永磁变频机组节省电量",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(res.permanent_magnet_frequency_conversion).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"kwh",xf);
+    setCellFormat(cell);
+    ra = ws->rangegroup(start,colA,end,colA);
+    ra->cellcolor(CLR_GRAY25);
+}
+
 int Util::InitSysLog()
 {
 #ifdef LOG_TEST

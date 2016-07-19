@@ -29,6 +29,7 @@ public:
     static void SysLogE(const char *p_fmt, ...);
     static void SysLogD(const char *p_fmt, ...);
     static void writeResult(worksheet *ws, xf_t *xf, AnalyzeResult res);
+    static void writeResultWithFormat(worksheet *ws, xf_t *xf, AnalyzeResult res);
     static void fileSync(const char *file);
     static int get_file_size(FILE *file);
     static void cpyFile(const char *src,const char *dst);
@@ -39,6 +40,7 @@ public:
     static int get_local_serial (char *serail);
     static int getFreeDiskSpaceByMB();
 private:
+    static void setCellFormat(cell_t *cell);
 
 };
 

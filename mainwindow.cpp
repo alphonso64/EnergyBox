@@ -93,7 +93,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->widget_13->hide();
 
     ui->pushButton_2->setEnabled(false);
- //   ui->pushButton_10->setVisible(false);
+    ui->pushButton_10->setVisible(false);
     ui->lcdNumber_clock->setVisible(false);
     ui->pushButton_26->setEnabled(false);
 
@@ -129,7 +129,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->lineEdit_charge_valley->setValidator(new QRegExpValidator(double_rx10000,ui->lineEdit_charge_valley));
 
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("GB2312"));
-    //ui->label->setText(QString("空压系统节能分析仪 GSA500-P"));
+//     ui->label->setText(QString("空压系统节能分析仪 GSA500-P"));
     ui->label->setText(QString("空压系统能效测试仪"));
     QStringList strings;
     strings << "本地" << "U盘" ;
