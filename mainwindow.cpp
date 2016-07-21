@@ -225,12 +225,64 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(dataWoker, SIGNAL(setEcho(int)), SLOT(on_setEcho(int)));
     connect(chargeform, SIGNAL(periodset(int)), SLOT(on_setPeriod(int)));
     connect(copyer, SIGNAL(copyDone(int)), SLOT(on_copyDone(int)));
+    connect(cusMsg, SIGNAL(cusMsgBoxReturn(int)), SLOT(on_cusMsg_return(int)));
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_cusMsg_return(int flag)
+{
+    if(flag == RMFILE_CHECKED)
+    {
+        system("sudo rm -rf /home/program/*.xls");
+        cusMsg->setMessage(QString("删除成功！"));
+        cusMsg->show();
+    }else if(flag == UPDATE_CHECKED)
+    {
+        QString path_pre = Util::checkUDiskPath();
+        if(path_pre == NULL)
+        {
+            cusMsg->setMessage(QString("U盘未插入"));
+            cusMsg->show();
+            return;
+        }
+        QString path(UDISK_PATH_PREFIX + path_pre);
+
+        QString file_name = Util::checkUpdatePath(path);
+        if(file_name == NULL)
+        {
+            cusMsg->setMessage(QString("未检测到更新文件"));
+            cusMsg->show();
+            return;
+        }
+
+        cusMsg->setMessage(QString("正在更新程序"));
+        cusMsg->showWithoutButton();
+
+        file_name = QString(path+"/"+file_name);
+        copyer->filename = file_name;
+        copyer->mode = MODE_UPDATE;
+        copyer->start();
+    }else if(flag == EXPORT_CHECKED)
+    {
+        QString path_pre = Util::checkUDiskPath();
+        if(path_pre == NULL)
+        {
+            cusMsg->setMessage(QString("U盘未插入"));
+            cusMsg->show();
+            return;
+        }
+        cusMsg->setMessage("正在复制数据");
+        cusMsg->showWithoutButton();
+        copyer->mode = MODE_COPY;
+        copyer->start();
+    }
+}
+
 
 void MainWindow::on_setPeriod(int flag)
 {
@@ -1116,56 +1168,25 @@ void MainWindow::on_pushButton_18_pressed()
 
 void MainWindow::on_pushButton_18_clicked()
 {
-    QString path_pre = Util::checkUDiskPath();
-    if(path_pre == NULL)
-    {
-        cusMsg->setMessage(QString("U盘未插入"));
-        cusMsg->show();
-        return;
-    }
-
-    cusMsg->setMessage("正在复制数据");
-    cusMsg->showWithoutButton();
-    copyer->mode = MODE_COPY;
-    copyer->start();
+    cusMsg->flag = EXPORT_CHECKED;
+    cusMsg->setMessage(QString("确认导出本地文件？"));
+    cusMsg->showWithALLButton();
     return;
 }
 
 void MainWindow::on_pushButton_15_clicked()
 {
-    system("sudo rm -rf /home/program/*.xls");
-    cusMsg->setMessage(QString("删除成功！"));
-    cusMsg->show();
-
+      cusMsg->flag = RMFILE_CHECKED;
+      cusMsg->setMessage(QString("确认删除所有文件？"));
+      cusMsg->showWithALLButton();
 }
 
 
 void MainWindow::on_pushButton_20_clicked()
-{
-    QString path_pre = Util::checkUDiskPath();
-    if(path_pre == NULL)
-    {
-        cusMsg->setMessage(QString("U盘未插入"));
-        cusMsg->show();
-        return;
-    }
-    QString path(UDISK_PATH_PREFIX + path_pre);
-
-    QString file_name = Util::checkUpdatePath(path);
-    if(file_name == NULL)
-    {
-        cusMsg->setMessage(QString("未检测到更新文件"));
-        cusMsg->show();
-        return;
-    }
-
-    cusMsg->setMessage(QString("正在更新程序"));
-    cusMsg->showWithoutButton();
-
-    file_name = QString(path+"/"+file_name);
-    copyer->filename = file_name;
-    copyer->mode = MODE_UPDATE;
-    copyer->start();
+{    
+    cusMsg->flag = UPDATE_CHECKED;
+    cusMsg->setMessage(QString("确认更新程序？"));
+    cusMsg->showWithALLButton();
     return;
 }
 

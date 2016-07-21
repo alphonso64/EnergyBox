@@ -130,6 +130,8 @@ private slots:
 
     void on_comboBox_env_hum_currentIndexChanged(int index);
 
+    void on_cusMsg_return(int flag);
+
 private:
     void setInfo(EnergyParam param);
     void setInfo_detail(EnergyParam param);
