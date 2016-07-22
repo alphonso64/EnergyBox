@@ -192,17 +192,55 @@ void ReaderWorkThread::run()
         res.unload_charge_radio = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)29, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)30, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.first_order_energy_efficiency = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)30, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)30, (uint16_t)3);
     if(c.str.length()!=0)
     {
         res.permanent_magnet_frequency_conversion = stringToNum<float>(c.str);
     }
+
+    c = foo.GetCell(sheetNum-1, (uint16_t)31, (uint16_t)2);
+    if(c.str.length()!=0)
+    {
+        res.first_order_energy_efficiency_day = stringToNum<float>(c.str);
+    }
+
+    c = foo.GetCell(sheetNum-1, (uint16_t)31, (uint16_t)3);
+    if(c.str.length()!=0)
+    {
+        res.permanent_magnet_frequency_conversion_day = stringToNum<float>(c.str);
+    }
+
+
+    c = foo.GetCell(sheetNum-1, (uint16_t)32, (uint16_t)2);
+    if(c.str.length()!=0)
+    {
+        res.first_order_energy_efficiency_month = stringToNum<float>(c.str);
+    }
+
+    c = foo.GetCell(sheetNum-1, (uint16_t)32, (uint16_t)3);
+    if(c.str.length()!=0)
+    {
+        res.permanent_magnet_frequency_conversion_month = stringToNum<float>(c.str);
+    }
+
+    c = foo.GetCell(sheetNum-1, (uint16_t)33, (uint16_t)2);
+    if(c.str.length()!=0)
+    {
+        res.first_order_energy_efficiency_year = stringToNum<float>(c.str);
+    }
+
+    c = foo.GetCell(sheetNum-1, (uint16_t)33, (uint16_t)3);
+    if(c.str.length()!=0)
+    {
+        res.permanent_magnet_frequency_conversion_year = stringToNum<float>(c.str);
+    }
+
 
     emit result();
 }

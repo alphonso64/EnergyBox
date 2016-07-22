@@ -169,9 +169,22 @@ void RecordWorkThread::run()
 
     anares.permanent_magnet_frequency_conversion = anares.unload_power+anares.load_power*0.1;
     anares.first_order_energy_efficiency = -7.2*anares.acc_flow/60 + anares.acc_power;
+
+    anares.permanent_magnet_frequency_conversion_day = anares.permanent_magnet_frequency_conversion * 12 / anares.worktime *3600;
+    anares.permanent_magnet_frequency_conversion_month = anares.permanent_magnet_frequency_conversion * 30 * 12 / anares.worktime *3600;
+    anares.permanent_magnet_frequency_conversion_year = anares.permanent_magnet_frequency_conversion * 365 * 30 * 12 / anares.worktime *3600;
+
     if(anares.first_order_energy_efficiency <0.00001)
     {
         anares.first_order_energy_efficiency = 0;
+        anares.first_order_energy_efficiency_day = 0;
+        anares.first_order_energy_efficiency_month = 0;
+        anares.first_order_energy_efficiency_year = 0;
+    }else
+    {
+        anares.first_order_energy_efficiency_day = anares.first_order_energy_efficiency * 12 / anares.worktime *3600;
+        anares.first_order_energy_efficiency_month = anares.first_order_energy_efficiency * 30 * 12 / anares.worktime *3600;
+        anares.first_order_energy_efficiency_year = anares.first_order_energy_efficiency * 365 * 30 * 12 / anares.worktime *3600;
     }
 
     anares.load_charge_radio = anares.load_charge/ anares.acc_charge *100.0;

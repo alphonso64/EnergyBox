@@ -522,8 +522,8 @@ void Util::writeResultWithFormat(worksheet *ws, xf_t *xf, AnalyzeResult res)
     ws->defaultColwidth(8);
     ws->rowheight(0, 256 * 2.5);
     ws->colwidth(0, 256 * 24);
-    ws->colwidth(1, 256 * 24);
-    ws->colwidth(2, 256 * 16);
+    ws->colwidth(1, 256 * 28);
+    ws->colwidth(2, 256 * 28);
     ws->merge(0,0,0,2);
     cell = ws->label(index++, 0, "节能分析结果", xf);
     cell->halign(HALIGN_CENTER);
@@ -775,23 +775,74 @@ void Util::writeResultWithFormat(worksheet *ws, xf_t *xf, AnalyzeResult res)
     ra->cellcolor(CLR_PALE_BLUE);
     index++;
 
-    start  = index;
+//    start  = index;
+//    ws->rowheight(index, labelHeiht);
+//    cell = ws->label(index,colA,"采用一级能效机组节省电量",xf);
+//    setCellFormat(cell);
+//    cell = ws->label(index,colB,Util::ftos(res.first_order_energy_efficiency).toStdString(),xf);
+//    setCellFormat(cell);
+//    cell = ws->label(index++,colC,"kwh",xf);
+//    setCellFormat(cell);
+
+//    end = index;
+//    ws->rowheight(index, labelHeiht);
+//    cell = ws->label(index,colA,"采用永磁变频机组节省电量",xf);
+//    setCellFormat(cell);
+//    cell = ws->label(index,colB,Util::ftos(res.permanent_magnet_frequency_conversion).toStdString(),xf);
+//    setCellFormat(cell);
+//    cell = ws->label(index++,colC,"kwh",xf);
+//    setCellFormat(cell);
+
+//    ra = ws->rangegroup(start,colA,end,colA);
+//    ra->cellcolor(CLR_GRAY25);
+    start  = index;\
     ws->rowheight(index, labelHeiht);
-    cell = ws->label(index,colA,"采用一级能效机组节省电量",xf);
+    cell = ws->label(index,colA,"",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,"采用一级能效机组节省电量(kwh)",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colC,"采用一级能效机组节省电量(kwh)",xf);
+    setCellFormat(cell);
+    ra = ws->rangegroup(start,colA,start,colC);
+    ra->cellcolor(CLR_GRAY25);
+
+    index++;
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"本次测量时间",xf);
     setCellFormat(cell);
     cell = ws->label(index,colB,Util::ftos(res.first_order_energy_efficiency).toStdString(),xf);
     setCellFormat(cell);
-    cell = ws->label(index++,colC,"kwh",xf);
+    cell = ws->label(index,colC,Util::ftos(res.permanent_magnet_frequency_conversion).toStdString(),xf);
     setCellFormat(cell);
 
+    index++;
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"一天（每天12小时工作时间）",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(res.first_order_energy_efficiency_day).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colC,Util::ftos(res.permanent_magnet_frequency_conversion_day).toStdString(),xf);
+    setCellFormat(cell);
+
+    index++;
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"一月（30*12=360小时）",xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colB,Util::ftos(res.first_order_energy_efficiency_month).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index,colC,Util::ftos(res.permanent_magnet_frequency_conversion_month).toStdString(),xf);
+    setCellFormat(cell);
+
+    index++;
     end = index;
     ws->rowheight(index, labelHeiht);
-    cell = ws->label(index,colA,"采用永磁变频机组节省电量",xf);
+    cell = ws->label(index,colA,"一年（365*12=4380小时）",xf);
     setCellFormat(cell);
-    cell = ws->label(index,colB,Util::ftos(res.permanent_magnet_frequency_conversion).toStdString(),xf);
+    cell = ws->label(index,colB,Util::ftos(res.first_order_energy_efficiency_year).toStdString(),xf);
     setCellFormat(cell);
-    cell = ws->label(index++,colC,"kwh",xf);
+    cell = ws->label(index,colC,Util::ftos(res.permanent_magnet_frequency_conversion_year).toStdString(),xf);
     setCellFormat(cell);
+
     ra = ws->rangegroup(start,colA,end,colA);
     ra->cellcolor(CLR_GRAY25);
 }

@@ -23,9 +23,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->label_2->setPixmap(QPixmap(PRODUCE_LOGO_PATH));
     ui->label_3->setPixmap(QPixmap(UDISK_LOGO_PATH));
     ui->label_3->setVisible(false);
-    QString style("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;} QPushButton:pressed{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;}");
-    QString style_a("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;} QPushButton:pressed{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;}");
-    QString style_b ("QPushButton{background-color: rgba(236, 236, 236, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(128, 128, 128, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 0px solid #101010;} QPushButton:pressed{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;}");
+    QString style("QPushButton{background-color: rgba(197, 197, 197, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;} QPushButton:pressed{background-color: rgba(38, 166, 154, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #24a69a;}");
+    QString style_a("QPushButton{background-color: rgba(197, 197, 197, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;} QPushButton:pressed{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;}");
+    QString style_b ("QPushButton{background-color: rgba(197, 197, 197, 255);  border: 1px solid rgb(124, 124, 124); border-radius:5px;} QPushButton:disabled{background-color: rgba(128, 128, 128, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 0px solid #101010;} QPushButton:pressed{background-color: rgba(255, 152, 0, 255);color: rgba(0, 0, 0, 255); border-radius:5px;border: 1px solid #ff9800;}");
 
     this->setWindowFlags(Qt::CustomizeWindowHint) ;
     ui->pushButton->setStyleSheet(style);
@@ -56,6 +56,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButton_27->setStyleSheet(style_a);
     ui->pushButton_28->setStyleSheet(style_a);
     ui->pushButton_29->setStyleSheet(style_a);
+    ui->pushButton_30->setStyleSheet(style_a);
 
     ui->pushButton->setFocusPolicy ( Qt::NoFocus );
     ui->pushButton_2->setFocusPolicy ( Qt::NoFocus );
@@ -85,6 +86,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->pushButton_27->setFocusPolicy ( Qt::NoFocus );
     ui->pushButton_28->setFocusPolicy ( Qt::NoFocus );
     ui->pushButton_29->setFocusPolicy ( Qt::NoFocus );
+    ui->pushButton_30->setFocusPolicy ( Qt::NoFocus );
     ui->widget->hide();
     ui->widget_2->show();
     ui->widget_5->hide();
@@ -93,7 +95,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->widget_13->hide();
 
     ui->pushButton_2->setEnabled(false);
-    ui->pushButton_10->setVisible(false);
+   // ui->pushButton_10->setVisible(false);
     ui->lcdNumber_clock->setVisible(false);
     ui->pushButton_26->setEnabled(false);
 
@@ -196,7 +198,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->label_acc_flow_1->setText("m<sup>3</sup>");
     ui->label_acc_flow_2->setText("m<sup>3</sup>");
     ui->label_gas_produce_rated->setText("m<sup>3</sup>/min");
-    ui->label_gas_produce_rated_1->setText("m<sup>3</sup>/min");
+   // ui->label_gas_produce_rated_1->setText("m<sup>3</sup>/min");
     ui->label_VSP->setText("Kw/(m<sup>3</sup>/min)");
     ui->label_VSP_1->setText("Kw/(m<sup>3</sup>/min)");
     ui->label_VSP_2->setText("Kw/(m<sup>3</sup>/min)");
@@ -317,8 +319,8 @@ void MainWindow::on_result()
     //ui->label_acc_flow_2->setText(Util::ftos(reader->res.acc_flow));
     //ui->label_acc_power_2->setText(Util::ftos(reader->res.acc_power));
     ui->label_analyze_file_name->setText(file->filename);
-    ui->label_analyze_rated_power->setText(Util::ftos(sysparam.power));
-    ui->label_analyze_rated_flow->setText(Util::ftos(sysparam.gas));
+//    ui->label_analyze_rated_power->setText(Util::ftos(sysparam.power));
+//    ui->label_analyze_rated_flow->setText(Util::ftos(sysparam.gas));
 //    QDateTime date;
 //    date.setTime_t(reader->res.start_measure_time);
     if(reader->start_time.length()>0)
@@ -344,7 +346,13 @@ void MainWindow::on_result()
     ui->label_analyze_load_power_radio->setText(Util::ftos(reader->res.load_charge_radio));
     ui->label_analyze_unload_power_radio->setText(Util::ftos(reader->res.unload_charge_radio));
     ui->label_analyze_save_a->setText(Util::ftos(reader->res.first_order_energy_efficiency));
-    ui->label_analyze_save_b->setText(Util::ftos(reader->res.permanent_magnet_frequency_conversion));
+    ui->label_analyze_save_a_3->setText(Util::ftos(reader->res.first_order_energy_efficiency_day));
+    ui->label_analyze_save_a_4->setText(Util::ftos(reader->res.first_order_energy_efficiency_month));
+    ui->label_analyze_save_a_5->setText(Util::ftos(reader->res.first_order_energy_efficiency_year));
+    ui->label_analyze_save_b->setText(Util::ftos(reader->res.permanent_magnet_frequency_conversion));   
+    ui->label_analyze_save_b_3->setText(Util::ftos(reader->res.permanent_magnet_frequency_conversion_day));
+    ui->label_analyze_save_b_4->setText(Util::ftos(reader->res.permanent_magnet_frequency_conversion_month));
+    ui->label_analyze_save_b_5->setText(Util::ftos(reader->res.permanent_magnet_frequency_conversion_year));
 
     float time = (float)(reader->res.worktime)/3600.0;
     ui->label_analyze_work_time->setText(Util::ftos(time));
@@ -518,6 +526,7 @@ void MainWindow::on_pushButton_3_pressed()
 
 
             ui->label_start_time_content->setText(record_start_time);
+            ui->label_analyze_start_time_2->setText(record_start_time);
             ui->label_end_time_content->clear();
             recorder->max_cur_standby = sysparam.current_down_max;
             recorder->max_cur_unload = sysparam.current_idle_max;
@@ -643,8 +652,10 @@ void MainWindow::on_pushButton_26_pressed()
         ui->widget_13->show();
         ui->widget_14->show();
         ui->widget_15->hide();
+        ui->widget_16->hide();
         ui->pushButton_28->setEnabled(false);
         ui->pushButton_29->setEnabled(true);
+        ui->pushButton_30->setEnabled(true);
     }
 }
 
@@ -675,16 +686,30 @@ void MainWindow::on_pushButton_28_pressed()
 {
     ui->widget_14->show();
     ui->widget_15->hide();
+    ui->widget_16->hide();
     ui->pushButton_28->setEnabled(false);
     ui->pushButton_29->setEnabled(true);
+    ui->pushButton_30->setEnabled(true);
 }
 
 void MainWindow::on_pushButton_29_pressed()
 {
     ui->widget_15->show();
     ui->widget_14->hide();
+    ui->widget_16->hide();
     ui->pushButton_29->setEnabled(false);
     ui->pushButton_28->setEnabled(true);
+    ui->pushButton_30->setEnabled(true);
+}
+
+void MainWindow::on_pushButton_30_pressed()
+{
+    ui->widget_16->show();
+    ui->widget_14->hide();
+    ui->widget_15->hide();
+    ui->pushButton_30->setEnabled(false);
+    ui->pushButton_28->setEnabled(true);
+    ui->pushButton_29->setEnabled(true);
 }
 
 void MainWindow::on_pushButton_9_pressed()
@@ -725,6 +750,7 @@ void MainWindow::show_time(){
         long hour = e/3600;
         QString aa(itos(hour)+time_.toString(":mm:ss"));
         ui->label_end_time_content->setText(aa);
+        ui->label_analyze_all_time_2->setText(aa);
         setInfo(param);
     }
 }
@@ -776,10 +802,25 @@ void MainWindow::check_status(){
 
         anares.permanent_magnet_frequency_conversion = anares.unload_power+anares.load_power*0.1;
         anares.first_order_energy_efficiency = -7.2*anares.acc_flow/60 + anares.acc_power;
+
+        anares.permanent_magnet_frequency_conversion_day = anares.permanent_magnet_frequency_conversion * 12 / anares.worktime *3600;
+        anares.permanent_magnet_frequency_conversion_month = anares.permanent_magnet_frequency_conversion * 30 * 12 / anares.worktime *3600;
+        anares.permanent_magnet_frequency_conversion_year = anares.permanent_magnet_frequency_conversion * 365 * 30 * 12 / anares.worktime *3600;
+
         if(anares.first_order_energy_efficiency <0.00001)
         {
             anares.first_order_energy_efficiency = 0;
+            anares.first_order_energy_efficiency_day = 0;
+            anares.first_order_energy_efficiency_month = 0;
+            anares.first_order_energy_efficiency_year = 0;
+        }else
+        {
+            anares.first_order_energy_efficiency_day = anares.first_order_energy_efficiency * 12 / anares.worktime *3600;
+            anares.first_order_energy_efficiency_month = anares.first_order_energy_efficiency * 30 * 12 / anares.worktime *3600;
+            anares.first_order_energy_efficiency_year = anares.first_order_energy_efficiency * 365 * 30 * 12 / anares.worktime *3600;
         }
+
+
         anares.load_charge_radio = anares.load_charge/ anares.acc_charge *100.0;
         anares.unload_charge_radio = anares.unload_chargd/ anares.acc_charge *100.0;
         anares.ave_cost = anares.acc_charge / anares.acc_flow;
@@ -807,7 +848,13 @@ void MainWindow::check_status(){
         ui->label_analyze_load_power_radio_2->setText(Util::ftos(anares.load_charge_radio));
         ui->label_analyze_unload_power_radio_2->setText(Util::ftos(anares.unload_charge_radio));
         ui->label_analyze_save_a_2->setText(Util::ftos(anares.first_order_energy_efficiency));
+        ui->label_analyze_save_a_6->setText(Util::ftos(anares.first_order_energy_efficiency_day));
+        ui->label_analyze_save_a_7->setText(Util::ftos(anares.first_order_energy_efficiency_month));
+        ui->label_analyze_save_a_8->setText(Util::ftos(anares.first_order_energy_efficiency_year));
         ui->label_analyze_save_b_2->setText(Util::ftos(anares.permanent_magnet_frequency_conversion));
+        ui->label_analyze_save_b_6->setText(Util::ftos(anares.permanent_magnet_frequency_conversion_day));
+        ui->label_analyze_save_b_7->setText(Util::ftos(anares.permanent_magnet_frequency_conversion_month));
+        ui->label_analyze_save_b_8->setText(Util::ftos(anares.permanent_magnet_frequency_conversion_year));
 
         time = (float)(anares.max_load_time)/3600.0;
         ui->label_analyze_max_loadtime_2->setText(Util::ftos(time));
@@ -1270,3 +1317,5 @@ void MainWindow::on_comboBox_env_hum_currentIndexChanged(int index)
         ui->label_IPower_name_205->setVisible(true);
     }
 }
+
+

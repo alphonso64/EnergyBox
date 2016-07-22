@@ -27,6 +27,14 @@ AnalyzeResult::AnalyzeResult()
     ave_cost = 0;
     permanent_magnet_frequency_conversion = 0;
     first_order_energy_efficiency = 0;
+
+    first_order_energy_efficiency_day = 0;
+    first_order_energy_efficiency_month = 0;
+    first_order_energy_efficiency_year = 0;
+    permanent_magnet_frequency_conversion_day = 0;
+    permanent_magnet_frequency_conversion_month = 0;
+    permanent_magnet_frequency_conversion_year = 0;
+
     acc_charge_normal = 0;
     acc_charge_peak = 0;
     acc_charge_valley = 0;
@@ -61,6 +69,14 @@ void AnalyzeResult::clear()
     this->ave_cost = 0;
     this->permanent_magnet_frequency_conversion = 0;
     this->first_order_energy_efficiency = 0;
+
+    first_order_energy_efficiency_day = 0;
+    first_order_energy_efficiency_month = 0;
+    first_order_energy_efficiency_year = 0;
+    permanent_magnet_frequency_conversion_day = 0;
+    permanent_magnet_frequency_conversion_month = 0;
+    permanent_magnet_frequency_conversion_year = 0;
+
     this->acc_charge_normal = 0;
     this->acc_charge_peak = 0;
     this->acc_charge_valley = 0;
@@ -94,6 +110,14 @@ void AnalyzeResult::cpy(AnalyzeResult anares)
     this->ave_cost = anares.ave_cost;
     this->permanent_magnet_frequency_conversion = anares.permanent_magnet_frequency_conversion;
     this->first_order_energy_efficiency = anares.first_order_energy_efficiency;
+
+    this->first_order_energy_efficiency_day = anares.first_order_energy_efficiency_day;
+    this->first_order_energy_efficiency_month = anares.first_order_energy_efficiency_month;
+    this->first_order_energy_efficiency_year = anares.first_order_energy_efficiency_year;
+    this->permanent_magnet_frequency_conversion_month = anares.permanent_magnet_frequency_conversion_month;
+    this->permanent_magnet_frequency_conversion_day = anares.permanent_magnet_frequency_conversion_day;
+    this->permanent_magnet_frequency_conversion_year = anares.permanent_magnet_frequency_conversion_year;
+
     this->acc_charge_normal = anares.acc_charge_normal;
     this->acc_charge_peak = anares.acc_charge_peak;
     this->acc_charge_valley = anares.acc_charge_valley;

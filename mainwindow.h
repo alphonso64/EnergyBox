@@ -132,6 +132,8 @@ private slots:
 
     void on_cusMsg_return(int flag);
 
+    void on_pushButton_30_pressed();
+
 private:
     void setInfo(EnergyParam param);
     void setInfo_detail(EnergyParam param);

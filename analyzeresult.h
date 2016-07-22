@@ -14,6 +14,12 @@ public:
     float acc_charge_valley;
     float first_order_energy_efficiency;
     float permanent_magnet_frequency_conversion;
+    float first_order_energy_efficiency_day;
+    float first_order_energy_efficiency_month;
+    float first_order_energy_efficiency_year;
+    float permanent_magnet_frequency_conversion_day;
+    float permanent_magnet_frequency_conversion_month;
+    float permanent_magnet_frequency_conversion_year;
 
     long load_time;
     long unload_time;
