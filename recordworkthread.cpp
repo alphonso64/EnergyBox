@@ -190,6 +190,7 @@ void RecordWorkThread::run()
     anares.load_charge_radio = anares.load_charge/ anares.acc_charge *100.0;
     anares.unload_charge_radio = anares.unload_chargd/ anares.acc_charge *100.0;
     anares.ave_cost = anares.acc_charge / anares.acc_flow;
+    anares.ave_power_cost = anares.acc_power / anares.acc_flow;
 
 //    char temp[10];
 //    sprintf(temp,"sheet%d",sheetNUM+1);

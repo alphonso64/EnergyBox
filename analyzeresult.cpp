@@ -25,6 +25,7 @@ AnalyzeResult::AnalyzeResult()
     this->max_unload_time  = 0;
     acc_charge  =0;
     ave_cost = 0;
+    ave_power_cost = 0;
     permanent_magnet_frequency_conversion = 0;
     first_order_energy_efficiency = 0;
 
@@ -67,6 +68,7 @@ void AnalyzeResult::clear()
     this->max_unload_time  = 0;
     this->acc_charge = 0;
     this->ave_cost = 0;
+    ave_power_cost = 0;
     this->permanent_magnet_frequency_conversion = 0;
     this->first_order_energy_efficiency = 0;
 
@@ -108,6 +110,7 @@ void AnalyzeResult::cpy(AnalyzeResult anares)
     this->max_unload_time  = anares.max_unload_time;
     this->acc_charge = anares.acc_charge;
     this->ave_cost = anares.ave_cost;
+    this->ave_power_cost = anares.ave_power_cost;
     this->permanent_magnet_frequency_conversion = anares.permanent_magnet_frequency_conversion;
     this->first_order_energy_efficiency = anares.first_order_energy_efficiency;
 

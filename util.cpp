@@ -624,6 +624,14 @@ void Util::writeResultWithFormat(worksheet *ws, xf_t *xf, AnalyzeResult res)
     cell = ws->label(index++,colC,"元/m3",xf);
     setCellFormat(cell);
 
+    ws->rowheight(index, labelHeiht);
+    cell = ws->label(index,colA,"单位成本",xf);
+    setCellFormat(cell);
+    cell =  ws->label(index,colB,Util::ftos(res.ave_power_cost).toStdString(),xf);
+    setCellFormat(cell);
+    cell = ws->label(index++,colC,"元/m3",xf);
+    setCellFormat(cell);
+
     end =index;
     ws->rowheight(index, labelHeiht);
     cell = ws->label(index,colA,"平均比功率",xf);

@@ -6,7 +6,7 @@
 #define UDISK_LOGO_PATH  "/home/program/pic/udisk.png"
 #define PRODUCE_LOGO_PATH "/home/program/pic/logo_small.png"
 #define FILE_PATH "/home/sysparam.ini"
-#define SOFT_VERSION "程序版本:V1.3.7_test"
+#define SOFT_VERSION "程序版本:V1.3.8"
 //#define LOG_TEST
 //#define PARAM_MODIFY //系数修正
 //#define DEVICE_LEGAL_CHECK

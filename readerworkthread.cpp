@@ -55,193 +55,203 @@ void ReaderWorkThread::run()
     int sheetNum = foo.GetSheetCount();
     res.clear();
 
-    cellContent c = foo.GetCell(sheetNum-1, (uint16_t)3, (uint16_t)2);
+    int index = 3;
+    cellContent c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
        start_time = c.str;
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)4, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         meassure_time = c.str;
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)5, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.worktime = stringToNum<float>(c.str)*3600;
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)6, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.stanby_time = stringToNum<float>(c.str)*3600;
     }
 
+    index++;
 
-     c = foo.GetCell(sheetNum-1, (uint16_t)8, (uint16_t)2);
+     c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.acc_flow = stringToNum<float>(c.str);
     }
-    c = foo.GetCell(sheetNum-1, (uint16_t)9, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.acc_power = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)10, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.acc_charge = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)11, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.ave_cost = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)12, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
+    if(c.str.length()!=0)
+    {
+        res.ave_power_cost = stringToNum<float>(c.str);
+    }
+
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.ave_vsp = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)14, (uint16_t)2);
+    index++;
+
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.max_load_time = stringToNum<float>(c.str)*3600;
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)15, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.max_unload_time = stringToNum<float>(c.str)*3600;
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)16, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.load_time = stringToNum<float>(c.str)*3600;
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)17, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.unload_time = stringToNum<float>(c.str)*3600;
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)18, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.load_radio = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)19, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.unload_radio = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)20, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.load_cnt = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)21, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.unload_cnt = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)22, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.load_power = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)23, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.unload_power = stringToNum<float>(c.str);
     }
-    c = foo.GetCell(sheetNum-1, (uint16_t)24, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.load_charge = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)25, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.unload_chargd = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)26, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.load_charge_radio = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)27, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.unload_charge_radio = stringToNum<float>(c.str);
     }
+    index++;
+    index++;
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)30, (uint16_t)2);
+
+    c = foo.GetCell(sheetNum-1, (uint16_t)index, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.first_order_energy_efficiency = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)30, (uint16_t)3);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)3);
     if(c.str.length()!=0)
     {
         res.permanent_magnet_frequency_conversion = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)31, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.first_order_energy_efficiency_day = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)31, (uint16_t)3);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)3);
     if(c.str.length()!=0)
     {
         res.permanent_magnet_frequency_conversion_day = stringToNum<float>(c.str);
     }
 
-
-    c = foo.GetCell(sheetNum-1, (uint16_t)32, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.first_order_energy_efficiency_month = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)32, (uint16_t)3);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)3);
     if(c.str.length()!=0)
     {
         res.permanent_magnet_frequency_conversion_month = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)33, (uint16_t)2);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index, (uint16_t)2);
     if(c.str.length()!=0)
     {
         res.first_order_energy_efficiency_year = stringToNum<float>(c.str);
     }
 
-    c = foo.GetCell(sheetNum-1, (uint16_t)33, (uint16_t)3);
+    c = foo.GetCell(sheetNum-1, (uint16_t)index++, (uint16_t)3);
     if(c.str.length()!=0)
     {
         res.permanent_magnet_frequency_conversion_year = stringToNum<float>(c.str);
     }
-
-
     emit result();
 }
 

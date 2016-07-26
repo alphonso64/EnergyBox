@@ -41,6 +41,7 @@ public:
     long worktime;
     long stanby_time;
     float ave_vsp;
+    float ave_power_cost;
 
     long vsp_cnt;
 

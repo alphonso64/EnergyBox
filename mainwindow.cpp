@@ -95,7 +95,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->widget_13->hide();
 
     ui->pushButton_2->setEnabled(false);
-   // ui->pushButton_10->setVisible(false);
+    ui->pushButton_10->setVisible(false);
     ui->lcdNumber_clock->setVisible(false);
     ui->pushButton_26->setEnabled(false);
 
@@ -203,6 +203,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->label_VSP_1->setText("Kw/(m<sup>3</sup>/min)");
     ui->label_VSP_2->setText("Kw/(m<sup>3</sup>/min)");
     ui->label_cost->setText("Ԫ/m<sup>3");
+    ui->label_cost_14->setText("kwh/m<sup>3");
+    ui->label_cost_15->setText("kwh/m<sup>3");
     ui->label_cost_3->setText("Ԫ/m<sup>3");
 
     cusMsg = new CustomMessageBox();
@@ -353,6 +355,8 @@ void MainWindow::on_result()
     ui->label_analyze_save_b_3->setText(Util::ftos(reader->res.permanent_magnet_frequency_conversion_day));
     ui->label_analyze_save_b_4->setText(Util::ftos(reader->res.permanent_magnet_frequency_conversion_month));
     ui->label_analyze_save_b_5->setText(Util::ftos(reader->res.permanent_magnet_frequency_conversion_year));
+
+    ui->label_analyze_power_cost->setText(Util::ftos(reader->res.ave_power_cost));
 
     float time = (float)(reader->res.worktime)/3600.0;
     ui->label_analyze_work_time->setText(Util::ftos(time));
@@ -824,6 +828,7 @@ void MainWindow::check_status(){
         anares.load_charge_radio = anares.load_charge/ anares.acc_charge *100.0;
         anares.unload_charge_radio = anares.unload_chargd/ anares.acc_charge *100.0;
         anares.ave_cost = anares.acc_charge / anares.acc_flow;
+        anares.ave_power_cost = anares.acc_power / anares.acc_flow ;
 
         //anares.acc_power = cnt++;
         ui->label_analyze_acc_power_2->setText(Util::ftos(anares.acc_power));
@@ -855,6 +860,7 @@ void MainWindow::check_status(){
         ui->label_analyze_save_b_6->setText(Util::ftos(anares.permanent_magnet_frequency_conversion_day));
         ui->label_analyze_save_b_7->setText(Util::ftos(anares.permanent_magnet_frequency_conversion_month));
         ui->label_analyze_save_b_8->setText(Util::ftos(anares.permanent_magnet_frequency_conversion_year));
+        ui->label_analyze_power_cost_2->setText(Util::ftos(anares.ave_power_cost));
 
         time = (float)(anares.max_load_time)/3600.0;
         ui->label_analyze_max_loadtime_2->setText(Util::ftos(time));

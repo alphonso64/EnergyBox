@@ -1452,10 +1452,10 @@
     <zorder>pushButton_17</zorder>
     <zorder>pushButton_24</zorder>
     <zorder>pushButton_25</zorder>
-    <zorder>widget_3</zorder>
-    <zorder>widget_9</zorder>
     <zorder>widget_10</zorder>
     <zorder>widget_12</zorder>
+    <zorder>widget_3</zorder>
+    <zorder>widget_9</zorder>
    </widget>
    <widget class="QWidget" name="widget_5" native="true">
     <property name="geometry">
@@ -1781,15 +1781,15 @@
       <property name="geometry">
        <rect>
         <x>340</x>
-        <y>320</y>
-        <width>141</width>
+        <y>260</y>
+        <width>121</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>微软雅黑</family>
-        <pointsize>14</pointsize>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="text">
@@ -1799,7 +1799,7 @@
      <widget class="QLabel" name="label_IPower_name_115">
       <property name="geometry">
        <rect>
-        <x>341</x>
+        <x>770</x>
         <y>260</y>
         <width>61</width>
         <height>40</height>
@@ -1818,7 +1818,7 @@
      <widget class="QLabel" name="label_IPower_name_116">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>459</x>
         <y>260</y>
         <width>131</width>
         <height>40</height>
@@ -1837,8 +1837,8 @@
      <widget class="QLabel" name="label_IPower_name_117">
       <property name="geometry">
        <rect>
-        <x>460</x>
-        <y>260</y>
+        <x>30</x>
+        <y>320</y>
         <width>131</width>
         <height>40</height>
        </rect>
@@ -1856,7 +1856,7 @@
      <widget class="QLabel" name="label_analyze_acc_charge">
       <property name="geometry">
        <rect>
-        <x>170</x>
+        <x>599</x>
         <y>260</y>
         <width>161</width>
         <height>41</height>
@@ -1916,8 +1916,8 @@
      <widget class="QLabel" name="label_analyze_flow_cost">
       <property name="geometry">
        <rect>
-        <x>600</x>
-        <y>260</y>
+        <x>170</x>
+        <y>320</y>
         <width>161</width>
         <height>41</height>
        </rect>
@@ -1939,7 +1939,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>320</y>
+        <y>260</y>
         <width>151</width>
         <height>40</height>
        </rect>
@@ -1958,7 +1958,7 @@
       <property name="geometry">
        <rect>
         <x>170</x>
-        <y>320</y>
+        <y>260</y>
         <width>161</width>
         <height>41</height>
        </rect>
@@ -2039,8 +2039,8 @@
      <widget class="QLabel" name="label_cost">
       <property name="geometry">
        <rect>
-        <x>770</x>
-        <y>260</y>
+        <x>340</x>
+        <y>320</y>
         <width>61</width>
         <height>40</height>
        </rect>
@@ -2157,6 +2157,66 @@
        <string>累计数据</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_cost_14">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>320</y>
+        <width>71</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>kwh/m3</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_analyze_power_cost">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>320</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_168">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>320</y>
+        <width>131</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>22</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>单位能耗</string>
+      </property>
+     </widget>
      <zorder>line_2</zorder>
      <zorder>line_5</zorder>
      <zorder>label_IPower_name_57</zorder>
@@ -2189,6 +2249,9 @@
      <zorder>label_IPower_name_53</zorder>
      <zorder>line_3</zorder>
      <zorder>line_4</zorder>
+     <zorder>label_cost_14</zorder>
+     <zorder>label_analyze_power_cost</zorder>
+     <zorder>label_IPower_name_168</zorder>
     </widget>
     <widget class="QWidget" name="widget_8" native="true">
      <property name="geometry">
@@ -3755,6 +3818,7 @@
      <zorder>label_IPower_name_63</zorder>
      <zorder>label_IPower_name_136</zorder>
      <zorder>label_IPower_name_160</zorder>
+     <zorder>widget_4</zorder>
     </widget>
     <zorder>line_11</zorder>
     <zorder>label_analyze_file_name</zorder>
@@ -3763,9 +3827,9 @@
     <zorder>pushButton_13</zorder>
     <zorder>pushButton_14</zorder>
     <zorder>pushButton_19</zorder>
-    <zorder>widget_4</zorder>
     <zorder>widget_8</zorder>
     <zorder>widget_11</zorder>
+    <zorder>widget_4</zorder>
    </widget>
    <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">
@@ -5722,8 +5786,8 @@
      <widget class="QLabel" name="label_analyze_flow_cost_2">
       <property name="geometry">
        <rect>
-        <x>610</x>
-        <y>200</y>
+        <x>180</x>
+        <y>260</y>
         <width>161</width>
         <height>41</height>
        </rect>
@@ -5839,7 +5903,7 @@
      <widget class="QLabel" name="label_IPower_name_130">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>469</x>
         <y>200</y>
         <width>131</width>
         <height>40</height>
@@ -5874,8 +5938,8 @@
      <widget class="QLabel" name="label_IPower_name_127">
       <property name="geometry">
        <rect>
-        <x>470</x>
-        <y>200</y>
+        <x>40</x>
+        <y>260</y>
         <width>131</width>
         <height>40</height>
        </rect>
@@ -5893,7 +5957,7 @@
      <widget class="QLabel" name="label_IPower_name_131">
       <property name="geometry">
        <rect>
-        <x>351</x>
+        <x>780</x>
         <y>200</y>
         <width>61</width>
         <height>40</height>
@@ -5913,15 +5977,15 @@
       <property name="geometry">
        <rect>
         <x>350</x>
-        <y>260</y>
-        <width>141</width>
+        <y>200</y>
+        <width>111</width>
         <height>40</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>微软雅黑</family>
-        <pointsize>14</pointsize>
+        <pointsize>12</pointsize>
        </font>
       </property>
       <property name="text">
@@ -5931,7 +5995,7 @@
      <widget class="QLabel" name="label_analyze_acc_charge_2">
       <property name="geometry">
        <rect>
-        <x>180</x>
+        <x>609</x>
         <y>200</y>
         <width>161</width>
         <height>41</height>
@@ -5954,7 +6018,7 @@
       <property name="geometry">
        <rect>
         <x>180</x>
-        <y>260</y>
+        <y>200</y>
         <width>161</width>
         <height>41</height>
        </rect>
@@ -6007,8 +6071,8 @@
      <widget class="QLabel" name="label_cost_3">
       <property name="geometry">
        <rect>
-        <x>780</x>
-        <y>200</y>
+        <x>350</x>
+        <y>260</y>
         <width>61</width>
         <height>40</height>
        </rect>
@@ -6084,7 +6148,7 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>260</y>
+        <y>200</y>
         <width>151</width>
         <height>40</height>
        </rect>
@@ -6135,6 +6199,66 @@
       </property>
       <property name="text">
        <string>时间统计</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_IPower_name_169">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>260</y>
+        <width>131</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>22</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>单位能耗</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_analyze_power_cost_2">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>260</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>20</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_cost_15">
+      <property name="geometry">
+       <rect>
+        <x>780</x>
+        <y>260</y>
+        <width>61</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>微软雅黑</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>元/m3</string>
       </property>
      </widget>
     </widget>
@@ -7596,9 +7720,9 @@
     <zorder>pushButton_28</zorder>
     <zorder>pushButton_29</zorder>
     <zorder>pushButton_30</zorder>
+    <zorder>widget_16</zorder>
     <zorder>widget_15</zorder>
     <zorder>widget_14</zorder>
-    <zorder>widget_16</zorder>
    </widget>
    <zorder>line</zorder>
    <zorder>label</zorder>
@@ -7613,9 +7737,9 @@
    <zorder>widget_6</zorder>
    <zorder>widget_7</zorder>
    <zorder>widget</zorder>
-   <zorder>widget_5</zorder>
-   <zorder>widget_2</zorder>
    <zorder>widget_13</zorder>
+   <zorder>widget_2</zorder>
+   <zorder>widget_5</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
